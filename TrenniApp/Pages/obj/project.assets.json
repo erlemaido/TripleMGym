@@ -1,0 +1,187 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Core.dll": {}
+        }
+      },
+      "TrenniApp.Aids/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/TrenniApp.Aids.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/TrenniApp.Aids.dll": {}
+        }
+      },
+      "TrenniApp.Data/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/TrenniApp.Data.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/TrenniApp.Data.dll": {}
+        }
+      },
+      "TrenniApp.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "TrenniApp.Data": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/TrenniApp.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/TrenniApp.Domain.dll": {}
+        }
+      },
+      "TrenniApp.Facade/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "TrenniApp.Aids": "1.0.0",
+          "TrenniApp.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/TrenniApp.Facade.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/TrenniApp.Facade.dll": {}
+        }
+      },
+      "TrenniApp.Infra/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Core": "1.0.0",
+          "TrenniApp.Aids": "1.0.0",
+          "TrenniApp.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/TrenniApp.Infra.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/TrenniApp.Infra.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Core/1.0.0": {
+      "type": "project",
+      "path": "../Core/Core.csproj",
+      "msbuildProject": "../Core/Core.csproj"
+    },
+    "TrenniApp.Aids/1.0.0": {
+      "type": "project",
+      "path": "../Aids/Aids.csproj",
+      "msbuildProject": "../Aids/Aids.csproj"
+    },
+    "TrenniApp.Data/1.0.0": {
+      "type": "project",
+      "path": "../Data/Data.csproj",
+      "msbuildProject": "../Data/Data.csproj"
+    },
+    "TrenniApp.Domain/1.0.0": {
+      "type": "project",
+      "path": "../Domain/Domain.csproj",
+      "msbuildProject": "../Domain/Domain.csproj"
+    },
+    "TrenniApp.Facade/1.0.0": {
+      "type": "project",
+      "path": "../Facade/Facade.csproj",
+      "msbuildProject": "../Facade/Facade.csproj"
+    },
+    "TrenniApp.Infra/1.0.0": {
+      "type": "project",
+      "path": "../Infra/Infra.csproj",
+      "msbuildProject": "../Infra/Infra.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETCoreApp,Version=v3.1": [
+      "TrenniApp.Aids >= 1.0.0",
+      "TrenniApp.Facade >= 1.0.0",
+      "TrenniApp.Infra >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\Erle\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\Erle\\Dropbox (Personal)\\Kool\\IT\\Infosüsteemide arendamine II\\TrenniApp\\TrenniApp\\Pages\\Pages.csproj",
+      "projectName": "TrenniApp.Pages",
+      "projectPath": "C:\\Users\\Erle\\Dropbox (Personal)\\Kool\\IT\\Infosüsteemide arendamine II\\TrenniApp\\TrenniApp\\Pages\\Pages.csproj",
+      "packagesPath": "C:\\Users\\Erle\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Erle\\Dropbox (Personal)\\Kool\\IT\\Infosüsteemide arendamine II\\TrenniApp\\TrenniApp\\Pages\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\Erle\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "netcoreapp3.1"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "projectReferences": {
+            "C:\\Users\\Erle\\Dropbox (Personal)\\Kool\\IT\\Infosüsteemide arendamine II\\TrenniApp\\TrenniApp\\Aids\\Aids.csproj": {
+              "projectPath": "C:\\Users\\Erle\\Dropbox (Personal)\\Kool\\IT\\Infosüsteemide arendamine II\\TrenniApp\\TrenniApp\\Aids\\Aids.csproj"
+            },
+            "C:\\Users\\Erle\\Dropbox (Personal)\\Kool\\IT\\Infosüsteemide arendamine II\\TrenniApp\\TrenniApp\\Facade\\Facade.csproj": {
+              "projectPath": "C:\\Users\\Erle\\Dropbox (Personal)\\Kool\\IT\\Infosüsteemide arendamine II\\TrenniApp\\TrenniApp\\Facade\\Facade.csproj"
+            },
+            "C:\\Users\\Erle\\Dropbox (Personal)\\Kool\\IT\\Infosüsteemide arendamine II\\TrenniApp\\TrenniApp\\Infra\\Infra.csproj": {
+              "projectPath": "C:\\Users\\Erle\\Dropbox (Personal)\\Kool\\IT\\Infosüsteemide arendamine II\\TrenniApp\\TrenniApp\\Infra\\Infra.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "netcoreapp3.1": {
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.200-preview-015002\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}
