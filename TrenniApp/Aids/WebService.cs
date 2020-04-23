@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Net;
 
-namespace Abc.Aids{
+namespace TrainingApp.Aids{
     public static class WebService {
         public static string Load(string url) {
             var num = 0;

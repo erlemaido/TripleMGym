@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Abc.Aids {
+namespace TrainingApp.Aids {
     public static class SystemEnumerable {
 
         public static IEnumerable<T> OrderBy<T>(IEnumerable<T> list, Func<T, string> func) {

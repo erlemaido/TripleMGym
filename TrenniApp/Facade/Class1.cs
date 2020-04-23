@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace Facade
+﻿namespace TrainingApp.Facade
 {
-    public class Class1
+    public class Class
     {
     }
 }

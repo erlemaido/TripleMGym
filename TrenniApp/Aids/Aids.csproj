@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <AssemblyName>TrenniApp.Aids</AssemblyName>
-    <RootNamespace>TrenniApp.Aids</RootNamespace>
+    <AssemblyName>TrainingApp.Aids</AssemblyName>
+    <RootNamespace>TrainingApp.Aids</RootNamespace>
   </PropertyGroup>
 
 </Project>

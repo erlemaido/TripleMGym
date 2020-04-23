@@ -2,9 +2,13 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <AssemblyName>TrenniApp.Data</AssemblyName>
+    <AssemblyName>TrainingApp.Data</AssemblyName>
     <OutputType>Library</OutputType>
-    <RootNamespace>TrenniApp.Data</RootNamespace>
+    <RootNamespace>TrainingApp.Data</RootNamespace>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="NewFile1.txt" />
+  </ItemGroup>
 
 </Project>

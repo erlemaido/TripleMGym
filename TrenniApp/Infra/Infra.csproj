@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <AssemblyName>TrenniApp.Infra</AssemblyName>
-    <RootNamespace>TrenniApp.Infra</RootNamespace>
+    <AssemblyName>TrainingApp.Infra</AssemblyName>
+    <RootNamespace>TrainingApp.Infra</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

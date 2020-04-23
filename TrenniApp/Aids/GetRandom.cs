@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
 
-namespace Abc.Aids {
+namespace TrainingApp.Aids {
 
     public static class GetRandom {
         private static readonly Random r = new Random();

@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <AssemblyName>TrenniApp.Domain</AssemblyName>
-    <RootNamespace>TrenniApp.Domain</RootNamespace>
+    <AssemblyName>TrainingApp.Domain</AssemblyName>
+    <RootNamespace>TrainingApp.Domain</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

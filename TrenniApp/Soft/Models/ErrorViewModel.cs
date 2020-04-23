@@ -1,6 +1,4 @@
-using System;
-
-namespace Soft.Models
+namespace TrainingApp.Soft.Models
 {
     public class ErrorViewModel
     {

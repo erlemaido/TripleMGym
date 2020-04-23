@@ -1,7 +1,7 @@
 ﻿
 using System;
 
-namespace Abc.Aids {
+namespace TrainingApp.Aids {
     public static class Safe {
         private static readonly object key = new object();
         public static T Run<T>(Func<T> function, T valueOnExeption,

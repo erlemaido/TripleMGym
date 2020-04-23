@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Abc.Aids {
+namespace TrainingApp.Aids {
 
     public static class Date {
 

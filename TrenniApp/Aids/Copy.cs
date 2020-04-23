@@ -1,4 +1,4 @@
-﻿namespace Abc.Aids {
+﻿namespace TrainingApp.Aids {
 
     public static class Copy {
 

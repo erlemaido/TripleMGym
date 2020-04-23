@@ -5,9 +5,9 @@
 
     <IsPackable>false</IsPackable>
 
-    <AssemblyName>TrenniApp.Tests</AssemblyName>
+    <AssemblyName>TrainingApp.Tests</AssemblyName>
 
-    <RootNamespace>TrenniApp.Tests</RootNamespace>
+    <RootNamespace>TrainingApp.Tests</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

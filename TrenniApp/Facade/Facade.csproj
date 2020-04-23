@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <AssemblyName>TrenniApp.Facade</AssemblyName>
-    <RootNamespace>TrenniApp.Facade</RootNamespace>
+    <AssemblyName>TrainingApp.Facade</AssemblyName>
+    <RootNamespace>TrainingApp.Facade</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

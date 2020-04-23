@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace Abc.Aids {
+namespace TrainingApp.Aids {
 
     public static class PublicBindingFlagsFor {
         private const BindingFlags p = BindingFlags.Public;

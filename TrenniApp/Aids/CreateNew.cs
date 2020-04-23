@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace Abc.Aids {
+namespace TrainingApp.Aids {
 
 
     public static class CreateNew {

@@ -1,10 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UserSecretsId>aspnet-Soft-68CA2FC9-C420-4ACD-B36F-2922BAC40B1C</UserSecretsId>
-    <AssemblyName>TrenniApp.Soft</AssemblyName>
-    <RootNamespace>TrenniApp.Soft</RootNamespace>
+    <AssemblyName>TrainingApp.Soft</AssemblyName>
+    <RootNamespace>TrainingApp.Soft</RootNamespace>
   </PropertyGroup>
 
 

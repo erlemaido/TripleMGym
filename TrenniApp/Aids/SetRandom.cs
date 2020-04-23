@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Linq;
 
-namespace Abc.Aids {
+namespace TrainingApp.Aids {
     public static class SetRandom {
         public static void Values(object o) {
             if (o is null) return;

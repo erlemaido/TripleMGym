@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Aids
+﻿namespace TrainingApp.Aids
 {
     public class Class1
     {

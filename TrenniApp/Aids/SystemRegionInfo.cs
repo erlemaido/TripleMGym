@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Linq;
 
-namespace Abc.Aids {
+namespace TrainingApp.Aids {
 
     public static class SystemRegionInfo {
 

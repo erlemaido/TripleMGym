@@ -5,7 +5,7 @@
 
 using System;
 
-namespace Abc.Aids {
+namespace TrainingApp.Aids {
 
     public static class GetEnum {
         public static int Count<T>() {

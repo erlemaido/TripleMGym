@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
 
-namespace Abc.Aids {
+namespace TrainingApp.Aids {
     public static class Decimals {
         public static bool TryParse(string s, out decimal d) {
             return decimal.TryParse(s, NumberStyles.Any, UseCulture.Invariant, out d);

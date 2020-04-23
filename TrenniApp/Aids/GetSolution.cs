@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace Abc.Aids {
+namespace TrainingApp.Aids {
 
     public static class GetSolution {
 
