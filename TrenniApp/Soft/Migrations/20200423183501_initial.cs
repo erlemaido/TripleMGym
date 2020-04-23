@@ -54,6 +54,7 @@ namespace TrainingApp.Soft.Migrations
                     Name = table.Column<string>(nullable: true),
                     Code = table.Column<string>(nullable: true),
                     Type = table.Column<string>(nullable: true),
+                    Date = table.Column<string>(nullable: true),
                     StartTime = table.Column<DateTime>(nullable: false),
                     EndTime = table.Column<DateTime>(nullable: false),
                     Location = table.Column<string>(nullable: true),

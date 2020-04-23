@@ -10,7 +10,7 @@ using TrainingApp.Soft.Data;
 namespace TrainingApp.Soft.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200423180734_initial")]
+    [Migration("20200423183501_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -227,6 +227,9 @@ namespace TrainingApp.Soft.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Code")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Date")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("EndTime")

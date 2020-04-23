@@ -11,9 +11,11 @@ namespace TrainingApp.Facade.Sport
         public string Code { get; set; }
         public string Type { get; set; }
         [DataType(DataType.Date)]
+        public string Date { get; set; }
+        [DataType(DataType.Time)]
         [DisplayName("Start time")]
         public DateTime StartTime { get; set; }
-        [DataType(DataType.Date)]
+        [DataType(DataType.Time)]
         [DisplayName("End time")]
         public DateTime EndTime { get; set; }
         public string Location { get; set; }
