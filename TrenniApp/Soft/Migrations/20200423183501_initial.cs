@@ -1,10 +1,9 @@
 ﻿using System;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace TrainingApp.Soft.Data.Migrations
+namespace TrainingApp.Soft.Migrations
 {
-    public partial class CreateIdentitySchema : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -48,11 +47,30 @@ namespace TrainingApp.Soft.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Trainings",
+                columns: table => new
+                {
+                    Id = table.Column<string>(nullable: false),
+                    Name = table.Column<string>(nullable: true),
+                    Code = table.Column<string>(nullable: true),
+                    Type = table.Column<string>(nullable: true),
+                    Date = table.Column<string>(nullable: true),
+                    StartTime = table.Column<DateTime>(nullable: false),
+                    EndTime = table.Column<DateTime>(nullable: false),
+                    Location = table.Column<string>(nullable: true),
+                    Trainer = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Trainings", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     RoleId = table.Column<string>(nullable: false),
                     ClaimType = table.Column<string>(nullable: true),
                     ClaimValue = table.Column<string>(nullable: true)
@@ -73,7 +91,7 @@ namespace TrainingApp.Soft.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     UserId = table.Column<string>(nullable: false),
                     ClaimType = table.Column<string>(nullable: true),
                     ClaimValue = table.Column<string>(nullable: true)
@@ -209,6 +227,9 @@ namespace TrainingApp.Soft.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "Trainings");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
