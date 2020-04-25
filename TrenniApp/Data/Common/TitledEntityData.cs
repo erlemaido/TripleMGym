@@ -4,8 +4,8 @@ using System.Text;
 
 namespace TrainingApp.Data.Common
 {
-    public abstract class UniqueEntityData
+    public abstract class TitledEntityData : DefinedEntityData
     {
-        public string Id { get; set; }
+        public string Title { get; set; }
     }
 }

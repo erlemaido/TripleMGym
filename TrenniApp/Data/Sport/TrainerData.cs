@@ -1,14 +1,13 @@
-﻿using TrainingApp.Data.Common;
+﻿
+
+using System.Collections.Generic;
+using TrainingApp.Data.Common;
 
 namespace TrainingApp.Data.Sport
 
 {
-    public sealed class TrainerData : DefinedEntityData
+    public sealed class TrainerData : NamedEntityData
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Type { get; set; }//mis treener ta on
-
-
+        public int Experience { get; set; }
     }
 }

@@ -4,7 +4,11 @@ using System.Text;
 
 namespace TrainingApp.Data.Sport
 {
-    class TrainingAssignmentData
+    public enum TrainingType
     {
+        Unspecified = 0,
+        Personal = 1,
+        Group = 2,
+        Error = 9
     }
 }

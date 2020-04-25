@@ -1,4 +1,8 @@
-﻿namespace TrainingApp.Data.Common
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace TrainingApp.Data.Common
 {
     public abstract class DefinedEntityData : UniqueEntityData
     {
