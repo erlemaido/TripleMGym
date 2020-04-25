@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TrainingApp.Data.Sport
 {
-    class TrainingAssignment
+    class TrainingAssignmentData
     {
     }
 }
