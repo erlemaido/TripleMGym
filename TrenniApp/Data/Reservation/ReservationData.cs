@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using TrainingApp.Data.Common;
 
-namespace TrainingApp.Data.Sport
+namespace TrainingApp.Data.Reservation
 {
     public sealed class ReservationData : UniqueEntityData
     {

@@ -1,4 +1,4 @@
-﻿namespace TrainingApp.Data.Sport
+﻿namespace TrainingApp.Data.TimeSlot
 {
     public enum TimeSlotType
     {
