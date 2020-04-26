@@ -2,14 +2,19 @@
 using System.Collections.Generic;
 using System.Text;
 using TrainingApp.Data.Trainer;
+using TrainingApp.Domain.Trainer;
 
 namespace TrainingApp.Infra.Trainer
 {
-    public sealed class TrainersRepository : UniqueEntityRepository<Trainer,TrainerData>, ITrainersRepository
+    public sealed class TrainersRepository : UniqueEntityRepository<TrainerDomain,TrainerData>, ITrainersRepository
     {
         public TrainersRepository(TrainingAppDbContext c) : base(c, c.Trainers) { }
 
-        protected internal override  Trainer toDomainObject(TrainerData d) => new Trainer(d);
+        protected internal override  TrainerDomain ToDomainObject(TrainerData d) => new TrainerDomain(d);
 
+        public object GetById(string id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

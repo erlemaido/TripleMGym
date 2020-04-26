@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using TrainingApp.Infra;
 
 namespace TrainingApp.Soft.Data
 {
@@ -9,11 +10,17 @@ namespace TrainingApp.Soft.Data
             : base(options)
         {
         }
-        public DbSet<TrainingApp.Facade.Sport.TrainingView> Trainings{ get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-            builder.Entity<TrainingView>().ToTable(nameof(Trainings));
+            InitializeTables(builder);
         }
+
+        internal void InitializeTables(ModelBuilder builder)
+        {
+            TrainingAppDbContext.InitializeTables(builder);
+        }
+
     }
 }

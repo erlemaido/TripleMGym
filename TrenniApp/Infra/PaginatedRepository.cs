@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using TrainingApp.Data.Common;
 using TrainingApp.Domain.Common;
 
 namespace TrainingApp.Infra
 {
     public abstract class PaginatedRepository<TDomain, TData>: FilteredRepository<TDomain, TData>, IPaging
-        where TData : PeriodData, new()
+        where TData : UniqueEntityData, new()
         where TDomain : Entity<TData>, new()
 
     {

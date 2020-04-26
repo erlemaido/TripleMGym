@@ -13,6 +13,7 @@ namespace TrainingApp.Infra
 
     {
         public string SearchString { get; set; }
+        public string CurrentFilter { get; set; }
         public string FixedFilter { get; set; }
         public string FixedValue { get; set; }
 
