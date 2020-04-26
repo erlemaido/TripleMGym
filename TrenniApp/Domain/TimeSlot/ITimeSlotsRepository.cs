@@ -2,6 +2,6 @@
 
 namespace TrainingApp.Domain.TimeSlot {
 
-    public interface ITimeSlotRepository : IRepository<TimeSlotDomain> { }
+    public interface ITimeSlotsRepository : IRepository<TimeSlotDomain> { }
 
 }

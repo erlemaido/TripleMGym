@@ -2,6 +2,6 @@
 
 namespace TrainingApp.Domain.Reservation {
 
-    public interface IReservationRepository : IRepository<ReservationDomain> { }
+    public interface IReservationsRepository : IRepository<ReservationDomain> { }
 
 }
