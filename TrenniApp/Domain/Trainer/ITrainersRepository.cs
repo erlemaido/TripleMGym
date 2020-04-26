@@ -2,6 +2,6 @@
 
 namespace TrainingApp.Domain.Trainer {
 
-    public interface ITrainerRepository : IRepository<TrainerDomain> { }
+    public interface ITrainersRepository : IRepository<TrainerDomain> { }
 
 }
