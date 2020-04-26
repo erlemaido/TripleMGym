@@ -1,4 +1,4 @@
-﻿namespace Abc.Domain.Common {
+﻿namespace TrainingApp.Domain.Common {
 
     public interface IPaging {
 

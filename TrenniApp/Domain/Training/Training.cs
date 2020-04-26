@@ -1,7 +1,6 @@
-﻿using System;
-using TrainingApp.Data.Common;
+﻿using TrainingApp.Data.Common;
 
-namespace TrainingApp.Data.Sport
+namespace TrainingApp.Domain.Training
 {
     public sealed class Training : TitledEntityData
     {

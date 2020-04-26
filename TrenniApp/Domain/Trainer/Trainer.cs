@@ -1,9 +1,6 @@
-﻿
+﻿using TrainingApp.Data.Common;
 
-using System.Collections.Generic;
-using TrainingApp.Data.Common;
-
-namespace TrainingApp.Data.Sport
+namespace TrainingApp.Domain.Trainer
 
 {
     public sealed class TrainerData : NamedEntityData

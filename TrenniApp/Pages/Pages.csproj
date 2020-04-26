@@ -12,4 +12,12 @@
     <ProjectReference Include="..\Infra\Infra.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Reservation\" />
+    <Folder Include="SportsClub\" />
+    <Folder Include="TimeSlot\" />
+    <Folder Include="Trainer\" />
+    <Folder Include="Training\" />
+  </ItemGroup>
+
 </Project>

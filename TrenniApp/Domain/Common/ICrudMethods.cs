@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Abc.Domain.Common {
+namespace TrainingApp.Domain.Common {
 
     public interface ICrudMethods<T> {
 

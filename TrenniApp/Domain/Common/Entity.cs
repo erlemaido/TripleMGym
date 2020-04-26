@@ -1,8 +1,6 @@
 ﻿using System;
-using Abc.Aids.Methods;
-using Abc.Data.Common;
 
-namespace Abc.Domain.Common {
+namespace TrainingApp.Domain.Common {
 
     public abstract class Entity<TData> : BaseEntity, IEntity<TData> where TData : PeriodData, new() {
 

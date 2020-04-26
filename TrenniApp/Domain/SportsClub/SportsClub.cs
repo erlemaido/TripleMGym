@@ -1,6 +1,6 @@
 ﻿using TrainingApp.Data.Common;
 
-namespace TrainingApp.Data.Sport
+namespace TrainingApp.Domain.SportsClub
 {
     public class SportsClub : TitledEntityData
     { 
