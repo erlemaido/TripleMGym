@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using TrainingApp.Facade.Sport;
 
 namespace TrainingApp.Soft.Data
 {

@@ -1,8 +1,7 @@
-﻿using Abc.Domain.Common;
-using TrainingApp.Data.Sport;
+﻿using TrainingApp.Domain.Common;
 
-namespace Abc.Domain.Quantities {
+namespace TrainingApp.Domain.Trainer {
 
-    public interface ITrainerRepository : IRepository<Trainer> { }
+    public interface ITrainerRepository : IRepository<TrainerDomain> { }
 
 }
