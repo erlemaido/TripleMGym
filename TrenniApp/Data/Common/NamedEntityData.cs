@@ -6,6 +6,7 @@ namespace TrainingApp.Data.Common
 {
     public abstract class NamedEntityData : DefinedEntityData
     {
-        public string Name { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
     }
 }
