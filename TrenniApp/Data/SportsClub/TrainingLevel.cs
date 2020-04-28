@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace TrainingApp.Data
+﻿namespace TrainingApp.Data.SportsClub
 {
     public enum TrainingLevel
     {

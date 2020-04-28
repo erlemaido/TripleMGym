@@ -1,5 +1,5 @@
 ﻿
-namespace TrainingApp.Data
+namespace TrainingApp.Data.SportsClub
 {
     public enum TrainingType
     {
