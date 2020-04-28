@@ -1,7 +1,7 @@
 ﻿using System;
 using TrainingApp.Data.Common;
 
-namespace TrainingApp.Data
+namespace TrainingApp.Data.SportsClub
 {
     public sealed class ClientData : UniqueEntityData
     {
