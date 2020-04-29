@@ -3,7 +3,7 @@ using TrainingApp.Data.Common;
 
 namespace TrainingApp.Data.SportsClub
 {
-    public sealed class TimetableData : DefinedEntityData
+    public sealed class TimetableEntryData : DefinedEntityData
     {
         public string CoachId { get; set; }
         public string TrainingId { get; set; }
