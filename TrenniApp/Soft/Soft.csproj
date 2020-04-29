@@ -20,4 +20,14 @@
     <ProjectReference Include="..\Pages\Pages.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Areas\SportsClub\Pages\Clients\" />
+    <Folder Include="Areas\SportsClub\Pages\Coaches\" />
+    <Folder Include="Areas\SportsClub\Pages\Locations\" />
+    <Folder Include="Areas\SportsClub\Pages\Trainings\" />
+    <Folder Include="Areas\SportsClub\Pages\TrainingCategorys\" />
+    <Folder Include="Areas\SportsClub\Pages\Timetables\" />
+    <Folder Include="Areas\SportsClub\Pages\ParticipantsOfTraining\" />
+  </ItemGroup>
+
 </Project>
