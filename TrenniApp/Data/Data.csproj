@@ -7,8 +7,5 @@
     <RootNamespace>TrainingApp.Data</RootNamespace>
   </PropertyGroup>
 
-  <ItemGroup>
-    <None Remove="NewFile1.txt" />
-  </ItemGroup>
 
 </Project>
