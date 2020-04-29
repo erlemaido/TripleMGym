@@ -2,6 +2,6 @@
 {
     public abstract class DefinedEntityData : UniqueEntityData
     {
-        public string Description { get; set; }
+        public string? Description { get; set; }
     }
 }
