@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="TrainingApp.Data.Common.NamedEntityData">
-    <Position X="11.5" Y="5" Width="1.5" />
+    <Position X="0.5" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Common\NamedEntityData.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TrainingApp.Data.Common.DefinedEntityData">
-    <Position X="4.5" Y="2.5" Width="1.5" />
+    <Position X="0.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Common\DefinedEntityData.cs</FileName>
@@ -21,53 +21,53 @@
       <FileName>Common\UniqueEntityData.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TrainingApp.Data.LocationData">
-    <Position X="11.5" Y="7.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>LocationData.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="TrainingApp.Data.CoachData">
-    <Position X="4.25" Y="5" Width="2" />
-    <TypeIdentifier>
-      <HashCode>AAAAAEAAACAAAgAAAEAAAAAAACAAAAAAAAAAAAAAAAg=</HashCode>
-      <FileName>CoachData.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="TrainingApp.Data.CoachTrainingData">
-    <Position X="9" Y="5" Width="2" />
-    <TypeIdentifier>
-      <HashCode>AAEIAAAEAACAACAAAAAABAAAIAAgAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>CoachTrainingData.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="TrainingApp.Data.TrainingCategoryData">
-    <Position X="13.5" Y="7.5" Width="1.75" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>TrainingCategoryData.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="TrainingApp.Data.TrainingData">
-    <Position X="6.5" Y="5" Width="2.25" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAIABAAAEAIAAAgAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
-      <FileName>TrainingData.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="TrainingApp.Data.ClientData">
-    <Position X="0.5" Y="2.5" Width="1.5" />
+  <Class Name="TrainingApp.Data.SportsClub.ClientData">
+    <Position X="2.75" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAUAAACAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAg=</HashCode>
-      <FileName>ClientData.cs</FileName>
+      <FileName>SportsClub\ClientData.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TrainingApp.Data.ParticipantOfTrainingData">
-    <Position X="2.25" Y="2.5" Width="2" />
+  <Class Name="TrainingApp.Data.SportsClub.ParticipantOfTrainingData">
+    <Position X="5" Y="2.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAACAAAAAAAgAAAAAABAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>ParticipantOfTrainingData.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAgAACAAABAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SportsClub\ParticipantOfTrainingData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TrainingApp.Data.SportsClub.CoachData">
+    <Position X="2.5" Y="5.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAACAAAgAAAEAAAAAAACAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>SportsClub\CoachData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TrainingApp.Data.SportsClub.TimetableData">
+    <Position X="5" Y="5.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAEIAAAIABCAACAAAAAABAAAIAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SportsClub\TimetableData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TrainingApp.Data.SportsClub.TrainingData">
+    <Position X="7.75" Y="5.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAIAAAgAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>SportsClub\TrainingData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TrainingApp.Data.SportsClub.LocationData">
+    <Position X="0.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SportsClub\LocationData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TrainingApp.Data.SportsClub.TrainingCategoryData">
+    <Position X="2.5" Y="8.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SportsClub\TrainingCategoryData.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
