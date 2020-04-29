@@ -10,7 +10,7 @@ namespace TrainingApp.Domain.SportsClub
 
         }
 
-        public TrainingCategory(TrainingCategory data) : base(data)
+        public TrainingCategory(TrainingCategory data)
         {
 
         }
