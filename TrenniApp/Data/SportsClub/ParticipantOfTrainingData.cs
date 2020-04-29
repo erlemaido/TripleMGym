@@ -6,7 +6,7 @@ namespace TrainingApp.Data.SportsClub
     public sealed class ParticipantOfTrainingData : UniqueEntityData
     {
         public string ClientId { get; set; }
-        public string TimetableId { get; set; }
+        public string TimetableEntryId { get; set; }
         public DateTime RegistrationTime { get; set; }
     }
 }
