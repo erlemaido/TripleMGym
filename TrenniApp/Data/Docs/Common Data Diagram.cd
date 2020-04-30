@@ -31,7 +31,7 @@
   <Class Name="TrainingApp.Data.SportsClub.ParticipantOfTrainingData">
     <Position X="5" Y="2.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>ABAAAAAAAAAAAAAAgAAAAAABAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>ABAAAAAAAAAAACAAgAAAAAABAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>SportsClub\ParticipantOfTrainingData.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -45,7 +45,7 @@
   <Class Name="TrainingApp.Data.SportsClub.TimetableEntryData">
     <Position X="5" Y="5.25" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAEIAAAIABCAACAAAAAABAAAIAAgAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAEIAAAAABGAACAAAAAAAAAAIAAgAAAAAAAAAAAAAAA=</HashCode>
       <FileName>SportsClub\TimetableEntryData.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -64,10 +64,17 @@
     </TypeIdentifier>
   </Class>
   <Class Name="TrainingApp.Data.SportsClub.TrainingCategoryData">
-    <Position X="2.5" Y="8.5" Width="2" />
+    <Position X="2.25" Y="8.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>SportsClub\TrainingCategoryData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TrainingApp.Data.SportsClub.TrainingTypeData">
+    <Position X="4.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SportsClub\TrainingTypeData.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
