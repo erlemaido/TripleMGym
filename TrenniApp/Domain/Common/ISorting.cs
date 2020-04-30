@@ -1,5 +1,4 @@
-﻿
-namespace TrainingApp.Domain.Common
+﻿namespace TrainingApp.Domain.Common
 {
     public interface ISorting
     {

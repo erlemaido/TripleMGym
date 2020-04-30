@@ -1,5 +1,4 @@
-﻿
-using TrainingApp.Data.Common;
+﻿using TrainingApp.Data.Common;
 
 namespace TrainingApp.Data.SportsClub
 {

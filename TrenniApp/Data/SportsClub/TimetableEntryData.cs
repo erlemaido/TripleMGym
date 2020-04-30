@@ -8,11 +8,10 @@ namespace TrainingApp.Data.SportsClub
         public string CoachId { get; set; }
         public string TrainingId { get; set; }
         public string LocationId { get; set; }
-        public TrainingType TrainingType { get; set; }
+        public string TrainingTypeId { get; set; }
         public TrainingLevel TrainingLevel { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
-        public int NumberOfParticipants { get; set; }
         public int MaxNumberOfParticipants { get; set; }
     }
 }
