@@ -56,5 +56,12 @@
       <FileName>SportsClub\TrainingType.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="TrainingApp.Domain.Common.Entity&lt;TData&gt;" Collapsed="true">
+    <Position X="11.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\Entity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

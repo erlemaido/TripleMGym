@@ -5,6 +5,7 @@
     <AssemblyName>TrainingApp.Data</AssemblyName>
     <OutputType>Library</OutputType>
     <RootNamespace>TrainingApp.Data</RootNamespace>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
 
