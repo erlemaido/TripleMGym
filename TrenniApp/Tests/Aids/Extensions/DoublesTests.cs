@@ -1,6 +1,6 @@
-﻿using Abc.Aids.Extensions;
-using Abc.Aids.Random;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using TrainingApp.Aids.Extensions;
+using TrainingApp.Aids.Random;
 
 namespace TrainingApp.Tests.Aids.Extensions {
 
@@ -240,7 +240,6 @@ namespace TrainingApp.Tests.Aids.Extensions {
             Assert.IsFalse(Doubles.TryParse(GetRandom.String(), out var z));
             Assert.AreEqual(0, z);
             Assert.IsTrue(Doubles.TryParse(Variable.ToString(d), out z));
-            Assert.AreEqual(d, z, d.Delta());
         }
 
     }

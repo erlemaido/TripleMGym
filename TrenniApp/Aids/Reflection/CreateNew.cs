@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
-using Abc.Aids.Methods;
-using Abc.Aids.Random;
 
-namespace Abc.Aids.Reflection {
+namespace TrainingApp.Aids.Reflection {
 
 
     public static class CreateNew {
@@ -15,10 +13,10 @@ namespace Abc.Aids.Reflection {
                 return (T) o;
             }
             var def = default(T);
-            return Safe.Run(f, def);
+            return Methods.Safe.Run(f, def);
         }
         public static object Instance(Type t) {
-            return Safe.Run(() => {
+            return Methods.Safe.Run(() => {
                 var constructor = getConstructorInfo(t);
                 var parameters = constructor.GetParameters();
                 var values = setRandomParameters(parameters);
@@ -32,7 +30,7 @@ namespace Abc.Aids.Reflection {
             var values = new List<object>();
             foreach (var p in parameters) {
                 var t = p.ParameterType;
-                var value = GetRandom.Value(t);
+                var value = Random.GetRandom.Value(t);
                 values.Add(value);
             }
             return values.ToArray();

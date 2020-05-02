@@ -1,5 +1,5 @@
-﻿using Abc.Aids.Enums;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using TrainingApp.Aids.Enums;
 
 namespace TrainingApp.Tests.Aids.Enums {
 

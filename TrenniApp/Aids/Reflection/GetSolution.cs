@@ -2,32 +2,31 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using Abc.Aids.Extensions;
-using Abc.Aids.Methods;
+using TrainingApp.Aids.Extensions;
 
-namespace Abc.Aids.Reflection {
+namespace TrainingApp.Aids.Reflection {
 
     public static class GetSolution {
 
         public static AppDomain Domain => AppDomain.CurrentDomain;
 
         public static List<Assembly> Assemblies =>
-            Safe.Run(() => Domain.GetAssemblies().ToList(),
+            Methods.Safe.Run(() => Domain.GetAssemblies().ToList(),
                 new List<Assembly>());
 
         public static Assembly AssemblyByName(string name) {
-            return Safe.Run(() => Assembly.Load(name), null);
+            return Methods.Safe.Run(() => Assembly.Load(name), null);
         }
 
         public static List<Type> TypesForAssembly(string assemblyName) {
-            return Safe.Run(() => {
+            return Methods.Safe.Run(() => {
                 var a = AssemblyByName(assemblyName);
                 return a.GetTypes().ToList();
             }, new List<Type>());
         }
 
         public static List<string> TypeNamesForAssembly(string assemblyName) {
-            return Safe.Run(() => {
+            return Methods.Safe.Run(() => {
                 var a = TypesForAssembly(assemblyName);
                 return a.Select(t => t.FullName).ToList();
             }, new List<string>());

@@ -1,6 +1,6 @@
-﻿using Abc.Aids.Extensions;
-using Abc.Aids.Random;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using TrainingApp.Aids.Extensions;
+using TrainingApp.Aids.Random;
 
 namespace TrainingApp.Tests.Aids.Extensions {
     [TestClass]

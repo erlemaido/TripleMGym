@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Abc.Aids.Reflection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using TrainingApp.Aids.Reflection;
 
 namespace TrainingApp.Tests
 {
@@ -17,8 +17,8 @@ namespace TrainingApp.Tests
         private static string noClassesInNamespace =>
             "No classes found in namespace {0}";
 
-        private static string testAssembly => "North.Tests";
-        private static string assembly => "North";
+        private static string testAssembly => "TrainingApp.Tests";
+        private static string assembly => "TrainingApp";
         private static char genericsChar => '`';
         private static char internalClass => '+';
         private static string displayClass => "<>";

@@ -1,5 +1,5 @@
-﻿using Abc.Aids.Formats.Dates;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using TrainingApp.Aids.Formats.Dates;
 
 namespace TrainingApp.Tests.Aids.Formats.Dates {
 

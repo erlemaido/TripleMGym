@@ -1,18 +1,17 @@
 ﻿using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using Abc.Aids.Extensions;
-using Abc.Aids.Methods;
+using TrainingApp.Aids.Extensions;
 
-namespace Abc.Aids.Regions {
+namespace TrainingApp.Aids.Regions {
 
     public static class SystemRegionInfo {
 
         public static bool IsCountry(RegionInfo r)
-            => Safe.Run(() => r.ThreeLetterISORegionName.IsWord(), false);
+            => Methods.Safe.Run(() => r.ThreeLetterISORegionName.IsWord(), false);
 
         public static List<RegionInfo> GetRegions() {
-            return Safe.Run(() => {
+            return Methods.Safe.Run(() => {
                 var cultures = SystemCultureInfo.GetSpecific();
                 var regions = Lists.Convert(cultures, SystemCultureInfo.ToRegionInfo);
                 regions = Lists.Distinct(regions);

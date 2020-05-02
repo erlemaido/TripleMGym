@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TrainingApp.Aids;
-using GetClass = Abc.Aids.Reflection.GetClass;
+using GetClass = TrainingApp.Aids.Reflection.GetClass;
 
 namespace TrainingApp.Tests
 {

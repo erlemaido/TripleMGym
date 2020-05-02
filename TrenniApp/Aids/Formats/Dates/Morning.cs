@@ -1,5 +1,5 @@
 ﻿
-namespace Abc.Aids.Formats.Dates {
+namespace TrainingApp.Aids.Formats.Dates {
 
     public static class Morning {
 

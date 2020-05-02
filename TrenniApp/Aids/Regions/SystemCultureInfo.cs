@@ -1,7 +1,6 @@
 ﻿using System.Globalization;
-using Abc.Aids.Methods;
 
-namespace Abc.Aids.Regions {
+namespace TrainingApp.Aids.Regions {
 
     public static class SystemCultureInfo {
         public static CultureInfo[] GetSpecific() {
@@ -9,14 +8,14 @@ namespace Abc.Aids.Regions {
         }
 
         public static CultureInfo[] GetCultures(CultureTypes types) {
-            return Safe.Run(() => CultureInfo.GetCultures(types),
+            return Methods.Safe.Run(() => CultureInfo.GetCultures(types),
                 new CultureInfo[0]);
         }
 
         public static RegionInfo ToRegionInfo(CultureInfo info) {
             return info is null
                 ? null
-                : Safe.Run(() => new RegionInfo(info.LCID), null);
+                : Methods.Safe.Run(() => new RegionInfo(info.LCID), null);
         }
     }
 

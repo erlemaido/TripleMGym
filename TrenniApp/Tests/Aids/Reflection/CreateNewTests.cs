@@ -1,7 +1,7 @@
-﻿using Abc.Aids.Enums;
-using Abc.Aids.Random;
-using Abc.Aids.Reflection;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using TrainingApp.Aids.Enums;
+using TrainingApp.Aids.Random;
+using TrainingApp.Aids.Reflection;
 
 namespace TrainingApp.Tests.Aids.Reflection {
 

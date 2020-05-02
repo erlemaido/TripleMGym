@@ -1,7 +1,6 @@
 ﻿using System;
-using Abc.Aids.Logging;
 
-namespace Abc.Aids.Methods {
+namespace TrainingApp.Aids.Methods {
 
     public static class Safe {
 
@@ -22,7 +21,7 @@ namespace Abc.Aids.Methods {
         private static T run<T>(Func<T> function, T valueOnExeption) {
             try { return function(); }
             catch (Exception e) {
-                Log.Exception(e);
+                Logging.Log.Exception(e);
 
                 return valueOnExeption;
             }
@@ -34,7 +33,7 @@ namespace Abc.Aids.Methods {
 
         private static void run(Action action) {
             try { action(); }
-            catch (Exception e) { Log.Exception(e); }
+            catch (Exception e) { Logging.Log.Exception(e); }
         }
 
         private static void lockedRun(Action action) {

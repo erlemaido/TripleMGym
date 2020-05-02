@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq.Expressions;
-using Abc.Aids.Reflection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using TrainingApp.Aids.Reflection;
 
 namespace TrainingApp.Tests.Aids.Reflection {
 

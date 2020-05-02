@@ -1,7 +1,7 @@
-﻿using Abc.Aids.Extensions;
-using Abc.Aids.Random;
-using Abc.Aids.Regions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using TrainingApp.Aids.Extensions;
+using TrainingApp.Aids.Random;
+using TrainingApp.Aids.Regions;
 
 namespace TrainingApp.Tests.Aids.Extensions {
 

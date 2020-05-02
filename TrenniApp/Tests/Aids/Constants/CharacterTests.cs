@@ -1,7 +1,7 @@
 ﻿using System;
-using Abc.Aids.Constants;
-using Abc.Aids.Random;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using TrainingApp.Aids.Constants;
+using TrainingApp.Aids.Random;
 
 namespace TrainingApp.Tests.Aids.Constants {
 

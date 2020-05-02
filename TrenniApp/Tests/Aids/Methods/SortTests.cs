@@ -1,6 +1,6 @@
 ﻿using System;
-using Abc.Aids.Methods;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using TrainingApp.Aids.Methods;
 
 namespace TrainingApp.Tests.Aids.Methods {
 

@@ -3,10 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
-using Abc.Aids.Methods;
-using Abc.Aids.Reflection;
 
-namespace Abc.Aids.Random {
+namespace TrainingApp.Aids.Random {
 
     public static class GetRandom {
 
@@ -33,14 +31,14 @@ namespace Abc.Aids.Random {
             decimal max = decimal.MaxValue) {
             if (min == max) return min;
 
-            return Safe.Run(() =>
+            return Methods.Safe.Run(() =>
                     Convert.ToDecimal(Double(Convert.ToDouble(min), Convert.ToDouble(max))),
                 min);
         }
 
         public static double Double(double min = double.MinValue, double max = double.MaxValue) {
             if (min.CompareTo(max) == 0) return min;
-            Sort.Ascending(ref min, ref max);
+            Methods.Sort.Ascending(ref min, ref max);
             var d = r.NextDouble();
 
             if (max > 0) return min + d * max - d * min;
@@ -51,10 +49,10 @@ namespace Abc.Aids.Random {
         public static T Enum<T>() => (T) Enum(typeof(T));
 
         public static object Enum(Type t) {
-            var count = GetEnum.Count(t);
+            var count = Reflection.GetEnum.Count(t);
             var index = Int32(0, count);
 
-            return GetEnum.Value(t, index);
+            return Reflection.GetEnum.Value(t, index);
         }
 
         public static float Float(float min = float.MinValue, float max = float.MaxValue)
@@ -76,7 +74,7 @@ namespace Abc.Aids.Random {
         public static long Int64(long min = long.MinValue, long max = long.MaxValue) {
             if (min == max) return min;
 
-            return Safe.Run(() =>
+            return Methods.Safe.Run(() =>
                     Convert.ToInt64(Double(Convert.ToDouble(min), Convert.ToDouble(max))),
                 min);
         }
@@ -103,7 +101,7 @@ namespace Abc.Aids.Random {
         public static ulong UInt64(ulong min = ulong.MinValue, ulong max = ulong.MaxValue) {
             if (min == max) return min;
 
-            return Safe.Run(() =>
+            return Methods.Safe.Run(() =>
                     Convert.ToUInt64(Double(Convert.ToDouble(min), Convert.ToDouble(max))),
                 min);
         }
@@ -164,14 +162,14 @@ namespace Abc.Aids.Random {
         }
 
         public static T Object<T>() {
-            var o = CreateNew.Instance<T>();
+            var o = Reflection.CreateNew.Instance<T>();
             SetRandom.Values(o);
 
             return o;
         }
 
         public static object Object(Type t) {
-            var o = CreateNew.Instance(t);
+            var o = Reflection.CreateNew.Instance(t);
             SetRandom.Values(o);
 
             return o;

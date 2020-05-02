@@ -1,5 +1,5 @@
-﻿using Abc.Aids.Constants;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using TrainingApp.Aids.Constants;
 
 namespace TrainingApp.Tests.Aids.Constants {
 

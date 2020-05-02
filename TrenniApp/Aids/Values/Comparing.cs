@@ -1,8 +1,6 @@
-﻿
-using System;
-using Abc.Aids.Methods;
+﻿using System;
 
-namespace Abc.Aids.Values {
+namespace TrainingApp.Aids.Values {
 
     public static class Comparing {
 
@@ -18,7 +16,7 @@ namespace Abc.Aids.Values {
 
         public static bool IsNotEqual<T>(this T x, T y) where T : IComparable => safe(() => x.CompareTo(y) != 0);
 
-        internal static bool safe(Func<bool> f)  => Safe.Run(f, false);
+        internal static bool safe(Func<bool> f)  => Methods.Safe.Run(f, false);
 
     }
 

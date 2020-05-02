@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Globalization;
-using Abc.Aids.Constants;
-using Abc.Aids.Regions;
+using TrainingApp.Aids.Constants;
 
-namespace Abc.Aids.Values {
+namespace TrainingApp.Aids.Values {
 
     public static class Converting {
 
         public static bool ToDecimal(string s, out decimal d)
-            => decimal.TryParse(s, NumberStyles.Any, UseCulture.Invariant, out d);
+            => decimal.TryParse(s, NumberStyles.Any, Regions.UseCulture.Invariant, out d);
 
         public static bool ToDecimal(object o, out decimal v) {
             v = decimal.Zero;
@@ -37,7 +36,7 @@ namespace Abc.Aids.Values {
             return d;
         }
 
-        public static string ToString(this decimal a) => a.ToString(UseCulture.Invariant);
+        public static string ToString(this decimal a) => a.ToString(Regions.UseCulture.Invariant);
 
         public static double ToYears(this TimeSpan a) => a.TotalDays / Astronomical.DaysPerYear;
 

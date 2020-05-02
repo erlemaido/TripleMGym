@@ -1,4 +1,4 @@
-namespace Abc.Aids.Enums {
+namespace TrainingApp.Aids.Enums {
     public enum CharType{
         //Undefined = 0,
         //Letter = 1,

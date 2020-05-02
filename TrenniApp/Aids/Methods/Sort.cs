@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Abc.Aids.Methods {
+namespace TrainingApp.Aids.Methods {
 
     public static class Sort {
 

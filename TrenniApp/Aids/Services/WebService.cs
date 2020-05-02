@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Net;
-using Abc.Aids.Logging;
 
-namespace Abc.Aids.Services {
+namespace TrainingApp.Aids.Services {
 
     public static class WebService {
 
@@ -14,7 +13,7 @@ namespace Abc.Aids.Services {
                 using var client = new WebClient();
 
                 try { return client.DownloadString(url); }
-                catch (Exception e) { Log.Exception(e); }
+                catch (Exception e) { Logging.Log.Exception(e); }
             }
 
             return string.Empty;

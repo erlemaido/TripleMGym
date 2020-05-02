@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 
-namespace Abc.Aids.Regions {
+namespace TrainingApp.Aids.Regions {
 
     public class UseCulture {
 

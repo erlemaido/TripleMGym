@@ -1,8 +1,8 @@
 ﻿using System;
-using Abc.Aids.Methods;
-using Abc.Aids.Random;
-using Abc.Aids.Values;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using TrainingApp.Aids.Methods;
+using TrainingApp.Aids.Random;
+using TrainingApp.Aids.Values;
 
 namespace TrainingApp.Tests.Aids.Values {
 

@@ -1,8 +1,8 @@
 ﻿using System.Globalization;
-using Abc.Aids.Formats.Dates;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TrainingApp.Aids;
-using Date = Abc.Aids.Formats.Dates.Date;
+using TrainingApp.Aids.Formats.Dates;
+using Date = TrainingApp.Aids.Formats.Dates.Date;
 
 namespace TrainingApp.Tests.Aids.Formats.Dates {
 

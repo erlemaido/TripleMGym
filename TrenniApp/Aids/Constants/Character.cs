@@ -1,4 +1,4 @@
-﻿namespace Abc.Aids.Constants {
+﻿namespace TrainingApp.Aids.Constants {
     public static class Character {
         public static char Comma => ',';
         public static char Dot => '.';

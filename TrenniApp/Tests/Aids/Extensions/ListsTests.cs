@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Abc.Aids.Extensions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using TrainingApp.Aids.Extensions;
 
 namespace TrainingApp.Tests.Aids.Extensions {
 

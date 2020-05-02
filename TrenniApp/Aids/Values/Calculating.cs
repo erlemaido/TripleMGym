@@ -1,7 +1,7 @@
 using System;
-using Abc.Aids.Extensions;
+using TrainingApp.Aids.Extensions;
 
-namespace Abc.Aids.Values {
+namespace TrainingApp.Aids.Values {
 
     public static class Calculating {
 

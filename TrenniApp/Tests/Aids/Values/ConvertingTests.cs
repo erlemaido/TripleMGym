@@ -1,9 +1,9 @@
 ﻿using System;
-using Abc.Aids.Constants;
-using Abc.Aids.Random;
-using Abc.Aids.Regions;
-using Abc.Aids.Values;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using TrainingApp.Aids.Constants;
+using TrainingApp.Aids.Random;
+using TrainingApp.Aids.Regions;
+using TrainingApp.Aids.Values;
 
 namespace TrainingApp.Tests.Aids.Values
 {

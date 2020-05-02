@@ -1,10 +1,6 @@
-﻿using System;
-using System.Linq;
-using Abc.Aids.Methods;
-using Abc.Aids.Regions;
-using Abc.Aids.Values;
+﻿using System.Linq;
 
-namespace Abc.Aids.Extensions {
+namespace TrainingApp.Aids.Extensions {
 
     public static class Booleans {
 
@@ -27,12 +23,12 @@ namespace Abc.Aids.Extensions {
         }
 
         public static bool IsFalseString(string s)
-            => Safe.Run(() => anyFalse.ToList().Contains(s.ToUpper().Trim()), false);
+            => Methods.Safe.Run(() => anyFalse.ToList().Contains(s.ToUpper().Trim()), false);
 
         public static bool IsTrueString(string s)
-            => Safe.Run(() => anyTrue.ToList().Contains(s.ToUpper().Trim()), false);
+            => Methods.Safe.Run(() => anyTrue.ToList().Contains(s.ToUpper().Trim()), false);
 
-        public static string ToString(bool value) => value.ToString(UseCulture.Invariant);
+        public static string ToString(bool value) => value.ToString(Regions.UseCulture.Invariant);
 
         public static bool Add(this bool x, bool y) => x.Or(y);
 

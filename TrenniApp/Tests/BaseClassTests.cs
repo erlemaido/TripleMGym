@@ -1,6 +1,6 @@
 ﻿using System;
-using Abc.Aids.Random;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using TrainingApp.Aids.Random;
 
 namespace TrainingApp.Tests
 {

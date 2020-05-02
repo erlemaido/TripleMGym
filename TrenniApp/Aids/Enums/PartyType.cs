@@ -1,4 +1,4 @@
-﻿namespace Abc.Aids.Enums {
+﻿namespace TrainingApp.Aids.Enums {
 
     public enum PartyType {
         Unspecified = 0,

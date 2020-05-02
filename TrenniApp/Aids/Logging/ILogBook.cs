@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Abc.Aids.Logging {
+namespace TrainingApp.Aids.Logging {
 
     public interface ILogBook {
         void WriteEntry(string message);

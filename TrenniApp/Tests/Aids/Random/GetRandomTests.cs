@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using Abc.Aids.Enums;
-using Abc.Aids.Random;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using TrainingApp.Aids.Enums;
+using TrainingApp.Aids.Random;
 using TrainingApp.Data.SportsClub;
+using TrainingApp.Tests.Data.SportsClub;
 
 namespace TrainingApp.Tests.Aids.Random {
 

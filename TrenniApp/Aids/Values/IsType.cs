@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Abc.Aids.Values {
+namespace TrainingApp.Aids.Values {
 
     public static class IsType {
 

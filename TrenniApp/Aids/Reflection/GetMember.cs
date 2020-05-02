@@ -2,26 +2,25 @@
 using System.ComponentModel;
 using System.Linq;
 using System.Linq.Expressions;
-using Abc.Aids.Methods;
 
-namespace Abc.Aids.Reflection {
+namespace TrainingApp.Aids.Reflection {
 
     public static class GetMember {
 
         public static string Name<T>(Expression<Func<T, object>> ex) {
-            return Safe.Run(() => name(ex.Body), string.Empty);
+            return Methods.Safe.Run(() => name(ex.Body), string.Empty);
         }
 
         public static string Name<T, TResult>(Expression<Func<T, TResult>> ex) {
-            return Safe.Run(() => name(ex.Body), string.Empty);
+            return Methods.Safe.Run(() => name(ex.Body), string.Empty);
         }
 
         public static string Name<T>(Expression<Action<T>> ex) {
-            return Safe.Run(() => name(ex.Body), string.Empty);
+            return Methods.Safe.Run(() => name(ex.Body), string.Empty);
         }
 
         public static string DisplayName<T>(Expression<Func<T, object>> ex) {
-            return Safe.Run(() => {
+            return Methods.Safe.Run(() => {
                 var name = Name(ex);
                 var p = GetClass.Property<T>(name);
                 var list = p?.GetCustomAttributes(typeof(DisplayNameAttribute), true);

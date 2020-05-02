@@ -1,16 +1,14 @@
-﻿using Abc.Aids.Methods;
-
-namespace Abc.Aids.Extensions {
+﻿namespace TrainingApp.Aids.Extensions {
 
     public static class Decimals {
 
-        public static decimal Add(this decimal x, decimal y) => Safe.Run(() => x + y, decimal.MaxValue);
+        public static decimal Add(this decimal x, decimal y) => Methods.Safe.Run(() => x + y, decimal.MaxValue);
 
-        public static decimal Divide(this decimal x, decimal y) => Safe.Run(() => x / y, decimal.MaxValue);
+        public static decimal Divide(this decimal x, decimal y) => Methods.Safe.Run(() => x / y, decimal.MaxValue);
 
-        public static decimal Subtract(this decimal x, decimal y) => Safe.Run(() => x - y, decimal.MaxValue);
+        public static decimal Subtract(this decimal x, decimal y) => Methods.Safe.Run(() => x - y, decimal.MaxValue);
 
-        public static decimal Multiply(this decimal x, decimal y) => Safe.Run(() => x * y, decimal.MaxValue);
+        public static decimal Multiply(this decimal x, decimal y) => Methods.Safe.Run(() => x * y, decimal.MaxValue);
 
         public static decimal Opposite(this decimal x) => Subtract(decimal.Zero, x);
 

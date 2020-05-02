@@ -7,7 +7,7 @@ using System.Text;
 namespace TrainingApp.Aids {
 
     public static class GetRandom {
-        private static readonly Random r = new Random();
+        private static readonly System.Random r = new System.Random();
 
 
         public static bool Bool() {

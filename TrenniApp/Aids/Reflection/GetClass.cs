@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
-using Abc.Aids.Classes;
-using Abc.Aids.Methods;
+using TrainingApp.Aids.Classes;
 
-namespace Abc.Aids.Reflection {
+namespace TrainingApp.Aids.Reflection {
 
     public static class GetClass {
 
@@ -35,12 +34,12 @@ namespace Abc.Aids.Reflection {
             => type?.GetProperties(f).ToList() ?? new List<PropertyInfo>();
 
         public static PropertyInfo Property<T>(string name)
-            => Safe.Run(() => typeof(T).GetProperty(name), null);
+            => Methods.Safe.Run(() => typeof(T).GetProperty(name), null);
 
         public static PropertyInfo Property<T>(Expression<Func<T, object>> e) {
             var n = GetMember.Name(e);
 
-            return Safe.Run(() => typeof(T).GetProperty(n), null);
+            return Methods.Safe.Run(() => typeof(T).GetProperty(n), null);
         }
 
         private static void removeSurrogates(IList<MemberInfo> l) {

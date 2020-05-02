@@ -1,4 +1,4 @@
-﻿namespace Abc.Aids.Formats {
+﻿namespace TrainingApp.Aids.Formats {
 
     public static class Format {
 

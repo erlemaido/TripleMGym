@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Abc.Aids.Reflection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using TrainingApp.Aids.Reflection;
 
 namespace TrainingApp.Tests.Aids.Reflection {
 
     [TestClass] public class GetSolutionTests : BaseTests {
 
-        private static string assemblyName = "Abc.Aids";
+        private static string assemblyName = "TrainingApp.Aids";
         private const string dummyName = "bla-bla";
 
         [TestInitialize] public void TestInitialize() => type = typeof(GetSolution);
@@ -54,7 +54,7 @@ namespace TrainingApp.Tests.Aids.Reflection {
         }
 
         [TestMethod] public void NameTest() {
-            Assert.AreEqual(nameof(Abc), GetSolution.Name);
+            Assert.AreEqual(nameof(TrainingApp), GetSolution.Name);
         }
 
     }

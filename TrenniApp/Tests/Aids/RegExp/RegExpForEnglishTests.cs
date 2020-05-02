@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
-using Abc.Aids.RegExp;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using TrainingApp.Aids.RegExp;
 
 namespace TrainingApp.Tests.Aids.RegExp {
 

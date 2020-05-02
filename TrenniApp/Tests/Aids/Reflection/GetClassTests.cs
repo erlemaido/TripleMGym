@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
-using Abc.Aids.Classes;
-using Abc.Aids.Random;
-using Abc.Aids.Reflection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using TrainingApp.Aids.Classes;
+using TrainingApp.Aids.Random;
+using TrainingApp.Aids.Reflection;
 
 namespace TrainingApp.Tests.Aids.Reflection {
 
@@ -51,6 +51,11 @@ namespace TrainingApp.Tests.Aids.Reflection {
             var l = GetClass.ReadWritePropertyValues(o);
             Assert.AreEqual(1, l.Count);
             Assert.AreEqual(l[0], o.F);
+        }
+        [TestMethod]
+        public void PropertyTest()
+        {
+            Assert.Inconclusive();
         }
 
         /*[TestMethod] public void PropertyTest() {

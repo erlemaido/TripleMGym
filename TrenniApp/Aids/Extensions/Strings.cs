@@ -1,24 +1,23 @@
 ﻿using System;
 using System.Globalization;
 using System.Linq;
-using Abc.Aids.Methods;
 
-namespace Abc.Aids.Extensions {
+namespace TrainingApp.Aids.Extensions {
 
     public static class Strings {
 
         public static string Format(this string s, params object[] args)
-            => Safe.Run(
+            => Methods.Safe.Run(
                 () => string.Format(CultureInfo.InvariantCulture, s, args),
                 s ?? string.Empty);
 
         public static bool IsWord(this string s)
-            => Safe.Run(
+            => Methods.Safe.Run(
                 () => !string.IsNullOrWhiteSpace(s) && char.IsLetter(s[0]),
                 false);
 
         public static string Backwards(this string s)
-            => Safe.Run(
+            => Methods.Safe.Run(
                 () => {
                     var x = s.Length - 1;
                     var r = string.Empty;
@@ -28,25 +27,25 @@ namespace Abc.Aids.Extensions {
                 }, s ?? string.Empty);
 
         public static string SubstringBefore(this string s, string searchStr)
-            => Safe.Run(
+            => Methods.Safe.Run(
                 () => s.Substring(0,
                     s.IndexOf(searchStr, StringComparison.InvariantCulture))
                 , s ?? string.Empty);
 
         public static string ToLowerCase(this string s)
-            => Safe.Run(
+            => Methods.Safe.Run(
                 () => s.ToLower(CultureInfo.InvariantCulture)
                 , s ?? string.Empty);
 
         public static string RemoveSpaces(this string s)
-            => Safe.Run(
+            => Methods.Safe.Run(
                 () =>
                     s.Where(char.IsLetterOrDigit)
                         .Aggregate(string.Empty, (current, c) => current + c),
                 s ?? string.Empty);
 
         public static string GetHead(this string s, char seperator = '.')
-            => Safe.Run(
+            => Methods.Safe.Run(
                 () => {
 
                     if (string.IsNullOrWhiteSpace(s)) return string.Empty;
@@ -56,7 +55,7 @@ namespace Abc.Aids.Extensions {
                 }, string.Empty);
 
         public static string GetTail(this string s, char seperator = '.')
-            => Safe.Run(
+            => Methods.Safe.Run(
                 () => {
                     if (string.IsNullOrWhiteSpace(s)) return string.Empty;
                     var i = s.IndexOf(seperator);

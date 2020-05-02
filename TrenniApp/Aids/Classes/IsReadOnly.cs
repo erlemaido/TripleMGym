@@ -1,4 +1,4 @@
-﻿namespace Abc.Aids.Classes {
+﻿namespace TrainingApp.Aids.Classes {
     public static class IsReadOnly {
         //public static bool Field<T>(string name) {
         //    return typeof(T).GetField(name)?.IsInitOnly ?? false;

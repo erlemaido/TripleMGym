@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Globalization;
-using Abc.Aids.Regions;
 
-namespace Abc.Aids.Extensions {
+namespace TrainingApp.Aids.Extensions {
     public static class Integers {
         public static int ToInteger(object o)
         {
@@ -10,7 +9,7 @@ namespace Abc.Aids.Extensions {
             return i;
         }
         private static bool tryParse(string s, out int i) {
-            var b = int.TryParse(s, NumberStyles.Any, UseCulture.Invariant, out i);
+            var b = int.TryParse(s, NumberStyles.Any, Regions.UseCulture.Invariant, out i);
             if (!b) i = int.MaxValue;
 
             return b;

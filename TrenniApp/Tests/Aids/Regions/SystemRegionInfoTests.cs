@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Globalization;
-using Abc.Aids.Regions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using TrainingApp.Aids.Regions;
 
 namespace TrainingApp.Tests.Aids.Regions {
 

@@ -1,28 +1,26 @@
 ﻿using System;
 using System.Globalization;
-using Abc.Aids.Methods;
-using Abc.Aids.Regions;
 
-namespace Abc.Aids.Extensions {
+namespace TrainingApp.Aids.Extensions {
 
     public static class Doubles {
 
-        public static double Add(this double x, double y) => Safe.Run(() => x + y, double.NaN);
+        public static double Add(this double x, double y) => Methods.Safe.Run(() => x + y, double.NaN);
 
-        public static double Divide(this double x, double y) => Safe.Run(() => x / y, double.NaN);
+        public static double Divide(this double x, double y) => Methods.Safe.Run(() => x / y, double.NaN);
 
         public static double Opposite(this double x) => Subtract(0, x);
 
-        public static double Multiply(this double x, double y) => Safe.Run(() => x * y, double.NaN);
+        public static double Multiply(this double x, double y) => Methods.Safe.Run(() => x * y, double.NaN);
 
         public static double Power(this double x, double y)
-            => Safe.Run(() => Math.Pow(x, y), double.NaN);
+            => Methods.Safe.Run(() => Math.Pow(x, y), double.NaN);
 
         public static double Inverse(this double x) => Divide(1, x);
 
-        public static double Sqrt(this double x) => Safe.Run(() => Math.Sqrt(x), double.NaN);
+        public static double Sqrt(this double x) => Methods.Safe.Run(() => Math.Sqrt(x), double.NaN);
 
-        public static double Subtract(this double x, double y) => Safe.Run(() => x - y, double.NaN);
+        public static double Subtract(this double x, double y) => Methods.Safe.Run(() => x - y, double.NaN);
 
         public static double Square(this double x) => Multiply(x, x);
 
@@ -34,7 +32,7 @@ namespace Abc.Aids.Extensions {
         }
 
         public static bool TryParse(string s, out double d) {
-            return double.TryParse(s, NumberStyles.Any,UseCulture.Invariant, out d);
+            return double.TryParse(s, NumberStyles.Any,Regions.UseCulture.Invariant, out d);
         }
 
         public static bool ToDouble(object o, out double d)

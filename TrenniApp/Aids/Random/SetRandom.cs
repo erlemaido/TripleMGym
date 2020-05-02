@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Linq;
-using Abc.Aids.Methods;
-using Abc.Aids.Reflection;
 
-namespace Abc.Aids.Random {
+namespace TrainingApp.Aids.Random {
     public static class SetRandom {
 
         public static void Values(object o) {
@@ -15,7 +13,7 @@ namespace Abc.Aids.Random {
         private static void setValuesForProperties(object o) {
             if (o is null) return;
             var t = o.GetType();
-            var properties = GetClass.Properties(t);
+            var properties = Reflection.GetClass.Properties(t);
             foreach (var p in properties) {
                 if (!p.CanWrite) continue;
                 if (p.PropertyType.Name == t.Name) continue;
@@ -33,7 +31,7 @@ namespace Abc.Aids.Random {
             }
         }
         private static Type getListElementsType(IList list) {
-            return Safe.Run(() => {
+            return Methods.Safe.Run(() => {
                 var t = list.GetType();
                 var types =
                 (from method in t.GetMethods()

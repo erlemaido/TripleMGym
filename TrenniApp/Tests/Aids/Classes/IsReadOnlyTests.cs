@@ -1,5 +1,5 @@
-﻿using Abc.Aids.Classes;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using TrainingApp.Aids.Classes;
 
 namespace TrainingApp.Tests.Aids.Classes {
     [TestClass] public class IsReadOnlyTests : BaseTests {

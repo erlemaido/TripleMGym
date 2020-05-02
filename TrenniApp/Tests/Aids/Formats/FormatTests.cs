@@ -1,10 +1,11 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using TrainingApp.Aids.Formats;
 
 namespace TrainingApp.Tests.Aids.Formats {
 
     [TestClass] public class FormatTests : BaseTests {
 
-        [TestInitialize] public void TestInitialize() => type = typeof(Abc.Aids.Formats.Format);
+        [TestInitialize] public void TestInitialize() => type = typeof(Format);
 
     //    [TestMethod] public void ListConstantTest() 
     //        => Assert.AreEqual("List", Abc.Aids.Formats.Format.list);

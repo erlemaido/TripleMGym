@@ -1,11 +1,10 @@
-﻿using Abc.Tests;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace TrainingApp.Tests.Aids {
 
     [TestClass] public class IsAidsTested : BaseAssemblyTests {
 
-        protected override string assembly => "Abc.Aids";
+        protected override string assembly => "TrainingApp.Aids";
 
         protected override string nameSpace(string name) => $"{assembly}.{name}";
 

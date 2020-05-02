@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
-using Abc.Aids.Reflection;
 using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
-using TrainingApp.Tests;
+using TrainingApp.Aids.Reflection;
 
-namespace North.Tests
+namespace TrainingApp.Tests
 {
 
     internal class htmlHelperMock<TModel> : IHtmlHelper<TModel>

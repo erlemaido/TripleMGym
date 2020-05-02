@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading;
-using Abc.Aids.Logging;
-using Abc.Aids.Methods;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using TrainingApp.Aids.Logging;
+using TrainingApp.Aids.Methods;
 using TrainingApp.Tests.Aids.Logging;
 
 namespace TrainingApp.Tests.Aids.Methods {

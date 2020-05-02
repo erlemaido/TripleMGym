@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Globalization;
-using Abc.Aids.Formats.Dates;
-using Abc.Aids.Random;
-using Abc.Aids.Regions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using TrainingApp.Aids.Formats.Dates;
+using TrainingApp.Aids.Random;
+using TrainingApp.Aids.Regions;
 
 namespace TrainingApp.Tests.Aids.Formats.Dates {
 

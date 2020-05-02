@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Abc.Aids.Reflection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using TrainingApp.Aids.Reflection;
 
-namespace Abc.Tests {
+namespace TrainingApp.Tests {
 
     public class BaseAssemblyTests {
 
