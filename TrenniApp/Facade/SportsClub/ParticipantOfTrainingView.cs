@@ -1,10 +1,31 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using TrainingApp.Facade.Common;
 
 namespace TrainingApp.Facade.SportsClub
 {
-    class ParticipantOfTrainingView
+    public sealed class ParticipantOfTrainingView : UniqueEntityView
     {
+        [Required]
+        [DisplayName("Client")]
+        public string ClientId { get; set; }
+
+        [Required]
+        [DisplayName("Training")]
+        public string TimetableEntryId { get; set; }
+
+        [Required]
+        [DisplayName("Coach")]
+        public string CoachId { get; set; }
+
+        [Required]
+        [DisplayName("Registration Time")]
+        public DateTime RegistrationTime { get; set; }
+
+        public string GetId()
+        {
+            return $"{Id}.{ClientId}.{TimetableEntryId}.{CoachId}";
+        }
     }
 }

@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using TrainingApp.Facade.Common;
 
 namespace TrainingApp.Facade.SportsClub
 {
-    class TrainingTypeView
-    {
-    }
+    public sealed class TrainingTypeView : NamedEntityView { }
 }
