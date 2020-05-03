@@ -2,7 +2,5 @@
 
 namespace TrainingApp.Domain.SportsClub
 {
-    public interface ITimetableEntriesRepository : IRepository<TimetableEntry>
-    {
-    }
+    public interface ITimetableEntriesRepository : IRepository<TimetableEntry> { }
 }

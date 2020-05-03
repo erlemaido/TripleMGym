@@ -4,6 +4,5 @@ namespace TrainingApp.Data.SportsClub
 {
     public sealed class TrainingCategoryData : NamedEntityData
     {
-
     }
 }

@@ -2,7 +2,5 @@
 
 namespace TrainingApp.Domain.SportsClub
 {
-    public interface IClientsRepository : IRepository<Client>
-    {
-    }
+    public interface IClientsRepository : IRepository<Client> { }
 }

@@ -2,7 +2,5 @@
 
 namespace TrainingApp.Domain.SportsClub
 {
-    public interface ILocationsRepository : IRepository<Location>
-    {
-    }
+    public interface ILocationsRepository : IRepository<Location> { }
 }

@@ -2,7 +2,5 @@
 
 namespace TrainingApp.Domain.SportsClub
 {
-    public interface ICoachesRepository : IRepository<Coach>
-    {
-    }
+    public interface ICoachesRepository : IRepository<Coach> { }
 }
