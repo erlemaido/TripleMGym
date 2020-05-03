@@ -5,14 +5,8 @@ namespace TrainingApp.Domain.SportsClub
 {
     public sealed class Location : Entity<LocationData>
     {
-        public Location() : this(null)
-        {
+        public Location() : this(null) { }
 
-        }
-
-        public Location(LocationData data) : base(data)
-        {
-
-        }
+        public Location(LocationData data) : base(data) { }
     }
 }

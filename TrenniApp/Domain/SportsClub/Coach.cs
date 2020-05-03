@@ -5,14 +5,8 @@ namespace TrainingApp.Domain.SportsClub
 {
     public sealed class Coach : Entity<CoachData>
     {
-        public Coach() : this(null)
-        {
+        public Coach() : this(null) { }
 
-        }
-
-        public Coach(CoachData data) : base(data)
-        {
-
-        }
+        public Coach(CoachData data) : base(data) { }
     }
 }
