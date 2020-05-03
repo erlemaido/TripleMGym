@@ -7,12 +7,12 @@ using TrainingApp.Domain.Common;
 namespace TrainingApp.Tests
 {
     [TestClass]
-    internal abstract class baseTestRepositoryForNamedEntity<TObj, TData>
+    internal abstract class BaseTestRepositoryForNamedEntity<TObj, TData>
         where TObj : Entity<TData>
         where TData : NamedEntityData, new()
     {
         internal readonly List<TObj> list;
-        public baseTestRepositoryForNamedEntity()
+        public BaseTestRepositoryForNamedEntity()
         {
             list = new List<TObj>();
         }
@@ -24,17 +24,17 @@ namespace TrainingApp.Tests
         public async Task<TObj> Get(string id)
         {
             await Task.CompletedTask;
-            return list.Find(x => isThis(x, id));
+            return list.Find(x => IsThis(x, id));
         }
 
         public async Task Delete(string id)
         {
             await Task.CompletedTask;
-            var obj = list.Find(x => isThis(x, id));
+            var obj = list.Find(x => IsThis(x, id));
             list.Remove(obj);
         }
 
-        protected abstract bool isThis(TObj entity, string id);
+        protected abstract bool IsThis(TObj entity, string id);
 
         public async Task Add(TObj obj)
         {
@@ -44,11 +44,11 @@ namespace TrainingApp.Tests
 
         public async Task Update(TObj obj)
         {
-            await Delete(getId(obj));
+            await Delete(GetId(obj));
             list.Add(obj);
         }
 
-        protected abstract string getId(TObj entity);
+        protected abstract string GetId(TObj entity);
 
         public string SortOrder { get; set; }
         public string SearchString { get; set; }

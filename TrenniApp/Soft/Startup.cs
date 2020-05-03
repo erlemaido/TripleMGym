@@ -29,14 +29,14 @@ namespace TrainingApp.Soft
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddRazorPages();
-            services.AddScoped<IClientsRepository, ClientsRepository>();
-            services.AddScoped<ICoachesRepository, CoachesRepository>();
-            services.AddScoped<ITrainingCategoriesRepository, TrainingCategoriesRepository>();
-            services.AddScoped<ILocationsRepository, LocationsRepository>();
-            services.AddScoped<ITrainingTypesRepository, TrainingTypesRepository>();
-            services.AddScoped<ITrainingsRepository, TrainingsRepository>();
-            services.AddScoped<ITimetableEntriesRepository, TimetableEntriesRepository>();
-            services.AddScoped<IParticipantsOfTrainingRepository, ParticipantsOfTrainingRepository>();
+            //services.AddScoped<IClientsRepository, ClientsRepository>();
+            //services.AddScoped<ICoachesRepository, CoachesRepository>();
+            //services.AddScoped<ITrainingCategoriesRepository, TrainingCategoriesRepository>();
+            //services.AddScoped<ILocationsRepository, LocationsRepository>();
+            //services.AddScoped<ITrainingTypesRepository, TrainingTypesRepository>();
+            //services.AddScoped<ITrainingsRepository, TrainingsRepository>();
+            //services.AddScoped<ITimetableEntriesRepository, TimetableEntriesRepository>();
+            //services.AddScoped<IParticipantsOfTrainingRepository, ParticipantsOfTrainingRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

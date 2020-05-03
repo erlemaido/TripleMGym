@@ -1,5 +1,4 @@
-﻿#nullable enable
-using System;
+﻿using System;
 using TrainingApp.Data.Common;
 
 namespace TrainingApp.Data.SportsClub
