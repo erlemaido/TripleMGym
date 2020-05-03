@@ -4,11 +4,11 @@ using Microsoft.AspNetCore.Html;
 
 namespace TrainingApp.Tests
 {
-    internal class htmlContentMock : IHtmlContent
+    internal class HtmlContentMock : IHtmlContent
     {
         private readonly string content;
 
-        public htmlContentMock(string s) => content = s;
+        public HtmlContentMock(string s) => content = s;
 
         public void WriteTo(TextWriter writer, HtmlEncoder encoder) => writer.WriteLine(content);
 

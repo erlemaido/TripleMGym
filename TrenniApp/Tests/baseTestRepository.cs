@@ -5,12 +5,12 @@ using TrainingApp.Domain.Common;
 
 namespace TrainingApp.Tests
 {
-    internal class baseTestRepository<TObj,TData> 
+    internal class BaseTestRepository<TObj,TData> 
         where TObj:Entity<TData>
         where TData:UniqueEntityData, new()
     {
         internal readonly List<TObj> list;
-        public baseTestRepository()
+        public BaseTestRepository()
         {
             list = new List<TObj>();
         }
