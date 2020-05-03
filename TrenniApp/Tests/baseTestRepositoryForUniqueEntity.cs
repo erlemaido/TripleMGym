@@ -7,12 +7,12 @@ using TrainingApp.Domain.Common;
 namespace TrainingApp.Tests
 {
     [TestClass]
-    internal class baseTestRepositoryForUniqueEntity<TObj, TData>
+    internal class BaseTestRepositoryForUniqueEntity<TObj, TData>
         where TObj : Entity<TData>
         where TData : UniqueEntityData, new()
     {
         internal readonly List<TObj> list;
-        public baseTestRepositoryForUniqueEntity()
+        public BaseTestRepositoryForUniqueEntity()
         {
             list = new List<TObj>();
         }
