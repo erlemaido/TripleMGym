@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="TrainingApp.Infra.SportsClub.ClientsRepository">
-    <Position X="11.75" Y="4.25" Width="2.75" />
+    <Position X="9.25" Y="0.5" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
       <FileName>SportsClub\ClientsRepository.cs</FileName>
@@ -9,7 +9,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="TrainingApp.Infra.SportsClub.CoachesRepository">
-    <Position X="14.75" Y="4.25" Width="2.75" />
+    <Position X="12.75" Y="0.5" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
       <FileName>SportsClub\CoachesRepository.cs</FileName>
@@ -17,7 +17,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="TrainingApp.Infra.SportsClub.LocationsRepository">
-    <Position X="18" Y="4.25" Width="3" />
+    <Position X="16" Y="0.5" Width="3" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
       <FileName>SportsClub\LocationsRepository.cs</FileName>
@@ -25,7 +25,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="TrainingApp.Infra.SportsClub.ParticipantsOfTrainingRepository">
-    <Position X="0.5" Y="8.75" Width="4" />
+    <Position X="4" Y="10.5" Width="4" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAgAA=</HashCode>
       <FileName>SportsClub\ParticipantsOfTrainingRepository.cs</FileName>
@@ -33,7 +33,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="TrainingApp.Infra.SportsClub.TimetableEntriesRepository">
-    <Position X="5" Y="8.75" Width="3.5" />
+    <Position X="13.25" Y="10.5" Width="3.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAgAA=</HashCode>
       <FileName>SportsClub\TimetableEntriesRepository.cs</FileName>
@@ -41,7 +41,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="TrainingApp.Infra.SportsClub.TrainingCategoriesRepository">
-    <Position X="7.75" Y="4.25" Width="3.75" />
+    <Position X="4.75" Y="0.5" Width="3.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
       <FileName>SportsClub\TrainingCategoriesRepository.cs</FileName>
@@ -49,7 +49,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="TrainingApp.Infra.SportsClub.TrainingsRepository">
-    <Position X="9.25" Y="8.75" Width="2.75" />
+    <Position X="9.25" Y="10.5" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAgAA=</HashCode>
       <FileName>SportsClub\TrainingsRepository.cs</FileName>
@@ -57,7 +57,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="TrainingApp.Infra.SportsClub.TrainingTypesRepository">
-    <Position X="4" Y="4.25" Width="3.25" />
+    <Position X="1" Y="0.5" Width="3.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
       <FileName>SportsClub\TrainingTypesRepository.cs</FileName>
@@ -65,7 +65,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="TrainingApp.Infra.PaginatedRepository&lt;TDomain, TData&gt;">
-    <Position X="0.75" Y="3.25" Width="2.75" />
+    <Position X="9.25" Y="5.75" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AAAAAgAAAAAAAgAAgABAEAAUAAAAIAACAAAAEAAAAAA=</HashCode>
       <FileName>PaginatedRepository.cs</FileName>
@@ -73,7 +73,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="TrainingApp.Infra.UniqueEntityRepository&lt;TDomain, TData&gt;">
-    <Position X="10.5" Y="0.5" Width="2.75" />
+    <Position X="9.25" Y="3.5" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
       <FileName>UniqueEntityRepository.cs</FileName>

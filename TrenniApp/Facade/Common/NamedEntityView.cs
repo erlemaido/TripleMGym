@@ -2,9 +2,9 @@
 
 namespace TrainingApp.Facade.Common
 {
-    public abstract class UniqueEntityView
+    public abstract class NamedEntityView : DefinedEntityView
     {
         [Required]
-        public string Id { get; set; }
+        public string Name { get; set; }
     }
 }

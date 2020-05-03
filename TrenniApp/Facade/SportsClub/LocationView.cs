@@ -1,10 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.ComponentModel.DataAnnotations;
+using TrainingApp.Facade.Common;
 
 namespace TrainingApp.Facade.SportsClub
 {
-    class LocationView
+    public sealed class LocationView : NamedEntityView
     {
+        [Required]
+        public string Code { get; set; }
     }
 }
