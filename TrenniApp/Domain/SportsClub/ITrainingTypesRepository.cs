@@ -2,7 +2,5 @@
 
 namespace TrainingApp.Domain.SportsClub
 {
-    public interface ITrainingTypesRepository : IRepository<TrainingType>
-    {
-    }
+    public interface ITrainingTypesRepository : IRepository<TrainingType> { }
 }

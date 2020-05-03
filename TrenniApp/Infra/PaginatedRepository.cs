@@ -17,7 +17,6 @@ namespace TrainingApp.Infra
         public bool HasNextPage => PageIndex < TotalPages;
         public bool HasPreviousPage => PageIndex > 1;
         
-
         protected PaginatedRepository(DbContext c, DbSet<TData> s) : base(c, s)
         {
         }
@@ -30,12 +29,9 @@ namespace TrainingApp.Infra
 
         internal int CountTotalPages(int count, in int pageSize) => (int)Math.Ceiling(count / (double)pageSize);
 
-
         internal int GetItemsCount() => base.CreateSqlQuery().CountAsync().Result;
 
-
         protected internal override IQueryable<TData> CreateSqlQuery() => AddSkipAndTake(base.CreateSqlQuery());
-
 
         internal IQueryable<TData> AddSkipAndTake(IQueryable<TData> query)
         {

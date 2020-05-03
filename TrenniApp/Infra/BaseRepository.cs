@@ -14,12 +14,12 @@ namespace TrainingApp.Infra
         protected internal DbContext Db;
         protected internal DbSet<TData> DbSet;
 
-
         protected BaseRepository(DbContext c, DbSet<TData> s)
         {
             Db = c;
             DbSet = s;
         }
+
         public virtual async Task<List<TDomain>> Get()
         {
             var query = CreateSqlQuery(); //loome query
@@ -29,10 +29,9 @@ namespace TrainingApp.Infra
 
         internal List<TDomain> ToDomainObjectsList(List<TData> set) => set.Select(ToDomainObject).ToList();
         
-
-        protected internal abstract TDomain ToDomainObject(TData periodData);
-        internal async Task<List<TData>> RunSqlQueryAsync(IQueryable<TData> query) => await query.AsNoTracking().ToListAsync();
+        protected internal abstract TDomain ToDomainObject(TData data);
         
+        internal async Task<List<TData>> RunSqlQueryAsync(IQueryable<TData> query) => await query.AsNoTracking().ToListAsync();
 
         protected internal virtual IQueryable<TData> CreateSqlQuery()
         {
