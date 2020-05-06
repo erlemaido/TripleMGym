@@ -9,6 +9,17 @@ namespace TrainingApp.Tests.Aids.Reflection {
 
         [TestInitialize] public void TestInitialize() => type = typeof(GetMember);
 
+        [TestMethod]
+        public void NameTest()
+        {
+            Assert.Inconclusive();
+        }
+
+        [TestMethod]
+        public void DisplayNameTest()
+        {
+            Assert.Inconclusive();
+        }
         /*[TestMethod] public void NameTest() {
             Assert.AreEqual("Data", GetMember.Name<Country>(o => o.Data));
             Assert.AreEqual("Name", GetMember.Name<CountryData>(o => o.Name));
@@ -24,11 +35,11 @@ namespace TrainingApp.Tests.Aids.Reflection {
             Assert.AreEqual("Name", GetMember.DisplayName<MeasureView>(o => o.Name));
             Assert.AreEqual("Valid to", GetMember.DisplayName<MeasureView>(o => o.ValidTo));
             Assert.AreEqual(string.Empty, GetMember.DisplayName<MeasureView>(null));*/
-            //Impossible to use for methods
-            //Assert.AreEqual(string.Empty, GetMember.DisplayName<GetMemberTests>(o => o.NameTest()));
-        }
-
+        //Impossible to use for methods
+        //Assert.AreEqual(string.Empty, GetMember.DisplayName<GetMemberTests>(o => o.NameTest()));
     }
+
+}
 
 
 
