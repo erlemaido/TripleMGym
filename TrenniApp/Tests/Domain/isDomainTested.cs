@@ -19,7 +19,7 @@ namespace TrainingApp.Tests.Domain
         }
 
         [TestMethod]
-        public void IsEventTested()
+        public void IsSportsClubTested()
         {
             isAllTested(assembly, Namespace("SportsClub"));
         }
