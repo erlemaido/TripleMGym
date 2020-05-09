@@ -26,11 +26,12 @@
   <ItemGroup>
     <Folder Include="Areas\SportsClub\Pages\Coaches\" />
     <Folder Include="Areas\SportsClub\Pages\Locations\" />
-    <Folder Include="Areas\SportsClub\Pages\ParticipantsOfTraining\" />
+    <Folder Include="Areas\SportsClub\Pages\Coaches\" />
+    <Folder Include="Areas\SportsClub\Pages\Locations\" />
+    <Folder Include="Areas\SportsClub\Pages\TimetableEntries\" />
     <Folder Include="Areas\SportsClub\Pages\TrainingTypes\" />
     <Folder Include="Areas\SportsClub\Pages\TrainingCategories\" />
     <Folder Include="Areas\SportsClub\Pages\TimetableEntries\" />
-    <Folder Include="Areas\SportsClub\Pages\Trainings\" />
   </ItemGroup>
 
 </Project>

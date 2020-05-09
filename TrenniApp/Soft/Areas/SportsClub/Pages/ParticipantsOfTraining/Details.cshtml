@@ -1,0 +1,43 @@
+﻿@page
+@model TrainingApp.Soft.Areas.SportsClub.Pages.ParticipantsOfTraining.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>ParticipantOfTrainingView</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Item.ClientId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Item.ClientId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Item.TimetableEntryId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Item.TimetableEntryId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Item.CoachId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Item.CoachId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Item.RegistrationTime)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Item.RegistrationTime)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Item.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

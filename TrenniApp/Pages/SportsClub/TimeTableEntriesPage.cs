@@ -20,7 +20,7 @@ namespace TrainingApp.Pages.SportsClub
 
         }
 
-        public IList<ParticipantOfTrainingView> Participants { get;}
+        public IList<ParticipantOfTrainingView> Participants { get; }
 
     }
 }
