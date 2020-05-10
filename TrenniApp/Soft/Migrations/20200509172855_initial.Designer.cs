@@ -10,7 +10,7 @@ using TrainingApp.Soft.Data;
 namespace TrainingApp.Soft.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200503183646_initial")]
+    [Migration("20200509172855_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -219,6 +219,216 @@ namespace TrainingApp.Soft.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("TrainingApp.Data.SportsClub.ClientData", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("DateOfJoining")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("IdCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Clients");
+                });
+
+            modelBuilder.Entity("TrainingApp.Data.SportsClub.CoachData", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("Age")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CoachCertificateNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("HireDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Coaches");
+                });
+
+            modelBuilder.Entity("TrainingApp.Data.SportsClub.LocationData", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Locations");
+                });
+
+            modelBuilder.Entity("TrainingApp.Data.SportsClub.ParticipantOfTrainingData", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ClientId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("TimetableEntryId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("CoachId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("RegistrationTime")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id", "ClientId", "TimetableEntryId", "CoachId");
+
+                    b.ToTable("ParticipantsOfTraining");
+                });
+
+            modelBuilder.Entity("TrainingApp.Data.SportsClub.TimetableEntryData", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("CoachId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("TrainingId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("LocationId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("TrainingTypeId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("EndTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("MaxNumberOfParticipants")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("StartTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("TrainingLevel")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id", "CoachId", "TrainingId", "LocationId", "TrainingTypeId");
+
+                    b.ToTable("TimeTableEntries");
+                });
+
+            modelBuilder.Entity("TrainingApp.Data.SportsClub.TrainingCategoryData", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TrainingCategories");
+                });
+
+            modelBuilder.Entity("TrainingApp.Data.SportsClub.TrainingData", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("TrainingCategoryId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("DurationInMinutes")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id", "TrainingCategoryId");
+
+                    b.ToTable("Trainings");
+                });
+
+            modelBuilder.Entity("TrainingApp.Data.SportsClub.TrainingTypeData", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TrainingTypes");
                 });
 
             modelBuilder.Entity("TrainingApp.Facade.SportsClub.ClientView", b =>

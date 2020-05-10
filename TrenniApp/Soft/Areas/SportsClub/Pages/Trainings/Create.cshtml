@@ -1,0 +1,59 @@
+﻿@page
+@model TrainingApp.Soft.Areas.SportsClub.Pages.Trainings.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>TrainingView</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TrainingView.Title" class="control-label"></label>
+                <input asp-for="TrainingView.Title" class="form-control" />
+                <span asp-validation-for="TrainingView.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TrainingView.Code" class="control-label"></label>
+                <input asp-for="TrainingView.Code" class="form-control" />
+                <span asp-validation-for="TrainingView.Code" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TrainingView.DurationInMinutes" class="control-label"></label>
+                <input asp-for="TrainingView.DurationInMinutes" class="form-control" />
+                <span asp-validation-for="TrainingView.DurationInMinutes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TrainingView.TrainingCategoryId" class="control-label"></label>
+                <input asp-for="TrainingView.TrainingCategoryId" class="form-control" />
+                <span asp-validation-for="TrainingView.TrainingCategoryId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TrainingView.Definition" class="control-label"></label>
+                <input asp-for="TrainingView.Definition" class="form-control" />
+                <span asp-validation-for="TrainingView.Definition" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TrainingView.Id" class="control-label"></label>
+                <input asp-for="TrainingView.Id" class="form-control" />
+                <span asp-validation-for="TrainingView.Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
