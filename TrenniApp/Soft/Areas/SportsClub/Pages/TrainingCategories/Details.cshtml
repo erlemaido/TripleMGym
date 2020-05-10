@@ -1,0 +1,15 @@
+﻿@page
+@using TrainingApp.Pages.Extensions
+@model TrainingApp.Soft.Areas.SportsClub.Pages.TrainingCategories.DetailsModel
+
+@{
+    Layout = "_Details";
+}
+
+<body>
+@Html.DisplayControlsFor(Model => Model.Item.Name)
+@Html.DisplayControlsFor(Model => Model.Item.Description)
+</body>
+
+@section Details {
+}

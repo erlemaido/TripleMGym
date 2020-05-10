@@ -1,45 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using TrainingApp.Facade.SportsClub;
-using TrainingApp.Soft.Data;
+using TrainingApp.Domain.SportsClub;
+using TrainingApp.Pages.SportsClub;
 
 namespace TrainingApp.Soft.Areas.SportsClub.Pages.Clients
 {
-    public class CreateModel : PageModel
+    public class CreateModel : ClientsPage
     {
-        private readonly TrainingApp.Soft.Data.ApplicationDbContext _context;
-
-        public CreateModel(TrainingApp.Soft.Data.ApplicationDbContext context)
+        public CreateModel(IClientsRepository r, IParticipantsOfTrainingRepository t) : base(r, t)
         {
-            _context = context;
         }
 
-        public IActionResult OnGet()
+        public IActionResult OnGet(string fixedFilter, string fixedValue)
         {
+            FixedFilter = fixedFilter;
+            FixedValue = fixedValue;
             return Page();
         }
 
-        [BindProperty]
-        public ClientView ClientView { get; set; }
-
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for
-        // more details, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(string fixedFilter, string fixedValue)
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
+            if (!await AddObject(fixedFilter, fixedValue)) return Page();
 
-            _context.ClientView.Add(ClientView);
-            await _context.SaveChangesAsync();
-
-            return RedirectToPage("./Index");
+            return Redirect(IndexUrl);
         }
     }
 }

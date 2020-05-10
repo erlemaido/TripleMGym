@@ -1,0 +1,45 @@
+﻿@page
+@model TrainingApp.Soft.Areas.SportsClub.Pages.Locations.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>LocationView</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="LocationView.Code" class="control-label"></label>
+                <input asp-for="LocationView.Code" class="form-control" />
+                <span asp-validation-for="LocationView.Code" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LocationView.Name" class="control-label"></label>
+                <input asp-for="LocationView.Name" class="form-control" />
+                <span asp-validation-for="LocationView.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LocationView.Definition" class="control-label"></label>
+                <input asp-for="LocationView.Definition" class="form-control" />
+                <span asp-validation-for="LocationView.Definition" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="LocationView.Id" />
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

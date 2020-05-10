@@ -1,0 +1,13 @@
+﻿@page
+@using TrainingApp.Pages.Extensions
+@model TrainingApp.Soft.Areas.SportsClub.Pages.TrainingCategories.EditModel
+
+@{
+    Layout = "_Edit";
+}
+
+<body>
+<input type="hidden" asp-for="@Model.Item.Id"/>
+@Html.EditControlsFor(Model => Model.Item.Name)
+@Html.EditControlsFor(Model => Model.Item.Description)
+</body>

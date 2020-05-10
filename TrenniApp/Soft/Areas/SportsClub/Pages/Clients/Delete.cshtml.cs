@@ -1,59 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
-using TrainingApp.Facade.SportsClub;
-using TrainingApp.Soft.Data;
+using TrainingApp.Domain.SportsClub;
+using TrainingApp.Pages.SportsClub;
 
 namespace TrainingApp.Soft.Areas.SportsClub.Pages.Clients
 {
-    public class DeleteModel : PageModel
+    public class DeleteModel : ClientsPage
     {
-        private readonly TrainingApp.Soft.Data.ApplicationDbContext _context;
-
-        public DeleteModel(TrainingApp.Soft.Data.ApplicationDbContext context)
+        public DeleteModel(IClientsRepository r, IParticipantsOfTrainingRepository t) : base(r, t)
         {
-            _context = context;
         }
 
-        [BindProperty]
-        public ClientView ClientView { get; set; }
-
-        public async Task<IActionResult> OnGetAsync(string id)
+        public async Task<IActionResult> OnGetAsync(string id, string fixedFilter, string fixedValue)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            await GetObject(id, fixedFilter, fixedValue);
 
-            ClientView = await _context.ClientView.FirstOrDefaultAsync(m => m.Id == id);
-
-            if (ClientView == null)
-            {
-                return NotFound();
-            }
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync(string id)
+        public async Task<IActionResult> OnPostAsync(string id, string fixedFilter, string fixedValue)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            await DeleteObject(id, fixedFilter, fixedValue);
 
-            ClientView = await _context.ClientView.FindAsync(id);
-
-            if (ClientView != null)
-            {
-                _context.ClientView.Remove(ClientView);
-                await _context.SaveChangesAsync();
-            }
-
-            return RedirectToPage("./Index");
+            return Redirect(IndexUrl);
         }
     }
 }
