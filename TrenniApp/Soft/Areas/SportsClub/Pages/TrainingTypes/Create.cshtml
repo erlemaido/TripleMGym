@@ -1,0 +1,44 @@
+﻿@page
+@model TrainingApp.Soft.Areas.SportsClub.Pages.TrainingTypes.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>TrainingTypeView</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TrainingTypeView.Name" class="control-label"></label>
+                <input asp-for="TrainingTypeView.Name" class="form-control" />
+                <span asp-validation-for="TrainingTypeView.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TrainingTypeView.Definition" class="control-label"></label>
+                <input asp-for="TrainingTypeView.Definition" class="form-control" />
+                <span asp-validation-for="TrainingTypeView.Definition" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TrainingTypeView.Id" class="control-label"></label>
+                <input asp-for="TrainingTypeView.Id" class="form-control" />
+                <span asp-validation-for="TrainingTypeView.Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

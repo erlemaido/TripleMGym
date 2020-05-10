@@ -1,0 +1,84 @@
+﻿@page
+@model TrainingApp.Soft.Areas.SportsClub.Pages.TimetableEntries.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>TimetableEntryView</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TimetableEntryView.CoachId" class="control-label"></label>
+                <input asp-for="TimetableEntryView.CoachId" class="form-control" />
+                <span asp-validation-for="TimetableEntryView.CoachId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimetableEntryView.TrainingId" class="control-label"></label>
+                <input asp-for="TimetableEntryView.TrainingId" class="form-control" />
+                <span asp-validation-for="TimetableEntryView.TrainingId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimetableEntryView.LocationId" class="control-label"></label>
+                <input asp-for="TimetableEntryView.LocationId" class="form-control" />
+                <span asp-validation-for="TimetableEntryView.LocationId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimetableEntryView.TrainingTypeId" class="control-label"></label>
+                <input asp-for="TimetableEntryView.TrainingTypeId" class="form-control" />
+                <span asp-validation-for="TimetableEntryView.TrainingTypeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimetableEntryView.TrainingLevel" class="control-label"></label>
+                <select asp-for="TimetableEntryView.TrainingLevel" class="form-control"></select>
+                <span asp-validation-for="TimetableEntryView.TrainingLevel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimetableEntryView.StartTime" class="control-label"></label>
+                <input asp-for="TimetableEntryView.StartTime" class="form-control" />
+                <span asp-validation-for="TimetableEntryView.StartTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimetableEntryView.EndTime" class="control-label"></label>
+                <input asp-for="TimetableEntryView.EndTime" class="form-control" />
+                <span asp-validation-for="TimetableEntryView.EndTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimetableEntryView.MaxNrOfParticipants" class="control-label"></label>
+                <input asp-for="TimetableEntryView.MaxNrOfParticipants" class="form-control" />
+                <span asp-validation-for="TimetableEntryView.MaxNrOfParticipants" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimetableEntryView.NrOfParticipants" class="control-label"></label>
+                <input asp-for="TimetableEntryView.NrOfParticipants" class="form-control" />
+                <span asp-validation-for="TimetableEntryView.NrOfParticipants" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimetableEntryView.Definition" class="control-label"></label>
+                <input asp-for="TimetableEntryView.Definition" class="form-control" />
+                <span asp-validation-for="TimetableEntryView.Definition" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimetableEntryView.Id" class="control-label"></label>
+                <input asp-for="TimetableEntryView.Id" class="form-control" />
+                <span asp-validation-for="TimetableEntryView.Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

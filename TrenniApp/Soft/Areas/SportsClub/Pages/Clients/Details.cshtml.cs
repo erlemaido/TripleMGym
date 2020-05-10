@@ -1,39 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
-using TrainingApp.Facade.SportsClub;
-using TrainingApp.Soft.Data;
+using TrainingApp.Domain.SportsClub;
+using TrainingApp.Pages.SportsClub;
 
 namespace TrainingApp.Soft.Areas.SportsClub.Pages.Clients
 {
-    public class DetailsModel : PageModel
+    public class DetailsModel : ClientsPage
     {
-        private readonly TrainingApp.Soft.Data.ApplicationDbContext _context;
-
-        public DetailsModel(TrainingApp.Soft.Data.ApplicationDbContext context)
+        public DetailsModel(IClientsRepository r, IParticipantsOfTrainingRepository t) : base(r, t)
         {
-            _context = context;
         }
 
-        public ClientView ClientView { get; set; }
-
-        public async Task<IActionResult> OnGetAsync(string id)
+        public async Task<IActionResult> OnGetAsync(string id, string fixedFilter, string fixedValue)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            await GetObject(id, fixedFilter, fixedValue);
 
-            ClientView = await _context.ClientView.FirstOrDefaultAsync(m => m.Id == id);
-
-            if (ClientView == null)
-            {
-                return NotFound();
-            }
             return Page();
         }
     }

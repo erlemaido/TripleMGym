@@ -15,7 +15,7 @@ namespace TrainingApp.Soft.Areas.SportsClub.Pages.ParticipantsOfTraining
     public class IndexModel : ParticipantsOfTrainingPage
     {
 
-        public IndexModel(IParticipantsOfTrainingRepository p, ITimetableEntriesRepository e) : base(p, e)
+        public IndexModel(IParticipantsOfTrainingRepository p, ITimetableEntriesRepository e, IClientsRepository cl, ICoachesRepository co) : base(p, e, cl, co)
         {
         }
         public async Task OnGetAsync(string sortOrder,

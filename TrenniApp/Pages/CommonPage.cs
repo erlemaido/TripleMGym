@@ -29,13 +29,14 @@ namespace TrainingApp.Pages {
         protected internal string GetIndexUrl() => $"{PageUrl}/Index?fixedFilter={FixedFilter}&fixedValue={FixedValue}";
 
         protected static IEnumerable<SelectListItem> CreateSelectList<TTDomain, TTData>(IRepository<TTDomain> r)
+        // TTData algselt pärineb Gunnaril namedEntity Datas. Kuna aga meil kõik klassid ei oma Name, siis tekib problee ja hetkel pandud lihtsalt unique, sest ID kõikidel olemas
+        // aga sellega peab midagi ette võtma
             where TTDomain : Entity<TTData>
-            where TTData : NamedEntityData, new() {
+            where TTData : UniqueEntityData, new() {
             var items = r.Get().GetAwaiter().GetResult();
 
-            return items.Select(m => new SelectListItem(m.Data.Name, m.Data.Id)).ToList();
+            return items.Select(m => new SelectListItem(m.Data.Id, m.Data.Id)).ToList();
         }
-
 
     }
 

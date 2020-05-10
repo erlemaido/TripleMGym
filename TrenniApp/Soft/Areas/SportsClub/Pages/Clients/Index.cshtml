@@ -1,60 +1,83 @@
 ﻿@page
+@using TrainingApp.Aids
+@using TrainingApp.Facade.SportsClub
+@using TrainingApp.Pages.Extensions
 @model TrainingApp.Soft.Areas.SportsClub.Pages.Clients.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    Layout = "_Index";
+    var page = Model.PageUrl;
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.ClientView[0].FirstName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ClientView[0].LastName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ClientView[0].IdCode)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ClientView[0].Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ClientView[0].DateOfJoining)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.ClientView) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.FirstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdCode)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateOfJoining)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
+@section Create {
+    @Html.HypertextLinkFor(string.Empty, new Link(Constants.CreateNewLinkTitle, $"{page}/Create"))
 }
-    </tbody>
-</table>
+
+<body>
+    <table class="table">
+        <thead>
+            @Html.TableHeaderFor(
+                new Link(Html.DisplayNameFor(m => m.Item.Id), Model.GetSortString(m => m.Id, page)),
+                new Link(Html.DisplayNameFor(m => m.Item.FirstName), Model.GetSortString(m => m.FirstName, page)),
+                new Link(Html.DisplayNameFor(m => m.Item.LastName), Model.GetSortString(m => m.LastName, page)),
+                new Link(Html.DisplayNameFor(m => m.Item.IdCode), Model.GetSortString(m => m.IdCode, page)),
+                new Link(Html.DisplayNameFor(m => m.Item.Email), Model.GetSortString(m => m.Email, page)),
+                new Link(Html.DisplayNameFor(m => m.Item.DateOfJoining), Model.GetSortString(m => m.DateOfJoining, page))
+                )
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Items)
+            {
+                var selectedRow = "";
+                if (item.Id == Model.SelectedId)
+                {
+                    selectedRow = "alert-success";
+                    Model.LoadDetails(item);
+                }
+                <tr class=@selectedRow>
+                    @Html.TableRowWithSelectFor(
+                        page,
+                        item.Id,
+                        Model.SortOrder,
+                        Model.SearchString,
+                        Model.PageIndex,
+                        Model.FixedFilter,
+                        Model.FixedValue,
+                        Html.DisplayFor(modelItem => item.Id),
+                        Html.DisplayFor(modelItem => item.FirstName),
+                        Html.DisplayFor(modelItem => item.LastName),
+                        Html.DisplayFor(modelItem => item.IdCode),
+                        Html.DisplayFor(modelItem => item.Email),
+                        Html.DisplayFor(modelItem => item.DateOfJoining)
+                        )
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    @if (Model.Trainings.Count != 0)
+    {
+        <h3>Trainings for Selected Client </h3>
+        <table class="table">
+            <tr>
+                <th>@(GetMember.DisplayName<ParticipantOfTrainingView>(x => x.ClientId))</th>
+                <th>@(GetMember.DisplayName<ParticipantOfTrainingView>(x => x.Id))</th>
+                <th>@(GetMember.DisplayName<ParticipantOfTrainingView>(x => x.TimetableEntryId))</th>
+                <th>@(GetMember.DisplayName<ParticipantOfTrainingView>(x => x.CoachId))</th>
+                <th>@(GetMember.DisplayName<ParticipantOfTrainingView>(x => x.RegistrationTime))</th>
+            </tr>
+
+            @foreach (var item in Model.Trainings)
+            {
+                <tr>
+                    <td> @Html.DisplayFor(modelItem => item.ClientId) </td>
+                    <td> @Html.DisplayFor(modelItem => item.Id) </td>
+                    <td> @Html.DisplayFor(modelItem => item.TimetableEntryId) </td>
+                    <td> @Html.DisplayFor(modelItem => item.CoachId) </td>
+                    <td> @Html.DisplayFor(modelItem => item.RegistrationTime) </td>
+                </tr>
+            }
+
+        </table>
+    }
+</body>

@@ -1,25 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using System.Collections.Generic;
+using TrainingApp.Aids;
 using TrainingApp.Data.SportsClub;
 using TrainingApp.Domain.SportsClub;
 using TrainingApp.Facade.SportsClub;
 
 namespace TrainingApp.Pages.SportsClub
 {
-    public class TrainingsPage : CommonPage<ITrainingsRepository, Training, TrainingView, TrainingData>
+    public abstract class TrainingsPage : CommonPage<ITrainingsRepository, Training, TrainingView, TrainingData>
     {
-        protected internal TrainingsPage(ITrainingsRepository r) : base(r)
+        protected internal readonly ITimetableEntriesRepository timetableTrainings;
+        public IList<TimetableEntryView> TimetableTrainings { get; }
+
+        protected internal TrainingsPage(ITrainingsRepository r, ITimetableEntriesRepository t) : base(r)
         {
             PageTitle = "Trainings";
-            //TrainingCategories = CreateSelectList<TrainingCategory, TrainingCategoryData>(m);
-
+            TimetableTrainings = new List<TimetableEntryView>();
+            timetableTrainings = t;
         }
 
-        public IEnumerable<SelectListItem> TrainingCategories { get; }
+        public override string ItemId => Item.Id;
 
-        //public override string ItemId => Item is null ? string.Empty : $"{Item.TrainingCategoryId}";
         protected internal override string GetPageUrl() => "/SportsClub/Trainings";
 
         protected internal override Training ToObject(TrainingView view)
@@ -32,21 +32,19 @@ namespace TrainingApp.Pages.SportsClub
             return TrainingViewFactory.Create(obj);
         }
 
-        public string GetMeasureName(string measureId)
+        public void LoadDetails(TrainingView item)
         {
-            foreach (var m in TrainingCategories)
-                if (m.Value == measureId)
-                    return m.Text;
-            return "Unspecified";
+            TimetableTrainings.Clear();
 
+            if (item is null) return;
+            timetableTrainings.FixedFilter = GetMember.Name<TimetableEntryData>(x => x.TrainingId);
+            timetableTrainings.FixedValue = item.Id;
+            var list = timetableTrainings.Get().GetAwaiter().GetResult();
+
+            foreach (var e in list)
+            {
+                TimetableTrainings.Add(TimetableEntryViewFactory.Create(e));
+            }
         }
-
-        public override string ItemId { get; }
-
-        protected internal override string GetPageSubTitle()
-        {
-            return FixedValue is null ? base.GetPageSubTitle() : $"For{GetMeasureName(FixedValue)}";
-        }
-
     }
 }

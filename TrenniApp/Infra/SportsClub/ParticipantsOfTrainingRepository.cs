@@ -10,7 +10,7 @@ namespace TrainingApp.Infra.SportsClub
     {
         public ParticipantsOfTrainingRepository() : this(null) { }
 
-        public ParticipantsOfTrainingRepository(SportsClubDbContext c) : base(c, c?.ParticipantsOfTraining) { }
+        public ParticipantsOfTrainingRepository(SportsClubDbContext c) : base(c, c.ParticipantsOfTraining) { }
 
         protected override async Task<ParticipantOfTrainingData> GetData(string participantOfTrainingId)
         {

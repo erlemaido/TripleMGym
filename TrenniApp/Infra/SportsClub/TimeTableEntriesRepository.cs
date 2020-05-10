@@ -10,7 +10,7 @@ namespace TrainingApp.Infra.SportsClub
     {
         public TimetableEntriesRepository() : this(null) { }
 
-        public TimetableEntriesRepository(SportsClubDbContext c) : base(c, c?.TimeTableEntries) { }
+        public TimetableEntriesRepository(SportsClubDbContext c) : base(c, c.TimetableEntries) { }
 
         protected override async Task<TimetableEntryData> GetData(string timetableId)
         {

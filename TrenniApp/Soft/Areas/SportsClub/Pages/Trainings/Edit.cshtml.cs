@@ -16,7 +16,7 @@ namespace TrainingApp.Soft.Areas.SportsClub.Pages.Trainings
     public class EditModel : TrainingsPage
     {
 
-        public EditModel(ITrainingsRepository t) : base(t)
+        public EditModel(ITrainingsRepository r, ITimetableEntriesRepository t) : base(r, t)
         {
         }
 

@@ -1,0 +1,13 @@
+﻿@page
+@using TrainingApp.Pages.Extensions
+@model TrainingApp.Soft.Areas.SportsClub.Pages.TrainingCategories.CreateModel
+
+@{
+    Layout = "_Create";
+}
+
+<body>
+@Html.EditControlsFor(model => model.Item.Id)
+@Html.EditControlsFor(model => model.Item.Name)
+@Html.EditControlsFor(model => model.Item.Description)
+</body>

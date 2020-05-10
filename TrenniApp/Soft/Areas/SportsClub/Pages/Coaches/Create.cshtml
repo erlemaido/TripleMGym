@@ -1,0 +1,69 @@
+﻿@page
+@model TrainingApp.Soft.Areas.SportsClub.Pages.Coaches.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>CoachView</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CoachView.FirstName" class="control-label"></label>
+                <input asp-for="CoachView.FirstName" class="form-control" />
+                <span asp-validation-for="CoachView.FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CoachView.LastName" class="control-label"></label>
+                <input asp-for="CoachView.LastName" class="form-control" />
+                <span asp-validation-for="CoachView.LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CoachView.Age" class="control-label"></label>
+                <input asp-for="CoachView.Age" class="form-control" />
+                <span asp-validation-for="CoachView.Age" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CoachView.Email" class="control-label"></label>
+                <input asp-for="CoachView.Email" class="form-control" />
+                <span asp-validation-for="CoachView.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CoachView.CoachCertificateNumber" class="control-label"></label>
+                <input asp-for="CoachView.CoachCertificateNumber" class="form-control" />
+                <span asp-validation-for="CoachView.CoachCertificateNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CoachView.HireDate" class="control-label"></label>
+                <input asp-for="CoachView.HireDate" class="form-control" />
+                <span asp-validation-for="CoachView.HireDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CoachView.Definition" class="control-label"></label>
+                <input asp-for="CoachView.Definition" class="form-control" />
+                <span asp-validation-for="CoachView.Definition" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CoachView.Id" class="control-label"></label>
+                <input asp-for="CoachView.Id" class="form-control" />
+                <span asp-validation-for="CoachView.Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

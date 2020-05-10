@@ -1,0 +1,43 @@
+﻿@page
+@using System.Security.Cryptography.X509Certificates
+@using TrainingApp.Aids
+@using TrainingApp.Data.SportsClub
+@using TrainingApp.Pages.Extensions
+@model TrainingApp.Soft.Areas.SportsClub.Pages.TrainingCategories.IndexModel
+
+@{
+    Layout = "_Index";
+    var page = Model.PageUrl;
+}
+
+@section Create {
+    @Html.HypertextLinkFor(string.Empty, new Link(Constants.CreateNewLinkTitle, $"{page}/Create"))
+}
+
+<body>
+<table class="table"> 
+    <thead>
+    @Html.TableHeaderFor(
+        new Link(Html.DisplayNameFor(m => m.Item.Id), Model.GetSortString(m => m.Id, page)),
+        new Link(Html.DisplayNameFor(m => m.Item.Name), Model.GetSortString(m => m.Name, page)),
+        new Link(Html.DisplayNameFor(m => m.Item.Description), Model.GetSortString(m => m.Description, page))
+        )
+    </thead>
+    <tbody>
+    @foreach (var item in Model.Items)
+    {
+        <tr>
+            @Html.TableRowFor(
+                page,
+                item.Id,
+                Model.FixedFilter,
+                Model.FixedValue,
+                Html.DisplayFor(modelItem => item.Id),
+                Html.DisplayFor(modelItem => item.Name),
+                Html.DisplayFor(modelItem => item.Description)
+                )
+        </tr>
+    }
+    </tbody>
+</table>
+</body>

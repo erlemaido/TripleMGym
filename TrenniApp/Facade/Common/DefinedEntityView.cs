@@ -2,6 +2,6 @@
 {
     public abstract class DefinedEntityView : UniqueEntityView
     {
-        public string Definition { get; set; }
+        public string Description { get; set; }
     }
 }
