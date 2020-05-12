@@ -5,7 +5,7 @@
     <UserSecretsId>aspnet-Soft-0DFB95B5-DA83-4A45-B155-4C45641819E8</UserSecretsId>
     <AssemblyName>TrainingApp.Soft</AssemblyName>
     <RootNamespace>TrainingApp.Soft</RootNamespace>
-    <Nullable>enable</Nullable>
+    <Nullable>disable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
