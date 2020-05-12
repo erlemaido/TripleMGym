@@ -5,36 +5,25 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using TrainingApp.Domain.SportsClub;
 using TrainingApp.Facade.SportsClub;
+using TrainingApp.Pages.SportsClub;
 using TrainingApp.Soft.Data;
 
 namespace TrainingApp.Soft.Areas.SportsClub.Pages.TimetableEntries
 {
-    public class DetailsModel : PageModel
+    public class DetailsModel : TimeTableEntriesPage
     {
-        private readonly TrainingApp.Soft.Data.ApplicationDbContext _context;
 
-        public DetailsModel(TrainingApp.Soft.Data.ApplicationDbContext context)
+        public DetailsModel(ITimetableEntriesRepository r, IParticipantsOfTrainingRepository p, ITrainingsRepository t, ICoachesRepository c) : base(r, p, t, c)
         {
-            _context = context;
         }
 
-        public TimetableEntryView TimetableEntryView { get; set; }
-
-        public async Task<IActionResult> OnGetAsync(string id)
+        public async Task<IActionResult> OnGetAsync(string id, string fixedFilter, string fixedValue)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            TimetableEntryView = await _context.TimetableEntryView.FirstOrDefaultAsync(m => m.Id == id);
-
-            if (TimetableEntryView == null)
-            {
-                return NotFound();
-            }
+            await GetObject(id, fixedFilter, fixedValue);
             return Page();
         }
-    }
+        }
 }
+

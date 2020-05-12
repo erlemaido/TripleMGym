@@ -10,11 +10,12 @@
 
 <h4>ParticipantOfTrainingView</h4>
 <body>
-@Html.EditControlsFor(model => model.Item.Id)
-@Html.EditControlsFor(model => model.Item.ClientId)
-@Html.EditControlsFor(model => model.Item.CoachId)
+@Html.EditControlsForDropDown(model => model.Item.CoachId, Model.Coaches)
+@Html.EditControlsForDropDown(model => model.Item.ClientId, Model.Clients)
+@Html.EditControlsForDropDown(model => model.Item.TimetableEntryId, Model.TimetableEntries)
+@Html.EditControlsFor(model=>model.Item.Id)
 @Html.EditControlsFor(model => model.Item.RegistrationTime)
-@Html.EditControlsFor(model => model.Item.TimetableEntryId)
+
 </body>
 <hr />
 <div class="row">

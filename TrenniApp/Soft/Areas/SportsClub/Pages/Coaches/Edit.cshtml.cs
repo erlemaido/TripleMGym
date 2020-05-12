@@ -6,72 +6,30 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using TrainingApp.Domain.SportsClub;
 using TrainingApp.Facade.SportsClub;
+using TrainingApp.Pages.SportsClub;
 using TrainingApp.Soft.Data;
 
 namespace TrainingApp.Soft.Areas.SportsClub.Pages.Coaches
 {
-    public class EditModel : PageModel
+    public class EditModel : CoachesPage
     {
-        private readonly TrainingApp.Soft.Data.ApplicationDbContext _context;
 
-        public EditModel(TrainingApp.Soft.Data.ApplicationDbContext context)
+        public EditModel(ICoachesRepository r, ITimetableEntriesRepository t) : base(r, t)
         {
-            _context = context;
         }
 
-        [BindProperty]
-        public CoachView CoachView { get; set; }
-
-        public async Task<IActionResult> OnGetAsync(string id)
+        public async Task<IActionResult> OnGetAsync(string id, string fixedFilter, string fixedValue)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            CoachView = await _context.CoachView.FirstOrDefaultAsync(m => m.Id == id);
-
-            if (CoachView == null)
-            {
-                return NotFound();
-            }
+            await GetObject(id, fixedFilter, fixedValue);
             return Page();
         }
 
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for
-        // more details, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(string fixedFilter, string fixedValue)
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
-
-            _context.Attach(CoachView).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!CoachViewExists(CoachView.Id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return RedirectToPage("./Index");
-        }
-
-        private bool CoachViewExists(string id)
-        {
-            return _context.CoachView.Any(e => e.Id == id);
+            await UpdateObject(fixedFilter, fixedValue);
+            return Redirect(IndexUrl);
         }
     }
 }

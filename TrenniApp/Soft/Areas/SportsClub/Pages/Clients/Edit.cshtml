@@ -8,9 +8,9 @@
 
 <body>
     <input type="hidden" asp-for="@Model.Item.Id" />
-    @Html.EditControlsFor(Model => Model.Item.FirstName)
-    @Html.EditControlsFor(Model => Model.Item.LastName)
-    @Html.EditControlsFor(Model => Model.Item.IdCode)
-    @Html.EditControlsFor(Model => Model.Item.Email)
-    @Html.EditControlsFor(Model => Model.Item.DateOfJoining)
+    @Html.EditControlsFor(model => model.Item.FirstName)
+    @Html.EditControlsFor(model => model.Item.LastName)
+    @Html.EditControlsFor(model => model.Item.IdCode)
+    @Html.EditControlsFor(model => model.Item.Email)
+    @Html.EditControlsFor(model => model.Item.DateOfJoining)
 </body>
