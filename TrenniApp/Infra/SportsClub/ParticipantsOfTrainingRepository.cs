@@ -14,17 +14,12 @@ namespace TrainingApp.Infra.SportsClub
 
         protected override async Task<ParticipantOfTrainingData> GetData(string participantOfTrainingId)
         {
-            // Vaja lisada ka clientId, timetableEntryId
-            var id = GetString.Head(participantOfTrainingId);
-            var clientId = "";
-            var timetableEntryId = "";
-            var coachId = GetString.Tail(participantOfTrainingId);
-            return await DbSet.SingleOrDefaultAsync(x => x.Id == id && x.ClientId == clientId && x.TimetableEntryId == timetableEntryId && x.CoachId == coachId);
+            return await DbSet.SingleOrDefaultAsync(x => x.Id == participantOfTrainingId);
         }
 
         protected override string GetId(ParticipantOfTraining obj)
         {
-            return obj?.Data is null ? string.Empty : $"{obj.Data.Id}.{obj.Data.ClientId}.{obj.Data.TimetableEntryId}.{obj.Data.CoachId}";
+            return obj?.Data is null ? string.Empty : obj.Data.Id;
         }
 
         protected internal override ParticipantOfTraining ToDomainObject(ParticipantOfTrainingData data) => new ParticipantOfTraining(data);
