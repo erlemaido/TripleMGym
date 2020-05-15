@@ -51,5 +51,35 @@ namespace TrainingApp.Tests
                 Assert.AreEqual(expected, actual, $"For property'{name}'.");
             }
         }
+        protected static void arePropertiesEqual(object obj1, object obj2, params string[] except)
+        {
+            foreach (var property in obj1.GetType().GetProperties())
+            {
+                var name = property.Name;
+
+                if (except.Contains(name)) continue;
+                var p = obj2.GetType().GetProperty(name);
+                Assert.IsNotNull(p, $"No property with name '{name}' found.");
+                var expected = property.GetValue(obj1);
+                var actual = p.GetValue(obj2);
+                Assert.AreEqual(expected, actual, $"For property '{name}'.");
+            }
+        }
+
+        protected static void arePropertiesNotEqual(object obj1, object obj2)
+        {
+            foreach (var property in obj1.GetType().GetProperties())
+            {
+                var name = property.Name;
+                var p = obj2.GetType().GetProperty(name);
+                Assert.IsNotNull(p, $"No property with name '{name}' found.");
+                var expected = property.GetValue(obj1);
+                var actual = p.GetValue(obj2);
+
+                if (expected != actual) return;
+            }
+
+            Assert.Fail("All properties are same");
+        }
     }
 }
