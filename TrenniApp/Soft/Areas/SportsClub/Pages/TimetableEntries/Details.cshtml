@@ -1,79 +1,28 @@
 ﻿@page
+@using TrainingApp.Aids
+@using TrainingApp.Data.SportsClub
+@using TrainingApp.Pages.Extensions
 @model TrainingApp.Soft.Areas.SportsClub.Pages.TimetableEntries.DetailsModel
 
 @{
-    ViewData["Title"] = "Details";
+    Layout = "_Details";
+    const string trainings = "/SportsClub/ParticipantsOfTraining";
+    var clientId = GetMember.Name<ParticipantOfTrainingData>(x => x.ClientId);
+    //pole üldse kindel, kas peaks nii olema?
 }
-
-<h1>Details</h1>
-
-<div>
-    <h4>TimetableEntryView</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TimetableEntryView.CoachId)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TimetableEntryView.CoachId)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TimetableEntryView.TrainingId)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TimetableEntryView.TrainingId)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TimetableEntryView.LocationId)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TimetableEntryView.LocationId)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TimetableEntryView.TrainingTypeId)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TimetableEntryView.TrainingTypeId)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TimetableEntryView.TrainingLevel)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TimetableEntryView.TrainingLevel)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TimetableEntryView.StartTime)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TimetableEntryView.StartTime)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TimetableEntryView.EndTime)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TimetableEntryView.EndTime)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TimetableEntryView.MaxNrOfParticipants)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TimetableEntryView.MaxNrOfParticipants)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TimetableEntryView.NrOfParticipants)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TimetableEntryView.NrOfParticipants)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TimetableEntryView.Description)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TimetableEntryView.Description)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-page="./Edit" asp-route-id="@Model.TimetableEntryView.Id">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
-</div>
+<body>
+    @Html.DisplayControlsFor(model => model.Item.CoachId)
+    @Html.DisplayControlsFor(model => model.Item.TrainingId)
+    @Html.DisplayControlsFor(model => model.Item.LocationId)
+    @Html.DisplayControlsFor(model => model.Item.Id)
+    @Html.DisplayControlsFor(model => model.Item.TrainingTypeId)
+    @Html.DisplayControlsFor(model => model.Item.StartTime)
+    @Html.DisplayControlsFor(model => model.Item.EndTime)
+    @Html.DisplayControlsFor(model => model.Item.NrOfParticipants)
+    @Html.DisplayControlsFor(model => model.Item.MaxNrOfParticipants)
+    @Html.DisplayControlsFor(model => model.Item.Description)
+    @Html.DisplayControlsFor(model => model.Item.TrainingLevel)
+</body>
+@section Details {
+    @Html.HypertextLinkFor(string.Empty, new Link("Show trainings", $"{trainings}/Index?fixedFilter={clientId}&fixedValue={Model.Item.Id}"))
+}

@@ -5,35 +5,24 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using TrainingApp.Domain.SportsClub;
 using TrainingApp.Facade.SportsClub;
+using TrainingApp.Pages.SportsClub;
 using TrainingApp.Soft.Data;
 
 namespace TrainingApp.Soft.Areas.SportsClub.Pages.Locations
 {
-    public class DetailsModel : PageModel
+    public class DetailsModel : LocationsPage
     {
-        private readonly TrainingApp.Soft.Data.ApplicationDbContext _context;
 
-        public DetailsModel(TrainingApp.Soft.Data.ApplicationDbContext context)
+        public DetailsModel(ILocationsRepository r) : base(r)
         {
-            _context = context;
         }
 
-        public LocationView LocationView { get; set; }
-
-        public async Task<IActionResult> OnGetAsync(string id)
+        public async Task<IActionResult> OnGetAsync(string id, string fixedFilter, string fixedValue)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            await GetObject(id, fixedFilter, fixedValue);
 
-            LocationView = await _context.LocationView.FirstOrDefaultAsync(m => m.Id == id);
-
-            if (LocationView == null)
-            {
-                return NotFound();
-            }
             return Page();
         }
     }

@@ -5,41 +5,34 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using TrainingApp.Domain.SportsClub;
 using TrainingApp.Facade.SportsClub;
+using TrainingApp.Pages.SportsClub;
 using TrainingApp.Soft.Data;
 
 namespace TrainingApp.Soft.Areas.SportsClub.Pages.TimetableEntries
 {
-    public class CreateModel : PageModel
+    public class CreateModel : TimeTableEntriesPage
     {
-        private readonly TrainingApp.Soft.Data.ApplicationDbContext _context;
 
-        public CreateModel(TrainingApp.Soft.Data.ApplicationDbContext context)
+        public CreateModel(ITimetableEntriesRepository r, IParticipantsOfTrainingRepository p, ITrainingsRepository t, ICoachesRepository c) : base(r, p, t, c)
         {
-            _context = context;
         }
 
-        public IActionResult OnGet()
+        public IActionResult OnGet(string fixedFilter, string fixedValue)
         {
+            FixedFilter = fixedFilter;
+            FixedValue = fixedValue;
             return Page();
-        }
 
-        [BindProperty]
-        public TimetableEntryView TimetableEntryView { get; set; }
+        }
 
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(string fixedFilter, string fixedValue)
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
-
-            _context.TimetableEntryView.Add(TimetableEntryView);
-            await _context.SaveChangesAsync();
-
-            return RedirectToPage("./Index");
+            if (!await AddObject(fixedFilter, fixedValue)) return Page();
+            return Redirect(IndexUrl);
         }
     }
 }
