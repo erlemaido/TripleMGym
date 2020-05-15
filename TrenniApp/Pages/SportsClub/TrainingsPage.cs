@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using TrainingApp.Aids;
 using TrainingApp.Data.SportsClub;
 using TrainingApp.Domain.SportsClub;
@@ -10,12 +11,14 @@ namespace TrainingApp.Pages.SportsClub
     {
         protected internal readonly ITimetableEntriesRepository timetableTrainings;
         public IList<TimetableEntryView> TimetableTrainings { get; }
+        public IEnumerable<SelectListItem> TrainingCategories { get; }
 
-        protected internal TrainingsPage(ITrainingsRepository r, ITimetableEntriesRepository t) : base(r)
+        protected internal TrainingsPage(ITrainingsRepository r, ITimetableEntriesRepository t, ITrainingCategoriesRepository tc) : base(r)
         {
             PageTitle = "Trainings";
             TimetableTrainings = new List<TimetableEntryView>();
             timetableTrainings = t;
+            TrainingCategories = CreateSelectList<TrainingCategory, TrainingCategoryData>(tc);
         }
 
         public override string ItemId => Item.Id;

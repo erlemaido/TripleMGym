@@ -10,6 +10,6 @@ namespace TrainingApp.Data.SportsClub
         public int Age { get; set; }
         public string Email { get; set; }
         public DateTime HireDate { get; set; }
-        public string? CoachCertificateNumber { get; set; }
+        public string CoachCertificateNumber { get; set; }
     }
 }

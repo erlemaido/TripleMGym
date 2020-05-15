@@ -7,15 +7,13 @@
 }
 
     <body>
-        @Html.EditControlsForDropDown(model => model.Item.CoachId, Model.Coaches)
+    @Html.EditControlsForDropDown(model => model.Item.CoachId, Model.Coaches)
         @Html.EditControlsForDropDown(model => model.Item.TrainingId, Model.Trainings)
-        @Html.EditControlsFor(model => model.Item.Id)
-        @Html.EditControlsFor(model => model.Item.LocationId)
-        @Html.EditControlsFor(model => model.Item.TrainingTypeId)
+        @Html.EditControlsForDropDown(model => model.Item.TrainingTypeId, Model.TrainingTypes)
+        @Html.EditControlsForDropDown(model => model.Item.LocationId, Model.Locations)
         @Html.EditControlsFor(model => model.Item.StartTime)
         @Html.EditControlsFor(model => model.Item.EndTime)
         @Html.EditControlsFor(model => model.Item.TrainingLevel)
-        @Html.EditControlsFor(model => model.Item.NrOfParticipants)
         @Html.EditControlsFor(model => model.Item.MaxNrOfParticipants)
         @Html.EditControlsFor(model => model.Item.Description)
     </body>

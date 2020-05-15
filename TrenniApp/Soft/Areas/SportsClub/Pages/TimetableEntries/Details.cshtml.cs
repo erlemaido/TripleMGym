@@ -15,7 +15,8 @@ namespace TrainingApp.Soft.Areas.SportsClub.Pages.TimetableEntries
     public class DetailsModel : TimeTableEntriesPage
     {
 
-        public DetailsModel(ITimetableEntriesRepository r, IParticipantsOfTrainingRepository p, ITrainingsRepository t, ICoachesRepository c) : base(r, p, t, c)
+        public DetailsModel(ITimetableEntriesRepository r, IParticipantsOfTrainingRepository p, 
+            ITrainingsRepository t, ICoachesRepository c, ILocationsRepository l, ITrainingTypesRepository tt) : base(r, p, t, c, l, tt)
         {
         }
 

@@ -1,77 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using TrainingApp.Facade.SportsClub;
-using TrainingApp.Soft.Data;
+using TrainingApp.Domain.SportsClub;
+using TrainingApp.Pages.SportsClub;
 
 namespace TrainingApp.Soft.Areas.SportsClub.Pages.TrainingTypes
 {
-    public class EditModel : PageModel
+    public class EditModel : TrainingTypesPage
     {
-        private readonly TrainingApp.Soft.Data.ApplicationDbContext _context;
-
-        public EditModel(TrainingApp.Soft.Data.ApplicationDbContext context)
+        public EditModel(ITrainingTypesRepository r) : base(r)
         {
-            _context = context;
         }
 
-        [BindProperty]
-        public TrainingTypeView TrainingTypeView { get; set; }
-
-        public async Task<IActionResult> OnGetAsync(string id)
+        public async Task<IActionResult> OnGetAsync(string id, string fixedFilter, string fixedValue)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            TrainingTypeView = await _context.TrainingTypeView.FirstOrDefaultAsync(m => m.Id == id);
-
-            if (TrainingTypeView == null)
-            {
-                return NotFound();
-            }
+            await GetObject(id, fixedFilter, fixedValue);
             return Page();
         }
 
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for
-        // more details, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(string fixedFilter, string fixedValue)
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
-
-            _context.Attach(TrainingTypeView).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!TrainingTypeViewExists(TrainingTypeView.Id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return RedirectToPage("./Index");
-        }
-
-        private bool TrainingTypeViewExists(string id)
-        {
-            return _context.TrainingTypeView.Any(e => e.Id == id);
+            await UpdateObject(fixedFilter, fixedValue);
+            return Redirect(IndexUrl);
         }
     }
 }
