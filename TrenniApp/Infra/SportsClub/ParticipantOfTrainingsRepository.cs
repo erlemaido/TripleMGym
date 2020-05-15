@@ -6,7 +6,7 @@ using TrainingApp.Domain.SportsClub;
 
 namespace TrainingApp.Infra.SportsClub
 {
-    public sealed class ParticipantsOfTrainingRepository : PaginatedRepository<ParticipantOfTraining, ParticipantOfTrainingData>, IParticipantsOfTrainingRepository
+    public sealed class ParticipantsOfTrainingRepository : PaginatedRepository<ParticipantOfTraining, ParticipantOfTrainingData>, IParticipantOfTrainingsRepository
     {
         public ParticipantsOfTrainingRepository() : this(null) { }
 
