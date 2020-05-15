@@ -2,7 +2,8 @@
 
 namespace TrainingApp.Data.SportsClub
 {
-    public sealed class TrainingCategoryData : NamedEntityData
+    public sealed class TrainingCategoryData : UniqueEntityData
     {
+        public string Category { get; set; }
     }
 }

@@ -18,17 +18,5 @@ namespace TrainingApp.Soft.Data
             SportsClubDbContext.InitializeTables(builder);
         }
 
-        public DbSet<TrainingApp.Facade.SportsClub.ClientView> ClientView { get; set; }
-
-        public DbSet<TrainingApp.Facade.SportsClub.CoachView> CoachView { get; set; }
-
-        public DbSet<TrainingApp.Facade.SportsClub.LocationView> LocationView { get; set; }
-
-        public DbSet<TrainingApp.Facade.SportsClub.TimetableEntryView> TimetableEntryView { get; set; }
-
-        public DbSet<TrainingApp.Facade.SportsClub.TrainingCategoryView> TrainingCategoryView { get; set; }
-
-        public DbSet<TrainingApp.Facade.SportsClub.TrainingTypeView> TrainingTypeView { get; set; }
-
     }
 }

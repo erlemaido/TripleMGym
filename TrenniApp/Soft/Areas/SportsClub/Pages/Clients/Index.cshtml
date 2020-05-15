@@ -59,9 +59,7 @@
         <table class="table">
             <tr>
                 <th>@(GetMember.DisplayName<ParticipantOfTrainingView>(x => x.ClientId))</th>
-                <th>@(GetMember.DisplayName<ParticipantOfTrainingView>(x => x.Id))</th>
                 <th>@(GetMember.DisplayName<ParticipantOfTrainingView>(x => x.TimetableEntryId))</th>
-                <th>@(GetMember.DisplayName<ParticipantOfTrainingView>(x => x.CoachId))</th>
                 <th>@(GetMember.DisplayName<ParticipantOfTrainingView>(x => x.RegistrationTime))</th>
             </tr>
 
@@ -69,9 +67,7 @@
             {
                 <tr>
                     <td> @Html.DisplayFor(modelItem => item.ClientId) </td>
-                    <td> @Html.DisplayFor(modelItem => item.Id) </td>
                     <td> @Html.DisplayFor(modelItem => item.TimetableEntryId) </td>
-                    <td> @Html.DisplayFor(modelItem => item.CoachId) </td>
                     <td> @Html.DisplayFor(modelItem => item.RegistrationTime) </td>
                 </tr>
             }

@@ -39,7 +39,7 @@ namespace TrainingApp.Soft
             services.AddScoped<ITrainingTypesRepository, TrainingTypesRepository>();
             services.AddScoped<ITrainingsRepository, TrainingsRepository>();
             services.AddScoped<ITimetableEntriesRepository, TimetableEntriesRepository>();
-            services.AddScoped<IParticipantsOfTrainingRepository, ParticipantsOfTrainingRepository>();
+            services.AddScoped<IParticipantOfTrainingsRepository, ParticipantOfTrainingsRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

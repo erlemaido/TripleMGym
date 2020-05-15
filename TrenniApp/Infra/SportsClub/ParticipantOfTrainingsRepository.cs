@@ -1,16 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
-using TrainingApp.Aids;
 using TrainingApp.Data.SportsClub;
 using TrainingApp.Domain.SportsClub;
 
 namespace TrainingApp.Infra.SportsClub
 {
-    public sealed class ParticipantsOfTrainingRepository : PaginatedRepository<ParticipantOfTraining, ParticipantOfTrainingData>, IParticipantOfTrainingsRepository
+    public sealed class ParticipantOfTrainingsRepository : PaginatedRepository<ParticipantOfTraining, ParticipantOfTrainingData>, IParticipantOfTrainingsRepository
     {
-        public ParticipantsOfTrainingRepository() : this(null) { }
+        public ParticipantOfTrainingsRepository() : this(null) { }
 
-        public ParticipantsOfTrainingRepository(SportsClubDbContext c) : base(c, c.ParticipantsOfTraining) { }
+        public ParticipantOfTrainingsRepository(SportsClubDbContext c) : base(c, c.ParticipantsOfTraining) { }
 
         protected override async Task<ParticipantOfTrainingData> GetData(string participantOfTrainingId)
         {

@@ -25,7 +25,7 @@ namespace TrainingApp.Pages.SportsClub
             PageTitle = "Trainings";
             TimetableTrainings = new List<TimetableEntryView>();
             timetableTrainings = t;
-            TrainingCategories = CreateSelectList<TrainingCategory, TrainingCategoryData>(tc);
+            TrainingCategories = CreateTrainingCategoriesSelectList<TrainingCategory>(tc);
         }
 
         public override string ItemId => Item.Id;
@@ -57,11 +57,11 @@ namespace TrainingApp.Pages.SportsClub
             }
         }
 
-        private IEnumerable<SelectListItem> CreateSelectList<TrainingCategory, TTData>(IRepository<TrainingCategory> r)
+        private IEnumerable<SelectListItem> CreateTrainingCategoriesSelectList<TrainingCategory>(IRepository<TrainingCategory> r)
             where TrainingCategory : Entity<TrainingCategoryData>, new() {
             var items = r.Get().GetAwaiter().GetResult();
 
-            return items.Select(m => new SelectListItem(m.Data.Name, m.Data.Id)).ToList();
+            return items.Select(m => new SelectListItem(m.Data.Category, m.Data.Id)).ToList();
         }
     }
 }

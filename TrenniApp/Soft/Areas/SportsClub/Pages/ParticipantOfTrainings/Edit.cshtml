@@ -1,6 +1,6 @@
 ﻿@page
 @using TrainingApp.Pages.Extensions
-@model TrainingApp.Soft.Areas.SportsClub.Pages.ParticipantsOfTraining.EditModel
+@model TrainingApp.Soft.Areas.SportsClub.Pages.ParticipantOfTrainings.EditModel
 
 @{
     Layout = "_Edit";
@@ -10,6 +10,5 @@
 <input type="hidden" asp-for="@Model.Item.Id" />
 @Html.EditControlsForDropDown(model => model.Item.ClientId, Model.Clients)
 @Html.EditControlsForDropDown(model => model.Item.TimetableEntryId, Model.TimetableEntries)
-@Html.EditControlsForDropDown(model => model.Item.CoachId, Model.Coaches)
 @Html.EditControlsFor(model => model.Item.RegistrationTime)
 </body>

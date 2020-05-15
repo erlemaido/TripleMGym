@@ -28,10 +28,10 @@ namespace TrainingApp.Infra.SportsClub
             builder.Entity<LocationData>().ToTable(nameof(Locations));
             builder.Entity<CoachData>().ToTable(nameof(Coaches));
             builder.Entity<ClientData>().ToTable(nameof(Clients));
-            builder.Entity<ParticipantOfTrainingData>().ToTable(nameof(ParticipantsOfTraining)).HasKey(x => new { x.Id, x.ClientId, x.TimetableEntryId, x.CoachId });
-            builder.Entity<TimetableEntryData>().ToTable(nameof(TimetableEntries)).HasKey(x => new { x.Id, x.CoachId, x.TrainingId, x.LocationId, x.TrainingTypeId });
+            builder.Entity<ParticipantOfTrainingData>().ToTable(nameof(ParticipantsOfTraining));
+            builder.Entity<TimetableEntryData>().ToTable(nameof(TimetableEntries));
             builder.Entity<TrainingCategoryData>().ToTable(nameof(TrainingCategories));
-            builder.Entity<TrainingData>().ToTable(nameof(Trainings)).HasKey(x => new { x.Id, x.TrainingCategoryId });
+            builder.Entity<TrainingData>().ToTable(nameof(Trainings));
             builder.Entity<TrainingTypeData>().ToTable(nameof(TrainingTypes));
         }
     }

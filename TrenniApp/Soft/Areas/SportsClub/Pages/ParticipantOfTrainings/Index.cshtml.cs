@@ -10,12 +10,12 @@ using TrainingApp.Facade.SportsClub;
 using TrainingApp.Pages.SportsClub;
 using TrainingApp.Soft.Data;
 
-namespace TrainingApp.Soft.Areas.SportsClub.Pages.ParticipantsOfTraining
+namespace TrainingApp.Soft.Areas.SportsClub.Pages.ParticipantOfTrainings
 {
-    public class IndexModel : ParticipantsOfTrainingPage
+    public class IndexModel : ParticipantOfTrainingsPage
     {
 
-        public IndexModel(IParticipantsOfTrainingRepository p, ITimetableEntriesRepository e, IClientsRepository cl, ICoachesRepository co) : base(p, e, cl, co)
+        public IndexModel(IParticipantOfTrainingsRepository p, ITimetableEntriesRepository e, IClientsRepository cl) : base(p, e, cl)
         {
         }
         public async Task OnGetAsync(string sortOrder,

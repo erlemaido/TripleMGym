@@ -1,6 +1,11 @@
-﻿using TrainingApp.Facade.Common;
+﻿using System.ComponentModel.DataAnnotations;
+using TrainingApp.Facade.Common;
 
 namespace TrainingApp.Facade.SportsClub
 {
-    public sealed class TrainingCategoryView : NamedEntityView { }
+    public sealed class TrainingCategoryView : UniqueEntityView
+    {
+        [Required]
+        public string Category { get; set; }
+    }
 }

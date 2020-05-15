@@ -1,0 +1,14 @@
+﻿@page
+@using TrainingApp.Pages.Extensions
+@model TrainingApp.Soft.Areas.SportsClub.Pages.ParticipantOfTrainings.DetailsModel
+
+@{
+    Layout = "_Details";
+}
+    <body>
+    @Html.DisplayControlsFor(model => model.Item.ClientId)
+        @Html.DisplayControlsFor(model => model.Item.TimetableEntryId)
+    @Html.DisplayControlsFor(model => model.Item.RegistrationTime)
+    </body>
+@section Details {
+}
