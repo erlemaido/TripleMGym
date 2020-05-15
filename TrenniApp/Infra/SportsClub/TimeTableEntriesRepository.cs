@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
-using TrainingApp.Aids;
 using TrainingApp.Data.SportsClub;
 using TrainingApp.Domain.SportsClub;
 
@@ -12,20 +11,14 @@ namespace TrainingApp.Infra.SportsClub
 
         public TimetableEntriesRepository(SportsClubDbContext c) : base(c, c.TimetableEntries) { }
 
-        protected override async Task<TimetableEntryData> GetData(string timetableId)
+        protected override async Task<TimetableEntryData> GetData(string timetableEntryId)
         {
-            // vaja lisada coachId, trainingId, locationId
-            var id = GetString.Head(timetableId);
-            var coachId = "";
-            var trainingId = "";
-            var locationId = "";
-            var trainingTypeId = GetString.Tail(timetableId);
-            return await DbSet.SingleOrDefaultAsync(x => x.Id == id && x.CoachId == coachId && x.TrainingId == trainingId && x.LocationId == locationId && x.TrainingTypeId == trainingTypeId);
+            return await DbSet.SingleOrDefaultAsync(x => x.Id == timetableEntryId);
         }
 
         protected override string GetId(TimetableEntry obj)
         {
-            return obj?.Data is null ? string.Empty : $"{obj.Data.Id}.{obj.Data.CoachId}.{obj.Data.TrainingId}.{obj.Data.LocationId}.{obj.Data.TrainingTypeId}.";
+            return obj?.Data is null ? string.Empty : obj.Data.Id;
         }
 
         protected internal override TimetableEntry ToDomainObject(TimetableEntryData data) => new TimetableEntry(data);

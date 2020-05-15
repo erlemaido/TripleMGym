@@ -6,7 +6,7 @@
 
 @{
     Layout = "_Details";
-    const string trainings = "/SportsClub/ParticipantsOfTraining";
+    const string trainings = "/SportsClub/ParticipantOfTrainings";
     var clientId = GetMember.Name<ParticipantOfTrainingData>(x => x.ClientId);
     //pole üldse kindel, kas peaks nii olema?
 }
@@ -14,10 +14,10 @@
     @Html.DisplayControlsFor(model => model.Item.CoachId)
     @Html.DisplayControlsFor(model => model.Item.TrainingId)
     @Html.DisplayControlsFor(model => model.Item.LocationId)
-    @Html.DisplayControlsFor(model => model.Item.Id)
-    @Html.DisplayControlsFor(model => model.Item.TrainingTypeId)
+@Html.DisplayControlsFor(model => model.Item.TrainingTypeId)
     @Html.DisplayControlsFor(model => model.Item.StartTime)
     @Html.DisplayControlsFor(model => model.Item.EndTime)
+@Html.DisplayControlsFor(model => model.Item.Date)
 @Html.DisplayControlsFor(model => model.Item.TrainingLevel)
 @Html.DisplayControlsFor(model => model.Item.MaxNrOfParticipants)
 @Html.DisplayControlsFor(model => model.Item.Description)

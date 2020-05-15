@@ -6,7 +6,7 @@
 
 @{
     Layout = "_Details";
-    const string trainings = "/SportsClub/ParticipantsOfTraining";
+    const string trainings = "/SportsClub/ParticipantOfTrainings";
     var clientId = GetMember.Name<ParticipantOfTrainingData>(x => x.ClientId);
 }
 
@@ -19,5 +19,5 @@
 </body>
 
 @section Details {
-    @Html.HypertextLinkFor(string.Empty, new Link("Show trainings", $"{trainings}/Index?fixedFilter={clientId}&fixedValue={Model.Item.Id}"))
+    @Html.HypertextLinkFor(string.Empty, new Link("Show upcoming trainings", $"{trainings}/Index?fixedFilter={clientId}&fixedValue={Model.Item.Id}"))
 }

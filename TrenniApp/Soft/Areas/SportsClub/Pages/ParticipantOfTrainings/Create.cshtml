@@ -1,6 +1,6 @@
 ﻿@page
 @using TrainingApp.Pages.Extensions
-@model TrainingApp.Soft.Areas.SportsClub.Pages.ParticipantsOfTraining.CreateModel
+@model TrainingApp.Soft.Areas.SportsClub.Pages.ParticipantOfTrainings.CreateModel
 
 @{
     Layout = "_Create";
@@ -9,6 +9,5 @@
     <body>
     @Html.EditControlsForDropDown(model => model.Item.ClientId, Model.Clients)
         @Html.EditControlsForDropDown(model => model.Item.TimetableEntryId, Model.TimetableEntries)
-        @Html.EditControlsForDropDown(model => model.Item.CoachId, Model.Coaches)
-        @Html.EditControlsFor(model => model.Item.RegistrationTime)
+    @Html.EditControlsFor(model => model.Item.RegistrationTime)
     </body>

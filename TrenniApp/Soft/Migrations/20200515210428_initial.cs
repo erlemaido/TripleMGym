@@ -51,10 +51,10 @@ namespace TrainingApp.Soft.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(nullable: false),
-                    FirstName = table.Column<string>(nullable: false),
-                    LastName = table.Column<string>(nullable: false),
-                    IdCode = table.Column<string>(nullable: false),
-                    Email = table.Column<string>(nullable: false),
+                    FirstName = table.Column<string>(nullable: true),
+                    LastName = table.Column<string>(nullable: true),
+                    IdCode = table.Column<string>(nullable: true),
+                    Email = table.Column<string>(nullable: true),
                     DateOfJoining = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
@@ -63,31 +63,15 @@ namespace TrainingApp.Soft.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ClientView",
-                columns: table => new
-                {
-                    Id = table.Column<string>(nullable: false),
-                    FirstName = table.Column<string>(nullable: false),
-                    LastName = table.Column<string>(nullable: false),
-                    IdCode = table.Column<string>(nullable: false),
-                    Email = table.Column<string>(nullable: false),
-                    DateOfJoining = table.Column<DateTime>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ClientView", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Coaches",
                 columns: table => new
                 {
                     Id = table.Column<string>(nullable: false),
-                    Description = table.Column<string>(nullable: false),
-                    FirstName = table.Column<string>(nullable: false),
-                    LastName = table.Column<string>(nullable: false),
+                    Description = table.Column<string>(nullable: true),
+                    FirstName = table.Column<string>(nullable: true),
+                    LastName = table.Column<string>(nullable: true),
                     Age = table.Column<int>(nullable: false),
-                    Email = table.Column<string>(nullable: false),
+                    Email = table.Column<string>(nullable: true),
                     HireDate = table.Column<DateTime>(nullable: false),
                     CoachCertificateNumber = table.Column<string>(nullable: true)
                 },
@@ -97,31 +81,11 @@ namespace TrainingApp.Soft.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "CoachView",
-                columns: table => new
-                {
-                    Id = table.Column<string>(nullable: false),
-                    Description = table.Column<string>(nullable: false),
-                    FirstName = table.Column<string>(nullable: false),
-                    LastName = table.Column<string>(nullable: false),
-                    Age = table.Column<int>(nullable: false),
-                    Email = table.Column<string>(nullable: false),
-                    CoachCertificateNumber = table.Column<string>(nullable: false),
-                    HireDate = table.Column<DateTime>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_CoachView", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Locations",
                 columns: table => new
                 {
                     Id = table.Column<string>(nullable: false),
-                    Description = table.Column<string>(nullable: false),
-                    Name = table.Column<string>(nullable: false),
-                    Code = table.Column<string>(nullable: false)
+                    Code = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -129,32 +93,17 @@ namespace TrainingApp.Soft.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "LocationView",
-                columns: table => new
-                {
-                    Id = table.Column<string>(nullable: false),
-                    Description = table.Column<string>(nullable: false),
-                    Name = table.Column<string>(nullable: false),
-                    Code = table.Column<string>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_LocationView", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "ParticipantsOfTraining",
                 columns: table => new
                 {
                     Id = table.Column<string>(nullable: false),
-                    ClientId = table.Column<string>(nullable: false),
-                    TimetableEntryId = table.Column<string>(nullable: false),
-                    CoachId = table.Column<string>(nullable: false),
+                    ClientId = table.Column<string>(nullable: true),
+                    TimetableEntryId = table.Column<string>(nullable: true),
                     RegistrationTime = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ParticipantsOfTraining", x => new { x.Id, x.ClientId, x.TimetableEntryId, x.CoachId });
+                    table.PrimaryKey("PK_ParticipantsOfTraining", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -162,40 +111,20 @@ namespace TrainingApp.Soft.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(nullable: false),
-                    CoachId = table.Column<string>(nullable: false),
-                    TrainingId = table.Column<string>(nullable: false),
-                    LocationId = table.Column<string>(nullable: false),
-                    TrainingTypeId = table.Column<string>(nullable: false),
-                    Description = table.Column<string>(nullable: false),
+                    Description = table.Column<string>(nullable: true),
+                    CoachId = table.Column<string>(nullable: true),
+                    TrainingId = table.Column<string>(nullable: true),
+                    LocationId = table.Column<string>(nullable: true),
+                    TrainingTypeId = table.Column<string>(nullable: true),
                     TrainingLevel = table.Column<int>(nullable: false),
                     StartTime = table.Column<DateTime>(nullable: false),
                     EndTime = table.Column<DateTime>(nullable: false),
+                    Date = table.Column<DateTime>(nullable: false),
                     MaxNumberOfParticipants = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TimetableEntries", x => new { x.Id, x.CoachId, x.TrainingId, x.LocationId, x.TrainingTypeId });
-                });
-
-            migrationBuilder.CreateTable(
-                name: "TimetableEntryView",
-                columns: table => new
-                {
-                    Id = table.Column<string>(nullable: false),
-                    Description = table.Column<string>(nullable: false),
-                    CoachId = table.Column<string>(nullable: false),
-                    TrainingId = table.Column<string>(nullable: false),
-                    LocationId = table.Column<string>(nullable: false),
-                    TrainingTypeId = table.Column<string>(nullable: false),
-                    TrainingLevel = table.Column<int>(nullable: false),
-                    StartTime = table.Column<DateTime>(nullable: false),
-                    EndTime = table.Column<DateTime>(nullable: false),
-                    MaxNrOfParticipants = table.Column<int>(nullable: false),
-                    NrOfParticipants = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_TimetableEntryView", x => x.Id);
+                    table.PrimaryKey("PK_TimetableEntries", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -203,8 +132,7 @@ namespace TrainingApp.Soft.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(nullable: false),
-                    Description = table.Column<string>(nullable: false),
-                    Name = table.Column<string>(nullable: false)
+                    Category = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -212,32 +140,19 @@ namespace TrainingApp.Soft.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "TrainingCategoryView",
-                columns: table => new
-                {
-                    Id = table.Column<string>(nullable: false),
-                    Description = table.Column<string>(nullable: false),
-                    Name = table.Column<string>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_TrainingCategoryView", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Trainings",
                 columns: table => new
                 {
                     Id = table.Column<string>(nullable: false),
-                    TrainingCategoryId = table.Column<string>(nullable: false),
-                    Description = table.Column<string>(nullable: false),
-                    Title = table.Column<string>(nullable: false),
-                    Code = table.Column<string>(nullable: false),
+                    Description = table.Column<string>(nullable: true),
+                    TrainingCategoryId = table.Column<string>(nullable: true),
+                    Title = table.Column<string>(nullable: true),
+                    Code = table.Column<string>(nullable: true),
                     DurationInMinutes = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Trainings", x => new { x.Id, x.TrainingCategoryId });
+                    table.PrimaryKey("PK_Trainings", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -245,25 +160,11 @@ namespace TrainingApp.Soft.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(nullable: false),
-                    Description = table.Column<string>(nullable: false),
-                    Name = table.Column<string>(nullable: false)
+                    Type = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_TrainingTypes", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "TrainingTypeView",
-                columns: table => new
-                {
-                    Id = table.Column<string>(nullable: false),
-                    Description = table.Column<string>(nullable: false),
-                    Name = table.Column<string>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_TrainingTypeView", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -433,19 +334,10 @@ namespace TrainingApp.Soft.Migrations
                 name: "Clients");
 
             migrationBuilder.DropTable(
-                name: "ClientView");
-
-            migrationBuilder.DropTable(
                 name: "Coaches");
 
             migrationBuilder.DropTable(
-                name: "CoachView");
-
-            migrationBuilder.DropTable(
                 name: "Locations");
-
-            migrationBuilder.DropTable(
-                name: "LocationView");
 
             migrationBuilder.DropTable(
                 name: "ParticipantsOfTraining");
@@ -454,22 +346,13 @@ namespace TrainingApp.Soft.Migrations
                 name: "TimetableEntries");
 
             migrationBuilder.DropTable(
-                name: "TimetableEntryView");
-
-            migrationBuilder.DropTable(
                 name: "TrainingCategories");
-
-            migrationBuilder.DropTable(
-                name: "TrainingCategoryView");
 
             migrationBuilder.DropTable(
                 name: "Trainings");
 
             migrationBuilder.DropTable(
                 name: "TrainingTypes");
-
-            migrationBuilder.DropTable(
-                name: "TrainingTypeView");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

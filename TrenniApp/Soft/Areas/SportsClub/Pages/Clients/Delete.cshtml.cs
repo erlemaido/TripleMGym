@@ -7,7 +7,7 @@ namespace TrainingApp.Soft.Areas.SportsClub.Pages.Clients
 {
     public class DeleteModel : ClientsPage
     {
-        public DeleteModel(IClientsRepository r, IParticipantsOfTrainingRepository t) : base(r, t)
+        public DeleteModel(IClientsRepository r, IParticipantOfTrainingsRepository t) : base(r, t)
         {
         }
 

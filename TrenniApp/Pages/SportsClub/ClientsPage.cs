@@ -8,10 +8,10 @@ namespace TrainingApp.Pages.SportsClub
 {
     public abstract class ClientsPage : CommonPage<IClientsRepository, Client, ClientView, ClientData>
     {
-        protected internal readonly IParticipantsOfTrainingRepository trainings;
+        protected internal readonly IParticipantOfTrainingsRepository trainings;
         public IList<ParticipantOfTrainingView> Trainings { get; }
 
-        protected internal ClientsPage(IClientsRepository r, IParticipantsOfTrainingRepository t) : base(r)
+        protected internal ClientsPage(IClientsRepository r, IParticipantOfTrainingsRepository t) : base(r)
         {
             PageTitle = "Clients";
             Trainings = new List<ParticipantOfTrainingView>();

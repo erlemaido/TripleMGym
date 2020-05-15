@@ -8,7 +8,7 @@ namespace TrainingApp.Soft.Areas.SportsClub.Pages.Clients
 {
     public class CreateModel : ClientsPage
     {
-        public CreateModel(IClientsRepository r, IParticipantsOfTrainingRepository t) : base(r, t)
+        public CreateModel(IClientsRepository r, IParticipantOfTrainingsRepository t) : base(r, t)
         {
         }
 

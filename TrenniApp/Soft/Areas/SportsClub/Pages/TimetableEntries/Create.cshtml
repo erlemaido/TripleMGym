@@ -10,10 +10,12 @@
     @Html.EditControlsForDropDown(model => model.Item.CoachId, Model.Coaches)
         @Html.EditControlsForDropDown(model => model.Item.TrainingId, Model.Trainings)
         @Html.EditControlsForDropDown(model => model.Item.TrainingTypeId, Model.TrainingTypes)
+    @Html.EditControlsForDropDown(model => model.Item.TrainingTypeId, Model.TrainingTypes)
         @Html.EditControlsForDropDown(model => model.Item.LocationId, Model.Locations)
         @Html.EditControlsFor(model => model.Item.StartTime)
         @Html.EditControlsFor(model => model.Item.EndTime)
-        @Html.EditControlsFor(model => model.Item.TrainingLevel)
+    @Html.EditControlsFor(model => model.Item.Date)
+        @Html.EditControlsForDropDown(model => model.Item.TrainingLevel, Model.TrainingLevels)
         @Html.EditControlsFor(model => model.Item.MaxNrOfParticipants)
         @Html.EditControlsFor(model => model.Item.Description)
     </body>

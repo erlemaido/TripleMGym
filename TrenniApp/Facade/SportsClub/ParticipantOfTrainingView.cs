@@ -16,16 +16,7 @@ namespace TrainingApp.Facade.SportsClub
         public string TimetableEntryId { get; set; }
 
         [Required]
-        [DisplayName("Coach")]
-        public string CoachId { get; set; }
-
-        [Required]
         [DisplayName("Registration Time")]
         public DateTime RegistrationTime { get; set; }
-
-        public string GetId()
-        {
-            return $"{Id}.{ClientId}.{TimetableEntryId}.{CoachId}";
-        }
     }
 }

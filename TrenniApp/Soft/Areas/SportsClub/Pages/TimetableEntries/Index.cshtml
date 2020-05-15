@@ -22,6 +22,7 @@
                 new Link(Html.DisplayNameFor(m => m.Item.LocationId), Model.GetSortString(m => m.LocationId, page)),
                 new Link(Html.DisplayNameFor(m => m.Item.StartTime), Model.GetSortString(m => m.StartTime, page)),
                 new Link(Html.DisplayNameFor(m => m.Item.EndTime), Model.GetSortString(m => m.EndTime, page)),
+                    new Link(Html.DisplayNameFor(m => m.Item.Date), Model.GetSortString(m => m.Date, page)),
                     new Link(Html.DisplayNameFor(m => m.Item.TrainingLevel), Model.GetSortString(m => m.TrainingLevel, page)),
                 new Link(Html.DisplayNameFor(m => m.Item.MaxNrOfParticipants), Model.GetSortString(m => m.MaxNumberOfParticipants, page)),
                 new Link(Html.DisplayNameFor(m => m.Item.Description), Model.GetSortString(m => m.Description, page)) 
@@ -52,7 +53,7 @@
                         Html.DisplayFor(modelItem => item.LocationId),
                         Html.DisplayFor(modelItem => item.StartTime),
                         Html.DisplayFor(modelItem => item.EndTime),
-                        Html.DisplayFor(modelItem => item.NrOfParticipants),
+                        Html.DisplayFor(modelItem => item.Date),
                         Html.DisplayFor(modelItem => item.TrainingLevel),
                         Html.DisplayFor(modelItem => item.MaxNrOfParticipants),
                         Html.DisplayFor(modelItem => item.Description)
@@ -69,9 +70,7 @@
         <h3>Participants Of Selected Training></h3>
         <table class="table">
             <tr>
-                <th>@(GetMember.DisplayName<ParticipantOfTrainingView>(x => x.CoachId))</th>
                 <th>@(GetMember.DisplayName<ParticipantOfTrainingView>(x => x.ClientId))</th>
-                <th>@(GetMember.DisplayName<ParticipantOfTrainingView>(x => x.Id))</th>
                 <th>@(GetMember.DisplayName<ParticipantOfTrainingView>(x => x.TimetableEntryId))</th>
                 <th>@(GetMember.DisplayName<ParticipantOfTrainingView>(x => x.RegistrationTime))</th>
             </tr>
@@ -79,9 +78,7 @@
             @foreach (var item in Model.Participants)
             {
                 <tr>
-                    <td>@Html.DisplayFor(modelItem => item.CoachId)</td>
                     <td>@Html.DisplayFor(modelItem => item.ClientId)</td>
-                    <td>@Html.DisplayFor(modelItem => item.Id)</td>
                     <td>@Html.DisplayFor(modelItem => item.TimetableEntryId)</td>
                     <td>@Html.DisplayFor(modelItem => item.RegistrationTime)</td>
                 </tr>

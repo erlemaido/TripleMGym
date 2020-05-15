@@ -29,24 +29,21 @@ namespace TrainingApp.Facade.SportsClub
         public TrainingLevel TrainingLevel { get; set; }
 
         [Required]
+        [DataType(DataType.Time)]
         [DisplayName("Start")]
         public DateTime StartTime { get; set; }
 
         [Required]
+        [DataType(DataType.Time)]
         [DisplayName("End")]
         public DateTime EndTime { get; set; }
 
         [Required]
-        [DisplayName("Maximum Number of Participants")]
-        public int MaxNrOfParticipants { get; set; }
+        [DataType(DataType.Date)]
+        public DateTime Date { get; set; }
 
         [Required]
-        [DisplayName("Number of Participants")]
-        public int NrOfParticipants { get; set; }
-
-        public string GetId()
-        {
-            return $"{Id}.{CoachId}.{TrainingId}.{LocationId}.{TrainingTypeId}.";
-        }
+        [DisplayName("Maximum Number of Participants")]
+        public int MaxNrOfParticipants { get; set; }
     }
 }

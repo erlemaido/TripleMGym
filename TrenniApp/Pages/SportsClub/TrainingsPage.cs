@@ -1,9 +1,16 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
+using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using TrainingApp.Aids;
+using TrainingApp.Data.Common;
 using TrainingApp.Data.SportsClub;
+using TrainingApp.Domain.Common;
 using TrainingApp.Domain.SportsClub;
 using TrainingApp.Facade.SportsClub;
+using TrainingApp.Pages.Extensions;
 
 namespace TrainingApp.Pages.SportsClub
 {
@@ -18,7 +25,7 @@ namespace TrainingApp.Pages.SportsClub
             PageTitle = "Trainings";
             TimetableTrainings = new List<TimetableEntryView>();
             timetableTrainings = t;
-            TrainingCategories = CreateSelectList<TrainingCategory, TrainingCategoryData>(tc);
+            TrainingCategories = CreateTrainingCategoriesSelectList<TrainingCategory>(tc);
         }
 
         public override string ItemId => Item.Id;
@@ -48,6 +55,13 @@ namespace TrainingApp.Pages.SportsClub
             {
                 TimetableTrainings.Add(TimetableEntryViewFactory.Create(e));
             }
+        }
+
+        private IEnumerable<SelectListItem> CreateTrainingCategoriesSelectList<TrainingCategory>(IRepository<TrainingCategory> r)
+            where TrainingCategory : Entity<TrainingCategoryData>, new() {
+            var items = r.Get().GetAwaiter().GetResult();
+
+            return items.Select(m => new SelectListItem(m.Data.Category, m.Data.Id)).ToList();
         }
     }
 }

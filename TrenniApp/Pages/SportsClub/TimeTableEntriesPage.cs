@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using TrainingApp.Aids;
@@ -12,17 +13,18 @@ namespace TrainingApp.Pages.SportsClub
 {
     public class TimeTableEntriesPage : CommonPage<ITimetableEntriesRepository, TimetableEntry, TimetableEntryView, TimetableEntryData>
     {
-        protected internal readonly IParticipantsOfTrainingRepository participants;
-        protected internal TimeTableEntriesPage(ITimetableEntriesRepository r, IParticipantsOfTrainingRepository p, 
+        protected internal readonly IParticipantOfTrainingsRepository participants;
+        protected internal TimeTableEntriesPage(ITimetableEntriesRepository r, IParticipantOfTrainingsRepository p, 
             ITrainingsRepository t, ICoachesRepository c, ILocationsRepository l, ITrainingTypesRepository tt) : base(r)
         {
             PageTitle = "Timetable";
             Participants = new List<ParticipantOfTrainingView>();
             participants = p;
-            Trainings = CreateSelectList<Training, TrainingData>(t);
-            Coaches = CreateSelectList<Coach, CoachData>(c);
-            Locations = CreateSelectList<Location, LocationData>(l);
-            TrainingTypes = CreateSelectList<TrainingType, TrainingTypeData>(tt);
+            Trainings = CreateTrainingsSelectList<Training>(t);
+            Coaches = CreateCoachesSelectList<Coach>(c);
+            Locations = CreateLocationsSelectList<Location>(l);
+            TrainingTypes = CreateTrainingTypesSelectList<TrainingType>(tt);
+            TrainingLevels = CreateTrainingLevelsSelectList<TrainingLevel>();
 
         }
         public IList<ParticipantOfTrainingView> Participants { get; }
@@ -34,9 +36,9 @@ namespace TrainingApp.Pages.SportsClub
 
         public IEnumerable<SelectListItem> TrainingTypes { get; }
 
-        public IEnumerable<TrainingLevel> TrainingLevels { get; }
+        public IEnumerable<SelectListItem> TrainingLevels { get; }
 
-        public override string ItemId => Item is null ? string.Empty : Item.GetId();
+        public override string ItemId => Item.Id;
         protected internal override string GetPageUrl() => "/SportsClub/TimetableEntries";
         
         protected internal override TimetableEntry ToObject(TimetableEntryView view)
@@ -78,6 +80,49 @@ namespace TrainingApp.Pages.SportsClub
             {
                 Participants.Add(ParticipantOfTrainingViewFactory.Create(e));
             }
+        }
+
+        private IEnumerable<SelectListItem> CreateTrainingsSelectList<Training>(IRepository<Training> r)
+            where Training : Entity<TrainingData>, new()
+        {
+            var items = r.Get().GetAwaiter().GetResult();
+
+            return items.Select(m => new SelectListItem(m.Data.Title, m.Data.Id)).ToList();
+        }
+
+        private IEnumerable<SelectListItem> CreateCoachesSelectList<Coach>(IRepository<Coach> r)
+            where Coach : Entity<CoachData>, new()
+        {
+            var items = r.Get().GetAwaiter().GetResult();
+
+            return items.Select(m => new SelectListItem(m.Data.FirstName + " " + m.Data.LastName, m.Data.Id)).ToList();
+        }
+
+        private IEnumerable<SelectListItem> CreateLocationsSelectList<Location>(IRepository<Location> r)
+            where Location : Entity<LocationData>, new()
+        {
+            var items = r.Get().GetAwaiter().GetResult();
+
+            return items.Select(m => new SelectListItem(m.Data.Code, m.Data.Id)).ToList();
+        }
+
+        private IEnumerable<SelectListItem> CreateTrainingTypesSelectList<TrainingType>(IRepository<TrainingType> r)
+            where TrainingType : Entity<TrainingTypeData>, new()
+        {
+            var items = r.Get().GetAwaiter().GetResult();
+
+            return items.Select(m => new SelectListItem(m.Data.Type, m.Data.Id)).ToList();
+        }
+
+        private IEnumerable<SelectListItem> CreateTrainingLevelsSelectList<TrainingLevel>()
+        {
+            var items = new SelectList(Enum.GetValues(typeof(TrainingLevel)).Cast<TrainingLevel>().Select(v => new SelectListItem
+            {
+                Text = v.ToString(),
+                Value = Convert.ToInt32(v).ToString()
+            }).ToList(), "Value", "Text");
+
+            return items;
         }
 
     }

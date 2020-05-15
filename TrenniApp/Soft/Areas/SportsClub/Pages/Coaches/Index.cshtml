@@ -66,12 +66,10 @@
             <tr>
                 
                 <th>@(GetMember.DisplayName<TimetableEntryView>(x => x.TrainingId))</th>
-                <th>@(GetMember.DisplayName<TimetableEntryView>(x => x.Id))</th>
                 <th>@(GetMember.DisplayName<TimetableEntryView>(x => x.StartTime))</th>
                 <th>@(GetMember.DisplayName<TimetableEntryView>(x => x.EndTime))</th>
                 <th>@(GetMember.DisplayName<TimetableEntryView>(x => x.CoachId))</th>
                 <th>@(GetMember.DisplayName<TimetableEntryView>(x => x.LocationId))</th>
-                <th>@(GetMember.DisplayName<TimetableEntryView>(x => x.NrOfParticipants))</th>
                 <th>@(GetMember.DisplayName<TimetableEntryView>(x => x.MaxNrOfParticipants))</th>
                 <th>@(GetMember.DisplayName<TimetableEntryView>(x => x.Description))</th>
                 <th>@(GetMember.DisplayName<TimetableEntryView>(x => x.TrainingTypeId))</th>
@@ -83,12 +81,10 @@
             {
                 <tr>
                     <td> @Html.DisplayFor(modelItem => item.TrainingId) </td>
-                    <td> @Html.DisplayFor(modelItem => item.Id) </td>
                     <td> @Html.DisplayFor(modelItem => item.StartTime) </td>
                     <td> @Html.DisplayFor(modelItem => item.EndTime) </td>
                     <td> @Html.DisplayFor(modelItem => item.CoachId) </td>
                     <td> @Html.DisplayFor(modelItem => item.LocationId) </td>
-                    <td> @Html.DisplayFor(modelItem => item.NrOfParticipants) </td>
                     <td> @Html.DisplayFor(modelItem => item.MaxNrOfParticipants) </td>
                     <td> @Html.DisplayFor(modelItem => item.Description) </td>
                     <td> @Html.DisplayFor(modelItem => item.TrainingTypeId) </td>

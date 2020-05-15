@@ -18,11 +18,7 @@ namespace TrainingApp.Tests.Data.SportsClub
         {
             isNullableProperty(() => obj.TimetableEntryId, x => obj.TimetableEntryId = x);
         }
-        [TestMethod]
-        public void CoachIdTest()
-        {
-            isNullableProperty(() => obj.CoachId, x => obj.CoachId = x);
-        }
+
         [TestMethod]
         public void RegistrationTimeTest()
         {

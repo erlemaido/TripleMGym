@@ -12,6 +12,7 @@ namespace TrainingApp.Data.SportsClub
         public TrainingLevel TrainingLevel { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
+        public DateTime Date { get; set; }
         public int MaxNumberOfParticipants { get; set; }
     }
 }

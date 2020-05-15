@@ -18,8 +18,7 @@
 <table class="table"> 
     <thead>
     @Html.TableHeaderFor(
-        new Link(Html.DisplayNameFor(m => m.Item.Name), Model.GetSortString(m => m.Name, page)),
-        new Link(Html.DisplayNameFor(m => m.Item.Description), Model.GetSortString(m => m.Description, page))
+        new Link(Html.DisplayNameFor(m => m.Item.Category), Model.GetSortString(m => m.Category, page))
         )
     </thead>
     <tbody>
@@ -31,8 +30,7 @@
                 item.Id,
                 Model.FixedFilter,
                 Model.FixedValue,
-                Html.DisplayFor(modelItem => item.Name),
-                Html.DisplayFor(modelItem => item.Description)
+                Html.DisplayFor(modelItem => item.Category)
                 )
         </tr>
     }
