@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using TrainingApp.Domain.SportsClub;
 using TrainingApp.Pages.SportsClub;
@@ -20,6 +21,7 @@ namespace TrainingApp.Soft.Areas.SportsClub.Pages.Clients
 
         public async Task<IActionResult> OnPostAsync(string fixedFilter, string fixedValue)
         {
+            Item.Id = Guid.NewGuid().ToString();
             if (!await AddObject(fixedFilter, fixedValue)) return Page();
 
             return Redirect(IndexUrl);

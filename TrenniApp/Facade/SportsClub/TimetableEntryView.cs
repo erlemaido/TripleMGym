@@ -29,12 +29,10 @@ namespace TrainingApp.Facade.SportsClub
         public TrainingLevel TrainingLevel { get; set; }
 
         [Required]
-        [DataType(DataType.Time)]
         [DisplayName("Start")]
         public DateTime StartTime { get; set; }
 
         [Required]
-        [DataType(DataType.Time)]
         [DisplayName("End")]
         public DateTime EndTime { get; set; }
 

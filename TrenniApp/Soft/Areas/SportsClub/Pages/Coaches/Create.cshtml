@@ -1,4 +1,4 @@
-﻿@page
+﻿ @page
 @using TrainingApp.Pages.Extensions
 @model TrainingApp.Soft.Areas.SportsClub.Pages.Coaches.CreateModel
 
@@ -7,12 +7,12 @@
 }
 
 <body>
-    @Html.EditControlsFor(model => model.Item.Id)
-    @Html.EditControlsFor(model => model.Item.FirstName)
+@Html.EditControlsFor(model => model.Item.FirstName)
     @Html.EditControlsFor(model => model.Item.LastName)
     @Html.EditControlsFor(model => model.Item.Age)
     @Html.EditControlsFor(model => model.Item.Email)
     @Html.EditControlsFor(model => model.Item.CoachCertificateNumber)
     @Html.EditControlsFor(model => model.Item.HireDate)
+    @Html.EditControlsFor(model => model.Item.Description)
 </body>
 

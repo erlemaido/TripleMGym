@@ -1,21 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using TrainingApp.Domain.SportsClub;
-using TrainingApp.Facade.SportsClub;
 using TrainingApp.Pages.SportsClub;
-using TrainingApp.Soft.Data;
 
 namespace TrainingApp.Soft.Areas.SportsClub.Pages.Trainings
 {
     public class CreateModel : TrainingsPage
     {
 
-        public CreateModel(ITrainingsRepository r, ITimetableEntriesRepository t) : base(r, t)
+        public CreateModel(ITrainingsRepository r, ITimetableEntriesRepository t, ITrainingCategoriesRepository tc) : base(r, t, tc)
         {
         }
 
@@ -30,6 +24,7 @@ namespace TrainingApp.Soft.Areas.SportsClub.Pages.Trainings
 
         public async Task<IActionResult> OnPostAsync(string fixedFilter, string fixedValue)
         {
+            Item.Id = Guid.NewGuid().ToString();
             if (!await AddObject(fixedFilter, fixedValue)) return Page();
             return Redirect(IndexUrl);
         }

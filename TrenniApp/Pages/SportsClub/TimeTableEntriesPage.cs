@@ -13,19 +13,28 @@ namespace TrainingApp.Pages.SportsClub
     public class TimeTableEntriesPage : CommonPage<ITimetableEntriesRepository, TimetableEntry, TimetableEntryView, TimetableEntryData>
     {
         protected internal readonly IParticipantsOfTrainingRepository participants;
-        protected internal TimeTableEntriesPage(ITimetableEntriesRepository r, IParticipantsOfTrainingRepository p, ITrainingsRepository t, ICoachesRepository c) : base(r)
+        protected internal TimeTableEntriesPage(ITimetableEntriesRepository r, IParticipantsOfTrainingRepository p, 
+            ITrainingsRepository t, ICoachesRepository c, ILocationsRepository l, ITrainingTypesRepository tt) : base(r)
         {
             PageTitle = "Timetable";
             Participants = new List<ParticipantOfTrainingView>();
             participants = p;
             Trainings = CreateSelectList<Training, TrainingData>(t);
             Coaches = CreateSelectList<Coach, CoachData>(c);
+            Locations = CreateSelectList<Location, LocationData>(l);
+            TrainingTypes = CreateSelectList<TrainingType, TrainingTypeData>(tt);
 
         }
         public IList<ParticipantOfTrainingView> Participants { get; }
         public IEnumerable<SelectListItem> Trainings { get; }
 
         public IEnumerable<SelectListItem> Coaches { get; }
+
+        public IEnumerable<SelectListItem> Locations { get; }
+
+        public IEnumerable<SelectListItem> TrainingTypes { get; }
+
+        public IEnumerable<TrainingLevel> TrainingLevels { get; }
 
         public override string ItemId => Item is null ? string.Empty : Item.GetId();
         protected internal override string GetPageUrl() => "/SportsClub/TimetableEntries";

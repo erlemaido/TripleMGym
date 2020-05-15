@@ -1,39 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
-using TrainingApp.Facade.SportsClub;
-using TrainingApp.Soft.Data;
+using TrainingApp.Domain.SportsClub;
+using TrainingApp.Pages.SportsClub;
 
 namespace TrainingApp.Soft.Areas.SportsClub.Pages.TrainingTypes
 {
-    public class DetailsModel : PageModel
+    public class DetailsModel : TrainingTypesPage
     {
-        private readonly TrainingApp.Soft.Data.ApplicationDbContext _context;
-
-        public DetailsModel(TrainingApp.Soft.Data.ApplicationDbContext context)
+        public DetailsModel(ITrainingTypesRepository r) : base(r)
         {
-            _context = context;
         }
 
-        public TrainingTypeView TrainingTypeView { get; set; }
-
-        public async Task<IActionResult> OnGetAsync(string id)
+        public async Task<IActionResult> OnGetAsync(string id, string fixedFilter, string fixedValue)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            await GetObject(id, fixedFilter, fixedValue);
 
-            TrainingTypeView = await _context.TrainingTypeView.FirstOrDefaultAsync(m => m.Id == id);
-
-            if (TrainingTypeView == null)
-            {
-                return NotFound();
-            }
             return Page();
         }
     }

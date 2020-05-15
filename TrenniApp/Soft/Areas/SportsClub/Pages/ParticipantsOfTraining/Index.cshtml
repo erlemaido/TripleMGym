@@ -1,7 +1,6 @@
 ﻿@page
 @using TrainingApp.Pages.Extensions
 @model TrainingApp.Soft.Areas.SportsClub.Pages.ParticipantsOfTraining.IndexModel
-
 @{
     Layout = "_Index";
     var page = Model.PageUrl;
@@ -9,51 +8,32 @@
 @section Create {
     @Html.HypertextLinkFor(string.Empty, new Link(Constants.CreateNewLinkTitle, $"{page}/Create"))
 }
-<h1>Index</h1>
-
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Items[0].ClientId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Items[0].TimetableEntryId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Items[0].CoachId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Items[0].RegistrationTime)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.Items)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ClientId)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TimetableEntryId)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CoachId)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.RegistrationTime)
-                </td>
-                <td>
-                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+<body>
+    <table class="table">
+            <thead>
+                @Html.TableHeaderFor(
+        new Link(Html.DisplayNameFor(m => m.Item.ClientId), Model.GetSortString(m => m.ClientId, page)),
+                new Link(Html.DisplayNameFor(m => m.Item.TimetableEntryId), Model.GetSortString(m => m.TimetableEntryId, page)),
+                new Link(Html.DisplayNameFor(m => m.Item.CoachId), Model.GetSortString(m => m.CoachId, page)),
+                new Link(Html.DisplayNameFor(m => m.Item.RegistrationTime), Model.GetSortString(m => m.RegistrationTime, page))
+                )
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Items)
+            {
+                <tr>
+                    @Html.TableRowFor(
+                        page,
+                        item.Id,
+                        Model.FixedFilter,
+                        Model.FixedValue,
+                        Html.DisplayFor(modelItem => item.ClientId),
+                        Html.DisplayFor(modelItem => item.TimetableEntryId),
+                        Html.DisplayFor(modelItem => item.CoachId),
+                        Html.DisplayFor(modelItem => item.RegistrationTime)
+                        )
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>

@@ -1,46 +1,14 @@
 ﻿@page
+@using TrainingApp.Pages.Extensions
 @model TrainingApp.Soft.Areas.SportsClub.Pages.ParticipantsOfTraining.DeleteModel
 
 @{
     Layout = "_Delete";
 }
+<body>
+@Html.DisplayControlsFor(model => model.Item.ClientId)
+@Html.DisplayControlsFor(model => model.Item.TimetableEntryId)
+@Html.DisplayControlsFor(model => model.Item.CoachId)
+@Html.DisplayControlsFor(model => model.Item.RegistrationTime)
 
-<h1>Delete</h1>
-
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>ParticipantOfTrainingView</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Item.ClientId)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Item.ClientId)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Item.TimetableEntryId)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Item.TimetableEntryId)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Item.CoachId)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Item.CoachId)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Item.RegistrationTime)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Item.RegistrationTime)
-        </dd>
-    </dl>
-    
-    <form method="post">
-        <input type="hidden" asp-for="ParticipantOfTrainingView.Id" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-page="./Index">Back to List</a>
-    </form>
-</div>
+</body>

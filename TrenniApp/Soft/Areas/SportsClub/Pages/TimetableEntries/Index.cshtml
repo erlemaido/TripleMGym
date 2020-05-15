@@ -14,20 +14,19 @@
 }
 <body>
     <table class="table">
-        <thead>
-            @Html.TableHeaderFor(new Link(Html.DisplayNameFor(m => m.Item.Id), Model.GetSortString(m => m.Id, page)),
-                new Link(Html.DisplayNameFor(m => m.Item.CoachId), Model.GetSortString(m => m.CoachId, page)),
+            <thead>
+                @Html.TableHeaderFor(
+        new Link(Html.DisplayNameFor(m => m.Item.CoachId), Model.GetSortString(m => m.CoachId, page)),
                 new Link(Html.DisplayNameFor(m => m.Item.TrainingId), Model.GetSortString(m => m.TrainingId, page)),
                 new Link(Html.DisplayNameFor(m => m.Item.TrainingTypeId), Model.GetSortString(m => m.TrainingTypeId, page)),
                 new Link(Html.DisplayNameFor(m => m.Item.LocationId), Model.GetSortString(m => m.LocationId, page)),
                 new Link(Html.DisplayNameFor(m => m.Item.StartTime), Model.GetSortString(m => m.StartTime, page)),
                 new Link(Html.DisplayNameFor(m => m.Item.EndTime), Model.GetSortString(m => m.EndTime, page)),
-                //new Link(Html.DisplayNameFor(m => m.Item.NrOfParticipants), Model.GetSortString(m => m.NrOfParticipants, page)), mv xd
+                    new Link(Html.DisplayNameFor(m => m.Item.TrainingLevel), Model.GetSortString(m => m.TrainingLevel, page)),
                 new Link(Html.DisplayNameFor(m => m.Item.MaxNrOfParticipants), Model.GetSortString(m => m.MaxNumberOfParticipants, page)),
-                new Link(Html.DisplayNameFor(m => m.Item.Description), Model.GetSortString(m => m.Description, page)),
-                new Link(Html.DisplayNameFor(m => m.Item.TrainingLevel), Model.GetSortString(m => m.TrainingLevel, page))
+                new Link(Html.DisplayNameFor(m => m.Item.Description), Model.GetSortString(m => m.Description, page)) 
 
-                )
+                    )
         </thead>
         <tbody>
             @foreach (var item in Model.Items)
@@ -47,7 +46,6 @@
                         Model.PageIndex,
                         Model.FixedFilter,
                         Model.FixedValue,
-                        Html.DisplayFor(modelItem => item.Id),
                         Html.DisplayFor(modelItem => item.TrainingId),
                         Html.DisplayFor(modelItem => item.CoachId),
                         Html.DisplayFor(modelItem => item.TrainingTypeId),
@@ -55,8 +53,8 @@
                         Html.DisplayFor(modelItem => item.StartTime),
                         Html.DisplayFor(modelItem => item.EndTime),
                         Html.DisplayFor(modelItem => item.NrOfParticipants),
-                        Html.DisplayFor(modelItem => item.MaxNrOfParticipants),
                         Html.DisplayFor(modelItem => item.TrainingLevel),
+                        Html.DisplayFor(modelItem => item.MaxNrOfParticipants),
                         Html.DisplayFor(modelItem => item.Description)
 
 

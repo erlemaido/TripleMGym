@@ -1,60 +1,91 @@
 ﻿@page
+@using TrainingApp.Aids
+@using TrainingApp.Facade.SportsClub
+@using TrainingApp.Pages.Extensions
 @model TrainingApp.Soft.Areas.SportsClub.Pages.Trainings.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    Layout = "_Index";
+    var page = Model.PageUrl;
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Items[0].Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Items[0].Code)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Items[0].DurationInMinutes)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Items[0].TrainingCategoryId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Items[0].Description)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.Items) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Code)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DurationInMinutes)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TrainingCategoryId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
+@section Create {
+    @Html.HypertextLinkFor(string.Empty, new Link(Constants.CreateNewLinkTitle, $"{page}/Create"))
 }
-    </tbody>
-</table>
+
+<body>
+    <table class="table">
+        <thead>
+            @Html.TableHeaderFor(
+                new Link(Html.DisplayNameFor(m => m.Item.Title), Model.GetSortString(m => m.Title, page)),
+                new Link(Html.DisplayNameFor(m => m.Item.Code), Model.GetSortString(m => m.Code, page)),
+                new Link(Html.DisplayNameFor(m => m.Item.TrainingCategoryId), Model.GetSortString(m => m.TrainingCategoryId, page)),
+                new Link(Html.DisplayNameFor(m => m.Item.DurationInMinutes), Model.GetSortString(m => m.DurationInMinutes, page)),
+                new Link(Html.DisplayNameFor(m => m.Item.Description), Model.GetSortString(m => m.Description, page))
+                )
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Items)
+            {
+                var selectedRow = "";
+                if (item.Id == Model.SelectedId)
+                {
+                    selectedRow = "alert-success";
+                    Model.LoadDetails(item);
+                }
+                <tr class=@selectedRow>
+                    @Html.TableRowWithSelectFor(
+                        page,
+                        item.Id,
+                        Model.SortOrder,
+                        Model.SearchString,
+                        Model.PageIndex,
+                        Model.FixedFilter,
+                        Model.FixedValue,
+                        Html.DisplayFor(modelItem => item.Title),
+                        Html.DisplayFor(modelItem => item.Code),
+                        Html.DisplayFor(modelItem => item.TrainingCategoryId),
+                        Html.DisplayFor(modelItem => item.DurationInMinutes),
+                        Html.DisplayFor(modelItem => item.Description)
+                        )
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    @if (Model.TimetableTrainings.Count != 0)
+    {
+        <h3>Next Trainings in the Timetable for Selected Trainings</h3>
+        <table class="table">
+            <tr>
+                <th>@(GetMember.DisplayName<TimetableEntryView>(x => x.TrainingId))</th>
+                <th>@(GetMember.DisplayName<TimetableEntryView>(x => x.Id))</th>
+                <th>@(GetMember.DisplayName<TimetableEntryView>(x => x.CoachId))</th>
+                <th>@(GetMember.DisplayName<TimetableEntryView>(x => x.TrainingTypeId))</th>
+                <th>@(GetMember.DisplayName<TimetableEntryView>(x => x.LocationId))</th>
+                <th>@(GetMember.DisplayName<TimetableEntryView>(x => x.StartTime))</th>
+                <th>@(GetMember.DisplayName<TimetableEntryView>(x => x.EndTime))</th>
+                <th>@(GetMember.DisplayName<TimetableEntryView>(x => x.MaxNrOfParticipants))</th>
+                <th>@(GetMember.DisplayName<TimetableEntryView>(x => x.Description))</th>
+                <th>@(GetMember.DisplayName<TimetableEntryView>(x => x.TrainingLevel))</th>
+            </tr>
+
+            @foreach (var item in Model.TimetableTrainings)
+            {
+                <tr>
+                    <td> @Html.DisplayFor(modelItem => item.TrainingId) </td>
+                    <td> @Html.DisplayFor(modelItem => item.Id) </td>
+                    <td> @Html.DisplayFor(modelItem => item.CoachId) </td>
+                    <td> @Html.DisplayFor(modelItem => item.TrainingTypeId) </td>
+                    <td> @Html.DisplayFor(modelItem => item.LocationId) </td>
+                    <td> @Html.DisplayFor(modelItem => item.StartTime) </td>
+                    <td> @Html.DisplayFor(modelItem => item.EndTime) </td>
+                    <td> @Html.DisplayFor(modelItem => item.MaxNrOfParticipants) </td>
+                    <td> @Html.DisplayFor(modelItem => item.Description) </td>
+                    <td> @Html.DisplayFor(modelItem => item.TrainingLevel) </td>
+                </tr>
+            }
+
+        </table>
+    }
+</body>

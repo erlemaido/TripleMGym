@@ -1,29 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
-using TrainingApp.Facade.SportsClub;
-using TrainingApp.Soft.Data;
+﻿using System.Threading.Tasks;
+using TrainingApp.Domain.SportsClub;
+using TrainingApp.Pages.SportsClub;
 
 namespace TrainingApp.Soft.Areas.SportsClub.Pages.TrainingTypes
 {
-    public class IndexModel : PageModel
+    public class IndexModel : TrainingTypesPage
     {
-        private readonly TrainingApp.Soft.Data.ApplicationDbContext _context;
-
-        public IndexModel(TrainingApp.Soft.Data.ApplicationDbContext context)
+        public IndexModel(ITrainingTypesRepository r) : base(r)
         {
-            _context = context;
         }
 
-        public IList<TrainingTypeView> TrainingTypeView { get;set; }
-
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(string sortOrder, string currentFilter, string searchString, int? pageIndex, string fixedFilter, string fixedValue)
         {
-            TrainingTypeView = await _context.TrainingTypeView.ToListAsync();
+            await GetList(sortOrder, currentFilter, searchString, pageIndex, fixedFilter, fixedValue);
+
         }
     }
 }

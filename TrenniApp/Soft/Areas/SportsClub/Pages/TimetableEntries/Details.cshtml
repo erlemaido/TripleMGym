@@ -18,10 +18,9 @@
     @Html.DisplayControlsFor(model => model.Item.TrainingTypeId)
     @Html.DisplayControlsFor(model => model.Item.StartTime)
     @Html.DisplayControlsFor(model => model.Item.EndTime)
-    @Html.DisplayControlsFor(model => model.Item.NrOfParticipants)
-    @Html.DisplayControlsFor(model => model.Item.MaxNrOfParticipants)
-    @Html.DisplayControlsFor(model => model.Item.Description)
-    @Html.DisplayControlsFor(model => model.Item.TrainingLevel)
+@Html.DisplayControlsFor(model => model.Item.TrainingLevel)
+@Html.DisplayControlsFor(model => model.Item.MaxNrOfParticipants)
+@Html.DisplayControlsFor(model => model.Item.Description)
 </body>
 @section Details {
     @Html.HypertextLinkFor(string.Empty, new Link("Show trainings", $"{trainings}/Index?fixedFilter={clientId}&fixedValue={Model.Item.Id}"))

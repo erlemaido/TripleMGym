@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using TrainingApp.Data.SportsClub;
 using TrainingApp.Domain.SportsClub;
 using TrainingApp.Facade.SportsClub;
 using TrainingApp.Pages.SportsClub;
@@ -15,7 +16,8 @@ namespace TrainingApp.Soft.Areas.SportsClub.Pages.TimetableEntries
     public class CreateModel : TimeTableEntriesPage
     {
 
-        public CreateModel(ITimetableEntriesRepository r, IParticipantsOfTrainingRepository p, ITrainingsRepository t, ICoachesRepository c) : base(r, p, t, c)
+        public CreateModel(ITimetableEntriesRepository r, IParticipantsOfTrainingRepository p, 
+            ITrainingsRepository t, ICoachesRepository c, ILocationsRepository l, ITrainingTypesRepository tt) : base(r, p, t, c, l, tt)
         {
         }
 
@@ -31,6 +33,7 @@ namespace TrainingApp.Soft.Areas.SportsClub.Pages.TimetableEntries
         // more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync(string fixedFilter, string fixedValue)
         {
+            Item.Id = Guid.NewGuid().ToString();
             if (!await AddObject(fixedFilter, fixedValue)) return Page();
             return Redirect(IndexUrl);
         }

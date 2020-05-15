@@ -11,7 +11,7 @@ namespace TrainingApp.Pages.SportsClub
         protected internal ParticipantsOfTrainingPage(IParticipantsOfTrainingRepository r,
             ITimetableEntriesRepository t, IClientsRepository cl, ICoachesRepository co) : base(r)
         {
-            PageTitle = "Participants of Training";
+            PageTitle = "Participant of Trainings";
             TimetableEntries = CreateSelectList<TimetableEntry, TimetableEntryData>(t);
             Clients = CreateSelectList<Client, ClientData>(cl);
             Coaches = CreateSelectList<Coach, CoachData>(co);

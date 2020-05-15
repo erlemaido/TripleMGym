@@ -6,24 +6,9 @@
     Layout = "_Create";
 }
 
-<h1>Create</h1>
-
-<h4>ParticipantOfTrainingView</h4>
-<body>
-@Html.EditControlsForDropDown(model => model.Item.CoachId, Model.Coaches)
-@Html.EditControlsForDropDown(model => model.Item.ClientId, Model.Clients)
-@Html.EditControlsForDropDown(model => model.Item.TimetableEntryId, Model.TimetableEntries)
-@Html.EditControlsFor(model=>model.Item.Id)
-@Html.EditControlsFor(model => model.Item.RegistrationTime)
-
-</body>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
+    <body>
+    @Html.EditControlsForDropDown(model => model.Item.ClientId, Model.Clients)
+        @Html.EditControlsForDropDown(model => model.Item.TimetableEntryId, Model.TimetableEntries)
+        @Html.EditControlsForDropDown(model => model.Item.CoachId, Model.Coaches)
+        @Html.EditControlsFor(model => model.Item.RegistrationTime)
+    </body>
