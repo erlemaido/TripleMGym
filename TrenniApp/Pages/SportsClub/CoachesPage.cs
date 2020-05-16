@@ -24,6 +24,14 @@ namespace TrainingApp.Pages.SportsClub
             TrainingTypes = CreateTrainingTypesSelectList<TrainingType>(tt);
 
         }
+
+        protected CoachesPage(ICoachesRepository c, ITimetableEntriesRepository t) : base(c)
+        {
+            PageTitle = "Coaches";
+            TimetableEntries = new List<TimetableEntryView>();
+            timetableEntries = t;
+        }
+
         public IList<TimetableEntryView> TimetableEntries { get; }
 
         public IEnumerable<SelectListItem> Trainings { get; }
