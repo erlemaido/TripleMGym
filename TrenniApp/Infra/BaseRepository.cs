@@ -69,7 +69,7 @@ namespace TrainingApp.Infra
         public async Task Update(TDomain obj)
         {
             if (obj is null) return;
-            var v = await GetData(GetId(obj));
+            var v = await GetData(GetId(obj)); // id = null, viewl on id olemas aga sellel Domainobjektil mitte
             if (v is null) return;
             DbSet.Remove(v);
             DbSet.Add(obj.Data);

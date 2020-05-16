@@ -64,12 +64,12 @@ namespace TrainingApp.Pages.SportsClub
         }
 
 
-        public void LoadDetails(ClientView item)
+        public void LoadDetails(TimetableEntryView item)
         {
             Participants.Clear();
 
             if (item is null) return;
-            participants.FixedFilter = GetMember.Name<ParticipantOfTrainingData>(x => x.ClientId);
+            participants.FixedFilter = GetMember.Name<ParticipantOfTrainingData>(x => x.TimetableEntryId);
             participants.FixedValue = item.Id;
             var list = participants.Get().GetAwaiter().GetResult();
 
