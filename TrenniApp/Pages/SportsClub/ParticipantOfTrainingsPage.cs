@@ -38,7 +38,14 @@ namespace TrainingApp.Pages.SportsClub
 
         protected internal override string GetPageSubTitle()
         {
-            return FixedValue is null ? base.GetPageSubTitle() : $"For {GetNameFromId(FixedValue, Clients)}";
+            //hack, mis tuleks ilusaks teha
+            var clients = GetNameFromId(FixedValue, Clients);
+            var timetableEntry = GetNameFromId(FixedValue, TimetableEntries);
+            if (clients.Equals("Unspecified"))
+            {
+                return FixedValue is null ? base.GetPageSubTitle() : $"For {timetableEntry}";
+            }
+            return FixedValue is null ? base.GetPageSubTitle() : $"For {clients}";
         }
 
         private IEnumerable<SelectListItem> CreateTimetableEntriesSelectList<TimetableEntry>(IRepository<TimetableEntry> r)
