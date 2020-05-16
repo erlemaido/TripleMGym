@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using TrainingApp.Aids;
-using TrainingApp.Data.Common;
 using TrainingApp.Data.SportsClub;
 using TrainingApp.Domain.Common;
 using TrainingApp.Domain.SportsClub;
