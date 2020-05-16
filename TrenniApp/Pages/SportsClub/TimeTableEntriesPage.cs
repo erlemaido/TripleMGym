@@ -38,14 +38,6 @@ namespace TrainingApp.Pages.SportsClub
 
         public IEnumerable<SelectListItem> TrainingLevels { get; }
 
-        public string GetNameFromId(string id, IEnumerable<SelectListItem> list)
-        {
-            foreach (var m in list)
-                if (m.Value == id)
-                    return m.Text;
-            return "Unspecified";
-        }
-
         public override string ItemId => Item.Id;
         protected internal override string GetPageUrl() => "/SportsClub/TimetableEntries";
         

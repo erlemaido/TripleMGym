@@ -28,6 +28,14 @@ namespace TrainingApp.Pages {
 
         protected internal string GetIndexUrl() => $"{PageUrl}/Index?fixedFilter={FixedFilter}&fixedValue={FixedValue}";
 
+        public string GetNameFromId(string id, IEnumerable<SelectListItem> list)
+        {
+            foreach (var m in list)
+                if (m.Value == id)
+                    return m.Text;
+            return "Unspecified";
+        }
+
         protected static IEnumerable<SelectListItem> CreateSelectList<TTDomain, TTData>(IRepository<TTDomain> r)
         // TTData algselt pärineb Gunnaril namedEntity Datas. Kuna aga meil kõik klassid ei oma Name, siis tekib problee ja hetkel pandud lihtsalt unique, sest ID kõikidel olemas
         // aga sellega peab midagi ette võtma
