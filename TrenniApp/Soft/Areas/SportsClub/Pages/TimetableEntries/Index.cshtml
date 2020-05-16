@@ -36,7 +36,7 @@
                 if (item.Id == Model.SelectedId)
                 {
                     selectedRow = "alert-success";
-                    //Model.LoadDetails(item); Siin mingi error clientviewga, kas see meetod klapib meil ikka?
+                    Model.LoadDetails(item);
                 }
                 <tr class=@selectedRow>
                     @Html.TableRowWithSelectFor(
@@ -67,11 +67,10 @@
     </table>
     @if (Model.Participants.Count != 0)
     {
-        <h3>Participants Of Selected Training></h3>
+        <h3>Participants Of Selected Training</h3>
         <table class="table">
             <tr>
                 <th>@(GetMember.DisplayName<ParticipantOfTrainingView>(x => x.ClientId))</th>
-                <th>@(GetMember.DisplayName<ParticipantOfTrainingView>(x => x.TimetableEntryId))</th>
                 <th>@(GetMember.DisplayName<ParticipantOfTrainingView>(x => x.RegistrationTime))</th>
             </tr>
 
@@ -79,7 +78,6 @@
             {
                 <tr>
                     <td>@Html.DisplayFor(modelItem => item.ClientId)</td>
-                    <td>@Html.DisplayFor(modelItem => item.TimetableEntryId)</td>
                     <td>@Html.DisplayFor(modelItem => item.RegistrationTime)</td>
                 </tr>
             }
