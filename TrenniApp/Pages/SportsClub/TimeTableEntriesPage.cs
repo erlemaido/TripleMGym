@@ -38,6 +38,19 @@ namespace TrainingApp.Pages.SportsClub
 
         public IEnumerable<SelectListItem> TrainingLevels { get; }
 
+        public string GetCoachName(string coachId) { return GetNameFromId(coachId, Coaches); }
+        public string GetTrainingName(string trainingId) { return GetNameFromId(trainingId, Trainings); }
+        public string GetLocationsName(string locationId) { return GetNameFromId(locationId, Locations); }
+        public string GetTrainingTypeName(string trainingTypeId) { return GetNameFromId(trainingTypeId, TrainingTypes); }
+
+        public string GetNameFromId(string id, IEnumerable<SelectListItem> list)
+        {
+            foreach (var m in list)
+                if (m.Value == id)
+                    return m.Text;
+            return "Unspecified";
+        }
+
         public override string ItemId => Item.Id;
         protected internal override string GetPageUrl() => "/SportsClub/TimetableEntries";
         
@@ -56,14 +69,6 @@ namespace TrainingApp.Pages.SportsClub
             return FixedValue is null
                 ? base.GetPageSubTitle()
                 : $"For {GetTrainingName(FixedValue)}";
-        }
-
-        public string GetTrainingName(string trainingId)
-        {
-            foreach (var m in Trainings)
-                if (m.Value == trainingId)
-                    return m.Text;
-            return "Unspecified";
         }
 
 

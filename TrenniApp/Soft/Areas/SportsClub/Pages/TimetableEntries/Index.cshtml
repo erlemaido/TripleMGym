@@ -48,7 +48,7 @@
                         Model.FixedFilter,
                         Model.FixedValue,
                         Html.DisplayFor(modelItem => item.TrainingId),
-                        Html.DisplayFor(modelItem => item.CoachId),
+                        Html.Raw(Model.GetCoachIdName(item.CoachId)),
                         Html.DisplayFor(modelItem => item.TrainingTypeId),
                         Html.DisplayFor(modelItem => item.LocationId),
                         Html.DisplayFor(modelItem => item.StartTime),
