@@ -65,11 +65,11 @@
 
             @foreach (var item in Model.Trainings)
             {
-                <tr>
-                    <td> @Html.DisplayFor(modelItem => item.ClientId) </td>
-                    <td> @Html.DisplayFor(modelItem => item.TimetableEntryId) </td>
-                    <td> @Html.DisplayFor(modelItem => item.RegistrationTime) </td>
-                </tr>
+        <tr>
+            <td>@Html.Raw(Model.GetNameFromId(item.ClientId, Model.Clients))</td>
+            <td>@Html.Raw(Model.GetNameFromId(item.TimetableEntryId, Model.TimetableEntries))</td>
+            <td>@Html.DisplayFor(modelItem => item.RegistrationTime)</td>
+        </tr>
             }
 
         </table>
