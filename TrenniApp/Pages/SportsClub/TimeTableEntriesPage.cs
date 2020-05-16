@@ -53,17 +53,14 @@ namespace TrainingApp.Pages.SportsClub
 
         protected internal override string GetPageSubTitle()
         {
-            return FixedValue is null
-                ? base.GetPageSubTitle()
-                : $"For {GetTrainingName(FixedValue)}";
-        }
-
-        public string GetTrainingName(string trainingId)
-        {
-            foreach (var m in Trainings)
-                if (m.Value == trainingId)
-                    return m.Text;
-            return "Unspecified";
+            //hack, mis tuleks ilusaks teha
+            var coaches = GetNameFromId(FixedValue, Coaches);
+            var trainings = GetNameFromId(FixedValue, Trainings);
+            if (coaches.Equals("Unspecified"))
+            {
+                return FixedValue is null ? base.GetPageSubTitle() : $"For {trainings}";
+            }
+            return FixedValue is null ? base.GetPageSubTitle() : $"For {coaches}";
         }
 
 

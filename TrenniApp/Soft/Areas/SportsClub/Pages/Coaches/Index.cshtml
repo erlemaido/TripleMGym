@@ -59,7 +59,7 @@
         </tbody>
     </table>
 
-    @if (Model.TimetableTrainings.Count != 0)
+    @if (Model.TimetableEntries.Count != 0)
     {
         <h3>Coach of Upcoming Trainings </h3>
         <table class="table">
@@ -77,18 +77,18 @@
 
             </tr>
 
-            @foreach (var item in Model.TimetableTrainings)
+            @foreach (var item in Model.Items)
             {
                 <tr>
-                    <td> @Html.DisplayFor(modelItem => item.TrainingId) </td>
-                    <td> @Html.DisplayFor(modelItem => item.StartTime) </td>
-                    <td> @Html.DisplayFor(modelItem => item.EndTime) </td>
-                    <td> @Html.DisplayFor(modelItem => item.CoachId) </td>
-                    <td> @Html.DisplayFor(modelItem => item.LocationId) </td>
-                    <td> @Html.DisplayFor(modelItem => item.MaxNrOfParticipants) </td>
-                    <td> @Html.DisplayFor(modelItem => item.Description) </td>
-                    <td> @Html.DisplayFor(modelItem => item.TrainingTypeId) </td>
-                    <td> @Html.DisplayFor(modelItem => item.TrainingLevel) </td>
+                    Html.Raw(Model.GetNameFromId(item.TrainingId, Model.Trainings)),
+                    Html.DisplayFor(modelItem => item.StartTime),
+                    Html.DisplayFor(modelItem => item.EndTime),
+                    Html.Raw(Model.GetNameFromId(item.CoachId, Model.Coaches)),
+                    Html.Raw(Model.GetNameFromId(item.LocationId, Model.Locations)) 
+                    Html.DisplayFor(modelItem => item.MaxNrOfParticipants) 
+                    Html.DisplayFor(modelItem => item.Description)
+                    Html.Raw(Model.GetNameFromId(item.TrainingTypeId, Model.TrainingTypes))
+                    Html.DisplayFor(modelItem => item.TrainingLevel) 
                 </tr>
             }
 

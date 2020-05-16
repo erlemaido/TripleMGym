@@ -2,12 +2,13 @@
 @{
     Layout = "_Layout";
     ViewData["Title"] = Model.PageTitle;
+    ViewData["Subtitle"] = Model.PageSubTitle;
 }
 
 
     <p>
         <h1>@ViewData["Title"]</h1>
-        <h4>@Model.PageSubTitle</h4>
+        <h4>@ViewData["Subtitle"]</h4>
         @RenderSection("Create")
     </p>
 

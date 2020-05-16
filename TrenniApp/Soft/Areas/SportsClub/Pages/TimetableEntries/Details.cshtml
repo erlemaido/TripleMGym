@@ -23,5 +23,5 @@
 @Html.DisplayControlsFor(model => model.Item.Description)
 </body>
 @section Details {
-    @Html.HypertextLinkFor(string.Empty, new Link("Show trainings", $"{trainings}/Index?fixedFilter={clientId}&fixedValue={Model.Item.Id}"))
+    @Html.HypertextLinkFor(string.Empty, new Link("Show participants", $"{trainings}/Index?fixedFilter={clientId}&fixedValue={Model.Item.Id}"))
 }

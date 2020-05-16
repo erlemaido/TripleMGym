@@ -11,14 +11,17 @@ namespace TrainingApp.Pages.SportsClub
     public class ParticipantOfTrainingsPage : CommonPage<IParticipantOfTrainingsRepository, ParticipantOfTraining, ParticipantOfTrainingView, ParticipantOfTrainingData>
     {
         protected internal ParticipantOfTrainingsPage(IParticipantOfTrainingsRepository r,
-            ITimetableEntriesRepository t, IClientsRepository cl) : base(r)
+            ITimetableEntriesRepository t, IClientsRepository cl, ITrainingsRepository tr) : base(r)
         {
             PageTitle = "Participant of Trainings";
-            TimetableEntries = CreateTrainingsSelectList<TimetableEntry>(t);
+            Trainings = CreateTrainingsSelectList<Training>(tr);
+            TimetableEntries = CreateTimetableEntriesSelectList<TimetableEntry>(t);
             Clients = CreateClientsSelectList<Client>(cl);
+
         }
         public IEnumerable<SelectListItem> TimetableEntries { get; }
         public IEnumerable<SelectListItem> Clients { get; }
+        public IEnumerable<SelectListItem> Trainings { get; }
 
         public override string ItemId => Item.Id;
         protected internal override string GetPageUrl() => "/SportsClub/ParticipantOfTrainings";
@@ -33,28 +36,32 @@ namespace TrainingApp.Pages.SportsClub
             return ParticipantOfTrainingViewFactory.Create(obj);
         }
 
-        public string GetClientName(string clientId)
-        {
-            foreach (var m in Clients)
-            {
-                if (m.Value == clientId)
-                    return m.Text;
-            }
-
-            return "Unspecified";
-        }
-
         protected internal override string GetPageSubTitle()
         {
-            return FixedValue is null ? base.GetPageSubTitle() : $"For {GetClientName(FixedValue)}";
+            //hack, mis tuleks ilusaks teha
+            var clients = GetNameFromId(FixedValue, Clients);
+            var timetableEntry = GetNameFromId(FixedValue, TimetableEntries);
+            if (clients.Equals("Unspecified"))
+            {
+                return FixedValue is null ? base.GetPageSubTitle() : $"For {timetableEntry}";
+            }
+            return FixedValue is null ? base.GetPageSubTitle() : $"For {clients}";
         }
 
-        private IEnumerable<SelectListItem> CreateTrainingsSelectList<TimetableEntry>(IRepository<TimetableEntry> r)
+        private IEnumerable<SelectListItem> CreateTimetableEntriesSelectList<TimetableEntry>(IRepository<TimetableEntry> r)
             where TimetableEntry : Entity<TimetableEntryData>, new()
         {
             var items = r.Get().GetAwaiter().GetResult();
 
-            return items.Select(m => new SelectListItem(m.Data.Id, m.Data.Id)).ToList();
+            return items.Select(m => new SelectListItem(GetNameFromId(m.Data.TrainingId, Trainings) + " " + m.Data.StartTime + " - " + m.Data.EndTime, m.Data.Id)).ToList();
+        }
+
+        private IEnumerable<SelectListItem> CreateTrainingsSelectList<Training>(IRepository<Training> r)
+            where Training : Entity<TrainingData>, new()
+        {
+            var items = r.Get().GetAwaiter().GetResult();
+
+            return items.Select(m => new SelectListItem(m.Data.Title, m.Data.Id)).ToList();
         }
 
         private IEnumerable<SelectListItem> CreateClientsSelectList<Client>(IRepository<Client> r)

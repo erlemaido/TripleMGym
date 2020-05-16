@@ -26,8 +26,8 @@
                         item.Id,
                         Model.FixedFilter,
                         Model.FixedValue,
-                        Html.DisplayFor(modelItem => item.ClientId),
-                        Html.DisplayFor(modelItem => item.TimetableEntryId),
+                        Html.Raw(Model.GetNameFromId(item.ClientId, Model.Clients)),
+                        Html.Raw(Model.GetNameFromId(item.TimetableEntryId, Model.TimetableEntries)),
                         Html.DisplayFor(modelItem => item.RegistrationTime)
                         )
                 </tr>

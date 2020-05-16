@@ -9,7 +9,7 @@ namespace TrainingApp.Soft.Areas.SportsClub.Pages.ParticipantOfTrainings
     public class CreateModel : ParticipantOfTrainingsPage
     {
 
-        public CreateModel(IParticipantOfTrainingsRepository p, ITimetableEntriesRepository e, IClientsRepository cl) : base(p, e, cl)
+        public CreateModel(IParticipantOfTrainingsRepository p, ITimetableEntriesRepository e, IClientsRepository cl, ITrainingsRepository tr) : base(p, e, cl, tr)
         {
 
         }
