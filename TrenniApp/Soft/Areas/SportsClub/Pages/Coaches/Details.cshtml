@@ -11,8 +11,7 @@
 }
     
 <body>
-    @Html.DisplayControlsFor(model => model.Item.FirstName)
-    @Html.DisplayControlsFor(model => model.Item.LastName)
+@Html.DisplayControlsFor(model => model.Item.Name)
     @Html.DisplayControlsFor(model => model.Item.Age)
     @Html.DisplayControlsFor(model => model.Item.Email)
     @Html.DisplayControlsFor(model => model.Item.CoachCertificateNumber)
@@ -22,5 +21,5 @@
 </body>
 
 @section Details {
-    @Html.HypertextLinkFor(string.Empty, new Link("Show upcoming trainings", $"{timetableEntries}/Index?fixedFilter={coachId}&fixedValue={Model.Item.Id}"))
+    @Html.HypertextLinkFor(string.Empty, new Link("Näita tulevasi treeninguid", $"{timetableEntries}/Index?fixedFilter={coachId}&fixedValue={Model.Item.Id}"))
 }

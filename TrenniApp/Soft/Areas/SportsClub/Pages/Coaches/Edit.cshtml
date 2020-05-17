@@ -8,8 +8,7 @@
 
     <body>
         <input type="hidden" asp-for="@Model.Item.Id" />
-        @Html.EditControlsFor(model => model.Item.FirstName)
-        @Html.EditControlsFor(model => model.Item.LastName)
+    @Html.EditControlsFor(model => model.Item.Name)
         @Html.EditControlsFor(model => model.Item.Age)
         @Html.EditControlsFor(model => model.Item.Email)
         @Html.EditControlsFor(model => model.Item.CoachCertificateNumber)
