@@ -6,10 +6,11 @@
     Layout = "_Create";
 }
 
-<body>
-@Html.EditControlsFor(model => model.Item.Title)
-@Html.EditControlsFor(model => model.Item.Code)
-@Html.EditControlsForDropDown(model => model.Item.TrainingCategoryId, Model.TrainingCategories)
-@Html.EditControlsFor(model => model.Item.DurationInMinutes)
-@Html.EditControlsFor(model => model.Item.Description)
-</body>
+    <body>
+        @Html.EditControlsFor(model => model.Item.Id)
+        @Html.EditControlsFor(model => model.Item.Name)
+        @Html.EditControlsFor(model => model.Item.Code)
+        @Html.EditControlsForDropDown(model => model.Item.TrainingCategoryId, Model.TrainingCategories)
+        @Html.EditControlsFor(model => model.Item.DurationInMinutes)
+        @Html.EditControlsFor(model => model.Item.Description)
+    </body>

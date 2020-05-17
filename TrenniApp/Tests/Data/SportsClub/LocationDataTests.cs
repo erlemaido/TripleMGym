@@ -10,7 +10,7 @@ namespace TrainingApp.Tests.Data.SportsClub
         [TestMethod]
         public void CodeTest()
         {
-            isNullableProperty(() => obj.Code, x => obj.Code = x);
+            isNullableProperty(() => obj.Name, x => obj.Name = x);
         }
     }
 }

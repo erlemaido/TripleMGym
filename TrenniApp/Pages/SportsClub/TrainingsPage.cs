@@ -22,10 +22,10 @@ namespace TrainingApp.Pages.SportsClub
 
         protected internal TrainingsPage(ITrainingsRepository r, ITimetableEntriesRepository t, ITrainingCategoriesRepository tc) : base(r)
         {
-            PageTitle = "Trainings";
+            PageTitle = "Treeningud";
             TimetableTrainings = new List<TimetableEntryView>();
             timetableTrainings = t;
-            TrainingCategories = CreateTrainingCategoriesSelectList<TrainingCategory>(tc);
+            TrainingCategories = CreateSelectList<TrainingCategory, TrainingCategoryData>(tc);
         }
 
         public override string ItemId => Item.Id;
@@ -55,13 +55,6 @@ namespace TrainingApp.Pages.SportsClub
             {
                 TimetableTrainings.Add(TimetableEntryViewFactory.Create(e));
             }
-        }
-
-        private IEnumerable<SelectListItem> CreateTrainingCategoriesSelectList<TrainingCategory>(IRepository<TrainingCategory> r)
-            where TrainingCategory : Entity<TrainingCategoryData>, new() {
-            var items = r.Get().GetAwaiter().GetResult();
-
-            return items.Select(m => new SelectListItem(m.Data.Category, m.Data.Id)).ToList();
         }
     }
 }

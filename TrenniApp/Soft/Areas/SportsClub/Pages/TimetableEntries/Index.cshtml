@@ -16,6 +16,7 @@
     <table class="table">
             <thead>
                 @Html.TableHeaderFor(
+                    new Link(Html.DisplayNameFor(m => m.Item.Name), Model.GetSortString(m => m.Name, page)),
         new Link(Html.DisplayNameFor(m => m.Item.CoachId), Model.GetSortString(m => m.CoachId, page)),
                 new Link(Html.DisplayNameFor(m => m.Item.TrainingId), Model.GetSortString(m => m.TrainingId, page)),
                 new Link(Html.DisplayNameFor(m => m.Item.TrainingTypeId), Model.GetSortString(m => m.TrainingTypeId, page)),
@@ -47,10 +48,11 @@
                         Model.PageIndex,
                         Model.FixedFilter,
                         Model.FixedValue,
-                        Html.Raw(Model.GetNameFromId(item.CoachId, Model.Coaches)),
-                        Html.Raw(Model.GetNameFromId(item.TrainingId, Model.Trainings)),
-                        Html.Raw(Model.GetNameFromId(item.TrainingTypeId, Model.TrainingTypes)),
-                        Html.Raw(Model.GetNameFromId(item.LocationId, Model.Locations)),
+                        Html.DisplayFor(modelItem => item.Name),
+                        Html.DisplayFor(modelItem => item.CoachId),
+                        Html.DisplayFor(modelItem => item.TrainingId),
+                        Html.DisplayFor(modelItem => item.TrainingTypeId),
+                        Html.DisplayFor(modelItem => item.LocationId),
                         Html.DisplayFor(modelItem => item.StartTime),
                         Html.DisplayFor(modelItem => item.EndTime),
                         Html.DisplayFor(modelItem => item.Date),

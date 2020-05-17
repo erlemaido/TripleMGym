@@ -34,7 +34,6 @@ namespace TrainingApp.Soft.Areas.SportsClub.Pages.TimetableEntries
         // more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync(string fixedFilter, string fixedValue)
         {
-            Item.Id = Guid.NewGuid().ToString();
             if (!await AddObject(fixedFilter, fixedValue)) return Page();
             return Redirect(IndexUrl);
         }

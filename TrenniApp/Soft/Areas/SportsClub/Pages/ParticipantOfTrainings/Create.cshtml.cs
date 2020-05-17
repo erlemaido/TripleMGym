@@ -9,7 +9,7 @@ namespace TrainingApp.Soft.Areas.SportsClub.Pages.ParticipantOfTrainings
     public class CreateModel : ParticipantOfTrainingsPage
     {
 
-        public CreateModel(IParticipantOfTrainingsRepository p, ITimetableEntriesRepository e, IClientsRepository cl, ITrainingsRepository tr) : base(p, e, cl, tr)
+        public CreateModel(IParticipantOfTrainingsRepository p, ITimetableEntriesRepository e, IClientsRepository cl) : base(p, e, cl)
         {
 
         }
@@ -26,7 +26,6 @@ namespace TrainingApp.Soft.Areas.SportsClub.Pages.ParticipantOfTrainings
         // more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync(string fixedFilter, string fixedValue)
         {
-            Item.Id = Guid.NewGuid().ToString();
             if (!await AddObject(fixedFilter, fixedValue)) return Page();
             return Redirect(IndexUrl);
         }

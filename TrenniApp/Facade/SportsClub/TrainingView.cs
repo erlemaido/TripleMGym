@@ -7,9 +7,6 @@ namespace TrainingApp.Facade.SportsClub
     public sealed class TrainingView : DefinedEntityView
     {
         [Required]
-        public string Title { get; set; }
-
-        [Required]
         public string Code { get; set; }
 
         [Required]
@@ -19,5 +16,10 @@ namespace TrainingApp.Facade.SportsClub
         [Required]
         [DisplayName("Training Category")]
         public string TrainingCategoryId { get; set; }
+
+        public string GetId()
+        {
+            return $"{Id}.{TrainingCategoryId}";
+        }
     }
 }

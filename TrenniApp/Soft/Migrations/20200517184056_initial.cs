@@ -51,8 +51,7 @@ namespace TrainingApp.Soft.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(nullable: false),
-                    FirstName = table.Column<string>(nullable: true),
-                    LastName = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(nullable: true),
                     IdCode = table.Column<string>(nullable: true),
                     Email = table.Column<string>(nullable: true),
                     DateOfJoining = table.Column<DateTime>(nullable: false)
@@ -67,9 +66,8 @@ namespace TrainingApp.Soft.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(nullable: false),
+                    Name = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
-                    FirstName = table.Column<string>(nullable: true),
-                    LastName = table.Column<string>(nullable: true),
                     Age = table.Column<int>(nullable: false),
                     Email = table.Column<string>(nullable: true),
                     HireDate = table.Column<DateTime>(nullable: false),
@@ -85,7 +83,7 @@ namespace TrainingApp.Soft.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(nullable: false),
-                    Code = table.Column<string>(nullable: true)
+                    Name = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -97,6 +95,7 @@ namespace TrainingApp.Soft.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(nullable: false),
+                    Name = table.Column<string>(nullable: true),
                     ClientId = table.Column<string>(nullable: true),
                     TimetableEntryId = table.Column<string>(nullable: true),
                     RegistrationTime = table.Column<DateTime>(nullable: false)
@@ -111,6 +110,7 @@ namespace TrainingApp.Soft.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(nullable: false),
+                    Name = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
                     CoachId = table.Column<string>(nullable: true),
                     TrainingId = table.Column<string>(nullable: true),
@@ -132,7 +132,7 @@ namespace TrainingApp.Soft.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(nullable: false),
-                    Category = table.Column<string>(nullable: true)
+                    Name = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -144,9 +144,9 @@ namespace TrainingApp.Soft.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(nullable: false),
+                    Name = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
                     TrainingCategoryId = table.Column<string>(nullable: true),
-                    Title = table.Column<string>(nullable: true),
                     Code = table.Column<string>(nullable: true),
                     DurationInMinutes = table.Column<int>(nullable: false)
                 },
@@ -160,7 +160,7 @@ namespace TrainingApp.Soft.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(nullable: false),
-                    Type = table.Column<string>(nullable: true)
+                    Name = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

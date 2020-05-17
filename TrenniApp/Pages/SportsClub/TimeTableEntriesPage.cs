@@ -16,13 +16,13 @@ namespace TrainingApp.Pages.SportsClub
         protected internal TimeTableEntriesPage(ITimetableEntriesRepository r, IParticipantOfTrainingsRepository p, 
             ITrainingsRepository t, ICoachesRepository c, ILocationsRepository l, ITrainingTypesRepository tt, IClientsRepository cl) : base(r)
         {
-            PageTitle = "Timetable";
+            PageTitle = "Tunniplaan";
             Participants = new List<ParticipantOfTrainingView>();
             participants = p;
-            Trainings = CreateTrainingsSelectList<Training>(t);
-            Coaches = CreateCoachesSelectList<Coach>(c);
-            Locations = CreateLocationsSelectList<Location>(l);
-            TrainingTypes = CreateTrainingTypesSelectList<TrainingType>(tt);
+            Trainings = CreateSelectList<Training, TrainingData>(t);
+            Coaches = CreateSelectList<Coach, CoachData>(c);
+            Locations = CreateSelectList<Location, LocationData>(l);
+            TrainingTypes = CreateSelectList<TrainingType, TrainingTypeData>(tt);
             TrainingLevels = CreateTrainingLevelsSelectList<TrainingLevel>();
             Clients = CreateClientsSelectList<Client>(cl);
 
@@ -53,16 +53,41 @@ namespace TrainingApp.Pages.SportsClub
             return TimetableEntryViewFactory.Create(obj);
         }
 
+        public string GetCoachName(string coachId)
+        {
+            foreach (var m in Coaches)
+            {
+                if (m.Value == coachId)
+                    return m.Text;
+            }
+
+            return "Unspecified";
+        }
+
+        public string GetTrainingName(string trainingId)
+        {
+            foreach (var m in Trainings)
+            {
+                if (m.Value == trainingId)
+                    return m.Text;
+            }
+
+            return "Unspecified";
+        }
+
         protected internal override string GetPageSubTitle()
         {
-            //hack, mis tuleks ilusaks teha
-            var coaches = GetNameFromId(FixedValue, Coaches);
-            var trainings = GetNameFromId(FixedValue, Trainings);
-            if (coaches.Equals("Unspecified"))
+            if (!GetCoachName(FixedValue).Equals("Unspecified"))
             {
-                return FixedValue is null ? base.GetPageSubTitle() : $"For {trainings}";
+                return FixedValue is null ? base.GetPageSubTitle() : $"For {GetCoachName(FixedValue)}";
+            } 
+            else if (!GetTrainingName(FixedValue).Equals("Unspecified"))
+            {
+                return FixedValue is null ? base.GetPageSubTitle() : $"For {GetTrainingName(FixedValue)}";
             }
-            return FixedValue is null ? base.GetPageSubTitle() : $"For {coaches}";
+
+            return base.GetPageSubTitle();
+
         }
 
 
@@ -79,38 +104,6 @@ namespace TrainingApp.Pages.SportsClub
             {
                 Participants.Add(ParticipantOfTrainingViewFactory.Create(e));
             }
-        }
-
-        private IEnumerable<SelectListItem> CreateTrainingsSelectList<Training>(IRepository<Training> r)
-            where Training : Entity<TrainingData>, new()
-        {
-            var items = r.Get().GetAwaiter().GetResult();
-
-            return items.Select(m => new SelectListItem(m.Data.Title, m.Data.Id)).ToList();
-        }
-
-        private IEnumerable<SelectListItem> CreateCoachesSelectList<Coach>(IRepository<Coach> r)
-            where Coach : Entity<CoachData>, new()
-        {
-            var items = r.Get().GetAwaiter().GetResult();
-
-            return items.Select(m => new SelectListItem(m.Data.FirstName + " " + m.Data.LastName, m.Data.Id)).ToList();
-        }
-
-        private IEnumerable<SelectListItem> CreateLocationsSelectList<Location>(IRepository<Location> r)
-            where Location : Entity<LocationData>, new()
-        {
-            var items = r.Get().GetAwaiter().GetResult();
-
-            return items.Select(m => new SelectListItem(m.Data.Code, m.Data.Id)).ToList();
-        }
-
-        private IEnumerable<SelectListItem> CreateTrainingTypesSelectList<TrainingType>(IRepository<TrainingType> r)
-            where TrainingType : Entity<TrainingTypeData>, new()
-        {
-            var items = r.Get().GetAwaiter().GetResult();
-
-            return items.Select(m => new SelectListItem(m.Data.Type, m.Data.Id)).ToList();
         }
 
         private IEnumerable<SelectListItem> CreateTrainingLevelsSelectList<TrainingLevel>()

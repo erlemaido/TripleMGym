@@ -5,7 +5,6 @@ namespace TrainingApp.Data.SportsClub
     public sealed class TrainingData : DefinedEntityData
     {
         public string TrainingCategoryId { get; set; }
-        public string Title { get; set; }
         public string Code { get; set; }
         public int DurationInMinutes { get; set; }
     }

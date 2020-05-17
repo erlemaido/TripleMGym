@@ -1,9 +1,6 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using TrainingApp.Aids;
 using TrainingApp.Data.SportsClub;
-using TrainingApp.Domain.Common;
 using TrainingApp.Domain.SportsClub;
 using TrainingApp.Facade.SportsClub;
 
@@ -14,26 +11,13 @@ namespace TrainingApp.Pages.SportsClub
         protected internal readonly IParticipantOfTrainingsRepository participants;
         public IList<ParticipantOfTrainingView> Participants { get; }
 
-        protected internal ClientsPage(IClientsRepository r, IParticipantOfTrainingsRepository p, ITimetableEntriesRepository t, ITrainingsRepository tr) : base(r)
+        protected internal ClientsPage(IClientsRepository r, IParticipantOfTrainingsRepository p) : base(r)
         {
-            PageTitle = "Clients";
-            Participants = new List<ParticipantOfTrainingView>();
-            participants = p;
-            Trainings = CreateTrainingsSelectList<Training>(tr);
-            TimetableEntries = CreateTimetableEntriesSelectList<TimetableEntry>(t);
-            Clients = CreateClientsSelectList<Client>(r);
+            PageTitle = "Kliendid";
+            Trainings = new List<ParticipantOfTrainingView>();
+            trainings = p;
         }
 
-        protected ClientsPage(IClientsRepository r, IParticipantOfTrainingsRepository p) : base(r)
-        {
-            PageTitle = "Clients";
-            Participants = new List<ParticipantOfTrainingView>();
-            participants = p;
-        }
-
-        public IEnumerable<SelectListItem> TimetableEntries { get; }
-        public IEnumerable<SelectListItem> Clients { get; }
-        public IEnumerable<SelectListItem> Trainings { get; }
 
         public override string ItemId => Item.Id;
 
@@ -62,29 +46,6 @@ namespace TrainingApp.Pages.SportsClub
             {
                 Participants.Add(ParticipantOfTrainingViewFactory.Create(e));
             }
-        }
-        private IEnumerable<SelectListItem> CreateTimetableEntriesSelectList<TimetableEntry>(IRepository<TimetableEntry> r)
-            where TimetableEntry : Entity<TimetableEntryData>, new()
-        {
-            var items = r.Get().GetAwaiter().GetResult();
-
-            return items.Select(m => new SelectListItem(GetNameFromId(m.Data.TrainingId, Trainings) + " " + m.Data.StartTime + " - " + m.Data.EndTime, m.Data.Id)).ToList();
-        }
-
-        private IEnumerable<SelectListItem> CreateTrainingsSelectList<Training>(IRepository<Training> r)
-            where Training : Entity<TrainingData>, new()
-        {
-            var items = r.Get().GetAwaiter().GetResult();
-
-            return items.Select(m => new SelectListItem(m.Data.Title, m.Data.Id)).ToList();
-        }
-
-        private IEnumerable<SelectListItem> CreateClientsSelectList<Client>(IRepository<Client> r)
-            where Client : Entity<ClientData>, new()
-        {
-            var items = r.Get().GetAwaiter().GetResult();
-
-            return items.Select(m => new SelectListItem(m.Data.FirstName + " " + m.Data.LastName, m.Data.Id)).ToList();
         }
     }
 }

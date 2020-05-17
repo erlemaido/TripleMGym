@@ -7,7 +7,9 @@
 }
 
     <body>
-    @Html.EditControlsForDropDown(model => model.Item.ClientId, Model.Clients)
+        @Html.EditControlsFor(model => model.Item.Id)
+        @Html.EditControlsFor(model => model.Item.Name)
+        @Html.EditControlsForDropDown(model => model.Item.ClientId, Model.Clients)
         @Html.EditControlsForDropDown(model => model.Item.TimetableEntryId, Model.TimetableEntries)
-    @Html.EditControlsFor(model => model.Item.RegistrationTime)
+        @Html.EditControlsFor(model => model.Item.RegistrationTime)
     </body>

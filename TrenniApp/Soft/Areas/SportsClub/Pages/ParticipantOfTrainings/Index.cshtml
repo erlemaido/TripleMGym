@@ -12,6 +12,7 @@
     <table class="table">
             <thead>
                 @Html.TableHeaderFor(
+                    new Link(Html.DisplayNameFor(m => m.Item.Name), Model.GetSortString(m => m.Name, page)),
         new Link(Html.DisplayNameFor(m => m.Item.ClientId), Model.GetSortString(m => m.ClientId, page)),
                 new Link(Html.DisplayNameFor(m => m.Item.TimetableEntryId), Model.GetSortString(m => m.TimetableEntryId, page)),
                     new Link(Html.DisplayNameFor(m => m.Item.RegistrationTime), Model.GetSortString(m => m.RegistrationTime, page))
@@ -26,8 +27,9 @@
                         item.Id,
                         Model.FixedFilter,
                         Model.FixedValue,
-                        Html.Raw(Model.GetNameFromId(item.ClientId, Model.Clients)),
-                        Html.Raw(Model.GetNameFromId(item.TimetableEntryId, Model.TimetableEntries)),
+                        Html.DisplayFor(modelItem => item.Name),
+                        Html.DisplayFor(modelItem => item.ClientId),
+                        Html.DisplayFor(modelItem => item.TimetableEntryId),
                         Html.DisplayFor(modelItem => item.RegistrationTime)
                         )
                 </tr>

@@ -3,9 +3,7 @@ using TrainingApp.Facade.Common;
 
 namespace TrainingApp.Facade.SportsClub
 {
-    public sealed class TrainingTypeView : UniqueEntityView
+    public sealed class TrainingTypeView : NamedEntityView
     {
-        [Required]
-        public string Type { get; set; }
     }
 }
