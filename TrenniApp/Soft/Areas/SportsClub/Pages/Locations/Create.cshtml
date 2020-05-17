@@ -6,6 +6,7 @@
     Layout = "_Create";
 }
 
-<body>
-@Html.EditControlsFor(model => model.Item.Code)
-</body>
+    <body>
+        @Html.EditControlsFor(model => model.Item.Id)
+        @Html.EditControlsFor(model => model.Item.Name)
+    </body>

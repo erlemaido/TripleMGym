@@ -13,7 +13,7 @@ namespace TrainingApp.Pages.SportsClub
     {
         protected internal readonly ITimetableEntriesRepository timetableEntries;
 
-        protected internal CoachesPage(ICoachesRepository c, ITimetableEntriesRepository t, ITrainingTypesRepository tt, ITrainingsRepository tr, ILocationsRepository l) : base(c)
+        protected internal CoachesPage(ICoachesRepository c, ITimetableEntriesRepository t) : base(c)
         {
             PageTitle = "Treenerid";
             TimetableEntries = new List<TimetableEntryView>();

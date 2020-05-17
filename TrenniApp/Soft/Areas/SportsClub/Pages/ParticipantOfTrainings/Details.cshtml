@@ -5,10 +5,12 @@
 @{
     Layout = "_Details";
 }
-    <body>
-    @Html.DisplayControlsFor(model => model.Item.ClientId)
-        @Html.DisplayControlsFor(model => model.Item.TimetableEntryId)
-    @Html.DisplayControlsFor(model => model.Item.RegistrationTime)
-    </body>
+<body>
+@Html.DisplayControlsFor(model => model.Item.Name)
+
+@Html.DisplayControlsFor(model => model.Item.ClientId)
+@Html.DisplayControlsFor(model => model.Item.TimetableEntryId)
+@Html.DisplayControlsFor(model => model.Item.RegistrationTime)
+</body>
 @section Details {
 }

@@ -15,7 +15,7 @@ namespace TrainingApp.Tests.Data.SportsClub
         [TestMethod]
         public void TitleTest()
         {
-            isNullableProperty(() => obj.Title, x => obj.Title = x);
+            isNullableProperty(() => obj.Name, x => obj.Name = x);
         }
         [TestMethod]
         public void CodeTest()

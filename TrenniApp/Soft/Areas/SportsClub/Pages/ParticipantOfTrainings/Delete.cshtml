@@ -6,6 +6,7 @@
     Layout = "_Delete";
 }
 <body>
+@Html.DisplayControlsFor(model => model.Item.Name)
 @Html.DisplayControlsFor(model => model.Item.ClientId)
 @Html.DisplayControlsFor(model => model.Item.TimetableEntryId)
 @Html.DisplayControlsFor(model => model.Item.RegistrationTime)

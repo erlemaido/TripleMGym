@@ -18,7 +18,7 @@
     <table class="table">
         <thead>
             @Html.TableHeaderFor(
-                new Link(Html.DisplayNameFor(m => m.Item.Type), Model.GetSortString(m => m.Type, page))
+                new Link(Html.DisplayNameFor(m => m.Item.Name), Model.GetSortString(m => m.Name, page))
                 )
         </thead>
         <tbody>
@@ -30,7 +30,7 @@
                         item.Id,
                         Model.FixedFilter,
                         Model.FixedValue,
-                        Html.DisplayFor(modelItem => item.Type)
+                        Html.DisplayFor(modelItem => item.Name)
                         )
                 </tr>
             }

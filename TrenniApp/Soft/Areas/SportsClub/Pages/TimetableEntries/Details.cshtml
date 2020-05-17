@@ -11,12 +11,13 @@
     //pole üldse kindel, kas peaks nii olema?
 }
 <body>
-    @Html.DisplayControlsFor(model => model.Item.CoachId)
-    @Html.DisplayControlsFor(model => model.Item.TrainingId)
-    @Html.DisplayControlsFor(model => model.Item.LocationId)
+@Html.DisplayControlsFor(model => model.Item.Name)
+@Html.DisplayControlsFor(model => model.Item.CoachId)
+@Html.DisplayControlsFor(model => model.Item.TrainingId)
+@Html.DisplayControlsFor(model => model.Item.LocationId)
 @Html.DisplayControlsFor(model => model.Item.TrainingTypeId)
-    @Html.DisplayControlsFor(model => model.Item.StartTime)
-    @Html.DisplayControlsFor(model => model.Item.EndTime)
+@Html.DisplayControlsFor(model => model.Item.StartTime)
+@Html.DisplayControlsFor(model => model.Item.EndTime)
 @Html.DisplayControlsFor(model => model.Item.Date)
 @Html.DisplayControlsFor(model => model.Item.TrainingLevel)
 @Html.DisplayControlsFor(model => model.Item.MaxNrOfParticipants)

@@ -12,13 +12,9 @@ namespace TrainingApp.Tests.Data.SportsClub
         [TestMethod]
         public void FirstNameTest()
         {
-            isNullableProperty(() => obj.FirstName, x => obj.FirstName = x);
+            isNullableProperty(() => obj.Name, x => obj.Name = x);
         }
-        [TestMethod]
-        public void LastNameTest()
-        {
-            isNullableProperty(() => obj.LastName, x => obj.LastName = x);
-        }
+
         [TestMethod]
         public void AgeTest()
         {

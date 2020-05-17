@@ -17,7 +17,7 @@
     <table class="table">
         <thead>
             @Html.TableHeaderFor(
-                new Link(Html.DisplayNameFor(m => m.Item.Title), Model.GetSortString(m => m.Title, page)),
+                new Link(Html.DisplayNameFor(m => m.Item.Name), Model.GetSortString(m => m.Name, page)),
                 new Link(Html.DisplayNameFor(m => m.Item.Code), Model.GetSortString(m => m.Code, page)),
                 new Link(Html.DisplayNameFor(m => m.Item.TrainingCategoryId), Model.GetSortString(m => m.TrainingCategoryId, page)),
                 new Link(Html.DisplayNameFor(m => m.Item.DurationInMinutes), Model.GetSortString(m => m.DurationInMinutes, page)),
@@ -42,7 +42,7 @@
                         Model.PageIndex,
                         Model.FixedFilter,
                         Model.FixedValue,
-                        Html.DisplayFor(modelItem => item.Title),
+                        Html.DisplayFor(modelItem => item.Name),
                         Html.DisplayFor(modelItem => item.Code),
                         Html.DisplayFor(modelItem => item.TrainingCategoryId),
                         Html.DisplayFor(modelItem => item.DurationInMinutes),
@@ -58,11 +58,11 @@
         <h3>Next Trainings in the Timetable for Selected Trainings</h3>
         <table class="table">
             <tr>
-                <th>@(GetMember.DisplayName<TimetableEntryView>(x => x.TrainingId))</th>
-                <th>@(GetMember.DisplayName<TimetableEntryView>(x => x.Id))</th>
+                <th>@(GetMember.DisplayName<TimetableEntryView>(x => x.Name))</th>
                 <th>@(GetMember.DisplayName<TimetableEntryView>(x => x.CoachId))</th>
                 <th>@(GetMember.DisplayName<TimetableEntryView>(x => x.TrainingTypeId))</th>
                 <th>@(GetMember.DisplayName<TimetableEntryView>(x => x.LocationId))</th>
+                <th>@(GetMember.DisplayName<TimetableEntryView>(x => x.Date))</th>
                 <th>@(GetMember.DisplayName<TimetableEntryView>(x => x.StartTime))</th>
                 <th>@(GetMember.DisplayName<TimetableEntryView>(x => x.EndTime))</th>
                 <th>@(GetMember.DisplayName<TimetableEntryView>(x => x.MaxNrOfParticipants))</th>
@@ -73,11 +73,11 @@
             @foreach (var item in Model.TimetableTrainings)
             {
                 <tr>
-                    <td> @Html.DisplayFor(modelItem => item.TrainingId) </td>
-                    <td> @Html.DisplayFor(modelItem => item.Id) </td>
+                    <td> @Html.DisplayFor(modelItem => item.Name) </td>
                     <td> @Html.DisplayFor(modelItem => item.CoachId) </td>
                     <td> @Html.DisplayFor(modelItem => item.TrainingTypeId) </td>
                     <td> @Html.DisplayFor(modelItem => item.LocationId) </td>
+                    <td> @Html.DisplayFor(modelItem => item.Date) </td>
                     <td> @Html.DisplayFor(modelItem => item.StartTime) </td>
                     <td> @Html.DisplayFor(modelItem => item.EndTime) </td>
                     <td> @Html.DisplayFor(modelItem => item.MaxNrOfParticipants) </td>
