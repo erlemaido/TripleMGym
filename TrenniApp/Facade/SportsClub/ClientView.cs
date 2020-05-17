@@ -5,16 +5,8 @@ using TrainingApp.Facade.Common;
 
 namespace TrainingApp.Facade.SportsClub
 {
-    public sealed class ClientView : UniqueEntityView
+    public sealed class ClientView : NamedEntityView
     {
-        [Required]
-        [DisplayName("First Name")]
-        public string FirstName { get; set; }
-
-        [Required]
-        [DisplayName("Last Name")]
-        public string LastName { get; set; }
-
         [Required]
         [DisplayName("ID Code")]
         public string IdCode { get; set; }

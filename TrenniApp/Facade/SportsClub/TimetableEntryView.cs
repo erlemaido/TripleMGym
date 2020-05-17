@@ -45,5 +45,10 @@ namespace TrainingApp.Facade.SportsClub
         [Required]
         [DisplayName("Maximum Number of Participants")]
         public int MaxNrOfParticipants { get; set; }
+
+        public string GetId()
+        {
+            return $"{Id}.{CoachId}.{TrainingId}.{TrainingTypeId}.{LocationId}";
+        }
     }
 }

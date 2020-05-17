@@ -2,8 +2,7 @@
 
 namespace TrainingApp.Data.SportsClub
 {
-    public sealed class LocationData : UniqueEntityData
+    public sealed class LocationData : NamedEntityData
     {
-        public string Code { get; set; }
     }
 }

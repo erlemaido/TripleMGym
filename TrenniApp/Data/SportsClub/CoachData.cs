@@ -5,8 +5,6 @@ namespace TrainingApp.Data.SportsClub
 {
     public sealed class CoachData : DefinedEntityData
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
         public int Age { get; set; }
         public string Email { get; set; }
         public DateTime HireDate { get; set; }
