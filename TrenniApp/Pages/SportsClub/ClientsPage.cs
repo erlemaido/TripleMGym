@@ -11,29 +11,29 @@ namespace TrainingApp.Pages.SportsClub
 {
     public abstract class ClientsPage : CommonPage<IClientsRepository, Client, ClientView, ClientData>
     {
-        protected internal readonly IParticipantOfTrainingsRepository trainings;
-        public IList<ParticipantOfTrainingView> Trainings { get; }
+        protected internal readonly IParticipantOfTrainingsRepository participants;
+        public IList<ParticipantOfTrainingView> Participants { get; }
 
         protected internal ClientsPage(IClientsRepository r, IParticipantOfTrainingsRepository p, ITimetableEntriesRepository t, ITrainingsRepository tr) : base(r)
         {
             PageTitle = "Clients";
-            Trainings = new List<ParticipantOfTrainingView>();
-            trainings = p;
+            Participants = new List<ParticipantOfTrainingView>();
+            participants = p;
+            Trainings = CreateTrainingsSelectList<Training>(tr);
             TimetableEntries = CreateTimetableEntriesSelectList<TimetableEntry>(t);
             Clients = CreateClientsSelectList<Client>(r);
-            Trainings2 = CreateTrainingsSelectList<Training>(tr);
         }
 
         protected ClientsPage(IClientsRepository r, IParticipantOfTrainingsRepository p) : base(r)
         {
             PageTitle = "Clients";
-            Trainings = new List<ParticipantOfTrainingView>();
-            trainings = p;
+            Participants = new List<ParticipantOfTrainingView>();
+            participants = p;
         }
 
         public IEnumerable<SelectListItem> TimetableEntries { get; }
         public IEnumerable<SelectListItem> Clients { get; }
-        public IEnumerable<SelectListItem> Trainings2 { get; }
+        public IEnumerable<SelectListItem> Trainings { get; }
 
         public override string ItemId => Item.Id;
 
@@ -51,16 +51,16 @@ namespace TrainingApp.Pages.SportsClub
 
         public void LoadDetails(ClientView item)
         {
-            Trainings.Clear();
+            Participants.Clear();
 
             if (item is null) return;
-            trainings.FixedFilter = GetMember.Name<ParticipantOfTrainingData>(x => x.ClientId);
-            trainings.FixedValue = item.Id;
-            var list = trainings.Get().GetAwaiter().GetResult();
+            participants.FixedFilter = GetMember.Name<ParticipantOfTrainingData>(x => x.ClientId);
+            participants.FixedValue = item.Id;
+            var list = participants.Get().GetAwaiter().GetResult();
 
             foreach (var e in list)
             {
-                Trainings.Add(ParticipantOfTrainingViewFactory.Create(e));
+                Participants.Add(ParticipantOfTrainingViewFactory.Create(e));
             }
         }
         private IEnumerable<SelectListItem> CreateTimetableEntriesSelectList<TimetableEntry>(IRepository<TimetableEntry> r)
@@ -68,7 +68,7 @@ namespace TrainingApp.Pages.SportsClub
         {
             var items = r.Get().GetAwaiter().GetResult();
 
-            return items.Select(m => new SelectListItem(GetNameFromId(m.Data.TrainingId, Trainings2) + " " + m.Data.StartTime + " - " + m.Data.EndTime, m.Data.Id)).ToList();
+            return items.Select(m => new SelectListItem(GetNameFromId(m.Data.TrainingId, Trainings) + " " + m.Data.StartTime + " - " + m.Data.EndTime, m.Data.Id)).ToList();
         }
 
         private IEnumerable<SelectListItem> CreateTrainingsSelectList<Training>(IRepository<Training> r)
