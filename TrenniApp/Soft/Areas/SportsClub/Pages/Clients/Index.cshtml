@@ -53,7 +53,7 @@
         </tbody>
     </table>
 
-    @if (Model.Trainings.Count != 0)
+    @if (Model.Participants.Count != 0)
     {
         <h3>Trainings for Selected Client </h3>
         <table class="table">
@@ -63,7 +63,7 @@
                 <th>@(GetMember.DisplayName<ParticipantOfTrainingView>(x => x.RegistrationTime))</th>
             </tr>
 
-            @foreach (var item in Model.Trainings)
+            @foreach (var item in Model.Participants)
             {
         <tr>
             <td>@Html.Raw(Model.GetNameFromId(item.ClientId, Model.Clients))</td>
