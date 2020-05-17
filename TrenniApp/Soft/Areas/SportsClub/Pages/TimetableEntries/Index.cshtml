@@ -25,7 +25,7 @@
                 new Link(Html.DisplayNameFor(m => m.Item.EndTime), Model.GetSortString(m => m.EndTime, page)),
                     new Link(Html.DisplayNameFor(m => m.Item.Date), Model.GetSortString(m => m.Date, page)),
                     new Link(Html.DisplayNameFor(m => m.Item.TrainingLevel), Model.GetSortString(m => m.TrainingLevel, page)),
-                new Link(Html.DisplayNameFor(m => m.Item.MaxNrOfParticipants), Model.GetSortString(m => m.MaxNumberOfParticipants, page)),
+                new Link(Html.DisplayNameFor(m => m.Item.MaxNumberOfParticipants), Model.GetSortString(m => m.MaxNumberOfParticipants, page)),
                 new Link(Html.DisplayNameFor(m => m.Item.Description), Model.GetSortString(m => m.Description, page)) 
 
                     )
@@ -57,7 +57,7 @@
                         Html.DisplayFor(modelItem => item.EndTime),
                         Html.DisplayFor(modelItem => item.Date),
                         Html.DisplayFor(modelItem => item.TrainingLevel),
-                        Html.DisplayFor(modelItem => item.MaxNrOfParticipants),
+                        Html.DisplayFor(modelItem => item.MaxNumberOfParticipants),
                         Html.DisplayFor(modelItem => item.Description)
 
 
@@ -79,7 +79,7 @@
             @foreach (var item in Model.Participants)
             {
                 <tr>
-                    <td>@Html.DisplayFor(modelItem => item.ClientId)</td>
+                    <td>@Html.Raw(Model.GetNameFromId(item.ClientId, Model.Clients))</td>
                     <td>@Html.DisplayFor(modelItem => item.RegistrationTime)</td>
                 </tr>
             }

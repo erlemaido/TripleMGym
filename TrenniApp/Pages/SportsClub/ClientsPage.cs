@@ -8,8 +8,8 @@ namespace TrainingApp.Pages.SportsClub
 {
     public abstract class ClientsPage : CommonPage<IClientsRepository, Client, ClientView, ClientData>
     {
-        protected internal readonly IParticipantOfTrainingsRepository trainings;
-        public IList<ParticipantOfTrainingView> Trainings { get; }
+        protected internal readonly IParticipantOfTrainingsRepository participants;
+        public IList<ParticipantOfTrainingView> Participants { get; }
 
         protected internal ClientsPage(IClientsRepository r, IParticipantOfTrainingsRepository p) : base(r)
         {
@@ -17,6 +17,7 @@ namespace TrainingApp.Pages.SportsClub
             Trainings = new List<ParticipantOfTrainingView>();
             trainings = p;
         }
+
 
         public override string ItemId => Item.Id;
 
@@ -34,16 +35,16 @@ namespace TrainingApp.Pages.SportsClub
 
         public void LoadDetails(ClientView item)
         {
-            Trainings.Clear();
+            Participants.Clear();
 
             if (item is null) return;
-            trainings.FixedFilter = GetMember.Name<ParticipantOfTrainingData>(x => x.ClientId);
-            trainings.FixedValue = item.Id;
-            var list = trainings.Get().GetAwaiter().GetResult();
+            participants.FixedFilter = GetMember.Name<ParticipantOfTrainingData>(x => x.ClientId);
+            participants.FixedValue = item.Id;
+            var list = participants.Get().GetAwaiter().GetResult();
 
             foreach (var e in list)
             {
-                Trainings.Add(ParticipantOfTrainingViewFactory.Create(e));
+                Participants.Add(ParticipantOfTrainingViewFactory.Create(e));
             }
         }
     }
