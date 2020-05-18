@@ -73,7 +73,7 @@
             @foreach (var item in Model.Participants)
             {
                 <tr>
-                    <td>@Html.DisplayFor(modelItem => item.ClientId)</td>
+                    <td> @Html.Raw(Model.GetClientName(item.ClientId))
                 </tr>
             }
         </table>

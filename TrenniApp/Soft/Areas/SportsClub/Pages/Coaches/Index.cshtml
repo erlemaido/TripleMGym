@@ -72,12 +72,12 @@
             @foreach (var item in Model.TimetableEntries)
             {
                 <tr>
-                    <td> @Html.DisplayFor(modelItem => item.TrainingId) </td>
+                    <td> @Html.Raw(Model.GetTrainingName(item.TrainingId))
                     <td> @Html.DisplayFor(modelItem => item.Date) </td>
                     <td> @Html.DisplayFor(modelItem => item.StartTime) </td>
                     <td> @Html.DisplayFor(modelItem => item.EndTime) </td>
-                    <td> @Html.DisplayFor(modelItem => item.LocationId) </td>
-                    <td> @Html.DisplayFor(modelItem => item.TrainingTypeId) </td>
+                    <td> @Html.Raw(Model.GetLocationName(item.LocationId))
+                    <td> @Html.Raw(Model.GetTrainingTypeName(item.TrainingTypeId))
                     <td> @Html.DisplayFor(modelItem => item.TrainingLevel) </td>
                 </tr>
             }

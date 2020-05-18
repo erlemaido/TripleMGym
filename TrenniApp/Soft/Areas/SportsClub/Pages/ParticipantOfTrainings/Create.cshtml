@@ -4,10 +4,16 @@
 
 @{
     Layout = "_Create";
+    const string client = "/SportsClub/Clients";
 }
 
-    <body>
-        @Html.EditControlsForDropDown(model => model.Item.ClientId, Model.Clients)
-        @Html.EditControlsForDropDown(model => model.Item.TimetableEntryId, Model.TimetableEntries)
-        @Html.EditControlsFor(model => model.Item.ValidFrom)
-    </body>
+<body>
+@Html.EditControlsForDropDown(model => model.Item.ClientId, Model.Clients)
+@Html.EditControlsForDropDown(model => model.Item.TimetableEntryId, Model.TimetableEntries)
+@Html.EditControlsFor(model => model.Item.ValidFrom)
+</body>
+
+<div>
+    @Html.HypertextLinkFor(string.Empty, new Link("Registreeru spordiklubi kliendiks",
+        $"{client}/Create"))
+</div>

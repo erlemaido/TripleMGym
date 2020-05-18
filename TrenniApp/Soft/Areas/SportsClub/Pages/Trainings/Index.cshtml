@@ -73,9 +73,9 @@
                     <td> @Html.DisplayFor(modelItem => item.Date) </td>
                     <td> @Html.DisplayFor(modelItem => item.StartTime) </td>
                     <td> @Html.DisplayFor(modelItem => item.EndTime) </td>
-                    <td> @Html.DisplayFor(modelItem => item.LocationId) </td>
-                    <td> @Html.DisplayFor(modelItem => item.CoachId) </td>
-                    <td> @Html.DisplayFor(modelItem => item.TrainingTypeId) </td>
+                    <td> @Html.Raw(Model.GetLocationName(item.LocationId))
+                    <td> @Html.Raw(Model.GetCoachName(item.CoachId))
+                    <td> @Html.Raw(Model.GetTrainingTypeName(item.TrainingTypeId))
                     <td> @Html.DisplayFor(modelItem => item.TrainingLevel) </td>
                 </tr>
             }

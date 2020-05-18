@@ -22,10 +22,11 @@ namespace TrainingApp.Pages.SportsClub
         public IEnumerable<SelectListItem> TrainingTypes { get; }
 
         public IEnumerable<SelectListItem> TrainingLevels { get; }
+        public IEnumerable<SelectListItem> Clients { get; }
         protected internal readonly IParticipantOfTrainingsRepository participants;
 
         protected internal TimeTableEntriesPage(ITimetableEntriesRepository r, IParticipantOfTrainingsRepository p, 
-            ITrainingsRepository t, ICoachesRepository c, ILocationsRepository l, ITrainingTypesRepository tt) : base(r)
+            ITrainingsRepository t, ICoachesRepository c, ILocationsRepository l, ITrainingTypesRepository tt, IClientsRepository cl) : base(r)
         {
             PageTitle = "Tunniplaan";
             Participants = new List<ParticipantOfTrainingView>();
@@ -35,6 +36,7 @@ namespace TrainingApp.Pages.SportsClub
             Locations = CreateSelectList<Location, LocationData>(l);
             TrainingTypes = CreateSelectList<TrainingType, TrainingTypeData>(tt);
             TrainingLevels = CreateTrainingLevelsSelectList<TrainingLevel>();
+            Clients = CreateSelectList<Client, ClientData>(cl);
         }
 
 
@@ -89,6 +91,17 @@ namespace TrainingApp.Pages.SportsClub
             foreach (var m in Locations)
             {
                 if (m.Value == locationId)
+                    return m.Text;
+            }
+
+            return "Määramata";
+        }
+        
+        public string GetClientName(string clientId)
+        {
+            foreach (var m in Clients)
+            {
+                if (m.Value == clientId)
                     return m.Text;
             }
 
