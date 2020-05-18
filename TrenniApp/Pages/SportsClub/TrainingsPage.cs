@@ -19,13 +19,20 @@ namespace TrainingApp.Pages.SportsClub
         protected internal readonly ITimetableEntriesRepository timetableTrainings;
         public IList<TimetableEntryView> TimetableTrainings { get; }
         public IEnumerable<SelectListItem> TrainingCategories { get; }
+        public IEnumerable<SelectListItem> Coaches { get; }
+        public IEnumerable<SelectListItem> TrainingTypes { get; }
+        public IEnumerable<SelectListItem> Locations { get; }
 
-        protected internal TrainingsPage(ITrainingsRepository r, ITimetableEntriesRepository t, ITrainingCategoriesRepository tc) : base(r)
+        protected internal TrainingsPage(ITrainingsRepository r, ITimetableEntriesRepository t, ITrainingCategoriesRepository tc, ICoachesRepository c,
+            ITrainingTypesRepository tt, ILocationsRepository l) : base(r)
         {
             PageTitle = "Treeningud";
             TimetableTrainings = new List<TimetableEntryView>();
             timetableTrainings = t;
             TrainingCategories = CreateSelectList<TrainingCategory, TrainingCategoryData>(tc);
+            TrainingTypes = CreateSelectList<TrainingType, TrainingTypeData>(tt);
+            Locations = CreateSelectList<Location, LocationData>(l);
+            Coaches = CreateSelectList<Coach, CoachData>(c);
         }
 
         public override string ItemId => Item.Id;
@@ -47,6 +54,39 @@ namespace TrainingApp.Pages.SportsClub
             foreach (var m in TrainingCategories)
             {
                 if (m.Value == trainingCategoryId)
+                    return m.Text;
+            }
+
+            return "Määramata";
+        }
+        
+        public string GetCoachName(string coachId)
+        {
+            foreach (var m in Coaches)
+            {
+                if (m.Value == coachId)
+                    return m.Text;
+            }
+
+            return "Määramata";
+        }
+        
+        public string GetTrainingTypeName(string trainingTypeId)
+        {
+            foreach (var m in TrainingTypes)
+            {
+                if (m.Value == trainingTypeId)
+                    return m.Text;
+            }
+
+            return "Määramata";
+        }
+        
+        public string GetLocationName(string locationId)
+        {
+            foreach (var m in Locations)
+            {
+                if (m.Value == locationId)
                     return m.Text;
             }
 
