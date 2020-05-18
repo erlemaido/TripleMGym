@@ -62,10 +62,10 @@
 
             @foreach (var item in Model.Participants)
             {
-        <tr>
-            <td> @Html.DisplayFor(modelItem => item.TimetableEntryId) </td>
-            <td> @Html.DisplayFor(modelItem => item.ValidFrom) </td>
-        </tr>
+                <tr>
+                    <td> @Html.Raw(Model.GetTimetableEntryName(item.TimetableEntryId))
+                    <td> @Html.DisplayFor(modelItem => item.ValidFrom) </td>
+                </tr>
             }
 
         </table>

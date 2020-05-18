@@ -7,6 +7,6 @@
 }
 
 <body>
-    <input type="hidden" asp-for="@Model.Item.Id" />
-    @Html.EditControlsFor(Model => Model.Item.Name)
+    @Html.HiddenEditControlsFor(model => model.Item.Id)
+    @Html.EditControlsFor(model => model.Item.Name)
 </body>
