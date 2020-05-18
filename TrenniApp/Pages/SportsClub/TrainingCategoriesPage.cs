@@ -9,7 +9,7 @@ namespace TrainingApp.Pages.SportsClub
 
         protected internal TrainingCategoriesPage(ITrainingCategoriesRepository r) : base(r)
         {
-            PageTitle = "Training Categories";
+            PageTitle = "Trenni kategooriad";
         }
 
         public override string ItemId => Item.Id;

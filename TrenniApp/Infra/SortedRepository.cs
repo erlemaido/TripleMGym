@@ -9,9 +9,8 @@ using TrainingApp.Domain.Common;
 namespace TrainingApp.Infra
 {
     public abstract class SortedRepository<TDomain, TData> : BaseRepository<TDomain, TData>, ISorting
-        where TData : UniqueEntityData, new()
+        where TData : PeriodData, new()
         where TDomain : Entity<TData>, new()
-
     {
         public string SortOrder { get; set; }
         public string DescendingString => "_desc";
@@ -24,6 +23,7 @@ namespace TrainingApp.Infra
         {
             var query = base.CreateSqlQuery();
             query = AddSorting(query);
+
             return query;
         }
 
@@ -60,7 +60,6 @@ namespace TrainingApp.Infra
             var idx = SortOrder.IndexOf(DescendingString, StringComparison.Ordinal);
             return idx > 0 ? SortOrder.Remove(idx) : SortOrder;
         }
-        //kirjutab sql lause, milles on sortimine sees
 
         internal IQueryable<TData> AddOrderBy(IQueryable<TData> query, Expression<Func<TData, object>> e)
         {
@@ -78,4 +77,4 @@ namespace TrainingApp.Infra
 
         internal bool IsDescending() => !string.IsNullOrEmpty(SortOrder) && SortOrder.EndsWith(DescendingString);
     }
-}   
+}

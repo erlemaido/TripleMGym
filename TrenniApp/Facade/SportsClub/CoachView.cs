@@ -13,12 +13,12 @@ namespace TrainingApp.Facade.SportsClub
         [Required]
         public string Email { get; set; }
 
-        [DisplayName("Coach Certificate Number")]
+        [DisplayName("Treeneri sertifikaadi number")]
         public string CoachCertificateNumber { get; set; }
 
         [Required]
         [DataType(DataType.Date)]
-        [DisplayName("Hire Date")]
+        [DisplayName("Töö alustamise kuupäev")]
         public DateTime HireDate { get; set; }
     }
 }

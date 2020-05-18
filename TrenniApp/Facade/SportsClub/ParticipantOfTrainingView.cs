@@ -5,23 +5,19 @@ using TrainingApp.Facade.Common;
 
 namespace TrainingApp.Facade.SportsClub
 {
-    public sealed class ParticipantOfTrainingView : NamedEntityView
+    public sealed class ParticipantOfTrainingView : PeriodView
     {
         [Required]
-        [DisplayName("Client")]
+        [DisplayName("Klient")]
         public string ClientId { get; set; }
 
         [Required]
-        [DisplayName("Training")]
+        [DisplayName("Treening")]
         public string TimetableEntryId { get; set; }
-
-        [Required]
-        [DisplayName("Registration Time")]
-        public DateTime RegistrationTime { get; set; }
 
         public string GetId()
         {
-            return $"{Id}.{ClientId}.{TimetableEntryId}";
+            return $"{ClientId}.{TimetableEntryId}";
         }
     }
 }

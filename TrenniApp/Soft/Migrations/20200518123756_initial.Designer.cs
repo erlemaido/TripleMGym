@@ -10,7 +10,7 @@ using TrainingApp.Soft.Data;
 namespace TrainingApp.Soft.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200517184056_initial")]
+    [Migration("20200518123756_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -232,11 +232,14 @@ namespace TrainingApp.Soft.Migrations
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("IdCode")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("ValidFrom")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("ValidTo")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -266,6 +269,12 @@ namespace TrainingApp.Soft.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime?>("ValidFrom")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("ValidTo")
+                        .HasColumnType("datetime2");
+
                     b.HasKey("Id");
 
                     b.ToTable("Coaches");
@@ -279,6 +288,12 @@ namespace TrainingApp.Soft.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime?>("ValidFrom")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("ValidTo")
+                        .HasColumnType("datetime2");
+
                     b.HasKey("Id");
 
                     b.ToTable("Locations");
@@ -286,22 +301,19 @@ namespace TrainingApp.Soft.Migrations
 
             modelBuilder.Entity("TrainingApp.Data.SportsClub.ParticipantOfTrainingData", b =>
                 {
-                    b.Property<string>("Id")
+                    b.Property<string>("ClientId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("ClientId")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("TimetableEntryId")
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("RegistrationTime")
+                    b.Property<DateTime?>("ValidFrom")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("TimetableEntryId")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime?>("ValidTo")
+                        .HasColumnType("datetime2");
 
-                    b.HasKey("Id");
+                    b.HasKey("ClientId", "TimetableEntryId");
 
                     b.ToTable("ParticipantsOfTraining");
                 });
@@ -344,6 +356,12 @@ namespace TrainingApp.Soft.Migrations
                     b.Property<string>("TrainingTypeId")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime?>("ValidFrom")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("ValidTo")
+                        .HasColumnType("datetime2");
+
                     b.HasKey("Id");
 
                     b.ToTable("TimetableEntries");
@@ -356,6 +374,12 @@ namespace TrainingApp.Soft.Migrations
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("ValidFrom")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("ValidTo")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -382,6 +406,12 @@ namespace TrainingApp.Soft.Migrations
                     b.Property<string>("TrainingCategoryId")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime?>("ValidFrom")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("ValidTo")
+                        .HasColumnType("datetime2");
+
                     b.HasKey("Id");
 
                     b.ToTable("Trainings");
@@ -394,6 +424,12 @@ namespace TrainingApp.Soft.Migrations
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("ValidFrom")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("ValidTo")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 

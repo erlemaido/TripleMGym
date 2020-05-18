@@ -42,6 +42,17 @@ namespace TrainingApp.Pages.SportsClub
             return TrainingViewFactory.Create(obj);
         }
 
+        public string GetTrainingCategoryName(string trainingCategoryId)
+        {
+            foreach (var m in TrainingCategories)
+            {
+                if (m.Value == trainingCategoryId)
+                    return m.Text;
+            }
+
+            return "Määramata";
+        }
+
         public void LoadDetails(TrainingView item)
         {
             TimetableTrainings.Clear();

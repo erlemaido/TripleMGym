@@ -10,16 +10,13 @@ namespace TrainingApp.Facade.SportsClub
         {
             var d = new ParticipantOfTrainingData();
             Copy.Members(v, d);
-
             return new ParticipantOfTraining(d);
         }
 
         public static ParticipantOfTrainingView Create(ParticipantOfTraining o)
         {
             var v = new ParticipantOfTrainingView();
-            if (!(o?.Data is null))
-                Copy.Members(o.Data, v);
-
+            Copy.Members(o.Data, v);
             return v;
         }
     }

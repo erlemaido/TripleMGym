@@ -10,12 +10,12 @@
     var clientId = GetMember.Name<ParticipantOfTrainingData>(x => x.ClientId);
 }
 
-<body>
-@Html.DisplayControlsFor(model => model.Item.Name)
-@Html.DisplayControlsFor(model => model.Item.IdCode)
-@Html.DisplayControlsFor(model => model.Item.Email)
-@Html.DisplayControlsFor(model => model.Item.DateOfJoining)
-</body>
+    <body>
+        @Html.DisplayControlsFor(model => model.Item.Id)
+        @Html.DisplayControlsFor(model => model.Item.Name)
+        @Html.DisplayControlsFor(model => model.Item.Email)
+        @Html.DisplayControlsFor(model => model.Item.DateOfJoining)
+    </body>
 
 @section Details {
     @Html.HypertextLinkFor(string.Empty, new Link("Näita kliendi tulevasi treeninguid", $"{trainings}/Index?fixedFilter={clientId}&fixedValue={Model.Item.Id}"))

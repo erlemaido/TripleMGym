@@ -8,9 +8,8 @@ using TrainingApp.Domain.Common;
 namespace TrainingApp.Infra
 {
     public abstract class FilteredRepository<TDomain, TData> : SortedRepository<TDomain, TData>, IFiltering
-        where TData : UniqueEntityData, new()
+        where TData : PeriodData, new()
         where TDomain : Entity<TData>, new()
-
     {
         public string SearchString { get; set; }
         public string FixedFilter { get; set; }
@@ -22,24 +21,24 @@ namespace TrainingApp.Infra
 
         protected internal override IQueryable<TData> CreateSqlQuery()
         {
-            var query =  base.CreateSqlQuery();
-            query = AddFiltering(query);
+            var query = base.CreateSqlQuery();
             query = AddFixedFiltering(query);
+            query = AddFiltering(query);
 
             return query;
         }
 
-        internal IQueryable<TData> AddFixedFiltering(IQueryable<TData> query)
+        protected internal IQueryable<TData> AddFixedFiltering(IQueryable<TData> query)
         {
             var expression = CreateFixedWhereExpression();
-            return (expression is null)? query: query.Where(expression);
+            return expression is null ? query : query.Where(expression);
         }
 
-        internal Expression<Func<TData, bool>> CreateFixedWhereExpression()
+        protected internal Expression<Func<TData, bool>> CreateFixedWhereExpression()
         {
-            if (string.IsNullOrWhiteSpace(FixedValue)) return null;
-            if (string.IsNullOrWhiteSpace(FixedFilter)) return null;
-            
+            if (FixedFilter is null) return null;
+            if (FixedValue is null) return null;
+
             var param = Expression.Parameter(typeof(TData), "s");
 
             var p = typeof(TData).GetProperty(FixedFilter);
@@ -51,24 +50,24 @@ namespace TrainingApp.Infra
             {
                 body = Expression.Call(body, "ToString", null);
             }
-            
+
             body = Expression.Equal(body, Expression.Constant(FixedValue));
             var predicate = body;
+
             return Expression.Lambda<Func<TData, bool>>(predicate, param);
         }
 
         internal IQueryable<TData> AddFiltering(IQueryable<TData> query)
         {
             if (string.IsNullOrEmpty(SearchString)) return query;
-            var expression = CreateWhereExpression();  
-            return expression is null ? query: query.Where(expression);
-
+            var expression = CreateWhereExpression();
+            return query.Where(expression);
         }
 
         internal Expression<Func<TData, bool>> CreateWhereExpression()
         {
             if (string.IsNullOrWhiteSpace(SearchString)) return null;
-            
+
             var param = Expression.Parameter(typeof(TData), "s");
             Expression predicate = null;
 

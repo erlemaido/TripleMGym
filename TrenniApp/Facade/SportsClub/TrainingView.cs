@@ -7,19 +7,15 @@ namespace TrainingApp.Facade.SportsClub
     public sealed class TrainingView : DefinedEntityView
     {
         [Required]
+        [DisplayName("Kood")]
         public string Code { get; set; }
 
         [Required]
-        [DisplayName("Duration in Minutes")]
+        [DisplayName("Kestvus minutites")]
         public int DurationInMinutes { get; set; }
 
         [Required]
-        [DisplayName("Training Category")]
+        [DisplayName("Kategooria")]
         public string TrainingCategoryId { get; set; }
-
-        public string GetId()
-        {
-            return $"{Id}.{TrainingCategoryId}";
-        }
     }
 }

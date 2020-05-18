@@ -7,9 +7,7 @@
 }
 
     <body>
-        <input type="hidden" asp-for="@Model.Item.Id" />
-        @Html.EditControlsFor(model => model.Item.Name)
-        @Html.EditControlsForDropDown(model => model.Item.ClientId, Model.Clients)
-        @Html.EditControlsForDropDown(model => model.Item.TimetableEntryId, Model.TimetableEntries)
-        @Html.EditControlsFor(model => model.Item.RegistrationTime)
+    @Html.EditControlsForDropDown(model => model.Item.ClientId, Model.Clients)
+    @Html.EditControlsForDropDown(model => model.Item.TimetableEntryId, Model.TimetableEntries)
+    @Html.EditControlsFor(model => model.Item.ValidFrom)
     </body>

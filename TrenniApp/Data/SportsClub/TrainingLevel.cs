@@ -2,9 +2,9 @@
 {
     public enum TrainingLevel
     {
-        Unspecified = 0,
-        Easy = 1,
-        Medium = 2,
-        Hard = 3,
+        Määramata = 0,
+        Kerge = 1,
+        Keskmine = 2,
+        Raske = 3,
     }
 }

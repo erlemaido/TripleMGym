@@ -12,7 +12,18 @@ namespace TrainingApp.Pages.SportsClub
 {
     public class TimeTableEntriesPage : CommonPage<ITimetableEntriesRepository, TimetableEntry, TimetableEntryView, TimetableEntryData>
     {
+        public IList<ParticipantOfTrainingView> Participants { get; }
+        public IEnumerable<SelectListItem> Trainings { get; }
+
+        public IEnumerable<SelectListItem> Coaches { get; }
+
+        public IEnumerable<SelectListItem> Locations { get; }
+
+        public IEnumerable<SelectListItem> TrainingTypes { get; }
+
+        public IEnumerable<SelectListItem> TrainingLevels { get; }
         protected internal readonly IParticipantOfTrainingsRepository participants;
+
         protected internal TimeTableEntriesPage(ITimetableEntriesRepository r, IParticipantOfTrainingsRepository p, 
             ITrainingsRepository t, ICoachesRepository c, ILocationsRepository l, ITrainingTypesRepository tt) : base(r)
         {
@@ -26,18 +37,6 @@ namespace TrainingApp.Pages.SportsClub
             TrainingLevels = CreateTrainingLevelsSelectList<TrainingLevel>();
         }
 
-        public IList<ParticipantOfTrainingView> Participants { get; }
-        public IEnumerable<SelectListItem> Trainings { get; }
-
-        public IEnumerable<SelectListItem> Coaches { get; }
-
-        public IEnumerable<SelectListItem> Locations { get; }
-
-        public IEnumerable<SelectListItem> TrainingTypes { get; }
-
-        public IEnumerable<SelectListItem> TrainingLevels { get; }
-
-        public IEnumerable<SelectListItem> Clients { get; }
 
         public override string ItemId => Item.Id;
         protected internal override string GetPageUrl() => "/SportsClub/TimetableEntries";
@@ -60,7 +59,7 @@ namespace TrainingApp.Pages.SportsClub
                     return m.Text;
             }
 
-            return "Unspecified";
+            return "Määramata";
         }
 
         public string GetTrainingName(string trainingId)
@@ -71,18 +70,41 @@ namespace TrainingApp.Pages.SportsClub
                     return m.Text;
             }
 
-            return "Unspecified";
+            return "Määramata";
         }
+
+        public string GetTrainingTypeName(string trainingTypeId)
+        {
+            foreach (var m in TrainingTypes)
+            {
+                if (m.Value == trainingTypeId)
+                    return m.Text;
+            }
+
+            return "Määramata";
+        }
+
+        public string GetLocationName(string locationId)
+        {
+            foreach (var m in Locations)
+            {
+                if (m.Value == locationId)
+                    return m.Text;
+            }
+
+            return "Määramata";
+        }
+
 
         protected internal override string GetPageSubTitle()
         {
-            if (!GetCoachName(FixedValue).Equals("Unspecified"))
+            if (!GetCoachName(FixedValue).Equals("Määramata"))
             {
-                return FixedValue is null ? base.GetPageSubTitle() : $"For {GetCoachName(FixedValue)}";
+                return FixedValue is null ? base.GetPageSubTitle() : $"{GetCoachName(FixedValue)}";
             } 
-            else if (!GetTrainingName(FixedValue).Equals("Unspecified"))
+            if (!GetTrainingName(FixedValue).Equals("Määramata"))
             {
-                return FixedValue is null ? base.GetPageSubTitle() : $"For {GetTrainingName(FixedValue)}";
+                return FixedValue is null ? base.GetPageSubTitle() : $"{GetTrainingName(FixedValue)}";
             }
 
             return base.GetPageSubTitle();
@@ -105,7 +127,7 @@ namespace TrainingApp.Pages.SportsClub
             }
         }
 
-        private IEnumerable<SelectListItem> CreateTrainingLevelsSelectList<TrainingLevel>()
+        private static IEnumerable<SelectListItem> CreateTrainingLevelsSelectList<TrainingLevel>()
         {
             var items = new SelectList(Enum.GetValues(typeof(TrainingLevel)).Cast<TrainingLevel>().Select(v => new SelectListItem
             {

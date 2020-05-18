@@ -51,8 +51,9 @@ namespace TrainingApp.Soft.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(nullable: false),
+                    ValidFrom = table.Column<DateTime>(nullable: true),
+                    ValidTo = table.Column<DateTime>(nullable: true),
                     Name = table.Column<string>(nullable: true),
-                    IdCode = table.Column<string>(nullable: true),
                     Email = table.Column<string>(nullable: true),
                     DateOfJoining = table.Column<DateTime>(nullable: false)
                 },
@@ -66,6 +67,8 @@ namespace TrainingApp.Soft.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(nullable: false),
+                    ValidFrom = table.Column<DateTime>(nullable: true),
+                    ValidTo = table.Column<DateTime>(nullable: true),
                     Name = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
                     Age = table.Column<int>(nullable: false),
@@ -83,6 +86,8 @@ namespace TrainingApp.Soft.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(nullable: false),
+                    ValidFrom = table.Column<DateTime>(nullable: true),
+                    ValidTo = table.Column<DateTime>(nullable: true),
                     Name = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -94,15 +99,14 @@ namespace TrainingApp.Soft.Migrations
                 name: "ParticipantsOfTraining",
                 columns: table => new
                 {
-                    Id = table.Column<string>(nullable: false),
-                    Name = table.Column<string>(nullable: true),
-                    ClientId = table.Column<string>(nullable: true),
-                    TimetableEntryId = table.Column<string>(nullable: true),
-                    RegistrationTime = table.Column<DateTime>(nullable: false)
+                    ClientId = table.Column<string>(nullable: false),
+                    TimetableEntryId = table.Column<string>(nullable: false),
+                    ValidFrom = table.Column<DateTime>(nullable: true),
+                    ValidTo = table.Column<DateTime>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ParticipantsOfTraining", x => x.Id);
+                    table.PrimaryKey("PK_ParticipantsOfTraining", x => new { x.ClientId, x.TimetableEntryId });
                 });
 
             migrationBuilder.CreateTable(
@@ -110,6 +114,8 @@ namespace TrainingApp.Soft.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(nullable: false),
+                    ValidFrom = table.Column<DateTime>(nullable: true),
+                    ValidTo = table.Column<DateTime>(nullable: true),
                     Name = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
                     CoachId = table.Column<string>(nullable: true),
@@ -132,6 +138,8 @@ namespace TrainingApp.Soft.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(nullable: false),
+                    ValidFrom = table.Column<DateTime>(nullable: true),
+                    ValidTo = table.Column<DateTime>(nullable: true),
                     Name = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -144,6 +152,8 @@ namespace TrainingApp.Soft.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(nullable: false),
+                    ValidFrom = table.Column<DateTime>(nullable: true),
+                    ValidTo = table.Column<DateTime>(nullable: true),
                     Name = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
                     TrainingCategoryId = table.Column<string>(nullable: true),
@@ -160,6 +170,8 @@ namespace TrainingApp.Soft.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(nullable: false),
+                    ValidFrom = table.Column<DateTime>(nullable: true),
+                    ValidTo = table.Column<DateTime>(nullable: true),
                     Name = table.Column<string>(nullable: true)
                 },
                 constraints: table =>

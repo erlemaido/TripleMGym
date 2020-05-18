@@ -6,9 +6,8 @@
     Layout = "_Delete";
 }
 <body>
-@Html.DisplayControlsFor(model => model.Item.Name)
-@Html.DisplayControlsFor(model => model.Item.ClientId)
-@Html.DisplayControlsFor(model => model.Item.TimetableEntryId)
-@Html.DisplayControlsFor(model => model.Item.RegistrationTime)
+    @Html.DisplayControlsFor(model => model.Item.ClientId, Model.GetClientName(Model.Item.ClientId))
+    @Html.DisplayControlsFor(model => model.Item.TimetableEntryId, Model.GetTimetableEntryName(Model.Item.TimetableEntryId))
+    @Html.DisplayControlsFor(model => model.Item.ValidFrom)
 
 </body>
