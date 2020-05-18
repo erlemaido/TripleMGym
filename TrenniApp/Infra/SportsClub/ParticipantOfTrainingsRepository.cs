@@ -8,7 +8,7 @@ namespace TrainingApp.Infra.SportsClub
 {
     public sealed class ParticipantOfTrainingsRepository : PaginatedRepository<ParticipantOfTraining, ParticipantOfTrainingData>, IParticipantOfTrainingsRepository
     {
-        public ParticipantOfTrainingsRepository(SportsClubDbContext c) : base(c, c.ParticipantsOfTraining) { }
+        public ParticipantOfTrainingsRepository(SportsClubDbContext c) : base(c, c?.ParticipantsOfTraining) { }
 
         protected override async Task<ParticipantOfTrainingData> GetData(string participantOfTrainingId)
         {

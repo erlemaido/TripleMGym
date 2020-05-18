@@ -21,7 +21,7 @@ namespace TrainingApp.Pages.SportsClub
 
         }
 
-        public override string ItemId => Item is null ? string.Empty : Item.GetId();
+        public override string ItemId => Item is null ? string.Empty : $"{Item.ClientId}.{Item.TimetableEntryId}";
         protected internal override string GetPageUrl() => "/SportsClub/ParticipantOfTrainings";
 
         protected internal override ParticipantOfTraining ToObject(ParticipantOfTrainingView view)
