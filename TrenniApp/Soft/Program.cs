@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using TrainingApp.Infra.SportsClub;
 
 namespace TrainingApp.Soft
 {
@@ -7,7 +9,14 @@ namespace TrainingApp.Soft
     {
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            var host = CreateHostBuilder(args).Build();
+            using (var scope = host.Services.CreateScope())
+            {
+                var services = scope.ServiceProvider;
+                var dbQuantity = services.GetRequiredService<SportsClubDbContext>();
+                SportsClubDbInitializer.Initialize(dbQuantity);
+            }
+            host.Run();
 
         }
 
