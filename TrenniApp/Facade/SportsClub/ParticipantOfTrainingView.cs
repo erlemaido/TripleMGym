@@ -14,7 +14,7 @@ namespace TrainingApp.Facade.SportsClub
         [Required]
         [DisplayName("Treening")]
         public string TimetableEntryId { get; set; }
-
+        
         public string GetId()
         {
             return $"{ClientId}.{TimetableEntryId}";

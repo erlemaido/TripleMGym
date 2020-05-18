@@ -10,7 +10,7 @@ namespace TrainingApp.Soft.Areas.SportsClub.Pages.Clients
 {
     public class EditModel : ClientsPage
     {
-        public EditModel(IClientsRepository r, IParticipantOfTrainingsRepository t) : base(r, t)
+        public EditModel(IClientsRepository r, IParticipantOfTrainingsRepository p, ITimetableEntriesRepository t) : base(r, p, t)
         {
         }
 

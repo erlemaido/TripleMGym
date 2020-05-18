@@ -15,6 +15,14 @@ namespace TrainingApp.Pages.Extensions {
 
             return new HtmlContentBuilder(s);
         }
+        
+        public static IHtmlContent HiddenEditControlsFor<TModel, TResult>(
+            this IHtmlHelper<TModel> htmlHelper, Expression<Func<TModel, TResult>> expression) {
+
+            var s = HiddenHtmlStrings(htmlHelper, expression);
+
+            return new HtmlContentBuilder(s);
+        }
 
         internal static List<object> HtmlStrings<TModel, TResult>(IHtmlHelper<TModel> htmlHelper,
             Expression<Func<TModel, TResult>> expression) {
@@ -23,6 +31,17 @@ namespace TrainingApp.Pages.Extensions {
                 htmlHelper.LabelFor(expression, new {@class = "text-dark"}),
                 htmlHelper.EditorFor(expression,
                     new {htmlAttributes = new {@class = "form-control"}}),
+                htmlHelper.ValidationMessageFor(expression, "", new {@class = "text-danger"}),
+                new HtmlString("</div>")
+            };
+        }
+        
+        internal static List<object> HiddenHtmlStrings<TModel, TResult>(IHtmlHelper<TModel> htmlHelper,
+            Expression<Func<TModel, TResult>> expression) {
+            return new List<object> {
+                new HtmlString("<div class=\"form-group\">"),
+                htmlHelper.EditorFor(expression,
+                    new {htmlAttributes = new {@class = "form-control", @type = "hidden"}}),
                 htmlHelper.ValidationMessageFor(expression, "", new {@class = "text-danger"}),
                 new HtmlString("</div>")
             };

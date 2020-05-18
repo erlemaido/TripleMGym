@@ -7,7 +7,7 @@ namespace TrainingApp.Soft.Areas.SportsClub.Pages.Clients
 {
     public class DetailsModel : ClientsPage
     {
-        public DetailsModel(IClientsRepository r, IParticipantOfTrainingsRepository t) : base(r, t)
+        public DetailsModel(IClientsRepository r, IParticipantOfTrainingsRepository p, ITimetableEntriesRepository t) : base(r, p, t)
         {
         }
 

@@ -58,7 +58,17 @@ namespace TrainingApp.Pages.SportsClub
 
         protected internal override string GetPageSubTitle()
         {
-            return FixedValue is null ? base.GetPageSubTitle() : $"{GetClientName(FixedValue)}";
+            if (!GetClientName(FixedValue).Equals("Määramata"))
+            {
+                return FixedValue is null ? base.GetPageSubTitle() : $"{GetClientName(FixedValue)}";
+            } 
+            if (!GetTimetableEntryName(FixedValue).Equals("Määramata"))
+            {
+                return FixedValue is null ? base.GetPageSubTitle() : $"{GetTimetableEntryName(FixedValue)}";
+            }
+
+            return base.GetPageSubTitle();
+
         }
 
     }

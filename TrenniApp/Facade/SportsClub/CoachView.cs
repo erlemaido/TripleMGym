@@ -8,12 +8,13 @@ namespace TrainingApp.Facade.SportsClub
     public sealed class CoachView : DefinedEntityView
     {
         [Required]
+        [DisplayName("Vanus")]
         public int Age { get; set; }
 
         [Required]
         public string Email { get; set; }
 
-        [DisplayName("Treeneri sertifikaadi number")]
+        [DisplayName("Sertifikaadi nr")]
         public string CoachCertificateNumber { get; set; }
 
         [Required]

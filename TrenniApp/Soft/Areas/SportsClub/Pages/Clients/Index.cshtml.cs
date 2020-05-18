@@ -6,7 +6,7 @@ namespace TrainingApp.Soft.Areas.SportsClub.Pages.Clients
 {
     public class IndexModel : ClientsPage
     {
-        public IndexModel(IClientsRepository r, IParticipantOfTrainingsRepository p) : base(r, p)
+        public IndexModel(IClientsRepository r, IParticipantOfTrainingsRepository p, ITimetableEntriesRepository t) : base(r, p, t)
         {
         }
 

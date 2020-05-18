@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using TrainingApp.Aids;
+using TrainingApp.Aids.Formats.Dates;
 using TrainingApp.Data.SportsClub;
 using TrainingApp.Domain.SportsClub;
 using TrainingApp.Facade.SportsClub;
@@ -9,12 +11,14 @@ namespace TrainingApp.Pages.SportsClub
     public abstract class ClientsPage : CommonPage<IClientsRepository, Client, ClientView, ClientData>
     {
         public IList<ParticipantOfTrainingView> Participants { get; }
+        public IEnumerable<SelectListItem> TimetableEntries { get; }
         protected internal readonly IParticipantOfTrainingsRepository participants;
 
-        protected internal ClientsPage(IClientsRepository r, IParticipantOfTrainingsRepository p) : base(r)
+        protected internal ClientsPage(IClientsRepository r, IParticipantOfTrainingsRepository p, ITimetableEntriesRepository t) : base(r)
         {
             PageTitle = "Kliendid";
             Participants = new List<ParticipantOfTrainingView>();
+            TimetableEntries = CreateSelectList<TimetableEntry, TimetableEntryData>(t);
             participants = p;
         }
 
@@ -30,6 +34,17 @@ namespace TrainingApp.Pages.SportsClub
         protected internal override ClientView ToView(Client obj)
         {
             return ClientViewFactory.Create(obj);
+        }
+        
+        public string GetTimetableEntryName(string timetableId)
+        {
+            foreach (var m in TimetableEntries)
+            {
+                if (m.Value == timetableId)
+                    return m.Text;
+            }
+
+            return "Määramata";
         }
 
         public void LoadDetails(ClientView item)
