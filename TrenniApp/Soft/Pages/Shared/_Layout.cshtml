@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using TrainingApp.Pages.Extensions
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -22,30 +23,22 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Index">Avaleht</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="SportsClub" asp-page="/Clients/Index">Kliendid</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="SportsClub" asp-page="/Coaches/Index">Treenerid</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="SportsClub" asp-page="/Locations/Index">Asukohad</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="SportsClub" asp-page="/ParticipantOfTrainings/Index">Broneeringud</a>
-                        </li>
+                        
+                        @Html.DropDownNavigationMenuFor("Valikud",
+                            new Link("Kliendid", "/SportsClub/Clients"),
+                            new Link("Treenerid", "/SportsClub/Coaches"),
+                            new Link("Trennid", "/SportsClub/Trainings") 
+                            )
+                        
+                        @Html.DropDownNavigationMenuFor("Broneeringud",
+                            new Link("Näita broneeringuid", "/SportsClub/ParticipantOfTrainings"),
+                            new Link("Registreeri trenni", "/SportsClub/ParticipantOfTrainings/Create") 
+                            )
+
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="SportsClub" asp-page="/TimetableEntries/Index">Tunniplaan</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="SportsClub" asp-page="/TrainingCategories/Index">Trenni kategooriad</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="SportsClub" asp-page="/Trainings/Index">Trennid</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="SportsClub" asp-page="/TrainingTypes/Index">Trenni tüübid</a>
-                        </li>
+
                     </ul>
                 </div>
             </div>

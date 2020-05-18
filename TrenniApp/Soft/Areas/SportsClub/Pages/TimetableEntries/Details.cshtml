@@ -9,18 +9,25 @@
     const string participants = "/SportsClub/ParticipantOfTrainings";
     var timetableEntryId = GetMember.Name<ParticipantOfTrainingData>(x => x.TimetableEntryId);
 }
-    <body>
-        @Html.DisplayControlsFor(model => model.Item.TrainingId, Model.GetTrainingName(Model.Item.TrainingId))
-    @Html.DisplayControlsFor(model => model.Item.Date)
-    @Html.DisplayControlsFor(model => model.Item.StartTime)
-    @Html.DisplayControlsFor(model => model.Item.EndTime)
-    @Html.DisplayControlsFor(model => model.Item.LocationId, Model.GetLocationName(Model.Item.LocationId))
-        @Html.DisplayControlsFor(model => model.Item.CoachId, Model.GetCoachName(Model.Item.CoachId))
-        @Html.DisplayControlsFor(model => model.Item.TrainingTypeId, Model.GetTrainingTypeName(Model.Item.TrainingTypeId))
-        @Html.DisplayControlsFor(model => model.Item.TrainingLevel)
-    @Html.DisplayControlsFor(model => model.Item.MaxNumberOfParticipants)
-        @Html.DisplayControlsFor(model => model.Item.Description)
-    </body>
+<body>
+@Html.DisplayControlsFor(model => model.Item.TrainingId, Model.GetTrainingName(Model.Item.TrainingId))
+@Html.DisplayControlsFor(model => model.Item.Date)
+@Html.DisplayControlsFor(model => model.Item.StartTime)
+@Html.DisplayControlsFor(model => model.Item.EndTime)
+@Html.DisplayControlsFor(model => model.Item.LocationId, Model.GetLocationName(Model.Item.LocationId))
+@Html.DisplayControlsFor(model => model.Item.CoachId, Model.GetCoachName(Model.Item.CoachId))
+@Html.DisplayControlsFor(model => model.Item.TrainingTypeId, Model.GetTrainingTypeName(Model.Item.TrainingTypeId))
+@Html.DisplayControlsFor(model => model.Item.TrainingLevel)
+@Html.DisplayControlsFor(model => model.Item.MaxNumberOfParticipants)
+@Html.DisplayControlsFor(model => model.Item.Description)
+</body>
+
+<div>
+    @Html.HypertextLinkFor(string.Empty, new Link("Registreeru treeningule",
+        $"{participants}/Create"))
+</div>
+
 @section Details {
     @Html.HypertextLinkFor(string.Empty, new Link("Näita treeningul osalejaid", $"{participants}/Index?fixedFilter={timetableEntryId}&fixedValue={Model.Item.Id}"))
 }
+
