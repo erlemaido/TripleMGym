@@ -17,8 +17,8 @@
     <table class="table">
         <thead>
             @Html.TableHeaderFor(
+                new Link(Html.DisplayNameFor(m => m.Item.Id), Model.GetSortString(m => m.Id, page)),
                 new Link(Html.DisplayNameFor(m => m.Item.Name), Model.GetSortString(m => m.Name, page)),
-                new Link(Html.DisplayNameFor(m => m.Item.IdCode), Model.GetSortString(m => m.IdCode, page)),
                 new Link(Html.DisplayNameFor(m => m.Item.Email), Model.GetSortString(m => m.Email, page)),
                 new Link(Html.DisplayNameFor(m => m.Item.DateOfJoining), Model.GetSortString(m => m.DateOfJoining, page))
                 )
@@ -41,8 +41,8 @@
                         Model.PageIndex,
                         Model.FixedFilter,
                         Model.FixedValue,
+                        Html.DisplayFor(modelItem => item.Id),
                         Html.DisplayFor(modelItem => item.Name),
-                        Html.DisplayFor(modelItem => item.IdCode),
                         Html.DisplayFor(modelItem => item.Email),
                         Html.DisplayFor(modelItem => item.DateOfJoining)
                         )
@@ -53,20 +53,18 @@
 
     @if (Model.Participants.Count != 0)
     {
-        <h3>Kliendi tulevased treeningud </h3>
+        <h3>Kliendi tulevased treeningud</h3>
         <table class="table">
             <tr>
-                <th>@(GetMember.DisplayName<ParticipantOfTrainingView>(x => x.ClientId))</th>
                 <th>@(GetMember.DisplayName<ParticipantOfTrainingView>(x => x.TimetableEntryId))</th>
-                <th>@(GetMember.DisplayName<ParticipantOfTrainingView>(x => x.RegistrationTime))</th>
+                <th>@(GetMember.DisplayName<ParticipantOfTrainingView>(x => x.ValidFrom))</th>
             </tr>
 
             @foreach (var item in Model.Participants)
             {
         <tr>
-            <td> @Html.DisplayFor(modelItem => item.ClientId) </td>
             <td> @Html.DisplayFor(modelItem => item.TimetableEntryId) </td>
-            <td> @Html.DisplayFor(modelItem => item.RegistrationTime) </td>
+            <td> @Html.DisplayFor(modelItem => item.ValidFrom) </td>
         </tr>
             }
 

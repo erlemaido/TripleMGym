@@ -44,7 +44,7 @@
                         Model.FixedValue,
                         Html.DisplayFor(modelItem => item.Name),
                         Html.DisplayFor(modelItem => item.Code),
-                        Html.DisplayFor(modelItem => item.TrainingCategoryId),
+                        Html.Raw(Model.GetTrainingCategoryName(item.TrainingCategoryId)),
                         Html.DisplayFor(modelItem => item.DurationInMinutes),
                         Html.DisplayFor(modelItem => item.Description)
                         )
@@ -55,33 +55,27 @@
 
     @if (Model.TimetableTrainings.Count != 0)
     {
-        <h3>Next Trainings in the Timetable for Selected Trainings</h3>
+        <h3>Järgmised valitud treeningud</h3>
         <table class="table">
             <tr>
-                <th>@(GetMember.DisplayName<TimetableEntryView>(x => x.Name))</th>
-                <th>@(GetMember.DisplayName<TimetableEntryView>(x => x.CoachId))</th>
-                <th>@(GetMember.DisplayName<TimetableEntryView>(x => x.TrainingTypeId))</th>
-                <th>@(GetMember.DisplayName<TimetableEntryView>(x => x.LocationId))</th>
                 <th>@(GetMember.DisplayName<TimetableEntryView>(x => x.Date))</th>
                 <th>@(GetMember.DisplayName<TimetableEntryView>(x => x.StartTime))</th>
                 <th>@(GetMember.DisplayName<TimetableEntryView>(x => x.EndTime))</th>
-                <th>@(GetMember.DisplayName<TimetableEntryView>(x => x.MaxNumberOfParticipants))</th>
-                <th>@(GetMember.DisplayName<TimetableEntryView>(x => x.Description))</th>
+                <th>@(GetMember.DisplayName<TimetableEntryView>(x => x.LocationId))</th>
+                <th>@(GetMember.DisplayName<TimetableEntryView>(x => x.CoachId))</th>
+                <th>@(GetMember.DisplayName<TimetableEntryView>(x => x.TrainingTypeId))</th>
                 <th>@(GetMember.DisplayName<TimetableEntryView>(x => x.TrainingLevel))</th>
             </tr>
 
             @foreach (var item in Model.TimetableTrainings)
             {
                 <tr>
-                    <td> @Html.DisplayFor(modelItem => item.Name) </td>
-                    <td> @Html.DisplayFor(modelItem => item.CoachId) </td>
-                    <td> @Html.DisplayFor(modelItem => item.TrainingTypeId) </td>
-                    <td> @Html.DisplayFor(modelItem => item.LocationId) </td>
                     <td> @Html.DisplayFor(modelItem => item.Date) </td>
                     <td> @Html.DisplayFor(modelItem => item.StartTime) </td>
                     <td> @Html.DisplayFor(modelItem => item.EndTime) </td>
-                    <td> @Html.DisplayFor(modelItem => item.MaxNumberOfParticipants) </td>
-                    <td> @Html.DisplayFor(modelItem => item.Description) </td>
+                    <td> @Html.DisplayFor(modelItem => item.LocationId) </td>
+                    <td> @Html.DisplayFor(modelItem => item.CoachId) </td>
+                    <td> @Html.DisplayFor(modelItem => item.TrainingTypeId) </td>
                     <td> @Html.DisplayFor(modelItem => item.TrainingLevel) </td>
                 </tr>
             }

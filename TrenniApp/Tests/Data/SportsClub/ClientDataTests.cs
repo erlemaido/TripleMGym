@@ -17,7 +17,7 @@ namespace TrainingApp.Tests.Data.SportsClub
         [TestMethod]
         public void IdCodeTest()
         {
-            isNullableProperty(() => obj.IdCode, x => obj.IdCode = x);
+            isNullableProperty(() => obj.Id, x => obj.Id = x);
         }
         [TestMethod]
         public void EmailTest()

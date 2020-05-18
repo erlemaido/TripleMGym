@@ -8,8 +8,8 @@ namespace TrainingApp.Pages.SportsClub
 {
     public abstract class ClientsPage : CommonPage<IClientsRepository, Client, ClientView, ClientData>
     {
-        protected internal readonly IParticipantOfTrainingsRepository participants;
         public IList<ParticipantOfTrainingView> Participants { get; }
+        protected internal readonly IParticipantOfTrainingsRepository participants;
 
         protected internal ClientsPage(IClientsRepository r, IParticipantOfTrainingsRepository p) : base(r)
         {
@@ -18,8 +18,7 @@ namespace TrainingApp.Pages.SportsClub
             participants = p;
         }
 
-
-        public override string ItemId => Item.Id;
+        public override string ItemId => Item?.Id ?? string.Empty;
 
         protected internal override string GetPageUrl() => "/SportsClub/Clients";
 

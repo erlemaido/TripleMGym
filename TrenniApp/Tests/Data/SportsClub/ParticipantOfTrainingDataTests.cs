@@ -22,7 +22,7 @@ namespace TrainingApp.Tests.Data.SportsClub
         [TestMethod]
         public void RegistrationTimeTest()
         {
-            isProperty(() => obj.RegistrationTime, x => obj.RegistrationTime = x);
+            isProperty(() => obj.ValidFrom, x => obj.ValidFrom = x);
         }
     }
 }

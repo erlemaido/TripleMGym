@@ -10,18 +10,18 @@ namespace TrainingApp.Pages.SportsClub
 {
     public class ParticipantOfTrainingsPage : CommonPage<IParticipantOfTrainingsRepository, ParticipantOfTraining, ParticipantOfTrainingView, ParticipantOfTrainingData>
     {
-        protected internal ParticipantOfTrainingsPage(IParticipantOfTrainingsRepository r,
-            ITimetableEntriesRepository t, IClientsRepository cl) : base(r)
-        {
-            PageTitle = "Broneeringud";
-            TimetableEntries = CreateSelectList<TimetableEntry, TimetableEntryData>(t);
-            Clients = CreateSelectList<Client, ClientData>(cl);
-
-        }
         public IEnumerable<SelectListItem> TimetableEntries { get; }
         public IEnumerable<SelectListItem> Clients { get; }
 
-        public override string ItemId => Item.Id;
+        protected internal ParticipantOfTrainingsPage(IParticipantOfTrainingsRepository r, ITimetableEntriesRepository t, IClientsRepository c) : base(r)
+        {
+            PageTitle = "Broneeringud";
+            TimetableEntries = CreateSelectList<TimetableEntry, TimetableEntryData>(t);
+            Clients = CreateSelectList<Client, ClientData>(c);
+
+        }
+
+        public override string ItemId => Item is null ? string.Empty : Item.GetId();
         protected internal override string GetPageUrl() => "/SportsClub/ParticipantOfTrainings";
 
         protected internal override ParticipantOfTraining ToObject(ParticipantOfTrainingView view)
@@ -42,12 +42,23 @@ namespace TrainingApp.Pages.SportsClub
                     return m.Text;
             }
 
-            return "Unspecified";
+            return "Määramata";
+        }
+
+        public string GetTimetableEntryName(string timetableId)
+        {
+            foreach (var m in TimetableEntries)
+            {
+                if (m.Value == timetableId)
+                    return m.Text;
+            }
+
+            return "Määramata";
         }
 
         protected internal override string GetPageSubTitle()
         {
-            return FixedValue is null ? base.GetPageSubTitle() : $"For {GetClientName(FixedValue)}";
+            return FixedValue is null ? base.GetPageSubTitle() : $"{GetClientName(FixedValue)}";
         }
 
     }

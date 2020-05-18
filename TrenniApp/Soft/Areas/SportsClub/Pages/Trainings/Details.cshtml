@@ -7,17 +7,17 @@
 @{
     Layout = "_Details";
     const string timetableTrainings = "/SportsClub/TimetableEntries";
-    var timetableEntryId = GetMember.Name<TimetableEntryData>(x => x.Id);
+    var trainingId = GetMember.Name<TimetableEntryData>(x => x.TrainingId);
 }
 
 <body>
     @Html.DisplayControlsFor(model => model.Item.Name)
     @Html.DisplayControlsFor(model => model.Item.Code)
-    @Html.DisplayControlsFor(model => model.Item.TrainingCategoryId)
+    @Html.DisplayControlsFor(model => model.Item.TrainingCategoryId, Model.GetTrainingCategoryName(Model.Item.TrainingCategoryId))
     @Html.DisplayControlsFor(model => model.Item.DurationInMinutes)
     @Html.DisplayControlsFor(model => model.Item.Description)
 </body>
 
 @section Details {
-    @Html.HypertextLinkFor(string.Empty, new Link("Show next trainings", $"{timetableTrainings}/Index?fixedFilter={timetableEntryId}&fixedValue={Model.Item.Id}"))
+    @Html.HypertextLinkFor(string.Empty, new Link("Näita valitud treeninguid tunniplaanis", $"{timetableTrainings}/Index?fixedFilter={trainingId}&fixedValue={Model.Item.Id}"))
 }

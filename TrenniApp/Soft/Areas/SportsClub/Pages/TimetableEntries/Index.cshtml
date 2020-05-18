@@ -16,17 +16,18 @@
     <table class="table">
             <thead>
                 @Html.TableHeaderFor(
-                    new Link(Html.DisplayNameFor(m => m.Item.Name), Model.GetSortString(m => m.Name, page)),
-        new Link(Html.DisplayNameFor(m => m.Item.CoachId), Model.GetSortString(m => m.CoachId, page)),
-                new Link(Html.DisplayNameFor(m => m.Item.TrainingId), Model.GetSortString(m => m.TrainingId, page)),
-                new Link(Html.DisplayNameFor(m => m.Item.TrainingTypeId), Model.GetSortString(m => m.TrainingTypeId, page)),
-                new Link(Html.DisplayNameFor(m => m.Item.LocationId), Model.GetSortString(m => m.LocationId, page)),
-                new Link(Html.DisplayNameFor(m => m.Item.StartTime), Model.GetSortString(m => m.StartTime, page)),
-                new Link(Html.DisplayNameFor(m => m.Item.EndTime), Model.GetSortString(m => m.EndTime, page)),
+                    new Link(Html.DisplayNameFor(m => m.Item.TrainingId), Model.GetSortString(m => m.TrainingId, page)),
                     new Link(Html.DisplayNameFor(m => m.Item.Date), Model.GetSortString(m => m.Date, page)),
-                    new Link(Html.DisplayNameFor(m => m.Item.TrainingLevel), Model.GetSortString(m => m.TrainingLevel, page)),
-                new Link(Html.DisplayNameFor(m => m.Item.MaxNumberOfParticipants), Model.GetSortString(m => m.MaxNumberOfParticipants, page)),
-                new Link(Html.DisplayNameFor(m => m.Item.Description), Model.GetSortString(m => m.Description, page)) 
+                    new Link(Html.DisplayNameFor(m => m.Item.StartTime), Model.GetSortString(m => m.StartTime, page)),
+                    new Link(Html.DisplayNameFor(m => m.Item.EndTime), Model.GetSortString(m => m.EndTime, page)),
+                    new Link(Html.DisplayNameFor(m => m.Item.LocationId), Model.GetSortString(m => m.LocationId, page)),
+                    new Link(Html.DisplayNameFor(m => m.Item.CoachId), Model.GetSortString(m => m.CoachId, page)),
+                    new Link(Html.DisplayNameFor(m => m.Item.TrainingTypeId), Model.GetSortString(m => m.TrainingTypeId, page)),
+                    new Link(Html.DisplayNameFor(m => m.Item.TrainingLevel), Model.GetSortString(m => m.TrainingLevel, page))
+
+
+
+
 
                     )
         </thead>
@@ -48,20 +49,14 @@
                         Model.PageIndex,
                         Model.FixedFilter,
                         Model.FixedValue,
-                        Html.DisplayFor(modelItem => item.Name),
-                        Html.DisplayFor(modelItem => item.CoachId),
-                        Html.DisplayFor(modelItem => item.TrainingId),
-                        Html.DisplayFor(modelItem => item.TrainingTypeId),
-                        Html.DisplayFor(modelItem => item.LocationId),
+                        Html.Raw(Model.GetTrainingName(item.TrainingId)),
+                        Html.DisplayFor(modelItem => item.Date),
                         Html.DisplayFor(modelItem => item.StartTime),
                         Html.DisplayFor(modelItem => item.EndTime),
-                        Html.DisplayFor(modelItem => item.Date),
-                        Html.DisplayFor(modelItem => item.TrainingLevel),
-                        Html.DisplayFor(modelItem => item.MaxNumberOfParticipants),
-                        Html.DisplayFor(modelItem => item.Description)
-
-
-
+                        Html.Raw(Model.GetLocationName(item.LocationId)),
+                        Html.Raw(Model.GetCoachName(item.CoachId)),
+                        Html.Raw(Model.GetTrainingTypeName(item.TrainingTypeId)),
+                        Html.DisplayFor(modelItem => item.TrainingLevel)
                         )
                 </tr>
             }
@@ -69,18 +64,16 @@
     </table>
     @if (Model.Participants.Count != 0)
     {
-        <h3>Participants Of Selected Training</h3>
+        <h3>Treeningul osalejad</h3>
         <table class="table">
             <tr>
                 <th>@(GetMember.DisplayName<ParticipantOfTrainingView>(x => x.ClientId))</th>
-                <th>@(GetMember.DisplayName<ParticipantOfTrainingView>(x => x.RegistrationTime))</th>
             </tr>
 
             @foreach (var item in Model.Participants)
             {
                 <tr>
                     <td>@Html.DisplayFor(modelItem => item.ClientId)</td>
-                    <td>@Html.DisplayFor(modelItem => item.RegistrationTime)</td>
                 </tr>
             }
         </table>

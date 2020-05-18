@@ -16,10 +16,9 @@ namespace TrainingApp.Soft.Areas.SportsClub.Pages.ParticipantOfTrainings
     public class EditModel : ParticipantOfTrainingsPage
     {
 
-        public EditModel(IParticipantOfTrainingsRepository p, ITimetableEntriesRepository e, IClientsRepository cl) : base(p, e, cl)
+        public EditModel(IParticipantOfTrainingsRepository p, ITimetableEntriesRepository e, IClientsRepository c) : base(p, e, c)
         {
         }
-
 
         public async Task<IActionResult> OnGetAsync(string id, string fixedFilter, string fixedValue)
         {
@@ -34,6 +33,5 @@ namespace TrainingApp.Soft.Areas.SportsClub.Pages.ParticipantOfTrainings
             await UpdateObject(fixedFilter, fixedValue);
             return Redirect(IndexUrl);
         }
-
     }
 }

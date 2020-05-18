@@ -13,7 +13,7 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             @RenderBody()
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Salvesta" class="btn btn-primary" />
             </div>
         </form>
     </div>
@@ -22,7 +22,7 @@
 <div>
     <a asp-page="./Index"
        asp-route-fixedFilter="@Model.FixedFilter"
-       asp-route-fixedValue="@Model.FixedValue">Back to full list</a>
+       asp-route-fixedValue="@Model.FixedValue">Tagasi nimekirja</a>
 </div>
 
 @section Scripts {

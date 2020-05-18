@@ -11,10 +11,10 @@ namespace TrainingApp.Tests.Domain.Common
     [TestClass]
     public class EntityTests : AbstractClassTests<Entity<TimetableEntryData>, object>
     {
-        private class testClass : Entity<TimetableEntryData>
+        private class TestClass : Entity<TimetableEntryData>
         {
 
-            public testClass(TimetableEntryData d = null) : base(d) { }
+            public TestClass(TimetableEntryData d = null) : base(d) { }
 
         }
 
@@ -22,7 +22,7 @@ namespace TrainingApp.Tests.Domain.Common
         public override void TestInitialize()
         {
             base.TestInitialize();
-            obj = new testClass();
+            obj = new TestClass();
         }
 
         [TestMethod]
@@ -31,18 +31,18 @@ namespace TrainingApp.Tests.Domain.Common
             isReadOnlyProperty(obj, nameof(obj.Data), null);
         }
 
-        [TestMethod]
-        public void IsUnspecifiedTest()
-        {
-            Assert.IsTrue(new testClass().IsUnspecified);
-            Assert.IsFalse(new testClass(GetRandom.Object<TimetableEntryData>()).IsUnspecified);
-        }
+        //[TestMethod]
+        //public void IsUnspecifiedTest()
+        //{
+        //    Assert.IsTrue(new testClass().IsUnspecified);
+        //    Assert.IsFalse(new testClass(GetRandom.Object<TimetableEntryData>()).IsUnspecified);
+        //}
 
         [TestMethod]
         public void CanSetDataTest()
         {
             var d = GetRandom.Object<TimetableEntryData>();
-            obj = new testClass(d);
+            obj = new TestClass(d);
             Assert.AreNotSame(d, obj.Data);
             arePropertiesEqual(d, obj.Data);
         }
@@ -50,14 +50,14 @@ namespace TrainingApp.Tests.Domain.Common
         [TestMethod]
         public void CanSetNullDataTest()
         {
-            obj = new testClass();
+            obj = new TestClass();
             Assert.IsNull(obj.Data);
         }
 
         [TestMethod]
         public void CantChangeDataElementsTest()
         {
-            obj = new testClass(GetRandom.Object<TimetableEntryData>());
+            obj = new TestClass(GetRandom.Object<TimetableEntryData>());
             var d = obj.Data;
             obj.Data.Id = GetRandom.String();
             obj.Data.Description = GetRandom.String();

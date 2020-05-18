@@ -10,7 +10,7 @@
     <dl class="row">
         @Html.DisplayControlsFor(model => model.Item.Name)
         @Html.DisplayControlsFor(model => model.Item.Code)
-        @Html.DisplayControlsFor(model => model.Item.TrainingCategoryId)
+        @Html.DisplayControlsFor(model => model.Item.TrainingCategoryId, Model.GetTrainingCategoryName(Model.Item.TrainingCategoryId))
         @Html.DisplayControlsFor(model => model.Item.DurationInMinutes)
         @Html.DisplayControlsFor(model => model.Item.Description)
     </dl>

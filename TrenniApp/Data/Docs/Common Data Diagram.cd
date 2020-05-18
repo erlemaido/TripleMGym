@@ -1,77 +1,77 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="TrainingApp.Data.Common.NamedEntityData">
-    <Position X="1" Y="5" Width="1.5" />
+    <Position X="1" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Common\NamedEntityData.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TrainingApp.Data.Common.DefinedEntityData">
-    <Position X="1" Y="7.5" Width="1.5" />
+    <Position X="1" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Common\DefinedEntityData.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TrainingApp.Data.Common.UniqueEntityData">
-    <Position X="1" Y="2.5" Width="1.5" />
+    <Position X="1" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Common\UniqueEntityData.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TrainingApp.Data.SportsClub.ClientData">
-    <Position X="9.25" Y="7.5" Width="1.5" />
+    <Position X="8.5" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAQAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>SportsClub\ClientData.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TrainingApp.Data.SportsClub.ParticipantOfTrainingData">
-    <Position X="3.25" Y="2.5" Width="2" />
+    <Position X="2.75" Y="2.25" Width="2" />
     <TypeIdentifier>
       <HashCode>ABAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>SportsClub\ParticipantOfTrainingData.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TrainingApp.Data.SportsClub.CoachData">
-    <Position X="0.75" Y="9.25" Width="2" />
+    <Position X="0.75" Y="7.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAACAAAgAAAEAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>SportsClub\CoachData.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TrainingApp.Data.SportsClub.TimetableEntryData">
-    <Position X="5.75" Y="9.25" Width="2.25" />
+    <Position X="5.25" Y="7.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAEIAAAAABGAACAAAAAAAAAAIAAgAAABAAAAAAAAAAA=</HashCode>
       <FileName>SportsClub\TimetableEntryData.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TrainingApp.Data.SportsClub.TrainingData">
-    <Position X="3.25" Y="9.25" Width="2" />
+    <Position X="3" Y="7.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAIAAAgAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
       <FileName>SportsClub\TrainingData.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TrainingApp.Data.SportsClub.LocationData">
-    <Position X="5.25" Y="7.5" Width="1.5" />
+    <Position X="5" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>SportsClub\LocationData.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TrainingApp.Data.SportsClub.TrainingCategoryData">
-    <Position X="3" Y="7.5" Width="2" />
+    <Position X="2.75" Y="5.75" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>SportsClub\TrainingCategoryData.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TrainingApp.Data.SportsClub.TrainingTypeData">
-    <Position X="7.25" Y="7.5" Width="1.5" />
+    <Position X="6.75" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>SportsClub\TrainingTypeData.cs</FileName>
