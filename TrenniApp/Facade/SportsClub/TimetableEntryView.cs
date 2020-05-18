@@ -9,47 +9,42 @@ namespace TrainingApp.Facade.SportsClub
     public sealed class TimetableEntryView : DefinedEntityView
     {
         [Required]
-        [DisplayName("Coach")]
+        [DisplayName("Treener")]
         public string CoachId { get; set; }
 
         [Required]
-        [DisplayName("Training")]
+        [DisplayName("Treening")]
         public string TrainingId { get; set; }
 
         [Required]
-        [DisplayName("Location")]
+        [DisplayName("Asukoht")]
         public string LocationId { get; set; }
 
         [Required]
-        [DisplayName("Type")]
+        [DisplayName("Tüüp")]
         public string TrainingTypeId { get; set; }
 
         [Required]
-        [DisplayName("Level")]
+        [DisplayName("Tase")]
         public TrainingLevel TrainingLevel { get; set; }
 
         [Required]
+        [DataType(DataType.Date)]
+        [DisplayName("Kuupäev")]
+        public DateTime Date { get; set; }
+
+        [Required]
         [DataType(DataType.Time)]
-        [DisplayName("Start")]
+        [DisplayName("Algus")]
         public DateTime StartTime { get; set; }
 
         [Required]
         [DataType(DataType.Time)]
-        [DisplayName("End")]
+        [DisplayName("Lõpp")]
         public DateTime EndTime { get; set; }
 
         [Required]
-        [DataType(DataType.Date)]
-        public DateTime Date { get; set; }
-
-        [Required]
-        [DisplayName("Maximum Number of Participants")]
+        [DisplayName("Maksimaalne osalejate arv")]
         public int MaxNumberOfParticipants { get; set; }
-
-        public string GetId()
-        {
-            return $"{Id}.{CoachId}.{TrainingId}.{TrainingTypeId}.{LocationId}";
-        }
-
     }
 }

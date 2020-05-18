@@ -8,15 +8,11 @@ namespace TrainingApp.Facade.SportsClub
     public sealed class ClientView : NamedEntityView
     {
         [Required]
-        [DisplayName("ID Code")]
-        public string IdCode { get; set; }
-
-        [Required]
         public string Email { get; set; }
 
         [Required]
         [DataType(DataType.Date)]
-        [DisplayName("Date of Joining")]
+        [DisplayName("Liitumise kuupäev")]
         public DateTime DateOfJoining { get; set; }
     }
 }
