@@ -68,7 +68,6 @@ namespace TrainingApp.Pages.SportsClub
             }
 
             return base.GetPageSubTitle();
-
         }
 
     }

@@ -11,7 +11,9 @@ namespace TrainingApp.Pages.SportsClub
     public abstract class ClientsPage : CommonPage<IClientsRepository, Client, ClientView, ClientData>
     {
         public IList<ParticipantOfTrainingView> Participants { get; }
+
         public IEnumerable<SelectListItem> TimetableEntries { get; }
+
         protected internal readonly IParticipantOfTrainingsRepository participants;
 
         protected internal ClientsPage(IClientsRepository r, IParticipantOfTrainingsRepository p, ITimetableEntriesRepository t) : base(r)
