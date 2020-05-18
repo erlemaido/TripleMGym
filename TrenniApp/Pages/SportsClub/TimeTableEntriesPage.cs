@@ -14,7 +14,7 @@ namespace TrainingApp.Pages.SportsClub
     {
         protected internal readonly IParticipantOfTrainingsRepository participants;
         protected internal TimeTableEntriesPage(ITimetableEntriesRepository r, IParticipantOfTrainingsRepository p, 
-            ITrainingsRepository t, ICoachesRepository c, ILocationsRepository l, ITrainingTypesRepository tt, IClientsRepository cl) : base(r)
+            ITrainingsRepository t, ICoachesRepository c, ILocationsRepository l, ITrainingTypesRepository tt) : base(r)
         {
             PageTitle = "Tunniplaan";
             Participants = new List<ParticipantOfTrainingView>();
@@ -24,9 +24,8 @@ namespace TrainingApp.Pages.SportsClub
             Locations = CreateSelectList<Location, LocationData>(l);
             TrainingTypes = CreateSelectList<TrainingType, TrainingTypeData>(tt);
             TrainingLevels = CreateTrainingLevelsSelectList<TrainingLevel>();
-            Clients = CreateClientsSelectList<Client>(cl);
-
         }
+
         public IList<ParticipantOfTrainingView> Participants { get; }
         public IEnumerable<SelectListItem> Trainings { get; }
 
@@ -116,15 +115,6 @@ namespace TrainingApp.Pages.SportsClub
 
             return items;
         }
-
-        private IEnumerable<SelectListItem> CreateClientsSelectList<Client>(IRepository<Client> r)
-            where Client : Entity<ClientData>, new()
-        {
-            var items = r.Get().GetAwaiter().GetResult();
-
-            return items.Select(m => new SelectListItem(m.Data.FirstName + " " + m.Data.LastName, m.Data.Id)).ToList();
-        }
-
     }
 }
 

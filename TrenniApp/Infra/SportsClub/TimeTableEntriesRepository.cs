@@ -19,7 +19,7 @@ namespace TrainingApp.Infra.SportsClub
             var trainingId = "";
             var locationId = "";
             var trainingTypeId = GetString.Tail(timetableEntryId);
-            return await DbSet.SingleOrDefaultAsync(x => x.Id == id && x.CoachId == id && x.TrainingId == trainingId && x.LocationId == locationId && x.TrainingTypeId == trainingTypeId);
+            return await DbSet.SingleOrDefaultAsync(x => x.Id == id && x.CoachId == coachId && x.TrainingId == trainingId && x.LocationId == locationId && x.TrainingTypeId == trainingTypeId);
         }
 
         protected override string GetId(TimetableEntry obj)

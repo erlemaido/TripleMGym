@@ -15,8 +15,7 @@ namespace TrainingApp.Soft.Areas.SportsClub.Pages.Coaches
     public class IndexModel : CoachesPage
     {
 
-        public IndexModel(ICoachesRepository c, ITimetableEntriesRepository t, 
-            ITrainingTypesRepository tt, ITrainingsRepository tr, ILocationsRepository l) : base(c, t, tt, tr, l)
+        public IndexModel(ICoachesRepository c, ITimetableEntriesRepository t) : base(c, t)
         {
         }
 

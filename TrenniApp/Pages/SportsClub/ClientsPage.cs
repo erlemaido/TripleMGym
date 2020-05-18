@@ -14,8 +14,8 @@ namespace TrainingApp.Pages.SportsClub
         protected internal ClientsPage(IClientsRepository r, IParticipantOfTrainingsRepository p) : base(r)
         {
             PageTitle = "Kliendid";
-            Trainings = new List<ParticipantOfTrainingView>();
-            trainings = p;
+            Participants = new List<ParticipantOfTrainingView>();
+            participants = p;
         }
 
 
