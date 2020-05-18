@@ -15,4 +15,4 @@ jobs:
         dotnet-version: 3.0.100
     - name: Build with dotnet
       run: dotnet build --configuration Release
-      working-directory: ./TrainingApp
+      working-directory: ./TrenniApp
