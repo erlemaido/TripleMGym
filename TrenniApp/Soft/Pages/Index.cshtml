@@ -1,11 +1,15 @@
 ﻿@page
+@using TrainingApp.Pages.Extensions
 @model IndexModel
 @{
     ViewData["Title"] = "Sports Club";
+    var page = "SportsClub/ParticipantOfTrainings";
+    var clientPage = "SportsClub/Clients";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Mingi lahe tekst</h1>
-    
-    <p>Näiteks registreeru treeningule?? <a href="https://localhost:5001/SportsClub/ParticipantOfTrainings/Create">SIIN</a>.</p>
+    <h1 class="display-4">Triple M GYM</h1>
+
+    @Html.HypertextLinkFor(string.Empty,new Link(Constants.CreateNewClientTitle,$"{clientPage}/Create"))
+    @Html.HypertextLinkFor(string.Empty, new Link(Constants.CreateNewReservationTitle, $"{page}/Create"))
 </div>
