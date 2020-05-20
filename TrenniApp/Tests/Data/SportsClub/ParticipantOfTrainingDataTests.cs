@@ -6,7 +6,7 @@ using TrainingApp.Data.SportsClub;
 namespace TrainingApp.Tests.Data.SportsClub
 {
     [TestClass]
-    public class ParticipantOfTrainingDataTests : SealedClassTests<ParticipantOfTrainingData, UniqueEntityData>
+    public class ParticipantOfTrainingDataTests : SealedClassTests<ParticipantOfTrainingData, PeriodData>
     {
         [TestMethod]
         public void ClientIdTest()

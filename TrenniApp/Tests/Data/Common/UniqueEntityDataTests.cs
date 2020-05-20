@@ -4,7 +4,7 @@ using TrainingApp.Data.Common;
 namespace TrainingApp.Tests.Data.Common
 {
     [TestClass]
-    public class UniqueEntityDataTests : AbstractClassTests<UniqueEntityData, object>
+    public class UniqueEntityDataTests : AbstractClassTests<UniqueEntityData, PeriodData>
     {
         private class testClass : UniqueEntityData { }
         [TestInitialize]

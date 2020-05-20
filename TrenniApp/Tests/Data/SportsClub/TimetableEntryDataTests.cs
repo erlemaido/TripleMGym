@@ -44,6 +44,11 @@ namespace TrainingApp.Tests.Data.SportsClub
             isProperty(() => obj.EndTime, x => obj.EndTime = x);
         }
         [TestMethod]
+        public void DateTest()
+        {
+            isProperty(() => obj.Date, x => obj.Date = x);
+        }
+        [TestMethod]
         public void MaxNumberOfParticipantsTest()
         {
             isProperty(() => obj.MaxNumberOfParticipants, x => obj.MaxNumberOfParticipants = x);
