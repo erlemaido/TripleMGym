@@ -44,4 +44,10 @@
     </Reference>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Facade\" />
+    <Folder Include="Infra\" />
+    <Folder Include="Pages\" />
+  </ItemGroup>
+
 </Project>
