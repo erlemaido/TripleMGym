@@ -14,5 +14,6 @@ namespace TrainingApp.Facade.SportsClub
         [DataType(DataType.Date)]
         [DisplayName("Liitumise kuupäev")]
         public DateTime DateOfJoining { get; set; }
+        
     }
 }
