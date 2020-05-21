@@ -5,8 +5,8 @@
         public const string Unspecified = "Määramata";
 
         public const string CreateNewLinkTitle = "Loo uus";
-        public const string CreateNewReservationTitle = "Oled juba liige? Broneeri endale treening";
-        public const string CreateNewClientTitle = "Liitu klubiga";
+        public const string CreateNewReservationTitle = "BRONEERI OMALE TREENING";
+        public const string CreateNewClientTitle = "Ei ole veel liige? Liitu klubiga";
         public const string EditLinkTitle = "Muuda";
         public const string DetailsLinkTitle = "Detailid";
         public const string DeleteLinkTitle = "Kustuta";
