@@ -2,13 +2,12 @@
 using System.Linq;
 using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TrainingApp.Aids;
 using TrainingApp.Data.SportsClub;
-using TrainingApp.Infra.SportsClub;
+using TrainingApp.Infra;
 
 namespace TrainingApp.Tests.Infra
 {
@@ -67,15 +66,14 @@ namespace TrainingApp.Tests.Infra
             var o = new TestClass(options);
             var builder = o.RunOnModelCreating();
             SportsClubDbContext.InitializeTables(builder);
-            TestEntity<ClientData>(builder, x => x.DateOfJoining, x => x.Email);
-            TestEntity<CoachData>(builder, x=> x.CoachCertificateNumber, x=> x.Email, x=> x.Age, x=> x.HireDate);
+            TestEntity<ClientData>(builder);
+            TestEntity<CoachData>(builder);
             TestEntity<LocationData>(builder);
             TestEntity<ParticipantOfTrainingData>(builder, x=> x.TimetableEntryId, x=> x.ClientId);
-            TestEntity<TimetableEntryData>(builder, x=> x.TrainingId, x => x.EndTime, x => x.StartTime, x => x.MaxNumberOfParticipants,
-                x => x.TrainingTypeId, x => x.TrainingLevel, x => x.CoachId, x => x.LocationId);
+            TestEntity<TimetableEntryData>(builder);
             TestEntity<TrainingCategoryData>(builder);
             TestEntity<TrainingTypeData>(builder);
-            TestEntity<TrainingData>(builder, x => x.TrainingCategoryId, x => x.Code, x=> x.DurationInMinutes);
+            TestEntity<TrainingData>(builder);
         }
 
         [TestMethod]

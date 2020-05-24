@@ -31,7 +31,7 @@ namespace TrainingApp.Tests.Data.SportsClub
         [TestMethod]
         public void TrainingLevelTest()
         {
-            isProperty(() => obj.TrainingLevel, x => obj.TrainingLevel = x);
+            isNullableProperty(() => obj.TrainingLevel, x => obj.TrainingLevel = x);
         }
         [TestMethod]
         public void StartTimeTest()

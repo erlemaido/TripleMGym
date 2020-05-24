@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using TrainingApp.Infra;
 using TrainingApp.Infra.SportsClub;
 
 namespace TrainingApp.Soft

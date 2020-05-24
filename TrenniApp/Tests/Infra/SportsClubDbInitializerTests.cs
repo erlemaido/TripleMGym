@@ -12,7 +12,7 @@ namespace TrainingApp.Tests.Infra
         }
 
         [TestMethod]
-        public void SportCategoryData1Test()
+        public void ClientDataTest()
         {
         }
     }
