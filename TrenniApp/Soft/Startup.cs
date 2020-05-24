@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using TrainingApp.Domain.SportsClub;
+using TrainingApp.Infra;
 using TrainingApp.Infra.SportsClub;
 using TrainingApp.Soft.Data;
 

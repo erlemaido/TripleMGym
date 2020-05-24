@@ -77,7 +77,7 @@ namespace TrainingApp.Tests.Domain.Common
             //    var d = GetRandom.Object<TimetableEntryData>();
             //    obj = new TestClass(d);
             //    Assert.AreNotSame(d, obj.Data);
-            //    arePropertiesEqual(d, obj.Data);
+            //    ArePropertiesEqual(d, obj.Data);
             //}
 
             //[TestMethod]
@@ -102,7 +102,7 @@ namespace TrainingApp.Tests.Domain.Common
             //    obj.Data.TrainingTypeId = GetRandom.String();
             //    //obj.Data.TrainingLevel GetRandomisse ei saa TrainingLevelit lisada
             //    obj.Data.MaxNumberOfParticipants = GetRandom.Int32();
-            //    arePropertiesEqual(d, obj.Data);
+            //    ArePropertiesEqual(d, obj.Data);
             //}
         
 }

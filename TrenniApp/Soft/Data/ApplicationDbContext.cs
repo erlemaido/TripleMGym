@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using TrainingApp.Facade.SportsClub;
+using TrainingApp.Infra;
 using TrainingApp.Infra.SportsClub;
 
 namespace TrainingApp.Soft.Data

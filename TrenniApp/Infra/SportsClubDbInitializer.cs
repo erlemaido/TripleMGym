@@ -1,10 +1,9 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using TrainingApp.Data.SportsClub;
 
-namespace TrainingApp.Infra.SportsClub
+namespace TrainingApp.Infra
 {
     public static class SportsClubDbInitializer
     {

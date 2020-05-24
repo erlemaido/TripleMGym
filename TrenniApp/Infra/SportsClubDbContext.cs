@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using TrainingApp.Data.SportsClub;
 
-namespace TrainingApp.Infra.SportsClub
+namespace TrainingApp.Infra
 {
     public class SportsClubDbContext : DbContext
     {
