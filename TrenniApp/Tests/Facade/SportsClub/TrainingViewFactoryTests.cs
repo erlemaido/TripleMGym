@@ -26,7 +26,7 @@ namespace TrainingApp.Tests.Facade.SportsClub
         {
             var view = GetRandom.Object<TrainingView>();
             var data = TrainingViewFactory.Create(view).Data;
-            testArePropertyValuesEqual(view, data);
+            TestArePropertyValuesEqual(view, data);
 
         }
         [TestMethod]
@@ -34,7 +34,7 @@ namespace TrainingApp.Tests.Facade.SportsClub
         {
             var data = GetRandom.Object<TrainingData>();
             var view = TrainingViewFactory.Create(new Training(data));
-            testArePropertyValuesEqual(view, data);
+            TestArePropertyValuesEqual(view, data);
 
         }
     }

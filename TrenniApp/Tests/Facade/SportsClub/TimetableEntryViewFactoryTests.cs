@@ -22,7 +22,7 @@ namespace TrainingApp.Tests.Facade.SportsClub
         {
             var view = GetRandom.Object<TimetableEntryView>();
             var data = TimetableEntryViewFactory.Create(view).Data;
-            testArePropertyValuesEqual(view, data);
+            TestArePropertyValuesEqual(view, data);
 
         }
         [TestMethod]
@@ -30,7 +30,7 @@ namespace TrainingApp.Tests.Facade.SportsClub
         {
             var data = GetRandom.Object<TimetableEntryData>();
             var view = TimetableEntryViewFactory.Create(new TimetableEntry(data));
-            testArePropertyValuesEqual(view, data);
+            TestArePropertyValuesEqual(view, data);
 
         }
     }

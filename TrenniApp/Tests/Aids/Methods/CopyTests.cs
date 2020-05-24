@@ -16,7 +16,7 @@ namespace TrainingApp.Tests.Aids.Methods {
             var x = GetRandom.Object<TrainingDataTests>();
             /*var y = GetRandom.Object<TrainingView>();
             Copy.Members(x, y);
-            testArePropertyValuesEqual(x,y);*/
+            TestArePropertyValuesEqual(x,y);*/
         }
 
     }

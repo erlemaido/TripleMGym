@@ -20,13 +20,13 @@ namespace TrainingApp.Tests
             if (type == null) Assert.Inconclusive(notSpecified);
             var m = GetClass.Members(type, PublicBindingFlagsFor.DeclaredMembers);
             members = m.Select(e => e.Name).ToList();
-            removeTested();
+            RemoveTested();
 
             if (members.Count == 0) return;
             Assert.Fail(notTested, members[0]);
         }
 
-        private void removeTested()
+        private void RemoveTested()
         {
             var tests = GetType().GetMembers().Select(e => e.Name).ToList();
             for (var i = members.Count; i > 0; i--)
@@ -39,7 +39,7 @@ namespace TrainingApp.Tests
             }
         }
 
-        protected static void testArePropertyValuesEqual(object obj1, object obj2)
+        protected static void TestArePropertyValuesEqual(object obj1, object obj2)
         {
             foreach (var property in obj1.GetType().GetProperties())
             {
@@ -51,7 +51,7 @@ namespace TrainingApp.Tests
                 Assert.AreEqual(expected, actual, $"For property'{name}'.");
             }
         }
-        protected static void arePropertiesEqual(object obj1, object obj2, params string[] except)
+        protected static void ArePropertiesEqual(object obj1, object obj2, params string[] except)
         {
             foreach (var property in obj1.GetType().GetProperties())
             {
@@ -66,7 +66,7 @@ namespace TrainingApp.Tests
             }
         }
 
-        protected static void arePropertiesNotEqual(object obj1, object obj2)
+        protected static void ArePropertiesNotEqual(object obj1, object obj2)
         {
             foreach (var property in obj1.GetType().GetProperties())
             {

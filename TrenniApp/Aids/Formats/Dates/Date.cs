@@ -76,7 +76,7 @@ namespace TrainingApp.Aids.Formats.Dates {
         public static ReadOnlyCollection<string> All {
             get {
                 var r = new List<string>();
-                r.AddRange(allMonthFirst);
+                r.AddRange(AllMonthFirst);
                 r.AddRange(allDayFirst);
 
                 return new ReadOnlyCollection<string>(r);
