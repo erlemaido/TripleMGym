@@ -25,7 +25,7 @@ namespace TrainingApp.Pages
 
         public string PageUrl => GetPageUrl();
 
-        protected internal abstract string GetPageUrl();
+        protected internal abstract string GetPageUrl(); 
 
         public string IndexUrl => GetIndexUrl();
 
