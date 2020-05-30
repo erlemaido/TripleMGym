@@ -17,7 +17,7 @@ namespace TrainingApp.Facade.SportsClub
 
         public string GetId()
         {
-            return Email;
+            return Id;
         }
     }
 }

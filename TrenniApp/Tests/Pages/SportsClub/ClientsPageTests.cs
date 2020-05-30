@@ -1,5 +1,6 @@
 ﻿
 
+using System.Linq;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TrainingApp.Aids;
@@ -39,7 +40,8 @@ namespace TrainingApp.Tests.Pages.SportsClub
 
         private TestRepository clients;
         private TestParticipantOfTrainingsRepository participants;
-        private TestTimetableEntriesRepository entry;
+        private TestTimetableEntriesRepository entries;
+        private TimetableEntryData data;
 
 
         [TestInitialize]
@@ -48,13 +50,11 @@ namespace TrainingApp.Tests.Pages.SportsClub
             base.TestInitialize();
             clients = new TestRepository();
             participants = new TestParticipantOfTrainingsRepository();
-            entry = new TestTimetableEntriesRepository();
-            organizations = new TestOrganizationsRepository();
-            eventLists = new TestClientListsRepository();
-            data = GetRandom.Object<SportCategoryData>();
-            var m = new SportCategoryDomain(data);
-            categories.Add(m).GetAwaiter();
-            obj = new TestClass(events, categories, organizations, eventLists, locations);
+            entries = new TestTimetableEntriesRepository();
+            data = GetRandom.Object<TimetableEntryData>();
+            var m = new TimetableEntry(data);
+            entries.Add(m).GetAwaiter();
+            obj = new TestClass(clients, participants, entries);
         }
         [TestMethod]
         public void ItemIdTest()
@@ -67,16 +67,16 @@ namespace TrainingApp.Tests.Pages.SportsClub
         }
 
         [TestMethod]
-        public void PageTitleTest() => Assert.AreEqual("Üritused", obj.PageTitle);
+        public void PageTitleTest() => Assert.AreEqual("Kliendid", obj.PageTitle);
 
         [TestMethod]
-        public void PageUrlTest() => Assert.AreEqual("/Client/Clients", obj.PageUrl);
+        public void PageUrlTest() => Assert.AreEqual("/SportsClub/Clients", obj.PageUrl);
 
         [TestMethod]
         public void ToObjectTest()
         {
             var view = GetRandom.Object<ClientView>();
-            var o = obj.toObject(view);
+            var o = obj.ToObject(view);
             TestArePropertyValuesEqual(view, o.Data);
         }
 
@@ -84,38 +84,37 @@ namespace TrainingApp.Tests.Pages.SportsClub
         public void ToViewTest()
         {
             var d = GetRandom.Object<ClientData>();
-            var view = obj.toView(new ClientDomain(d));
+            var view = obj.ToView(new Client(d));
             TestArePropertyValuesEqual(view, d);
         }
         [TestMethod]
-        public void GetSportCategoryNameTest()
+        public void GetTimetableEntryNameTest()
         {
-            var name = obj.GetSportCategoryName(data.Id);
+            var name = obj.GetTimetableEntryName(data.Id);
             Assert.AreEqual(data.Name, name);
         }
+
         [TestMethod]
-        public void SportCategoriesTest()
+        public void TimetableEntriesTest()
         {
-            var list = categories.Get().GetAwaiter().GetResult();
-            Assert.AreEqual(list.Count, obj.SportCategories.Count());
+            var list = entries.Get().GetAwaiter().GetResult();
+            Assert.AreEqual(list.Count, obj.TimetableEntries.Count());
         }
+
         [TestMethod]
-        public void LocationsTest()
+        public void ParticipantsTest()
         {
-            var list = locations.Get().GetAwaiter().GetResult();
-            Assert.AreEqual(list.Count, obj.Locations.Count());
+            var list = participants.Get().GetAwaiter().GetResult();
+            Assert.AreEqual(list.Count, obj.Participants.Count());
         }
+
         [TestMethod]
-        public void OrganizationsTest()
+        public void LoadDetailsTest()
         {
-            var list = organizations.Get().GetAwaiter().GetResult();
-            Assert.AreEqual(list.Count, obj.Organizations.Count());
-        }
-        [TestMethod]
-        public void ClientListsTest()
-        {
-            var list = eventLists.Get().GetAwaiter().GetResult();
-            Assert.AreEqual(list.Count, obj.ClientLists.Count());
+            var list = participants.Get().GetAwaiter().GetResult();
+            var item = GetRandom.Object<ClientView>();
+            obj.LoadDetails(item);
+            Assert.AreNotEqual(list, obj.participants);
         }
     }
 }
