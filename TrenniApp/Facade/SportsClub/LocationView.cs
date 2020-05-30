@@ -5,6 +5,9 @@ namespace TrainingApp.Facade.SportsClub
 {
     public sealed class LocationView : NamedEntityView
     {
-
+        public string GetId()
+        {
+            return Id;
+        }
     }
 }

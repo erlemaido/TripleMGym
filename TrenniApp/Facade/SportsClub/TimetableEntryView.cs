@@ -46,5 +46,10 @@ namespace TrainingApp.Facade.SportsClub
         [Required]
         [DisplayName("Maksimaalne osalejate arv")]
         public int MaxNumberOfParticipants { get; set; }
+
+        public string GetId()
+        {
+            return Id;
+        }
     }
 }
