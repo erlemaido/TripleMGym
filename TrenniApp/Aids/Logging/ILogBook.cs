@@ -9,5 +9,3 @@ namespace TrainingApp.Aids.Logging {
     }
 
 }
-
-

@@ -14,7 +14,5 @@ namespace TrainingApp.Tests.Aids {
             Assert.AreEqual("./aaa", new Uri("./aaa", UriKind.Relative).ToString());
             Assert.AreEqual("aaa", new Uri("aaa", UriKind.Relative).ToString());
         }
-
     }
-
 }

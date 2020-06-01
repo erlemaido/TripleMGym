@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Reflection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TrainingApp.Aids.Classes;
-using TrainingApp.Aids.Random;
 using TrainingApp.Aids.Reflection;
 
 namespace TrainingApp.Tests.Aids.Reflection {
@@ -19,19 +18,19 @@ namespace TrainingApp.Tests.Aids.Reflection {
         }
 
         [TestMethod] public void MembersTest() {
-            testMember(typeof(testClass));
-            testNull(null);
+            TestMember(typeof(TestClass));
+            TestNull(null);
         }
 
-        private static void testNull(Type t) {
+        private static void TestNull(Type t) {
             var a = GetClass.Members(t);
             Assert.IsInstanceOfType(a, typeof(List<MemberInfo>));
             Assert.AreEqual(0, a.Count);
         }
 
-        private static void testMember(Type t) {
-            var a = GetClass.Members(t, PublicFlagsFor.All, false);
-            var e = t.GetMembers(PublicFlagsFor.All);
+        private static void TestMember(Type t) {
+            var a = GetClass.Members(t, PublicFlagsFor.all, false);
+            var e = t.GetMembers(PublicFlagsFor.all);
             Assert.AreEqual(e.Length, a.Count);
             Assert.AreEqual(10, a.Count);
             foreach (var v in e) Assert.IsTrue(a.Contains(v));
@@ -39,58 +38,28 @@ namespace TrainingApp.Tests.Aids.Reflection {
         }
 
         [TestMethod] public void PropertiesTest() {
-            var a = GetClass.Properties(typeof(testClass));
+            var a = GetClass.Properties(typeof(TestClass));
             Assert.IsNotNull(a);
             Assert.IsInstanceOfType(a, typeof(List<PropertyInfo>));
             Assert.AreEqual(1, a.Count);
             Assert.AreEqual("F", a[0].Name);
         }
 
-        [TestMethod] public void ReadWritePropertyValuesTest() {
-            var o = GetRandom.Object<testClass>();
-            var l = GetClass.ReadWritePropertyValues(o);
-            Assert.AreEqual(1, l.Count);
-            Assert.AreEqual(l[0], o.F);
-        }
         [TestMethod]
         public void PropertyTest()
         {
             Assert.Inconclusive();
         }
 
-        /*[TestMethod] public void PropertyTest() {
-            static void test(string name) 
-                =>Assert.AreEqual(name, GetClass.Property<MeasureView>(name).Name);
-
-            Assert.IsNull(GetClass.Property<MeasureView>((string) null));
-            Assert.IsNull(GetClass.Property<MeasureView>(string.Empty));
-            Assert.IsNull(GetClass.Property<MeasureView>("bla bla"));
-            test(GetMember.Name<MeasureView>(m => m.Code));
-            test(GetMember.Name<MeasureView>(m => m.Definition));
-            test(GetMember.Name<MeasureView>(m => m.Name));
-            test(GetMember.Name<MeasureView>(m => m.ValidFrom));
-            test(GetMember.Name<MeasureView>(m => m.ValidTo));
-        }*/
-
-        internal class testBaseClass {
-
-            public void Aaa() => bbb();
-
-            private void bbb() { }
-
-            public static void Ccc() => ddd();
-
-            private static void ddd() { }
-
+        internal class TestBaseClass 
+        {
         }
 
-        internal class testClass : testBaseClass {
+        internal class TestClass : TestBaseClass {
 
-            public int E = 0;
+            public int e = 0;
             public string F { get; set; }
 
         }
-
     }
-
 }

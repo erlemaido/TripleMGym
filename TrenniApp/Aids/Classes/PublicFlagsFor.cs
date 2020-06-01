@@ -3,18 +3,14 @@
 namespace TrainingApp.Aids.Classes {
 
     public static class PublicFlagsFor {
-        private const BindingFlags p = BindingFlags.Public;
-        private const BindingFlags i = BindingFlags.Instance;
-        private const BindingFlags s = BindingFlags.Static;
-        private const BindingFlags d = BindingFlags.DeclaredOnly;
-        public const BindingFlags All = p | i | s;
-        public const BindingFlags Instance = p | i;
-        public const BindingFlags Static = p | s;
-        public const BindingFlags Declared = p | d | i | s;
+        private const BindingFlags P = BindingFlags.Public;
+        private const BindingFlags I = BindingFlags.Instance;
+        private const BindingFlags S = BindingFlags.Static;
+        private const BindingFlags D = BindingFlags.DeclaredOnly;
+        public const BindingFlags all = P | I | S;
+        public const BindingFlags instance = P | I;
+        public const BindingFlags @static = P | S;
+        public const BindingFlags declared = P | D | I | S;
     }
 
 }
-
-
-
-

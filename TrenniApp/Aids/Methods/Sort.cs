@@ -10,16 +10,5 @@ namespace TrainingApp.Aids.Methods {
             min = max;
             max = d;
         }
-
-        public static void Descending<T>(ref T max, ref T min) where T : notnull, IComparable {
-            if (max.CompareTo(min) >= 0) return;
-            var d = max;
-            max = min;
-            min = d;
-        }
-
     }
-
 }
-
-

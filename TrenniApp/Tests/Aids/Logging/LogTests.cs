@@ -8,7 +8,7 @@ namespace TrainingApp.Tests.Aids.Logging {
 
     [TestClass] public class LogTests : BaseTests {
 
-        internal class testLogBook : ILogBook {
+        internal class TestLogBook : ILogBook {
 
             public string LoggedMessage { get; private set; }
             public Exception LoggedException { get; private set; }
@@ -25,11 +25,11 @@ namespace TrainingApp.Tests.Aids.Logging {
 
         }
 
-        private testLogBook logBook;
+        private TestLogBook logBook;
 
         [TestInitialize] public virtual void TestInitialize() {
             type = typeof(Log);
-            logBook = new testLogBook();
+            logBook = new TestLogBook();
         }
 
         [TestCleanup] public void TestCleanup() => Log.logBook = null;
@@ -51,9 +51,5 @@ namespace TrainingApp.Tests.Aids.Logging {
             Log.Exception(exception);
             Assert.AreEqual(exception, logBook.LoggedException);
         }
-
     }
-
 }
-
-

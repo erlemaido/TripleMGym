@@ -18,7 +18,7 @@ namespace TrainingApp.Tests
         public void IsTested()
         {
             if (type == null) Assert.Inconclusive(notSpecified);
-            var m = GetClass.Members(type, PublicBindingFlagsFor.DeclaredMembers);
+            var m = GetClass.Members(type, PublicBindingFlagsFor.declaredMembers);
             members = m.Select(e => e.Name).ToList();
             RemoveTested();
 

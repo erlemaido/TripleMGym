@@ -8,7 +8,7 @@ namespace TrainingApp.Aids.Random {
 
     public static class GetRandom {
 
-        private static readonly System.Random r = new System.Random();
+        private static readonly System.Random R = new System.Random();
 
         public static bool Bool() => Int32() % 2 == 0;
 
@@ -39,20 +39,11 @@ namespace TrainingApp.Aids.Random {
         public static double Double(double min = double.MinValue, double max = double.MaxValue) {
             if (min.CompareTo(max) == 0) return min;
             Methods.Sort.Ascending(ref min, ref max);
-            var d = r.NextDouble();
+            var d = R.NextDouble();
 
             if (max > 0) return min + d * max - d * min;
 
             return min - d * min + d * max;
-        }
-
-        public static T Enum<T>() => (T) Enum(typeof(T));
-
-        public static object Enum(Type t) {
-            var count = Reflection.GetEnum.Count(t);
-            var index = Int32(0, count);
-
-            return Reflection.GetEnum.Value(t, index);
         }
 
         public static float Float(float min = float.MinValue, float max = float.MaxValue)
@@ -66,9 +57,7 @@ namespace TrainingApp.Aids.Random {
 
         public static int Int32(int min = int.MinValue, int max = int.MaxValue) {
             if (min.CompareTo(max) == 0) return min;
-            if (min.CompareTo(max) > 0) return r.Next(max, min);
-
-            return r.Next(min, max);
+            return min.CompareTo(max) > 0 ? R.Next(max, min) : R.Next(min, max);
         }
 
         public static long Int64(long min = long.MinValue, long max = long.MaxValue) {
@@ -79,9 +68,9 @@ namespace TrainingApp.Aids.Random {
                 min);
         }
 
-        public static string String(byte minLenght = 5, byte maxLenght = 10) {
+        public static string String(byte minLength = 5, byte maxLength = 10) {
             var b = new StringBuilder();
-            var size = UInt8(minLenght, maxLenght);
+            var size = UInt8(minLength, maxLength);
             for (var i = 0; i < size; i++) b.Append(Char('a', 'z'));
 
             return b.ToString();
@@ -111,7 +100,6 @@ namespace TrainingApp.Aids.Random {
             if (!(x is null)) t = x;
 
             if (t.IsArray) return Array(t.GetElementType());
-            if (t.IsEnum) return Enum(t);
             if (t == typeof(string)) return String();
             if (t == typeof(char)) return Char();
             if (t == typeof(Color)) return Color();
@@ -144,9 +132,7 @@ namespace TrainingApp.Aids.Random {
             if (t == typeof(short?)) return Int16();
             if (t == typeof(int?)) return Int32();
             if (t == typeof(long?)) return Int64();
-            if (t == typeof(TimeSpan)) return TimeSpan();
-
-            return Object(t);
+            return t == typeof(TimeSpan) ? TimeSpan() : Object(t);
         }
 
         public static object Array(Type t) {
@@ -161,91 +147,11 @@ namespace TrainingApp.Aids.Random {
             return array;
         }
 
-        public static T Object<T>() {
-            var o = Reflection.CreateNew.Instance<T>();
-            SetRandom.Values(o);
-
-            return o;
-        }
-
         public static object Object(Type t) {
             var o = Reflection.CreateNew.Instance(t);
             SetRandom.Values(o);
 
             return o;
         }
-
-        public static string Email()
-            => $"{String()}.{String()}@{String()}.{String()}";
-
-        public static string Password()
-            => $"{String()}{Char('\x20', '\x2f')}{UInt32().ToString()}.{String().ToUpper()}";
-
-        public static List<T> List<T>(Func<T> func) {
-            var list = new List<T>();
-            for (var i = 0; i < UInt8(2, 10); i++) list.Add(func());
-
-            return list;
-        }
-
-        public static object AnyDouble(byte minValue = 0, byte maxValue = 100) {
-            var i = UInt8();
-
-            switch (i % 10) {
-                case 0: return Int32(minValue, maxValue);
-                case 1: return UInt32(minValue, maxValue);
-                case 2: return Float(minValue, maxValue);
-                case 3: return Int8(0);
-                case 4: return UInt8(minValue, maxValue);
-                case 5: return Int16(minValue, maxValue);
-                case 6: return UInt16(minValue, maxValue);
-                case 7: return Int64(minValue, maxValue);
-                case 8: return UInt64(minValue, maxValue);
-                default: return Double(minValue, maxValue);
-            }
-        }
-
-        public static object AnyInt(byte minValue = 0, byte maxValue = 100) {
-            var i = UInt8();
-
-            switch (i % 5) {
-                case 0: return Int8(0);
-                case 1: return UInt8(minValue, maxValue);
-                case 2: return Int16(minValue, maxValue);
-                case 4: return UInt16(minValue, maxValue);
-                default: return Int32(minValue, maxValue);
-            }
-        }
-
-        public static object AnyValue() {
-            var i = Int32();
-
-            switch (i % 10) {
-                case 0: return DateTime();
-                case 1: return String();
-                case 2: return Char();
-                case 3: return Int32();
-                case 4: return Double();
-                case 5: return Decimal();
-                case 6: return UInt32();
-                case 7: return Float();
-                case 8: return Int8();
-                case 9: return UInt8();
-                case 10: return Int16();
-                case 11: return UInt16();
-                case 12: return Int64();
-                case 13: return UInt64();
-                default: return String();
-            }
-        }
-
     }
-
 }
-
-
-
-
-
-
-

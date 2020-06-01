@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TrainingApp.Aids.Reflection;
 
@@ -8,8 +7,8 @@ namespace TrainingApp.Tests.Aids.Reflection {
 
     [TestClass] public class GetSolutionTests : BaseTests {
 
-        private static string assemblyName = "TrainingApp.Aids";
-        private const string dummyName = "bla-bla";
+        private static readonly string assemblyName = "TrainingApp.Aids";
+        private const string DummyName = "bla-bla";
 
         [TestInitialize] public void TestInitialize() => type = typeof(GetSolution);
 
@@ -19,22 +18,15 @@ namespace TrainingApp.Tests.Aids.Reflection {
             Assert.AreEqual(expected, actual);
         }
 
-        [TestMethod] public void AssembliesTest() {
-            var expected = AppDomain.CurrentDomain.GetAssemblies().ToList();
-            var actual = GetSolution.Assemblies;
-            foreach (var e in expected) Assert.IsTrue(actual.Contains(e));
-            Assert.AreEqual(expected.Count, actual.Count);
-        }
-
         [TestMethod] public void AssemblyByNameTest() {
-            Assert.IsNull(GetSolution.AssemblyByName(dummyName));
+            Assert.IsNull(GetSolution.AssemblyByName(DummyName));
             var assembly = GetSolution.AssemblyByName(assemblyName);
-            Assert.IsTrue(assembly.FullName.StartsWith(assemblyName));
+            Assert.IsTrue(assembly.FullName != null && assembly.FullName.StartsWith(assemblyName));
         }
 
         [TestMethod] public void TypesForAssemblyTest() {
             var expected = GetSolution.AssemblyByName(assemblyName).GetTypes();
-            var actual = GetSolution.TypesForAssembly(dummyName);
+            var actual = GetSolution.TypesForAssembly(DummyName);
             Assert.AreEqual(0, actual.Count);
             Assert.IsInstanceOfType(actual, typeof(List<Type>));
             actual = GetSolution.TypesForAssembly(assemblyName);
@@ -44,7 +36,7 @@ namespace TrainingApp.Tests.Aids.Reflection {
 
         [TestMethod] public void TypeNamesForAssemblyTest() {
             var expected = GetSolution.AssemblyByName(assemblyName).GetTypes();
-            var actual = GetSolution.TypeNamesForAssembly(dummyName);
+            var actual = GetSolution.TypeNamesForAssembly(DummyName);
             Assert.AreEqual(0, actual.Count);
             Assert.IsInstanceOfType(actual, typeof(List<string>));
             actual = GetSolution.TypeNamesForAssembly(assemblyName);
@@ -52,13 +44,5 @@ namespace TrainingApp.Tests.Aids.Reflection {
             foreach (var e in expected)
                 Assert.IsTrue(actual.Contains(e.FullName));
         }
-
-        [TestMethod] public void NameTest() {
-            Assert.AreEqual(nameof(TrainingApp), GetSolution.Name);
-        }
-
     }
-
 }
-
-
