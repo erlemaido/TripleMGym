@@ -7,8 +7,7 @@ using System.Text;
 namespace TrainingApp.Aids {
 
     public static class GetRandom {
-        private static readonly System.Random r = new System.Random();
-
+        private static readonly System.Random R = new System.Random();
 
         public static bool Bool() {
             return Int32() % 2 == 0;
@@ -41,19 +40,9 @@ namespace TrainingApp.Aids {
         public static double Double(double min = double.MinValue, double max = double.MaxValue) {
             if (min.CompareTo(max) == 0) return min;
             Sort.Upwards(ref min, ref max);
-            var d = r.NextDouble();
+            var d = R.NextDouble();
             if (max > 0) return min + d * max - d * min;
             return min - d * min + d * max;
-        }
-
-        public static T Enum<T>() {
-            return (T) Enum(typeof(T));
-        }
-
-        private static object Enum(Type t) {
-            var count = GetEnum.Count(t);
-            var index = Int32(0, count);
-            return GetEnum.Value(t, index);
         }
 
         public static float Float(float min = float.MinValue, float max = float.MaxValue) {
@@ -70,8 +59,7 @@ namespace TrainingApp.Aids {
 
         public static int Int32(int min = int.MinValue, int max = int.MaxValue) {
             if (min.CompareTo(max) == 0) return min;
-            if (min.CompareTo(max) > 0) return r.Next(max, min);
-            return r.Next(min, max);
+            return min.CompareTo(max) > 0 ? R.Next(max, min) : R.Next(min, max);
         }
 
         public static long Int64(long min = long.MinValue, long max = long.MaxValue) {
@@ -81,9 +69,9 @@ namespace TrainingApp.Aids {
                 min);
         }
 
-        public static string String(byte minLenght = 5, byte maxLenght = 10) {
+        public static string String(byte minLength = 5, byte maxLength = 10) {
             var b = new StringBuilder();
-            var size = UInt8(minLenght, maxLenght);
+            var size = UInt8(minLength, maxLength);
             for (var i = 0; i < size; i++) b.Append(Char('a', 'z'));
             return b.ToString();
         }
@@ -115,7 +103,6 @@ namespace TrainingApp.Aids {
             var x = Nullable.GetUnderlyingType(t);
             if (!(x is null)) t = x;
             if (t.IsArray) return Array(t.GetElementType());
-            if (t.IsEnum) return Enum(t);
             if (t == typeof(string)) return String();
             if (t == typeof(char)) return Char();
             if (t == typeof(Color)) return Color();
@@ -148,8 +135,7 @@ namespace TrainingApp.Aids {
             if (t == typeof(short?)) return Int16();
             if (t == typeof(int?)) return Int32();
             if (t == typeof(long?)) return Int64();
-            if (t == typeof(TimeSpan)) return TimeSpan();
-            return Object(t);
+            return t == typeof(TimeSpan) ? TimeSpan() : Object(t);
         }
 
         public static object Array(Type t) {
@@ -168,30 +154,11 @@ namespace TrainingApp.Aids {
             SetRandom.Values(o);
             return o;
         }
+
         public static object Object(Type t) {
             var o = CreateNew.Instance(t);
             SetRandom.Values(o);
             return o;
         }
-        public static string Email() {
-            return $"{String()}.{String()}@{String()}.{String()}";
-        }
-        public static string Password() {
-            return $"{String()}{Char('\x20', '\x2f')}{UInt32().ToString()}.{String().ToUpper()}";
-        }
-
-        public static List<T> List<T>(Func<T> func) {
-            var list = new List<T>();
-            for (var i = 0; i < UInt8(0, 10); i++) list.Add(func());
-            return list;
-        }
-
     }
 }
-
-
-
-
-
-
-

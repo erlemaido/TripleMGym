@@ -10,11 +10,11 @@ namespace TrainingApp.Tests.Aids.Methods {
 
     [TestClass] public class SafeTests : BaseTests {
 
-        private LogTests.testLogBook logBook;
+        private LogTests.TestLogBook logBook;
 
         [TestInitialize] public void TestInitialize() {
             type = typeof(Safe);
-            logBook = new LogTests.testLogBook();
+            logBook = new LogTests.TestLogBook();
             Log.logBook = logBook;
         }
 
@@ -39,7 +39,7 @@ namespace TrainingApp.Tests.Aids.Methods {
         }
 
         [TestMethod] public void RunMethodTest() {
-            var newLogBook = new LogTests.testLogBook();
+            var newLogBook = new LogTests.TestLogBook();
             Safe.Run(() => Log.logBook = newLogBook);
             Assert.IsNull(newLogBook.LoggedException);
         }
@@ -75,25 +75,25 @@ namespace TrainingApp.Tests.Aids.Methods {
 
         [TestMethod] public void RunInSeparateThreadsTest() {
             var list = new List<string>();
-            startThreads(list);
-            validateList(list);
+            StartThreads(list);
+            ValidateList(list);
             Assert.AreEqual(2, logBook.LoggedExceptions.Count);
             Assert.IsInstanceOfType(logBook.LoggedExceptions[0], typeof(ArgumentNullException));
             Assert.IsInstanceOfType(logBook.LoggedExceptions[1], typeof(ArithmeticException));
         }
 
-        private static void startThreads(ICollection<string> l) {
+        private static void StartThreads(ICollection<string> l) {
             var t1 = new Thread(() =>
-                method(l, "method1: ", () => throw new ArgumentNullException()));
+                Method(l, "method1: ", () => throw new ArgumentNullException()));
             var t2 = new Thread(() =>
-                method(l, "method2: ", () => throw new ArithmeticException()));
+                Method(l, "method2: ", () => throw new ArithmeticException()));
             t1.Start();
             Thread.Sleep(1);
             t2.Start();
             Thread.Sleep(50);
         }
 
-        private static void method(ICollection<string> list, string message, Action exception) {
+        private static void Method(ICollection<string> list, string message, Action exception) {
             Safe.Run(() => {
                 Safe.Run(() => {
                     for (var i = 0; i < 10; i++) {
@@ -107,7 +107,7 @@ namespace TrainingApp.Tests.Aids.Methods {
             }, true);
         }
 
-        private static void validateList(IReadOnlyList<string> l) {
+        private static void ValidateList(IReadOnlyList<string> l) {
             Assert.AreEqual(22, l.Count);
 
             for (var i = 0; i < 22; i++) {
@@ -118,11 +118,5 @@ namespace TrainingApp.Tests.Aids.Methods {
                     $"list[{i}] = {l[i]}");
             }
         }
-
     }
-
 }
-
-
-
-

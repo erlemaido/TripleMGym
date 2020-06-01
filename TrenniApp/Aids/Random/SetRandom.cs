@@ -5,12 +5,22 @@ using System.Linq;
 namespace TrainingApp.Aids.Random {
     public static class SetRandom {
 
-        public static void Values(object o) {
-            if (o is null) return;
-            if (o is IList list) setValuesForList(list);
-            else setValuesForProperties(o);
+        public static void Values(object o)
+        {
+            switch (o)
+            {
+                case null:
+                    return;
+                case IList list:
+                    SetValuesForList(list);
+                    break;
+                default:
+                    SetValuesForProperties(o);
+                    break;
+            }
         }
-        private static void setValuesForProperties(object o) {
+
+        private static void SetValuesForProperties(object o) {
             if (o is null) return;
             var t = o.GetType();
             var properties = Reflection.GetClass.Properties(t);
@@ -22,15 +32,16 @@ namespace TrainingApp.Aids.Random {
             }
         }
 
-        private static void setValuesForList(IList l) {
+        private static void SetValuesForList(IList l) {
             if (l is null) return;
-            var t = getListElementsType(l);
+            var t = GetListElementsType(l);
             for (var c = 0; c <= GetRandom.UInt8(3, 5); c++) {
                 var v = GetRandom.Value(t);
                 l.Add(v);
             }
         }
-        private static Type getListElementsType(IList list) {
+
+        private static Type GetListElementsType(IEnumerable list) {
             return Methods.Safe.Run(() => {
                 var t = list.GetType();
                 var types =
@@ -43,6 +54,3 @@ namespace TrainingApp.Aids.Random {
         }
     }
 }
-
-
-

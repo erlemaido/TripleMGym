@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using TrainingApp.Aids.Extensions;
 
 namespace TrainingApp.Aids.Reflection {
 
@@ -10,9 +9,6 @@ namespace TrainingApp.Aids.Reflection {
 
         public static AppDomain Domain => AppDomain.CurrentDomain;
 
-        public static List<Assembly> Assemblies =>
-            Methods.Safe.Run(() => Domain.GetAssemblies().ToList(),
-                new List<Assembly>());
 
         public static Assembly AssemblyByName(string name) {
             return Methods.Safe.Run(() => Assembly.Load(name), null);
@@ -31,12 +27,5 @@ namespace TrainingApp.Aids.Reflection {
                 return a.Select(t => t.FullName).ToList();
             }, new List<string>());
         }
-
-        public static string Name =>
-            GetClass.Namespace(typeof(GetSolution)).GetHead();
     }
-
 }
-
-
-

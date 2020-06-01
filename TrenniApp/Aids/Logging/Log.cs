@@ -13,10 +13,5 @@ namespace TrainingApp.Aids.Logging {
         public static void Exception(Exception e) {
             logBook?.WriteEntry(e);
         }
-
     }
-
 }
-
-
-
