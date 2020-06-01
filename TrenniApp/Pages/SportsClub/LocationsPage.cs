@@ -7,7 +7,7 @@ namespace TrainingApp.Pages.SportsClub
     public abstract class LocationsPage : CommonPage<ILocationsRepository, Location, LocationView, LocationData>
     {
 
-        protected internal LocationsPage(ILocationsRepository r) : base(r)
+        protected internal LocationsPage(ILocationsRepository locationsRepository) : base(locationsRepository)
         {
             PageTitle = "Asukohad";
         }
@@ -25,7 +25,6 @@ namespace TrainingApp.Pages.SportsClub
         {
             return LocationViewFactory.Create(obj);
         }
-
     }
 }
 

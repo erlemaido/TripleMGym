@@ -1,5 +1,4 @@
 ﻿using TrainingApp.Data.Common;
-using TrainingApp.Data.SportsClub;
 
 namespace TrainingApp.Domain.Common
 {

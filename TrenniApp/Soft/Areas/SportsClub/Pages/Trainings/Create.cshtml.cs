@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using TrainingApp.Domain.SportsClub;
 using TrainingApp.Pages.SportsClub;
@@ -8,9 +7,9 @@ namespace TrainingApp.Soft.Areas.SportsClub.Pages.Trainings
 {
     public class CreateModel : TrainingsPage
     {
-
-        public CreateModel(ITrainingsRepository r, ITimetableEntriesRepository t, ITrainingCategoriesRepository tc, ICoachesRepository c,
-            ITrainingTypesRepository tt, ILocationsRepository l) : base(r, t, tc, c, tt, l)
+        public CreateModel(ITrainingsRepository trainingsRepository, ITimetableEntriesRepository timetableEntriesRepository, 
+            ITrainingCategoriesRepository trainingCategoriesRepository, ICoachesRepository coachesRepository, ITrainingTypesRepository trainingTypesRepository, 
+            ILocationsRepository locationsRepository) : base(trainingsRepository, timetableEntriesRepository, trainingCategoriesRepository, coachesRepository, trainingTypesRepository, locationsRepository)
         {
         }
 
@@ -21,7 +20,6 @@ namespace TrainingApp.Soft.Areas.SportsClub.Pages.Trainings
             FixedValue = fixedValue;
             return Page();
         }
-
 
         public async Task<IActionResult> OnPostAsync(string fixedFilter, string fixedValue)
         {

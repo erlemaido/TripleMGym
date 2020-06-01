@@ -1,21 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using TrainingApp.Domain.SportsClub;
-using TrainingApp.Facade.SportsClub;
 using TrainingApp.Pages.SportsClub;
-using TrainingApp.Soft.Data;
 
 namespace TrainingApp.Soft.Areas.SportsClub.Pages.Locations
 {
     public class CreateModel : LocationsPage
     {
 
-        public CreateModel(ILocationsRepository r) : base(r)
+        public CreateModel(ILocationsRepository locationsRepository) : base(locationsRepository)
         {
         }
 

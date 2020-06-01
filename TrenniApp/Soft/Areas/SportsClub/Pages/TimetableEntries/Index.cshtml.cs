@@ -1,22 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
+﻿using System.Threading.Tasks;
 using TrainingApp.Domain.SportsClub;
-using TrainingApp.Facade.SportsClub;
 using TrainingApp.Pages.SportsClub;
-using TrainingApp.Soft.Data;
 
 namespace TrainingApp.Soft.Areas.SportsClub.Pages.TimetableEntries
 {
     public class IndexModel : TimeTableEntriesPage
     {
 
-        public IndexModel(ITimetableEntriesRepository r, IParticipantOfTrainingsRepository p, 
-            ITrainingsRepository t, ICoachesRepository c, ILocationsRepository l, ITrainingTypesRepository tt, IClientsRepository cl) : base(r, p, t, c, l, tt, cl)
+        public IndexModel(ITimetableEntriesRepository timetableEntriesRepository, IParticipantOfTrainingsRepository participantsRepository, 
+            ITrainingsRepository trainingsRepository, ICoachesRepository coachesRepository, ILocationsRepository locationsRepository, 
+            ITrainingTypesRepository trainingTypesRepository, IClientsRepository clientsRepository) : base(timetableEntriesRepository, participantsRepository, trainingsRepository, coachesRepository, locationsRepository, trainingTypesRepository, clientsRepository)
         {
         }
 

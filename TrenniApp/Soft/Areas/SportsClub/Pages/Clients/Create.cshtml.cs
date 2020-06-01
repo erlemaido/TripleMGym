@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using TrainingApp.Domain.SportsClub;
 using TrainingApp.Pages.SportsClub;
@@ -8,7 +7,8 @@ namespace TrainingApp.Soft.Areas.SportsClub.Pages.Clients
 {
     public class CreateModel : ClientsPage
     {
-        public CreateModel(IClientsRepository r, IParticipantOfTrainingsRepository p, ITimetableEntriesRepository t) : base(r, p, t)
+        public CreateModel(IClientsRepository clientsRepository, IParticipantOfTrainingsRepository participantsRepository, 
+            ITimetableEntriesRepository timetableEntriesRepository) : base(clientsRepository, participantsRepository, timetableEntriesRepository)
         {
         }
 

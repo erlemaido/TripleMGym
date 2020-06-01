@@ -59,9 +59,17 @@ html {
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
 }
+
+.background {
+    background-image: url("gym.jpg");
+    background-repeat: no-repeat;
+    margin-bottom: 60px;
+    background-size: cover;
+}
+
 .footer {
   position: absolute;
   bottom: 0;

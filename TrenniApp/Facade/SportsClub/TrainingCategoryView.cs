@@ -1,5 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using TrainingApp.Facade.Common;
+﻿using TrainingApp.Facade.Common;
 
 namespace TrainingApp.Facade.SportsClub
 {

@@ -3,7 +3,6 @@ using System.Linq;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using TrainingApp.Data.Common;
 using TrainingApp.Domain.Common;
-using TrainingApp.Pages;
 
 namespace TrainingApp.Pages
 {

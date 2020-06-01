@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using TrainingApp.Data.SportsClub;
-using TrainingApp.Domain.Common;
 using TrainingApp.Domain.SportsClub;
 using TrainingApp.Facade.SportsClub;
 
@@ -13,15 +11,17 @@ namespace TrainingApp.Pages.SportsClub
         public IEnumerable<SelectListItem> TimetableEntries { get; }
         public IEnumerable<SelectListItem> Clients { get; }
 
-        protected internal ParticipantOfTrainingsPage(IParticipantOfTrainingsRepository r, ITimetableEntriesRepository t, IClientsRepository c) : base(r)
+        protected internal ParticipantOfTrainingsPage(IParticipantOfTrainingsRepository participantsRepository, 
+            ITimetableEntriesRepository timetableEntriesRepository, IClientsRepository clientsRepository) : base(participantsRepository)
         {
             PageTitle = "Broneeringud";
-            TimetableEntries = CreateSelectList<TimetableEntry, TimetableEntryData>(t);
-            Clients = CreateSelectList<Client, ClientData>(c);
+            TimetableEntries = CreateSelectList<TimetableEntry, TimetableEntryData>(timetableEntriesRepository);
+            Clients = CreateSelectList<Client, ClientData>(clientsRepository);
 
         }
 
         public override string ItemId => Item is null ? string.Empty : $"{Item.ClientId}.{Item.TimetableEntryId}";
+       
         protected internal override string GetPageUrl() => "/SportsClub/ParticipantOfTrainings";
 
         protected internal override ParticipantOfTraining ToObject(ParticipantOfTrainingView view)
@@ -69,6 +69,5 @@ namespace TrainingApp.Pages.SportsClub
 
             return base.GetPageSubTitle();
         }
-
     }
 }
