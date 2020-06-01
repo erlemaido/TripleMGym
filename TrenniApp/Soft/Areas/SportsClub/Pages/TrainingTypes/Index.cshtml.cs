@@ -6,7 +6,7 @@ namespace TrainingApp.Soft.Areas.SportsClub.Pages.TrainingTypes
 {
     public class IndexModel : TrainingTypesPage
     {
-        public IndexModel(ITrainingTypesRepository r) : base(r)
+        public IndexModel(ITrainingTypesRepository trainingTypesRepository) : base(trainingTypesRepository)
         {
         }
 

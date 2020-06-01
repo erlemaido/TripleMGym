@@ -7,7 +7,7 @@ namespace TrainingApp.Soft.Areas.SportsClub.Pages.TrainingCategories
 {
     public class DetailsModel : TrainingCategoriesPage
     {
-        public DetailsModel(ITrainingCategoriesRepository r) : base(r)
+        public DetailsModel(ITrainingCategoriesRepository trainingCategoriesRepository) : base(trainingCategoriesRepository)
         {
         }
 

@@ -4,7 +4,6 @@ using System.Linq;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using TrainingApp.Aids;
 using TrainingApp.Data.SportsClub;
-using TrainingApp.Domain.Common;
 using TrainingApp.Domain.SportsClub;
 using TrainingApp.Facade.SportsClub;
 
@@ -14,33 +13,30 @@ namespace TrainingApp.Pages.SportsClub
     {
         public IList<ParticipantOfTrainingView> Participants { get; }
         public IEnumerable<SelectListItem> Trainings { get; }
-
         public IEnumerable<SelectListItem> Coaches { get; }
-
         public IEnumerable<SelectListItem> Locations { get; }
-
         public IEnumerable<SelectListItem> TrainingTypes { get; }
-
         public IEnumerable<SelectListItem> TrainingLevels { get; }
         public IEnumerable<SelectListItem> Clients { get; }
         protected internal readonly IParticipantOfTrainingsRepository participants;
 
-        protected internal TimeTableEntriesPage(ITimetableEntriesRepository r, IParticipantOfTrainingsRepository p, 
-            ITrainingsRepository t, ICoachesRepository c, ILocationsRepository l, ITrainingTypesRepository tt, IClientsRepository cl) : base(r)
+        protected internal TimeTableEntriesPage(ITimetableEntriesRepository timetableEntriesRepository, IParticipantOfTrainingsRepository participantsRepository, 
+            ITrainingsRepository trainingsRepository, ICoachesRepository coachesRepository, ILocationsRepository locationsRepository, 
+            ITrainingTypesRepository trainingTypesRepository, IClientsRepository clientsRepository) : base(timetableEntriesRepository)
         {
             PageTitle = "Tunniplaan";
             Participants = new List<ParticipantOfTrainingView>();
-            participants = p;
-            Trainings = CreateSelectList<Training, TrainingData>(t);
-            Coaches = CreateSelectList<Coach, CoachData>(c);
-            Locations = CreateSelectList<Location, LocationData>(l);
-            TrainingTypes = CreateSelectList<TrainingType, TrainingTypeData>(tt);
+            participants = participantsRepository;
+            Trainings = CreateSelectList<Training, TrainingData>(trainingsRepository);
+            Coaches = CreateSelectList<Coach, CoachData>(coachesRepository);
+            Locations = CreateSelectList<Location, LocationData>(locationsRepository);
+            TrainingTypes = CreateSelectList<TrainingType, TrainingTypeData>(trainingTypesRepository);
             TrainingLevels = CreateTrainingLevelsSelectList<TrainingLevel>();
-            Clients = CreateSelectList<Client, ClientData>(cl);
+            Clients = CreateSelectList<Client, ClientData>(clientsRepository);
         }
 
-
         public override string ItemId => Item.Id;
+
         protected internal override string GetPageUrl() => "/SportsClub/TimetableEntries";
         
         protected internal override TimetableEntry ToObject(TimetableEntryView view)
@@ -107,7 +103,6 @@ namespace TrainingApp.Pages.SportsClub
 
             return "Määramata";
         }
-
 
         protected internal override string GetPageSubTitle()
         {

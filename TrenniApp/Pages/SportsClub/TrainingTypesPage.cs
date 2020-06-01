@@ -6,8 +6,7 @@ namespace TrainingApp.Pages.SportsClub
 {
     public class TrainingTypesPage : CommonPage<ITrainingTypesRepository, TrainingType, TrainingTypeView, TrainingTypeData>
     {
-
-        protected internal TrainingTypesPage(ITrainingTypesRepository r) : base(r)
+        protected internal TrainingTypesPage(ITrainingTypesRepository trainingTypesRepository) : base(trainingTypesRepository)
         {
             PageTitle = "Trenni tüübid";
         }
@@ -25,7 +24,5 @@ namespace TrainingApp.Pages.SportsClub
         {
             return TrainingTypeViewFactory.Create(obj);
         }
-
     }
 }
-

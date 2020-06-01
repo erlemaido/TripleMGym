@@ -18,7 +18,7 @@ namespace TrainingApp.Tests.Pages.SportsClub
     {
         private class TestClass : CoachesPage
         {
-            internal TestClass(ICoachesRepository c, ITimetableEntriesRepository te, ITrainingsRepository t, ILocationsRepository l, ITrainingTypesRepository tt) : base(c, te, t, l, tt)
+            internal TestClass(ICoachesRepository coachesRepository, ITimetableEntriesRepository timetableEntriesRepository, ITrainingsRepository trainingsRepository, ILocationsRepository locationsRepository, ITrainingTypesRepository trainingTypesRepository) : base(coachesRepository, timetableEntriesRepository, trainingsRepository, locationsRepository, trainingTypesRepository)
             {
             }
         }

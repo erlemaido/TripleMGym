@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using TrainingApp.Aids;
-using TrainingApp.Aids.Formats.Dates;
 using TrainingApp.Data.SportsClub;
 using TrainingApp.Domain.SportsClub;
 using TrainingApp.Facade.SportsClub;
@@ -11,17 +10,17 @@ namespace TrainingApp.Pages.SportsClub
     public abstract class ClientsPage : CommonPage<IClientsRepository, Client, ClientView, ClientData>
     {
         public IList<ParticipantOfTrainingView> Participants { get; }
-
         public IEnumerable<SelectListItem> TimetableEntries { get; }
 
         protected internal readonly IParticipantOfTrainingsRepository participants;
 
-        protected internal ClientsPage(IClientsRepository r, IParticipantOfTrainingsRepository p, ITimetableEntriesRepository t) : base(r)
+        protected internal ClientsPage(IClientsRepository clientsRepository, IParticipantOfTrainingsRepository participantsRepository, 
+            ITimetableEntriesRepository timetableEntriesRepository) : base(clientsRepository)
         {
             PageTitle = "Kliendid";
             Participants = new List<ParticipantOfTrainingView>();
-            TimetableEntries = CreateSelectList<TimetableEntry, TimetableEntryData>(t);
-            participants = p;
+            TimetableEntries = CreateSelectList<TimetableEntry, TimetableEntryData>(timetableEntriesRepository);
+            participants = participantsRepository;
         }
 
         public override string ItemId => Item?.Id ?? string.Empty;

@@ -6,8 +6,7 @@ namespace TrainingApp.Pages.SportsClub
 {
     public class TrainingCategoriesPage : CommonPage<ITrainingCategoriesRepository, TrainingCategory, TrainingCategoryView, TrainingCategoryData>
     {
-
-        protected internal TrainingCategoriesPage(ITrainingCategoriesRepository r) : base(r)
+        protected internal TrainingCategoriesPage(ITrainingCategoriesRepository trainingCategoriesRepository) : base(trainingCategoriesRepository)
         {
             PageTitle = "Trenni kategooriad";
         }

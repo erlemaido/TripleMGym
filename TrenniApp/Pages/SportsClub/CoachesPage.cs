@@ -1,9 +1,7 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using TrainingApp.Aids;
 using TrainingApp.Data.SportsClub;
-using TrainingApp.Domain.Common;
 using TrainingApp.Domain.SportsClub;
 using TrainingApp.Facade.SportsClub;
 
@@ -13,22 +11,21 @@ namespace TrainingApp.Pages.SportsClub
     {
         public IList<TimetableEntryView> TimetableEntries { get; }
         public IEnumerable<SelectListItem> Trainings { get; }
-
         public IEnumerable<SelectListItem> Locations { get; }
-
         public IEnumerable<SelectListItem> TrainingTypes { get; }
         protected internal readonly ITimetableEntriesRepository timetableEntries;
 
-        protected internal CoachesPage(ICoachesRepository c, ITimetableEntriesRepository te, ITrainingsRepository t, ILocationsRepository l, ITrainingTypesRepository tt) : base(c)
+        protected internal CoachesPage(ICoachesRepository coachesRepository, ITimetableEntriesRepository timetableEntriesRepository, 
+            ITrainingsRepository trainingsRepository, ILocationsRepository locationsRepository, 
+            ITrainingTypesRepository trainingTypesRepository) : base(coachesRepository)
         {
             PageTitle = "Treenerid";
             TimetableEntries = new List<TimetableEntryView>();
-            Trainings = CreateSelectList<Training, TrainingData>(t);
-            Locations = CreateSelectList<Location, LocationData>(l);
-            TrainingTypes = CreateSelectList<TrainingType, TrainingTypeData>(tt);
-            timetableEntries = te;
+            Trainings = CreateSelectList<Training, TrainingData>(trainingsRepository);
+            Locations = CreateSelectList<Location, LocationData>(locationsRepository);
+            TrainingTypes = CreateSelectList<TrainingType, TrainingTypeData>(trainingTypesRepository);
+            timetableEntries = timetableEntriesRepository;
         }
-
 
         public override string ItemId => Item.Id;
 

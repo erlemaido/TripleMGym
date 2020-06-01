@@ -74,7 +74,6 @@ namespace TrainingApp.Pages {
 
         protected internal abstract TView ToView(TDomain obj);
 
-
     }
 
 }

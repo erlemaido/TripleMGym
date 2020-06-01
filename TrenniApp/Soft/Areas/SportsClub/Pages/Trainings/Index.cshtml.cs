@@ -6,9 +6,9 @@ namespace TrainingApp.Soft.Areas.SportsClub.Pages.Trainings
 {
     public class IndexModel : TrainingsPage
     {
-
-        public IndexModel(ITrainingsRepository r, ITimetableEntriesRepository t, ITrainingCategoriesRepository tc, ICoachesRepository c,
-            ITrainingTypesRepository tt, ILocationsRepository l) : base(r, t, tc, c, tt, l)
+        public IndexModel(ITrainingsRepository trainingsRepository, ITimetableEntriesRepository timetableEntriesRepository, 
+            ITrainingCategoriesRepository trainingCategoriesRepository, ICoachesRepository coachesRepository, ITrainingTypesRepository trainingTypesRepository, 
+            ILocationsRepository locationsRepository) : base(trainingsRepository, timetableEntriesRepository, trainingCategoriesRepository, coachesRepository, trainingTypesRepository, locationsRepository)
         {
         }
 

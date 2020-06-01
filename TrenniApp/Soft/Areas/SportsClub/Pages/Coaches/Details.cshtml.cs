@@ -1,21 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
 using TrainingApp.Domain.SportsClub;
-using TrainingApp.Facade.SportsClub;
 using TrainingApp.Pages.SportsClub;
-using TrainingApp.Soft.Data;
 
 namespace TrainingApp.Soft.Areas.SportsClub.Pages.Coaches
 {
     public class DetailsModel : CoachesPage
     {
 
-        public DetailsModel(ICoachesRepository r, ITimetableEntriesRepository te, ITrainingsRepository t, ILocationsRepository l, ITrainingTypesRepository tt) : base(r, te, t, l, tt)
+        public DetailsModel(ICoachesRepository coachesRepository, ITimetableEntriesRepository timetableEntriesRepository, 
+            ITrainingsRepository trainingsRepository, ILocationsRepository locationsRepository, 
+            ITrainingTypesRepository trainingTypesRepository) : base(coachesRepository, timetableEntriesRepository, trainingsRepository, locationsRepository, trainingTypesRepository)
         {
         }
 

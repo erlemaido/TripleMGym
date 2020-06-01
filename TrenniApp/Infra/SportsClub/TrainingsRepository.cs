@@ -8,8 +8,6 @@ namespace TrainingApp.Infra.SportsClub
 {
     public sealed class TrainingsRepository : UniqueEntityRepository<Training, TrainingData>, ITrainingsRepository
     {
-        public TrainingsRepository() : this(null) { }
-
         public TrainingsRepository(SportsClubDbContext c) : base(c, c.Trainings) { }
 
         protected internal override Training ToDomainObject(TrainingData d) => new Training(d);

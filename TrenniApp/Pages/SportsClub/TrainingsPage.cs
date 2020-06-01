@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using Microsoft.AspNetCore.Html;
+﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using TrainingApp.Aids;
-using TrainingApp.Data.Common;
 using TrainingApp.Data.SportsClub;
-using TrainingApp.Domain.Common;
 using TrainingApp.Domain.SportsClub;
 using TrainingApp.Facade.SportsClub;
-using TrainingApp.Pages.Extensions;
 
 namespace TrainingApp.Pages.SportsClub
 {
@@ -23,16 +16,17 @@ namespace TrainingApp.Pages.SportsClub
         public IEnumerable<SelectListItem> TrainingTypes { get; }
         public IEnumerable<SelectListItem> Locations { get; }
 
-        protected internal TrainingsPage(ITrainingsRepository r, ITimetableEntriesRepository t, ITrainingCategoriesRepository tc, ICoachesRepository c,
-            ITrainingTypesRepository tt, ILocationsRepository l) : base(r)
+        protected internal TrainingsPage(ITrainingsRepository trainingsRepository, ITimetableEntriesRepository timetableEntriesRepository, 
+            ITrainingCategoriesRepository trainingCategoriesRepository, ICoachesRepository coachesRepository,
+            ITrainingTypesRepository trainingTypesRepository, ILocationsRepository locationsRepository) : base(trainingsRepository)
         {
             PageTitle = "Treeningud";
             TimetableTrainings = new List<TimetableEntryView>();
-            timetableTrainings = t;
-            TrainingCategories = CreateSelectList<TrainingCategory, TrainingCategoryData>(tc);
-            TrainingTypes = CreateSelectList<TrainingType, TrainingTypeData>(tt);
-            Locations = CreateSelectList<Location, LocationData>(l);
-            Coaches = CreateSelectList<Coach, CoachData>(c);
+            timetableTrainings = timetableEntriesRepository;
+            TrainingCategories = CreateSelectList<TrainingCategory, TrainingCategoryData>(trainingCategoriesRepository);
+            TrainingTypes = CreateSelectList<TrainingType, TrainingTypeData>(trainingTypesRepository);
+            Locations = CreateSelectList<Location, LocationData>(locationsRepository);
+            Coaches = CreateSelectList<Coach, CoachData>(coachesRepository);
         }
 
         public override string ItemId => Item.Id;

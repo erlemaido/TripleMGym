@@ -7,7 +7,7 @@ namespace TrainingApp.Soft.Areas.SportsClub.Pages.TrainingCategories
 {
     public class EditModel : TrainingCategoriesPage
     {
-        public EditModel(ITrainingCategoriesRepository r) : base(r)
+        public EditModel(ITrainingCategoriesRepository trainingCategoriesRepository) : base(trainingCategoriesRepository)
         {
         }
 

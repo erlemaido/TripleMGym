@@ -7,15 +7,14 @@
     var clientPage = "SportsClub/Clients";
 }
 
-<body background="css/gym.jpg">
-<div class="text-center">
-    <h1 class="display-1"><strong>Triple M GYM</strong></h1>
-</div>
-<div class="text-center">
-    @Html.HypertextLinkFor(string.Empty, new Link(Constants.CreateNewReservationTitle, $"{page}/Create"))
+<body class="background">
+    <div class="text-center">
+        <h1 class="display-1">
+            <strong>Triple M GYM</strong>
+        </h1>
+    </div>
+    <div class="text-center">
+        @Html.HypertextLinkFor(string.Empty, new Link(Constants.CreateNewReservationTitle, $"{page}/Create"))
         @Html.HypertextLinkFor(string.Empty, new Link(Constants.CreateNewClientTitle, $"{clientPage}/Create"))
-</div>
+    </div>
 </body>
-
-
-
