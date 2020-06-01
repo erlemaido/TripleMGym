@@ -15,7 +15,7 @@ namespace TrainingApp.Pages {
 
         public string SelectedId {
             get;
-            set;
+            protected set;
         }
         public int PageIndex {
             get => db.PageIndex;

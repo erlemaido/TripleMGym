@@ -8,7 +8,7 @@ using TrainingApp.Facade.SportsClub;
 
 namespace TrainingApp.Pages.SportsClub
 {
-    public class ParticipantOfTrainingsPage : CommonPage<IParticipantOfTrainingsRepository, ParticipantOfTraining, ParticipantOfTrainingView, ParticipantOfTrainingData>
+    public abstract class ParticipantOfTrainingsPage : CommonPage<IParticipantOfTrainingsRepository, ParticipantOfTraining, ParticipantOfTrainingView, ParticipantOfTrainingData>
     {
         public IEnumerable<SelectListItem> TimetableEntries { get; }
         public IEnumerable<SelectListItem> Clients { get; }

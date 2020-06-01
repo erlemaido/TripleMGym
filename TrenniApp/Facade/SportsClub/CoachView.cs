@@ -21,5 +21,12 @@ namespace TrainingApp.Facade.SportsClub
         [DataType(DataType.Date)]
         [DisplayName("Töö alustamise kuupäev")]
         public DateTime HireDate { get; set; }
+
+        public string GetId()
+        {
+            return Id;
+        }
     }
+
+
 }

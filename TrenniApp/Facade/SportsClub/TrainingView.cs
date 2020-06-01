@@ -17,5 +17,10 @@ namespace TrainingApp.Facade.SportsClub
         [Required]
         [DisplayName("Kategooria")]
         public string TrainingCategoryId { get; set; }
+
+        public string GetId()
+        {
+            return Id;
+        }
     }
 }

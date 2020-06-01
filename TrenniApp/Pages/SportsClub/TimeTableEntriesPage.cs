@@ -10,7 +10,7 @@ using TrainingApp.Facade.SportsClub;
 
 namespace TrainingApp.Pages.SportsClub
 {
-    public class TimeTableEntriesPage : CommonPage<ITimetableEntriesRepository, TimetableEntry, TimetableEntryView, TimetableEntryData>
+    public abstract class TimeTableEntriesPage : CommonPage<ITimetableEntriesRepository, TimetableEntry, TimetableEntryView, TimetableEntryData>
     {
         public IList<ParticipantOfTrainingView> Participants { get; }
         public IEnumerable<SelectListItem> Trainings { get; }

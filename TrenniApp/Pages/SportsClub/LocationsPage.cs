@@ -4,7 +4,7 @@ using TrainingApp.Facade.SportsClub;
 
 namespace TrainingApp.Pages.SportsClub
 {
-    public class LocationsPage : CommonPage<ILocationsRepository, Location, LocationView, LocationData>
+    public abstract class LocationsPage : CommonPage<ILocationsRepository, Location, LocationView, LocationData>
     {
 
         protected internal LocationsPage(ILocationsRepository r) : base(r)
