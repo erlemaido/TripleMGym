@@ -1,7 +1,4 @@
-﻿
-
-using System.Linq;
-using Microsoft.EntityFrameworkCore.Diagnostics;
+﻿using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TrainingApp.Aids;
 using TrainingApp.Data.SportsClub;
@@ -9,13 +6,11 @@ using TrainingApp.Domain.SportsClub;
 using TrainingApp.Facade.SportsClub;
 using TrainingApp.Pages;
 using TrainingApp.Pages.SportsClub;
-using TrainingApp.Tests.Data.SportsClub;
 
 namespace TrainingApp.Tests.Pages.SportsClub
 {
     [TestClass]
-    public class TimetableEntriesPageTests : AbstractClassTests<TimeTableEntriesPage,
-        CommonPage<ITimetableEntriesRepository, TimetableEntry, TimetableEntryView, TimetableEntryData>>
+    public class TimetableEntriesPageTests : AbstractClassTests<TimeTableEntriesPage, CommonPage<ITimetableEntriesRepository, TimetableEntry, TimetableEntryView, TimetableEntryData>>
     {
         private class TestClass : TimeTableEntriesPage
         {
@@ -26,15 +21,19 @@ namespace TrainingApp.Tests.Pages.SportsClub
         }
 
         private class TestRepository : BaseTestRepositoryForUniqueEntity<TimetableEntry, TimetableEntryData>, ITimetableEntriesRepository { }
+        
         private class TestTrainingTypesRepository : BaseTestRepositoryForUniqueEntity<TrainingType, TrainingTypeData>, ITrainingTypesRepository { }
 
         private class TestTimetableEntriesRepository : BaseTestRepositoryForUniqueEntity<TimetableEntry, TimetableEntryData>, ITimetableEntriesRepository { }
+        
         private class TestLocationsRepository : BaseTestRepositoryForUniqueEntity<Location, LocationData>, ILocationsRepository { }
+        
         private class TestTrainingsRepository : BaseTestRepositoryForUniqueEntity<Training, TrainingData>, ITrainingsRepository { }
+        
         private class TestCoachesRepository : BaseTestRepositoryForUniqueEntity<Coach, CoachData>, ICoachesRepository { }
 
-        //private class TestTrainingLevelsRepository : BaseTestRepositoryForPeriodEntity<TrainingLevel, TrainingLevel>
         private class TestClientsRepository : BaseTestRepositoryForUniqueEntity<Client, ClientData>, IClientsRepository { }
+        
         private class TestParticipantsRepository : BaseTestRepositoryForPeriodEntity<ParticipantOfTraining, ParticipantOfTrainingData>, IParticipantOfTrainingsRepository {
             protected override bool IsThis(ParticipantOfTraining entity, string id)
             {
@@ -46,7 +45,6 @@ namespace TrainingApp.Tests.Pages.SportsClub
                 throw new System.NotImplementedException();
             }
         }
-
 
         private TestRepository entries;
         private TestParticipantsRepository participants;
@@ -61,7 +59,6 @@ namespace TrainingApp.Tests.Pages.SportsClub
         private TrainingTypeData trainingTypeData;
         private TrainingData trainingData;
         private TestTrainingsRepository trainings;
-        //private TrainingLevel trainingLevel;
 
 
         [TestInitialize]
@@ -95,6 +92,7 @@ namespace TrainingApp.Tests.Pages.SportsClub
             locations.Add(l).GetAwaiter();
             obj = new TestClass(clients, entries, trainings, locations, types, coaches, participants);
         }
+
         [TestMethod]
         public void ItemIdTest()
         {
@@ -217,7 +215,5 @@ namespace TrainingApp.Tests.Pages.SportsClub
             obj.LoadDetails(item);
             Assert.AreNotEqual(list, obj.Participants);
         }
-
     }
 }
-

@@ -5,15 +5,15 @@ using TrainingApp.Domain.Common;
 
 namespace TrainingApp.Tests
 {
-    internal class BaseTestRepository<TObj,TData> 
-        where TObj:Entity<TData>
-        where TData:UniqueEntityData, new()
+    internal class BaseTestRepository<TObj,TData> where TObj:Entity<TData> where TData:UniqueEntityData, new()
     {
         internal readonly List<TObj> list;
+
         public BaseTestRepository()
         {
             list = new List<TObj>();
         }
+
         public async Task<List<TObj>> Get()
         {
             await Task.CompletedTask;

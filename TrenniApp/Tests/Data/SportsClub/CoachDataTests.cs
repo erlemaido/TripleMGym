@@ -1,5 +1,4 @@
 ﻿#nullable enable
-using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TrainingApp.Data.Common;
 using TrainingApp.Data.SportsClub;
@@ -12,28 +11,31 @@ namespace TrainingApp.Tests.Data.SportsClub
         [TestMethod]
         public void FirstNameTest()
         {
-            isNullableProperty(() => obj.Name, x => obj.Name = x);
+            IsNullableProperty(() => obj.Name, x => obj.Name = x);
         }
 
         [TestMethod]
         public void AgeTest()
         {
-            isProperty(() => obj.Age, x => obj.Age = x);
+            IsProperty(() => obj.Age, x => obj.Age = x);
         }
+
         [TestMethod]
         public void EmailTest()
         {
-            isNullableProperty(() => obj.Email, x => obj.Email = x);
+            IsNullableProperty(() => obj.Email, x => obj.Email = x);
         }
+
         [TestMethod]
         public void HireDateTest()
         {
-            isProperty(() => obj.HireDate, x => obj.HireDate = x);
+            IsProperty(() => obj.HireDate, x => obj.HireDate = x);
         }
+
         [TestMethod]
         public void CoachCertificateNumberTest()
         {
-            isNullableProperty(() => obj.CoachCertificateNumber, x => obj.CoachCertificateNumber = x);
+            IsNullableProperty(() => obj.CoachCertificateNumber, x => obj.CoachCertificateNumber = x);
         }
     }
 }

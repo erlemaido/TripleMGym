@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TrainingApp.Data.SportsClub;
 using TrainingApp.Domain.SportsClub;
 using TrainingApp.Facade.SportsClub;
@@ -17,25 +14,26 @@ namespace TrainingApp.Tests.Facade.SportsClub
         {
             type = typeof(TrainingViewFactory);
         }
+
         [TestMethod]
         public void CreateTest()
         {
         }
+
         [TestMethod]
         public void CreateObjectTest()
         {
             var view = GetRandom.Object<TrainingView>();
             var data = TrainingViewFactory.Create(view).Data;
             TestArePropertyValuesEqual(view, data);
-
         }
+
         [TestMethod]
         public void CreateViewTest()
         {
             var data = GetRandom.Object<TrainingData>();
             var view = TrainingViewFactory.Create(new Training(data));
             TestArePropertyValuesEqual(view, data);
-
         }
     }
 }

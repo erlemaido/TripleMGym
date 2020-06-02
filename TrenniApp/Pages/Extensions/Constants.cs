@@ -2,24 +2,12 @@
 {
     public static class Constants
     {
-        public const string Unspecified = "Määramata";
-
-        public const string CreateNewLinkTitle = "Loo uus";
-        public const string CreateNewReservationTitle = "BRONEERI OMALE TREENING";
-        public const string CreateNewClientTitle = "Ei ole veel liige? Liitu klubiga";
-        public const string EditLinkTitle = "Muuda";
-        public const string DetailsLinkTitle = "Detailid";
-        public const string DeleteLinkTitle = "Kustuta";
-
-        public const string ClientsPageTitle = "Kliendid";
-        public const string CoachesPageTitle = "Treenerid";
-        public const string LocationsPageTitle = "Asukohad";
-        public const string ParticipantsOfTrainingPageTitle = "Broneeringud";
-        public const string TimetableEntryPageTitle = "Tunniplaan";
-        public const string TrainingsPageTitle = "Trennid";
-        public const string TrainingCategoriesPageTitle = "Trenni kategooriad";
-        public const string TrainingTypesPageTitle = "Trennid tüübid";
-
-        public const string SelectLinkTitle = "Vali";
+        public const string createNewLinkTitle = "Loo uus";
+        public const string createNewReservationTitle = "BRONEERI OMALE TREENING";
+        public const string createNewClientTitle = "Ei ole veel liige? Liitu klubiga";
+        public const string editLinkTitle = "Muuda";
+        public const string detailsLinkTitle = "Detailid";
+        public const string deleteLinkTitle = "Kustuta";
+        public const string selectLinkTitle = "Vali";
     }
 }

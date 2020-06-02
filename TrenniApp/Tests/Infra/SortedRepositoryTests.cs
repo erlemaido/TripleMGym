@@ -9,13 +9,11 @@ using TrainingApp.Aids;
 using TrainingApp.Data.SportsClub;
 using TrainingApp.Domain.SportsClub;
 using TrainingApp.Infra;
-using TrainingApp.Infra.SportsClub;
 
 namespace TrainingApp.Tests.Infra
 {
     [TestClass]
-    public class SortedRepositoryTests : AbstractClassTests<SortedRepository<Client, ClientData>,
-        BaseRepository<Client, ClientData>>
+    public class SortedRepositoryTests : AbstractClassTests<SortedRepository<Client, ClientData>, BaseRepository<Client, ClientData>>
     {
         private class TestClass : SortedRepository<Client, ClientData>
         {
@@ -46,15 +44,16 @@ namespace TrainingApp.Tests.Infra
         [TestMethod]
         public void SortOrderTest()
         {
-            isNullableProperty(() => obj.SortOrder, x => obj.SortOrder = x);
+            IsNullableProperty(() => obj.SortOrder, x => obj.SortOrder = x);
         }
 
         [TestMethod]
         public void DescendingStringTest()
         {
             var propertyName = GetMember.Name<TestClass>(x => x.DescendingString);
-            isReadOnlyProperty(obj, propertyName, "_desc");
+            IsReadOnlyProperty(obj, propertyName, "_desc");
         }
+
         [TestMethod]
         public void SetSortingTest()
         {
@@ -112,7 +111,7 @@ namespace TrainingApp.Tests.Infra
 
         private void TestCreateExpression(string expected, string name = null)
         {
-            name ??= expected;//kui name on tühi, võta expected
+            name ??= expected;
             obj.SortOrder = name;
             var lambda = obj.CreateExpression();
             Assert.IsNotNull(lambda);
@@ -135,26 +134,27 @@ namespace TrainingApp.Tests.Infra
         public void FindPropertyTest()
         {
             string s;
-            void test(PropertyInfo expected, string sortOrder)
+            void Test(PropertyInfo expected, string sortOrder)
             {
                 obj.SortOrder = sortOrder;
                 Assert.AreEqual(expected, obj.FindProperty());
             }
-            test(null, GetRandom.String());
-            test(null, null);
-            test(null, string.Empty);
-            test(typeof(ClientData).GetProperty(s = GetMember.Name<ClientData>(x => x.Name)), s);
-            test(typeof(ClientData).GetProperty(s = GetMember.Name<ClientData>(x => x.Id)), s);
-            test(typeof(ClientData).GetProperty(s = GetMember.Name<ClientData>(x => x.DateOfJoining)), s);
-            test(typeof(ClientData).GetProperty(s = GetMember.Name<ClientData>(x => x.Email)), s);
 
-            test(typeof(ClientData).GetProperty(s = GetMember.Name<ClientData>(x => x.Name)),
+            Test(null, GetRandom.String());
+            Test(null, null);
+            Test(null, string.Empty);
+            Test(typeof(ClientData).GetProperty(s = GetMember.Name<ClientData>(x => x.Name)), s);
+            Test(typeof(ClientData).GetProperty(s = GetMember.Name<ClientData>(x => x.Id)), s);
+            Test(typeof(ClientData).GetProperty(s = GetMember.Name<ClientData>(x => x.DateOfJoining)), s);
+            Test(typeof(ClientData).GetProperty(s = GetMember.Name<ClientData>(x => x.Email)), s);
+
+            Test(typeof(ClientData).GetProperty(s = GetMember.Name<ClientData>(x => x.Name)),
                 s + obj.DescendingString);
-            test(typeof(ClientData).GetProperty(s = GetMember.Name<ClientData>(x => x.Id)),
+            Test(typeof(ClientData).GetProperty(s = GetMember.Name<ClientData>(x => x.Id)),
                 s + obj.DescendingString);
-            test(typeof(ClientData).GetProperty(s = GetMember.Name<ClientData>(x => x.DateOfJoining)),
+            Test(typeof(ClientData).GetProperty(s = GetMember.Name<ClientData>(x => x.DateOfJoining)),
                 s + obj.DescendingString);
-            test(typeof(ClientData).GetProperty(s = GetMember.Name<ClientData>(x => x.Email)),
+            Test(typeof(ClientData).GetProperty(s = GetMember.Name<ClientData>(x => x.Email)),
                 s + obj.DescendingString);
         }
 
@@ -162,16 +162,18 @@ namespace TrainingApp.Tests.Infra
         public void GetNameTest()
         {
             string s;
-            void test(string expected, string sortOrder)
+            void Test(string expected, string sortOrder)
             {
                 obj.SortOrder = sortOrder;
                 Assert.AreEqual(expected, obj.GetName());
             }
-            test(s = GetRandom.String(), s);
-            test(s = GetRandom.String(), s + obj.DescendingString);
-            test(string.Empty, string.Empty);
-            test(string.Empty, null);
+
+            Test(s = GetRandom.String(), s);
+            Test(s = GetRandom.String(), s + obj.DescendingString);
+            Test(string.Empty, string.Empty);
+            Test(string.Empty, null);
         }
+
         [TestMethod]
         public void SetOrderByTest()
         {
@@ -190,6 +192,7 @@ namespace TrainingApp.Tests.Infra
                 Assert.IsTrue(set.Expression.ToString()
                     .Contains($"TrainingApp.Data.SportsClub.ClientData]).OrderBy({expected})"));
             }
+
             Assert.IsNull(obj.AddOrderBy(null, null));
             IQueryable<ClientData> data = obj.dbSet;
             Assert.AreEqual(data, obj.AddOrderBy(data, null));
@@ -198,6 +201,7 @@ namespace TrainingApp.Tests.Infra
             Test(data, x => x.Name, "x => x.Name");
             Test(data, x => x.Email, "x => x.Email");
         }
+
         [TestMethod]
         public void IsDescendingTest()
         {

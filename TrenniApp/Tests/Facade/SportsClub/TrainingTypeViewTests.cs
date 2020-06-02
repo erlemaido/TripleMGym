@@ -7,6 +7,5 @@ namespace TrainingApp.Tests.Facade.SportsClub
     [TestClass]
     public class TrainingTypeViewTests : SealedClassTests<TrainingTypeView, NamedEntityView>
     {
-        
     }
 }

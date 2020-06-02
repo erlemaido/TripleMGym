@@ -3,7 +3,10 @@ using System.Collections;
 using System.Linq;
 
 namespace TrainingApp.Aids {
-    public static class SetRandom {
+
+    public static class SetRandom 
+    {
+
         public static void Values(object o)
         {
             switch (o)
@@ -19,7 +22,8 @@ namespace TrainingApp.Aids {
             }
         }
 
-        private static void SetValuesForProperties(object o) {
+        private static void SetValuesForProperties(object o) 
+        {
             if (o is null) return;
             var t = o.GetType();
             var properties = GetClass.Properties(t);
@@ -31,7 +35,8 @@ namespace TrainingApp.Aids {
             }
         }
 
-        private static void SetValuesForList(IList l) {
+        private static void SetValuesForList(IList l) 
+        {
             if (l is null) return;
             var t = GetListElementsType(l);
             for (var c = 0; c <= GetRandom.UInt8(3, 5); c++) {
@@ -40,7 +45,8 @@ namespace TrainingApp.Aids {
             }
         }
 
-        private static Type GetListElementsType(IEnumerable list) {
+        private static Type GetListElementsType(IEnumerable list) 
+        {
             return Safe.Run(() => {
                 var t = list.GetType();
                 var types =

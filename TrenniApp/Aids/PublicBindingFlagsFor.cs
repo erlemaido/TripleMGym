@@ -2,7 +2,8 @@
 
 namespace TrainingApp.Aids {
 
-    public static class PublicBindingFlagsFor {
+    public static class PublicBindingFlagsFor 
+    {
         private const BindingFlags P = BindingFlags.Public;
         private const BindingFlags I = BindingFlags.Instance;
         private const BindingFlags S = BindingFlags.Static;

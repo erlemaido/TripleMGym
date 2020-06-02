@@ -7,9 +7,21 @@ namespace TrainingApp.Tests.Infra
     {
         private const string Assembly = "TrainingApp.Infra";
 
-        protected override string Namespace(string name) { return $"{Assembly}.{name}"; }
+        protected override string Namespace(string name)
+        {
+            return $"{Assembly}.{name}";
+        }
 
-        [TestMethod] public void IsSportsClubTested() { isAllTested(Assembly, Namespace("SportsClub")); }
-        [TestMethod] public void IsTested() { isAllTested(base.Namespace("Infra")); }
+        [TestMethod]
+        public void IsSportsClubTested()
+        {
+            IsAllTested(Assembly, Namespace("SportsClub"));
+        }
+
+        [TestMethod]
+        public void IsTested()
+        {
+            IsAllTested(base.Namespace("Infra"));
+        }
     }
 }

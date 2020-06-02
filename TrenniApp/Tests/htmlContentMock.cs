@@ -13,7 +13,5 @@ namespace TrainingApp.Tests
         public void WriteTo(TextWriter writer, HtmlEncoder encoder) => writer.WriteLine(content);
 
         public override string ToString() => content;
-
     }
 }
-

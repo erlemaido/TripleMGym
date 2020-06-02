@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using TrainingApp.Data.Common;
 using TrainingApp.Domain.Common;
 
 namespace TrainingApp.Tests
 {
-    internal abstract class BaseTestRepositoryForPeriodEntity<TObj, TData>
-        where TObj : Entity<TData>
-        where TData : PeriodData, new()
+    internal abstract class BaseTestRepositoryForPeriodEntity<TObj, TData> where TObj : Entity<TData> where TData : PeriodData, new()
     {
         internal readonly List<TObj> list;
 
@@ -38,7 +34,6 @@ namespace TrainingApp.Tests
         {
             await Task.CompletedTask;
             return list.Find(x => IsThis(x, id));
-
         }
 
         protected abstract bool IsThis(TObj entity, string id);
@@ -48,14 +43,12 @@ namespace TrainingApp.Tests
             await Task.CompletedTask;
             var obj = list.Find(x => IsThis(x, id));
             list.Remove(obj);
-
         }
 
         public async Task Add(TObj obj)
         {
             await Task.CompletedTask;
             list.Add(obj);
-
         }
 
         public async Task Update(TObj obj)

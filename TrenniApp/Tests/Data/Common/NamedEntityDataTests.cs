@@ -6,22 +6,19 @@ namespace TrainingApp.Tests.Data.Common
     [TestClass]
     public class NamedEntityDataTests : AbstractClassTests<NamedEntityData, UniqueEntityData>
     {
-        private class testClass : NamedEntityData { }
+        private class TestClass : NamedEntityData { }
+
         [TestInitialize]
         public override void TestInitialize()
         {
             base.TestInitialize();
-            obj = new testClass();
+            obj = new TestClass();
         }
+
         [TestMethod]
         public void NameTest()
         {
-            isNullableProperty(() => obj.Name, x => obj.Name= x);
+            IsNullableProperty(() => obj.Name, x => obj.Name= x);
         }
-        //[TestMethod]
-        //public void CodeTest()
-        //{
-        //    isNullableProperty(() => obj.Code, x => obj.Code = x);
-        //}
     }
 }

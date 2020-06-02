@@ -5,7 +5,6 @@ using TrainingApp.Aids;
 using TrainingApp.Data.SportsClub;
 using TrainingApp.Domain.SportsClub;
 using TrainingApp.Infra;
-using TrainingApp.Infra.SportsClub;
 
 namespace TrainingApp.Tests.Infra
 {
@@ -41,16 +40,13 @@ namespace TrainingApp.Tests.Infra
         }
 
         [TestMethod]
-        public void SearchStringTest()
-            => isNullableProperty(() => obj.SearchString, x => obj.SearchString = x);
+        public void SearchStringTest() => IsNullableProperty(() => obj.SearchString, x => obj.SearchString = x);
 
         [TestMethod]
-        public void FixedFilterTest()
-            => isNullableProperty(() => obj.FixedFilter, x => obj.FixedFilter = x);
+        public void FixedFilterTest() => IsNullableProperty(() => obj.FixedFilter, x => obj.FixedFilter = x);
 
         [TestMethod]
-        public void FixedValueTest()
-            => isNullableProperty(() => obj.FixedValue, x => obj.FixedValue = x);
+        public void FixedValueTest() => IsNullableProperty(() => obj.FixedValue, x => obj.FixedValue = x);
 
         [TestMethod]
         public void CreateSqlQueryTest()

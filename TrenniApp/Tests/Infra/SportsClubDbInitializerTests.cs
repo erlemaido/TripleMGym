@@ -8,7 +8,6 @@ namespace TrainingApp.Tests.Infra
         [TestInitialize]
         public void TestInitialize()
         {
-            
         }
 
         [TestMethod]

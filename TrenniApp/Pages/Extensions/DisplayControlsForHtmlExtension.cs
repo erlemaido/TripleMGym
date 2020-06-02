@@ -8,23 +8,23 @@ namespace TrainingApp.Pages.Extensions {
 
     public static class DisplayControlsForHtmlExtension {
 
-        public static IHtmlContent DisplayControlsFor<TModel, TResult>(
-            this IHtmlHelper<TModel> htmlHelper, Expression<Func<TModel, TResult>> expression) {
-
-            var s = htmlStrings(htmlHelper, expression);
+        public static IHtmlContent DisplayControlsFor<TModel, TResult>(this IHtmlHelper<TModel> htmlHelper, Expression<Func<TModel, TResult>> expression) 
+        {
+            var s = HtmlStrings(htmlHelper, expression);
 
             return new HtmlContentBuilder(s);
         }
 
         public static IHtmlContent DisplayControlsFor<TModel, TResult>(this IHtmlHelper<TModel> htmlHelper,
-            Expression<Func<TModel, TResult>> expression, string value) {
-            var s = htmlStrings(htmlHelper, expression, value);
+            Expression<Func<TModel, TResult>> expression, string value) 
+        {
+            var s = HtmlStrings(htmlHelper, expression, value);
 
             return new HtmlContentBuilder(s);
         }
 
-        internal static List<object> htmlStrings<TModel, TResult>(IHtmlHelper<TModel> htmlHelper,
-            Expression<Func<TModel, TResult>> expression) {
+        internal static List<object> HtmlStrings<TModel, TResult>(IHtmlHelper<TModel> htmlHelper, Expression<Func<TModel, TResult>> expression) 
+        {
             return new List<object> {
                 new HtmlString("<dt class=\"col-sm-2\">"),
                 htmlHelper.DisplayNameFor(expression),
@@ -35,8 +35,9 @@ namespace TrainingApp.Pages.Extensions {
             };
         }
 
-        private static List<object> htmlStrings<TModel, TResult>(IHtmlHelper<TModel> htmlHelper,
-            Expression<Func<TModel, TResult>> expression, string value) {
+        private static List<object> HtmlStrings<TModel, TResult>(IHtmlHelper<TModel> htmlHelper,
+            Expression<Func<TModel, TResult>> expression, string value) 
+        {
             return new List<object> {
                 new HtmlString("<dt class=\"col-sm-2\">"),
                 htmlHelper.DisplayNameFor(expression),
@@ -46,7 +47,5 @@ namespace TrainingApp.Pages.Extensions {
                 new HtmlString("</dd>")
             };
         }
-
     }
-
 }

@@ -5,11 +5,11 @@ namespace TrainingApp.Tests.Data
     [TestClass]
     public class IsDataTested : AssemblyTests
     {
-        private const string assembly = "TrainingApp.Data";
+        private const string Assembly = "TrainingApp.Data";
 
-        protected override string Namespace(string name) { return $"{assembly}.{name}"; }
+        protected override string Namespace(string name) { return $"{Assembly}.{name}"; }
 
-        [TestMethod] public void IsCommonTested() { isAllTested(assembly, Namespace("Common")); }
-        [TestMethod] public void IsSportsClubTested() { isAllTested(assembly, Namespace("SportsClub")); }
+        [TestMethod] public void IsCommonTested() { IsAllTested(Assembly, Namespace("Common")); }
+        [TestMethod] public void IsSportsClubTested() { IsAllTested(Assembly, Namespace("SportsClub")); }
     }
 }

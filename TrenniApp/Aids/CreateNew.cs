@@ -1,23 +1,29 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
 namespace TrainingApp.Aids {
 
-    public static class CreateNew {
-        public static T Instance<T>() {
-            static T Function() {
+    public static class CreateNew 
+    {
+        public static T Instance<T>() 
+        {
+            static T Function() 
+            {
                 var type = typeof(T);
                 var instance = Instance(type);
                 var value = (T) instance;
                 return value;
             }
+
             var def = default(T);
             var result = Safe.Run(Function, def);
             return result;
         }
 
-        public static object Instance(Type t) {
+        public static object Instance(Type t) 
+        {
             return Safe.Run(() => {
                 var constructor = GetFirstOrDefaultConstructorInfo(t);
                 var parameters = constructor.GetParameters();
@@ -26,11 +32,13 @@ namespace TrainingApp.Aids {
             }, null);
         }
 
-        private static object InvokeConstructor(ConstructorInfo ci, object[] values) {
+        private static object InvokeConstructor(ConstructorInfo ci, object[] values) 
+        {
             return values.Length == 0 ? ci.Invoke(null) : ci.Invoke(values);
         }
 
-        private static object[] SetRandomParameterValues(ParameterInfo[] parameters) {
+        private static object[] SetRandomParameterValues(IEnumerable<ParameterInfo> parameters) 
+        {
             return parameters.Select(p => p.ParameterType).Select(t => GetRandom.Value(t)).ToArray();
         }
 

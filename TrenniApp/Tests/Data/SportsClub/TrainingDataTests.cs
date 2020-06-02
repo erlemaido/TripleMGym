@@ -10,22 +10,25 @@ namespace TrainingApp.Tests.Data.SportsClub
         [TestMethod]
         public void TrainingCategoryIdTest()
         {
-            isNullableProperty(() => obj.TrainingCategoryId, x => obj.TrainingCategoryId = x);
+            IsNullableProperty(() => obj.TrainingCategoryId, x => obj.TrainingCategoryId = x);
         }
+
         [TestMethod]
         public void TitleTest()
         {
-            isNullableProperty(() => obj.Name, x => obj.Name = x);
+            IsNullableProperty(() => obj.Name, x => obj.Name = x);
         }
+
         [TestMethod]
         public void CodeTest()
         {
-            isNullableProperty(() => obj.Code, x => obj.Code = x);
+            IsNullableProperty(() => obj.Code, x => obj.Code = x);
         }
+
         [TestMethod]
         public void DurationInMinutesTest()
         {
-            isProperty(() => obj.DurationInMinutes, x => obj.DurationInMinutes = x);
+            IsProperty(() => obj.DurationInMinutes, x => obj.DurationInMinutes = x);
         }
     }
 }

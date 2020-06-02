@@ -2,8 +2,8 @@
 
 namespace TrainingApp.Aids {
 
-    public interface ILogBook {
-
+    public interface ILogBook 
+    {
         void WriteEntry(Exception e);
     }
 }

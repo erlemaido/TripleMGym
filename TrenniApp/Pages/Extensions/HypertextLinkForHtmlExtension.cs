@@ -1,20 +1,24 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace TrainingApp.Pages.Extensions {
 
-    public static class HypertextLinkForHtmlExtension {
+    public static class HypertextLinkForHtmlExtension 
+    {
 
-        public static IHtmlContent HypertextLinkFor(
-            this IHtmlHelper htmlHelper, string text, params Link[] items) {
+        public static IHtmlContent HypertextLinkFor(this IHtmlHelper htmlHelper, string text, params Link[] items) 
+        {
+            if (htmlHelper == null) throw new ArgumentNullException(nameof(htmlHelper));
             var s = HtmlStrings(text, items);
 
             return new HtmlContentBuilder(s);
         }
 
-        internal static List<object> HtmlStrings(string text, Link[] items) {
+        internal static List<object> HtmlStrings(string text, Link[] items) 
+        {
             var l = new List<object> {
                 new HtmlString("<p>"),
                 new HtmlString($"<a>{text}</a>")
@@ -27,7 +31,5 @@ namespace TrainingApp.Pages.Extensions {
 
             return l;
         }
-
     }
-
 }
