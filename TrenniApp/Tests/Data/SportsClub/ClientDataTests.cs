@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TrainingApp.Data.Common;
 using TrainingApp.Data.SportsClub;
 
@@ -11,23 +10,25 @@ namespace TrainingApp.Tests.Data.SportsClub
         [TestMethod]
         public void FirstNameTest()
         {
-            isNullableProperty(() => obj.Name, x => obj.Name = x);
+            IsNullableProperty(() => obj.Name, x => obj.Name = x);
         }
 
         [TestMethod]
         public void IdCodeTest()
         {
-            isNullableProperty(() => obj.Id, x => obj.Id = x);
+            IsNullableProperty(() => obj.Id, x => obj.Id = x);
         }
+
         [TestMethod]
         public void EmailTest()
         {
-            isNullableProperty(() => obj.Email, x => obj.Email = x);
+            IsNullableProperty(() => obj.Email, x => obj.Email = x);
         }
+
         [TestMethod]
         public void DateOfJoiningTest()
         {
-            isProperty(() => obj.DateOfJoining, x => obj.DateOfJoining = x);
+            IsProperty(() => obj.DateOfJoining, x => obj.DateOfJoining = x);
         }
     }
 }

@@ -7,20 +7,21 @@ using TrainingApp.Domain.Common;
 namespace TrainingApp.Tests
 {
     [TestClass]
-    internal abstract class BaseTestRepositoryForNamedEntity<TObj, TData>
-        where TObj : Entity<TData>
-        where TData : NamedEntityData, new()
+    internal abstract class BaseTestRepositoryForNamedEntity<TObj, TData> where TObj : Entity<TData> where TData : NamedEntityData, new()
     {
         internal readonly List<TObj> list;
+
         public BaseTestRepositoryForNamedEntity()
         {
             list = new List<TObj>();
         }
+
         public async Task<List<TObj>> Get()
         {
             await Task.CompletedTask;
             return list;
         }
+
         public async Task<TObj> Get(string id)
         {
             await Task.CompletedTask;
@@ -61,4 +62,3 @@ namespace TrainingApp.Tests
         public bool HasPreviousPage { get; set; }
     }
 }
-

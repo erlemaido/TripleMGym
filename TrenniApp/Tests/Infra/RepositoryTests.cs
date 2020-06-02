@@ -8,8 +8,7 @@ using TrainingApp.Domain.Common;
 namespace TrainingApp.Tests.Infra
 {
     [TestClass]
-    public abstract class RepositoryTests<TRepository, TObject, TData> :
-        BaseTests
+    public abstract class RepositoryTests<TRepository, TObject, TData> : BaseTests
         where TRepository : IRepository<TObject>
         where TObject : Entity<TData>
         where TData : PeriodData, new()
@@ -44,6 +43,7 @@ namespace TrainingApp.Tests.Infra
                 db.Entry(p).State = EntityState.Deleted;
             db.SaveChanges();
         }
+
         protected void AddItems()
         {
             for (var i = 0; i < count; i++)
@@ -88,6 +88,7 @@ namespace TrainingApp.Tests.Infra
             expected = obj.Get(id).GetAwaiter().GetResult();
             TestArePropertyValuesEqual(data, expected.Data);
         }
+
         protected abstract TObject GetObject(TData d);
 
         [TestMethod]

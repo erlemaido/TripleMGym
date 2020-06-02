@@ -1,7 +1,4 @@
-﻿
-
-using System.Linq;
-using Microsoft.EntityFrameworkCore.Diagnostics;
+﻿using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TrainingApp.Aids;
 using TrainingApp.Data.SportsClub;
@@ -24,6 +21,7 @@ namespace TrainingApp.Tests.Pages.SportsClub
         }
 
         private class TestClientsRepository : BaseTestRepositoryForUniqueEntity<Client, ClientData>, IClientsRepository { }
+
         private class TestRepository : BaseTestRepositoryForPeriodEntity<ParticipantOfTraining, ParticipantOfTrainingData>, IParticipantOfTrainingsRepository
         {
             protected override bool IsThis(ParticipantOfTraining entity, string id)
@@ -36,8 +34,8 @@ namespace TrainingApp.Tests.Pages.SportsClub
                 throw new System.NotImplementedException();
             }
         }
-        private class TestTimetableEntriesRepository : BaseTestRepositoryForUniqueEntity<TimetableEntry, TimetableEntryData>, ITimetableEntriesRepository { }
 
+        private class TestTimetableEntriesRepository : BaseTestRepositoryForUniqueEntity<TimetableEntry, TimetableEntryData>, ITimetableEntriesRepository { }
 
         private TestRepository participants;
         private TestClientsRepository clients;
@@ -61,6 +59,7 @@ namespace TrainingApp.Tests.Pages.SportsClub
             entries.Add(tt).GetAwaiter();
             obj = new TestClass(participants, entries, clients);
         }
+
         [TestMethod]
         public void ItemIdTest()
         {
@@ -120,7 +119,5 @@ namespace TrainingApp.Tests.Pages.SportsClub
             var list = clients.Get().GetAwaiter().GetResult();
             Assert.AreEqual(list.Count, obj.Clients.Count());
         }
-
     }
 }
-

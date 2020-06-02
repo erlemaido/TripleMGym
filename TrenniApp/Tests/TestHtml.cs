@@ -13,9 +13,8 @@ namespace TrainingApp.Tests
             {
                 var a = actual[i].ToString();
                 var e = expected[i];
-                Assert.IsTrue(a.Contains(e), $"{e} != {a}");
+                Assert.IsTrue(a != null && a.Contains(e), $"{e} != {a}");
             }
         }
     }
 }
-

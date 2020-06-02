@@ -30,6 +30,7 @@ namespace TrainingApp.Tests.Infra
                 return mb;
             }
         }
+
         [TestInitialize]
         public override void TestInitialize()
         {
@@ -77,35 +78,27 @@ namespace TrainingApp.Tests.Infra
         }
 
         [TestMethod]
-        public void ClientsTest() =>
-            isNullableProperty(obj, nameof(obj.Clients), typeof(DbSet<ClientData>));
+        public void ClientsTest() => IsNullableProperty(obj, nameof(obj.Clients), typeof(DbSet<ClientData>));
 
         [TestMethod]
-        public void CoachesTest() =>
-            isNullableProperty(obj, nameof(obj.Coaches), typeof(DbSet<CoachData>));
+        public void CoachesTest() => IsNullableProperty(obj, nameof(obj.Coaches), typeof(DbSet<CoachData>));
 
         [TestMethod]
-        public void LocationsTest() =>
-            isNullableProperty(obj, nameof(obj.Locations), typeof(DbSet<LocationData>));
+        public void LocationsTest() => IsNullableProperty(obj, nameof(obj.Locations), typeof(DbSet<LocationData>));
 
         [TestMethod]
-        public void ParticipantsOfTrainingTest() =>
-            isNullableProperty(obj, nameof(obj.ParticipantsOfTraining), typeof(DbSet<ParticipantOfTrainingData>));
+        public void ParticipantsOfTrainingTest() => IsNullableProperty(obj, nameof(obj.ParticipantsOfTraining), typeof(DbSet<ParticipantOfTrainingData>));
 
         [TestMethod]
-        public void TimetableEntriesTest() =>
-            isNullableProperty(obj, nameof(obj.TimetableEntries), typeof(DbSet<TimetableEntryData>));
+        public void TimetableEntriesTest() => IsNullableProperty(obj, nameof(obj.TimetableEntries), typeof(DbSet<TimetableEntryData>));
 
         [TestMethod]
-        public void TrainingCategoriesTest() =>
-            isNullableProperty(obj, nameof(obj.TrainingCategories), typeof(DbSet<TrainingCategoryData>));
+        public void TrainingCategoriesTest() => IsNullableProperty(obj, nameof(obj.TrainingCategories), typeof(DbSet<TrainingCategoryData>));
 
         [TestMethod]
-        public void TrainingTypesTest() =>
-            isNullableProperty(obj, nameof(obj.TrainingTypes), typeof(DbSet<TrainingTypeData>));
+        public void TrainingTypesTest() => IsNullableProperty(obj, nameof(obj.TrainingTypes), typeof(DbSet<TrainingTypeData>));
 
         [TestMethod]
-        public void TrainingsTest() =>
-            isNullableProperty(obj, nameof(obj.Trainings), typeof(DbSet<TrainingData>));
+        public void TrainingsTest() => IsNullableProperty(obj, nameof(obj.Trainings), typeof(DbSet<TrainingData>));
     }
 }

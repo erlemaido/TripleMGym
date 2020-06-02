@@ -6,13 +6,11 @@ using TrainingApp.Aids;
 using TrainingApp.Data.SportsClub;
 using TrainingApp.Domain.SportsClub;
 using TrainingApp.Infra;
-using TrainingApp.Infra.SportsClub;
 
 namespace TrainingApp.Tests.Infra
 {
     [TestClass]
-    public class PaginatedRepositoryTests :
-        AbstractClassTests<PaginatedRepository<Client, ClientData>, FilteredRepository<Client, ClientData>>
+    public class PaginatedRepositoryTests : AbstractClassTests<PaginatedRepository<Client, ClientData>, FilteredRepository<Client, ClientData>>
     {
         private class TestClass : PaginatedRepository<Client, ClientData>
         {
@@ -20,11 +18,11 @@ namespace TrainingApp.Tests.Infra
 
             protected internal override Client ToDomainObject(ClientData d) => new Client(d);
 
-            protected override async Task<ClientData> GetData(string id)
-                => await dbSet.FirstOrDefaultAsync(m => m.Id == id);
+            protected override async Task<ClientData> GetData(string id) => await dbSet.FirstOrDefaultAsync(m => m.Id == id);
 
             protected override string GetId(Client entity) => entity?.Data?.Id;
         }
+
         private byte count;
 
         [TestInitialize]
@@ -40,13 +38,13 @@ namespace TrainingApp.Tests.Infra
             count = GetRandom.UInt8(20, 40);
             foreach (var p in c.Clients)
                 c.Entry(p).State = EntityState.Deleted;
-            addItems();
+            AddItems();
         }
 
         [TestMethod]
         public void PageIndexTest()
         {
-            isProperty(() => obj.PageIndex, x => obj.PageIndex = x);
+            IsProperty(() => obj.PageIndex, x => obj.PageIndex = x);
         }
 
         [TestMethod]
@@ -60,39 +58,40 @@ namespace TrainingApp.Tests.Infra
         [TestMethod]
         public void HasNextPageTest()
         {
-            void testNextPage(int pageIndex, bool expected)
+            void TestNextPage(int pageIndex, bool expected)
             {
                 obj.PageIndex = pageIndex;
                 var actual = obj.HasNextPage;
                 Assert.AreEqual(expected, actual);
             }
-            testNextPage(0, true);
-            testNextPage(1, true);
-            testNextPage(GetRandom.Int32(2, obj.TotalPages - 1), true);
-            testNextPage(obj.TotalPages, false);
+
+            TestNextPage(0, true);
+            TestNextPage(1, true);
+            TestNextPage(GetRandom.Int32(2, obj.TotalPages - 1), true);
+            TestNextPage(obj.TotalPages, false);
         }
 
         [TestMethod]
         public void HasPreviousPageTest()
         {
-            void testPreviousPage(int pageIndex, bool expected)
+            void TestPreviousPage(int pageIndex, bool expected)
             {
                 obj.PageIndex = pageIndex;
                 var actual = obj.HasPreviousPage;
                 Assert.AreEqual(expected, actual);
             }
-            testPreviousPage(0, false);
-            testPreviousPage(1, false);
-            testPreviousPage(2, true);
-            testPreviousPage(GetRandom.Int32(2, obj.TotalPages), true);
-            testPreviousPage(obj.TotalPages, true);
+            TestPreviousPage(0, false);
+            TestPreviousPage(1, false);
+            TestPreviousPage(2, true);
+            TestPreviousPage(GetRandom.Int32(2, obj.TotalPages), true);
+            TestPreviousPage(obj.TotalPages, true);
         }
 
         [TestMethod]
         public void PageSizeTest()
         {
             Assert.AreEqual(5, obj.PageSize);
-            isProperty(() => obj.PageSize, x => obj.PageSize = x);
+            IsProperty(() => obj.PageSize, x => obj.PageSize = x);
         }
 
         [TestMethod]
@@ -118,7 +117,7 @@ namespace TrainingApp.Tests.Infra
             Assert.AreEqual(count, itemsCount);
         }
 
-        private void addItems()
+        private void AddItems()
         {
             for (var i = 0; i < count; i++)
                 obj.Add(new Client(GetRandom.Object<ClientData>())).GetAwaiter();

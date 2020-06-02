@@ -7,9 +7,21 @@ namespace TrainingApp.Tests.Pages
     {
         private const string Assembly = "TrainingApp.Pages";
 
-        protected override string Namespace(string name) { return $"{Assembly}.{name}"; }
-        [TestMethod] public void IsSportsClubTested() { isAllTested(Assembly, Namespace("SportsClub")); }
-        [TestMethod] public void IsTested() { isAllTested(base.Namespace("Pages")); }
+        protected override string Namespace(string name)
+        {
+            return $"{Assembly}.{name}";
+        }
 
+        [TestMethod]
+        public void IsSportsClubTested()
+        {
+            IsAllTested(Assembly, Namespace("SportsClub"));
+        }
+
+        [TestMethod]
+        public void IsTested()
+        {
+            IsAllTested(base.Namespace("Pages"));
+        }
     }
 }

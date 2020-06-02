@@ -9,16 +9,17 @@ namespace TrainingApp.Pages.Extensions
     public static class EditControlsForDropDownHtmlExtension
     {
         public static IHtmlContent EditControlsForDropDown<TModel, TResult>(
-            this IHtmlHelper<TModel> htmlHelper, Expression<Func<TModel, TResult>> expression,
-            IEnumerable<SelectListItem> items) {
-
+            this IHtmlHelper<TModel> htmlHelper, Expression<Func<TModel, TResult>> expression, IEnumerable<SelectListItem> items) 
+        {
             var htmlStrings = EditControlsForDropDownHtmlExtension.HtmlStrings(htmlHelper, expression, items);
 
             return new HtmlContentBuilder(htmlStrings);
         }
 
-        internal static List<object> HtmlStrings<TModel, TResult>(IHtmlHelper<TModel> htmlHelper, Expression<Func<TModel, TResult>> expression, IEnumerable<SelectListItem> items) {
-            return new List<object> {
+        internal static List<object> HtmlStrings<TModel, TResult>(IHtmlHelper<TModel> htmlHelper, Expression<Func<TModel, TResult>> expression, IEnumerable<SelectListItem> items) 
+        {
+            return new List<object> 
+            {
                 new HtmlString("<div class=\"form-group\">"),
                 htmlHelper.LabelFor(expression, new {@class = "text-dark"}),
                 htmlHelper.DropDownListFor(expression, items, new {@class = "form-control"}),
@@ -26,6 +27,5 @@ namespace TrainingApp.Pages.Extensions
                 new HtmlString("</div>")
             };
         }
-
     }
 }

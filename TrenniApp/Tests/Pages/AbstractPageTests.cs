@@ -15,7 +15,6 @@ namespace TrainingApp.Tests.Pages {
         internal TestRepository db;
         internal class TestClass : CommonPage<IClientsRepository, Client, ClientView, ClientData>
         {
-
             protected internal TestClass(IClientsRepository r) : base(r)
             {
                 PageTitle = "Üritused";
@@ -28,7 +27,6 @@ namespace TrainingApp.Tests.Pages {
             protected internal override Client ToObject(ClientView view) => ClientViewFactory.Create(view);
 
             protected internal override ClientView ToView(Client obj) => ClientViewFactory.Create(obj);
-
         }
 
         internal class TestRepository : BaseTestRepositoryForUniqueEntity<Client, ClientData>, IClientsRepository { }
@@ -39,7 +37,5 @@ namespace TrainingApp.Tests.Pages {
             base.TestInitialize();
             db = new TestRepository();
         }
-
     }
-
 }

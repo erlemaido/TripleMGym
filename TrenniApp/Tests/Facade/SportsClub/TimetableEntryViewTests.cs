@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using TrainingApp.Data.Common;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TrainingApp.Facade.Common;
 using TrainingApp.Facade.SportsClub;
 
@@ -10,15 +6,31 @@ namespace TrainingApp.Tests.Facade.SportsClub
 {
     public class TimetableEntryViewTests : SealedClassTests<TimetableEntryView, DefinedEntityView>
     {
-        [TestMethod] public void CoachIdTest() => isNullableProperty(() => obj.CoachId, x => obj.CoachId = x);
-        [TestMethod] public void TrainingIdTest() => isNullableProperty(() => obj.TrainingId, x => obj.TrainingId = x);
-        [TestMethod] public void LocationIdTest() => isNullableProperty(() => obj.LocationId, x => obj.LocationId = x);
-        [TestMethod] public void TrainingTypeIdTest() => isNullableProperty(() => obj.TrainingTypeId, x => obj.TrainingTypeId = x);
-        [TestMethod] public void TrainingLevelTest() => isProperty(() => obj.TrainingLevel, x => obj.TrainingLevel = x);
-        [TestMethod] public void DateTest() => isProperty(() => obj.Date, x => obj.Date = x);
-        [TestMethod] public void StartTimeTest() => isProperty(() => obj.StartTime, x => obj.StartTime = x);
-        [TestMethod] public void EndTimeTest() => isProperty(() => obj.EndTime, x => obj.EndTime = x);
-        [TestMethod] public void MaxNumberOfParticipantsTest() => isProperty(() => obj.MaxNumberOfParticipants, x => obj.MaxNumberOfParticipants = x);
-
+        [TestMethod] 
+        public void CoachIdTest() => IsNullableProperty(() => obj.CoachId, x => obj.CoachId = x);
+        
+        [TestMethod] 
+        public void TrainingIdTest() => IsNullableProperty(() => obj.TrainingId, x => obj.TrainingId = x);
+        
+        [TestMethod] 
+        public void LocationIdTest() => IsNullableProperty(() => obj.LocationId, x => obj.LocationId = x);
+        
+        [TestMethod] 
+        public void TrainingTypeIdTest() => IsNullableProperty(() => obj.TrainingTypeId, x => obj.TrainingTypeId = x);
+        
+        [TestMethod] 
+        public void TrainingLevelTest() => IsProperty(() => obj.TrainingLevel, x => obj.TrainingLevel = x);
+        
+        [TestMethod] 
+        public void DateTest() => IsProperty(() => obj.Date, x => obj.Date = x);
+        
+        [TestMethod] 
+        public void StartTimeTest() => IsProperty(() => obj.StartTime, x => obj.StartTime = x);
+        
+        [TestMethod] 
+        public void EndTimeTest() => IsProperty(() => obj.EndTime, x => obj.EndTime = x);
+        
+        [TestMethod] 
+        public void MaxNumberOfParticipantsTest() => IsProperty(() => obj.MaxNumberOfParticipants, x => obj.MaxNumberOfParticipants = x);
     }
 }

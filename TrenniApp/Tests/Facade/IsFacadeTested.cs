@@ -1,23 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace TrainingApp.Tests.Facade
 {
     [TestClass]
     public class IsFacadeTested : AssemblyTests
     {
-
-        private const string assembly = "TrainingApp.Facade";
+        private const string Assembly = "TrainingApp.Facade";
 
         protected override string Namespace(string name)
         {
-            return $"{assembly}.{name}";
+            return $"{Assembly}.{name}";
         }
-        [TestMethod] public void IsCommonTested() { isAllTested(assembly, Namespace("Common")); }
-        [TestMethod] public void IsSportsClubTested() { isAllTested(assembly, Namespace("SportsClub")); }
-        [TestMethod] public void IsTested() { isAllTested(assembly, base.Namespace("Facade")); }
 
+        [TestMethod]
+        public void IsCommonTested()
+        {
+            IsAllTested(Assembly, Namespace("Common"));
+        }
+
+        [TestMethod]
+        public void IsSportsClubTested()
+        {
+            IsAllTested(Assembly, Namespace("SportsClub"));
+        }
+
+        [TestMethod]
+        public void IsTested()
+        {
+            IsAllTested(Assembly, base.Namespace("Facade"));
+        }
     }
 }

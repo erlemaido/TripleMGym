@@ -5,7 +5,6 @@ using TrainingApp.Aids;
 using TrainingApp.Data.SportsClub;
 using TrainingApp.Domain.SportsClub;
 using TrainingApp.Infra;
-using TrainingApp.Infra.SportsClub;
 
 namespace TrainingApp.Tests.Infra
 {

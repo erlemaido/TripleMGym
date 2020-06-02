@@ -10,11 +10,11 @@ namespace TrainingApp.Tests
             obj = new TClass();
             type = obj.GetType();
         }
+
         [TestMethod]
         public void CanCreateTest()
         {
             Assert.IsNotNull(obj);
         }
-
     }
 }

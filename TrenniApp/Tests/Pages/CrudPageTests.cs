@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore.Diagnostics;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TrainingApp.Aids;
 using TrainingApp.Data.SportsClub;
 using TrainingApp.Domain.SportsClub;
@@ -12,17 +11,16 @@ namespace TrainingApp.Tests.Pages {
     public class CrudPageTests : AbstractPageTests<CrudPage<IClientsRepository, Client, ClientView, ClientData>,
         BasePage<IClientsRepository, Client, ClientView, ClientData>>
     {
-
-        private string _fixedFilter;
-        private string _fixedValue;
+        private string fixedFilter;
+        private string fixedValue;
 
         [TestInitialize]
         public override void TestInitialize()
         {
             base.TestInitialize();
             obj = new TestClass(db);
-            _fixedFilter = GetRandom.String();
-            _fixedValue = GetRandom.String();
+            fixedFilter = GetRandom.String();
+            fixedValue = GetRandom.String();
             Assert.AreEqual(null, obj.FixedValue);
             Assert.AreEqual(null, obj.FixedFilter);
         }
@@ -30,7 +28,7 @@ namespace TrainingApp.Tests.Pages {
         [TestMethod]
         public void ItemTest()
         {
-            isProperty(() => obj.Item, x => obj.Item = x);
+            IsProperty(() => obj.Item, x => obj.Item = x);
         }
 
         [TestMethod]
@@ -38,9 +36,9 @@ namespace TrainingApp.Tests.Pages {
         {
             var idx = db.list.Count;
             obj.Item = GetRandom.Object<ClientView>();
-            obj.AddObject(_fixedFilter, _fixedValue).GetAwaiter();
-            Assert.AreEqual(_fixedFilter, obj.FixedFilter);
-            Assert.AreEqual(_fixedValue, obj.FixedValue);
+            obj.AddObject(fixedFilter, fixedValue).GetAwaiter();
+            Assert.AreEqual(fixedFilter, obj.FixedFilter);
+            Assert.AreEqual(fixedValue, obj.FixedValue);
             TestArePropertyValuesEqual(obj.Item, db.list[idx].Data);
         }
 
@@ -52,7 +50,7 @@ namespace TrainingApp.Tests.Pages {
             var itemId = db.list[idx].Data.Id;
             obj.Item = GetRandom.Object<ClientView>();
             obj.Item.Id = itemId;
-            obj.UpdateObject(_fixedFilter, _fixedValue).GetAwaiter();
+            obj.UpdateObject(fixedFilter, fixedValue).GetAwaiter();
             TestArePropertyValuesEqual(db.list[^1].Data, obj.Item);
         }
 
@@ -63,7 +61,7 @@ namespace TrainingApp.Tests.Pages {
             var idx = GetRandom.UInt8(0, count);
             for (var i = 0; i < count; i++) AddObjectTest();
             var item = db.list[idx];
-            obj.GetObject(item.Data.Id, _fixedFilter, _fixedValue).GetAwaiter();
+            obj.GetObject(item.Data.Id, fixedFilter, fixedValue).GetAwaiter();
             Assert.AreEqual(count, db.list.Count);
             TestArePropertyValuesEqual(item.Data, obj.Item);
         }
@@ -72,9 +70,9 @@ namespace TrainingApp.Tests.Pages {
         public void DeleteObjectTest()
         {
             AddObjectTest();
-            obj.DeleteObject(obj.Item.Id, _fixedFilter, _fixedValue).GetAwaiter();
-            Assert.AreEqual(_fixedFilter, obj.FixedFilter);
-            Assert.AreEqual(_fixedValue, obj.FixedValue);
+            obj.DeleteObject(obj.Item.Id, fixedFilter, fixedValue).GetAwaiter();
+            Assert.AreEqual(fixedFilter, obj.FixedFilter);
+            Assert.AreEqual(fixedValue, obj.FixedValue);
             Assert.AreEqual(0, db.list.Count);
         }
 
@@ -93,7 +91,5 @@ namespace TrainingApp.Tests.Pages {
             var o = obj.ToObject(v);
             TestArePropertyValuesEqual(v, o.Data);
         }
-
     }
-
 }

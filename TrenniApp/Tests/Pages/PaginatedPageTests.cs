@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore.Diagnostics;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TrainingApp.Aids;
 using TrainingApp.Data.SportsClub;
 using TrainingApp.Domain.SportsClub;
@@ -8,17 +7,21 @@ using TrainingApp.Pages;
 
 namespace TrainingApp.Tests.Pages {
 
-    [TestClass] public class PaginatedPageTests :
-        AbstractPageTests<PaginatedPage<IClientsRepository, Client, ClientView, ClientData>,
-        CrudPage<IClientsRepository, Client, ClientView, ClientData>> {
+    [TestClass] public class PaginatedPageTests : AbstractPageTests<PaginatedPage<IClientsRepository, Client, ClientView, ClientData>,
+        CrudPage<IClientsRepository, Client, ClientView, ClientData>> 
+    {
 
-        [TestInitialize] public override void TestInitialize() {
+        [TestInitialize] 
+        public override void TestInitialize() 
+        {
             base.TestInitialize();
             obj = new TestClass(db);
         }
 
-        [TestMethod] public void ItemsTest() {
-            isReadOnlyProperty(obj, nameof(obj.Items), null);
+        [TestMethod] 
+        public void ItemsTest() 
+        {
+            IsReadOnlyProperty(obj, nameof(obj.Items), null);
         }
 
         [TestMethod]
@@ -30,30 +33,39 @@ namespace TrainingApp.Tests.Pages {
             Assert.AreEqual(i, obj.PageIndex);
         }
 
-        [TestMethod] public void PageIndexTest() {
+        [TestMethod] 
+        public void PageIndexTest() 
+        {
             var i = GetRandom.UInt8(3);
             obj.PageIndex = i;
             Assert.AreEqual(i, db.PageIndex);
             Assert.AreEqual(i, obj.PageIndex);
         }
 
-        [TestMethod] public void HasPreviousPageTest() {
+        [TestMethod] 
+        public void HasPreviousPageTest() 
+        {
             db.HasPreviousPage = GetRandom.Bool();
-            isReadOnlyProperty(obj, nameof(obj.HasPreviousPage), db.HasPreviousPage);
+            IsReadOnlyProperty(obj, nameof(obj.HasPreviousPage), db.HasPreviousPage);
         }
 
-        [TestMethod] public void HasNextPageTest() {
+        [TestMethod] 
+        public void HasNextPageTest() 
+        {
             db.HasNextPage = GetRandom.Bool();
-            isReadOnlyProperty(obj, nameof(obj.HasNextPage), db.HasNextPage);
+            IsReadOnlyProperty(obj, nameof(obj.HasNextPage), db.HasNextPage);
         }
 
-        [TestMethod] public void TotalPagesTest() {
+        [TestMethod] 
+        public void TotalPagesTest() 
+        {
             db.TotalPages = GetRandom.UInt8();
-            isReadOnlyProperty(obj, nameof(obj.TotalPages), db.TotalPages);
+            IsReadOnlyProperty(obj, nameof(obj.TotalPages), db.TotalPages);
         }
 
-
-        [TestMethod] public void GetListTest() {
+        [TestMethod] 
+        public void GetListTest() 
+        {
             Assert.IsNull(obj.Items);
             var sortOrder = GetRandom.String();
             var currentFilter = GetRandom.String();
@@ -70,7 +82,9 @@ namespace TrainingApp.Tests.Pages {
             Assert.AreEqual(1, obj.PageIndex);
         }
 
-        [TestMethod] public void GetListNoArgumentsTest() {
+        [TestMethod] 
+        public void GetListNoArgumentsTest() 
+        {
             var l = obj.GetList().GetAwaiter().GetResult();
             Assert.AreEqual(0, l.Count);
 
@@ -81,7 +95,5 @@ namespace TrainingApp.Tests.Pages {
                 Assert.AreEqual(i + 1, l.Count);
             }
         }
-
     }
-
 }

@@ -7,17 +7,18 @@ namespace TrainingApp.Tests.Facade.Common
     public class NamedEntityViewTests : AbstractClassTests<NamedEntityView, UniqueEntityView>
     {
         private class TestClass : NamedEntityView { }
+
         [TestInitialize]
         public override void TestInitialize()
         {
             base.TestInitialize();
             obj = new TestClass();
         }
+
         [TestMethod]
         public void NameTest()
         {
-            isNullableProperty(() => obj.Name, x => obj.Name = x);
+            IsNullableProperty(() => obj.Name, x => obj.Name = x);
         }
-        
     }
 }

@@ -5,23 +5,23 @@ namespace TrainingApp.Tests.Domain
     [TestClass]
     public class IsDomainTested : AssemblyTests
     {
-        private const string assembly = "TrainingApp.Domain";
+        private const string Assembly = "TrainingApp.Domain";
 
         protected override string Namespace(string name)
         {
-            return $"{assembly}.{name}";
+            return $"{Assembly}.{name}";
         }
 
         [TestMethod]
         public void IsCommonTested()
         {
-            isAllTested(assembly, Namespace("Common"));
+            IsAllTested(Assembly, Namespace("Common"));
         }
 
         [TestMethod]
         public void IsSportsClubTested()
         {
-            isAllTested(assembly, Namespace("SportsClub"));
+            IsAllTested(Assembly, Namespace("SportsClub"));
         }
     }
 }

@@ -1,7 +1,4 @@
-﻿
-
-using System.Linq;
-using Microsoft.EntityFrameworkCore.Diagnostics;
+﻿using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TrainingApp.Aids;
 using TrainingApp.Data.SportsClub;
@@ -13,8 +10,7 @@ using TrainingApp.Pages.SportsClub;
 namespace TrainingApp.Tests.Pages.SportsClub
 {
     [TestClass]
-    public class CoachesPageTests : AbstractClassTests<CoachesPage,
-        CommonPage<ICoachesRepository, Coach, CoachView, CoachData>>
+    public class CoachesPageTests : AbstractClassTests<CoachesPage, CommonPage<ICoachesRepository, Coach, CoachView, CoachData>>
     {
         private class TestClass : CoachesPage
         {
@@ -24,10 +20,13 @@ namespace TrainingApp.Tests.Pages.SportsClub
         }
 
         private class TestRepository : BaseTestRepositoryForUniqueEntity<Coach, CoachData>, ICoachesRepository { }
+
         private class TestTrainingTypesRepository : BaseTestRepositoryForUniqueEntity<TrainingType, TrainingTypeData>, ITrainingTypesRepository { }
 
         private class TestTimetableEntriesRepository : BaseTestRepositoryForUniqueEntity<TimetableEntry, TimetableEntryData>, ITimetableEntriesRepository { }
+        
         private class TestLocationsRepository : BaseTestRepositoryForUniqueEntity<Location, LocationData>, ILocationsRepository { }
+        
         private class TestTrainingsRepository : BaseTestRepositoryForUniqueEntity<Training, TrainingData>, ITrainingsRepository { }
 
         private TestRepository coaches;
@@ -64,6 +63,7 @@ namespace TrainingApp.Tests.Pages.SportsClub
             locations.Add(l).GetAwaiter();
             obj = new TestClass(coaches, entries, trainings, locations, types);
         }
+
         [TestMethod]
         public void ItemIdTest()
         {
@@ -153,4 +153,3 @@ namespace TrainingApp.Tests.Pages.SportsClub
         }
     }
 }
-

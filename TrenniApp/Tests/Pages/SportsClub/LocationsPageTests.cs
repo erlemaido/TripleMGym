@@ -1,8 +1,4 @@
-﻿
-
-using System.Linq;
-using Microsoft.EntityFrameworkCore.Diagnostics;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TrainingApp.Aids;
 using TrainingApp.Data.SportsClub;
 using TrainingApp.Domain.SportsClub;
@@ -13,8 +9,7 @@ using TrainingApp.Pages.SportsClub;
 namespace TrainingApp.Tests.Pages.SportsClub
 {
     [TestClass]
-    public class LocationsPageTests : AbstractClassTests<LocationsPage,
-        CommonPage<ILocationsRepository, Location, LocationView, LocationData>>
+    public class LocationsPageTests : AbstractClassTests<LocationsPage, CommonPage<ILocationsRepository, Location, LocationView, LocationData>>
     {
         private class TestClass : LocationsPage
         {
@@ -28,8 +23,6 @@ namespace TrainingApp.Tests.Pages.SportsClub
         private TestRepository locations;
         private LocationData data;
 
-
-
         [TestInitialize]
         public override void TestInitialize()
         {
@@ -40,6 +33,7 @@ namespace TrainingApp.Tests.Pages.SportsClub
             locations.Add(l).GetAwaiter();
             obj = new TestClass(locations);
         }
+
         [TestMethod]
         public void ItemIdTest()
         {
@@ -71,4 +65,3 @@ namespace TrainingApp.Tests.Pages.SportsClub
         }
     }
 }
-
