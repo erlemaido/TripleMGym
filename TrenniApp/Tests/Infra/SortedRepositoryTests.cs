@@ -196,7 +196,7 @@ namespace TrainingApp.Tests.Infra
             Assert.IsNull(obj.AddOrderBy(null, null));
             IQueryable<ClientData> data = obj.dbSet;
             Assert.AreEqual(data, obj.AddOrderBy(data, null));
-            Test(data, x => x.DateOfJoining, "x => x.DateOfJoining");
+            Test(data, x => x.DateOfJoining, "x => Convert(x.DateOfJoining, Object");
             Test(data, x => x.Id, "x => x.Id");
             Test(data, x => x.Name, "x => x.Name");
             Test(data, x => x.Email, "x => x.Email");

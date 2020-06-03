@@ -11,7 +11,7 @@ namespace TrainingApp.Tests.Facade.SportsClub
         public void ClientIdTest() => IsNullableProperty(() => obj.ClientId, x => obj.ClientId = x);
 
         [TestMethod] 
-        public void TimetableEntryIdTest() => IsProperty(() => obj.TimetableEntryId, x => obj.TimetableEntryId = x);
+        public void TimetableEntryIdTest() => IsNullableProperty(() => obj.TimetableEntryId, x => obj.TimetableEntryId = x);
 
         [TestMethod]
         public void GetIdTest()

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TrainingApp.Aids;
 
@@ -57,6 +59,23 @@ namespace TrainingApp.Tests
             property.SetValue(o, null);
             var actual = property.GetValue(o);
             Assert.AreEqual(null,actual);
-        }   
+        }
+
+        [TestMethod]
+        protected static void IsEnumProperty(object o, string name, Type type)
+        {
+            var property = o.GetType().GetProperty(name);
+            Assert.IsNotNull(property);
+            Assert.AreEqual(type, property.PropertyType);
+            Assert.IsTrue(property.CanWrite);
+            Assert.IsTrue(property.CanRead);
+            if (!property.PropertyType.IsEnum) return;
+            var random = new Random();
+            var values = Enum.GetValues(property.PropertyType);
+            var randomValue = ((IList)values)[random.Next(values.Length)];
+            property.SetValue(o, randomValue);
+            var actual = property.GetValue(o);
+            Assert.AreEqual(randomValue, actual);
+        }
     }
 }

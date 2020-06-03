@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualBasic.CompilerServices;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TrainingApp.Data.Common;
 using TrainingApp.Data.SportsClub;
 
@@ -34,7 +35,7 @@ namespace TrainingApp.Tests.Data.SportsClub
         [TestMethod]
         public void TrainingLevelTest()
         {
-            IsNullableProperty(() => obj.TrainingLevel, x => obj.TrainingLevel = x);
+            IsEnumProperty(obj, nameof(obj.TrainingLevel), typeof(TrainingLevel));
         }
 
         [TestMethod]
