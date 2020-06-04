@@ -4,7 +4,7 @@ using TrainingApp.Facade.SportsClub;
 
 namespace TrainingApp.Pages.SportsClub
 {
-    public class TrainingTypesPage : CommonPage<ITrainingTypesRepository, TrainingType, TrainingTypeView, TrainingTypeData>
+    public abstract class TrainingTypesPage : CommonPage<ITrainingTypesRepository, TrainingType, TrainingTypeView, TrainingTypeData>
     {
         protected internal TrainingTypesPage(ITrainingTypesRepository trainingTypesRepository) : base(trainingTypesRepository)
         {
