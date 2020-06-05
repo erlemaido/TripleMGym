@@ -168,7 +168,7 @@ namespace TrainingApp.Tests.Pages.SportsClub
         [TestMethod]
         public void TrainingLevelsTest()
         {
-            var list = 
+
         }
 
 
