@@ -10,7 +10,7 @@ using TrainingApp.Pages.SportsClub;
 namespace TrainingApp.Tests.Pages.SportsClub
 {
     [TestClass]
-    public class ClientsPageTests : AbstractClassTests<ClientsPage, CommonPage<IClientsRepository, Client, ClientView, ClientData>>
+    public class ClientsPageTests : AbstractClassTests<ClientsPage, CommonPage<IClientsRepository, Client, ClientView, ClientData>> 
     {
         private class TestClass : ClientsPage
         {

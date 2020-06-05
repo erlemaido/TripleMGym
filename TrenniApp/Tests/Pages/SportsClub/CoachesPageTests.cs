@@ -94,18 +94,19 @@ namespace TrainingApp.Tests.Pages.SportsClub
             TestArePropertyValuesEqual(view, d);
         }
 
-        [TestMethod]
-        public void TimetableEntriesTest()
-        {
-            var list = entries.Get().GetAwaiter().GetResult();
-            Assert.AreEqual(list.Count, obj.TimetableEntries.Count());
-        }
+        
 
         [TestMethod]
         public void TrainingsTest()
         {
             var list = trainings.Get().GetAwaiter().GetResult();
             Assert.AreEqual(list.Count, obj.Trainings.Count());
+        }
+        [TestMethod]
+        public void TimetableEntriesTest()
+        {
+            var list = entries.Get().GetAwaiter().GetResult();
+            Assert.AreEqual(list.Count, obj.TimetableEntries.Count());
         }
 
         [TestMethod]

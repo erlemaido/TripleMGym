@@ -37,12 +37,12 @@ namespace TrainingApp.Tests.Pages.SportsClub
         private class TestParticipantsRepository : BaseTestRepositoryForPeriodEntity<ParticipantOfTraining, ParticipantOfTrainingData>, IParticipantOfTrainingsRepository {
             protected override bool IsThis(ParticipantOfTraining entity, string id)
             {
-                throw new System.NotImplementedException();
+                return true;
             }
 
             protected override string GetId(ParticipantOfTraining entity)
             {
-                throw new System.NotImplementedException();
+                return string.Empty;
             }
         }
 
@@ -168,7 +168,7 @@ namespace TrainingApp.Tests.Pages.SportsClub
         [TestMethod]
         public void TrainingLevelsTest()
         {
-            Assert.Inconclusive();
+            var list = 
         }
 
 
