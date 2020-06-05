@@ -10,7 +10,7 @@ using TrainingApp.Pages.SportsClub;
 namespace TrainingApp.Tests.Pages.SportsClub
 {
     [TestClass]
-    public class TimetableEntriesPageTests : AbstractClassTests<TimeTableEntriesPage, CommonPage<ITimetableEntriesRepository, TimetableEntry, TimetableEntryView, TimetableEntryData>>
+    public class TimeTableEntriesPageTests : AbstractClassTests<TimeTableEntriesPage, CommonPage<ITimetableEntriesRepository, TimetableEntry, TimetableEntryView, TimetableEntryData>>
     {
         private class TestClass : TimeTableEntriesPage
         {
@@ -168,7 +168,7 @@ namespace TrainingApp.Tests.Pages.SportsClub
         [TestMethod]
         public void TrainingLevelsTest()
         {
-            var list = 
+            Assert.Inconclusive(); 
         }
 
 
