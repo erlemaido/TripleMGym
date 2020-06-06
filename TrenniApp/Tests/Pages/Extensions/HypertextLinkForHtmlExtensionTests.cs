@@ -34,6 +34,5 @@ namespace TrainingApp.Tests.Pages.Extensions
             var actual = HypertextLinkForHtmlExtension.HtmlStrings(s, items);
             TestHtml.Strings(actual, expected);
         }
-
     }
 }

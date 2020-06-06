@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Html;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TrainingApp.Aids;
@@ -21,28 +22,33 @@ namespace TrainingApp.Tests.Pages.Extensions
         [TestMethod]
         public void TableRowForTest()
         {
-            //var obj = new HtmlHelperMock<ClientView>().TableRowFor(
+            var obj = new HtmlHelperMock<ClientView>().TableRowFor(
+                GetRandom.String(),
+                new Uri(GetRandom.String(), UriKind.Relative),
 
-            //    GetRandom.String(),
-            //    new HtmlContentMock(GetRandom.String()),
-            //    new HtmlContentMock(GetRandom.String()));
+                GetRandom.String(),
+                GetRandom.String(),
+                new HtmlContentMock(GetRandom.String()));
 
-            //Assert.IsInstanceOfType(obj, typeof(HtmlContentBuilder));
-            Assert.Inconclusive();
+            Assert.IsInstanceOfType(obj, typeof(HtmlContentBuilder));
         }
 
         [TestMethod]
-        public void TableRowWithoutEditForTest()
+        public void TableRowWithSelectForTest()
         {
-            //var obj = new HtmlHelperMock<ClientView>().TableRowFor(
+            var obj = new HtmlHelperMock<ClientView>().TableRowWithSelectFor(
+                GetRandom.String(),
+                new Uri(GetRandom.String(), UriKind.Relative),
+                GetRandom.String(),
+                GetRandom.String(),
+                GetRandom.Int32(),
+                GetRandom.String(),
+                GetRandom.String(),
+                new HtmlContentMock(GetRandom.String()));
 
-            //    GetRandom.String(),
-            //    GetRandom.Object<ClientView>(),
-            //    GetRandom.String());
-
-            //Assert.IsInstanceOfType(obj, typeof(HtmlContentBuilder));
-            Assert.Inconclusive();
+            Assert.IsInstanceOfType(obj, typeof(HtmlContentBuilder));
         }
+
         [TestMethod]
         public void AddValueTest()
         {
