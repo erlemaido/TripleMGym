@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TrainingApp.Aids;
 using TrainingApp.Data.SportsClub;
 using TrainingApp.Domain.SportsClub;
@@ -67,5 +64,4 @@ namespace TrainingApp.Tests.Pages.SportsClub
             TestArePropertyValuesEqual(view, d);
         }
     }
-    
 }

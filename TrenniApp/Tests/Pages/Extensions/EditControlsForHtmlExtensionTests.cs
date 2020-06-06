@@ -9,7 +9,11 @@ namespace TrainingApp.Tests.Pages.Extensions
     [TestClass]
     public class EditControlsForHtmlExtensionTests : BaseTests
     {
-        [TestInitialize] public virtual void TestInitialize() => type = typeof(EditControlsForHtmlExtension);
+        [TestInitialize]
+        public virtual void TestInitialize()
+        {
+            type = typeof(EditControlsForHtmlExtension);
+        }
 
         [TestMethod]
         public void EditControlsForTest()
@@ -24,6 +28,13 @@ namespace TrainingApp.Tests.Pages.Extensions
             var expected = new List<string> { "<div", "LabelFor", "EditorFor", "ValidationMessageFor", "</div>" };
             var actual = EditControlsForHtmlExtension.HtmlStrings(new HtmlHelperMock<ClientView>(), x => x.Name);
             TestHtml.Strings(actual, expected);
+        }
+
+        [TestMethod]
+        public void HiddenEditControlsForTest()
+        {
+            var obj = new HtmlHelperMock<ClientView>().HiddenEditControlsFor(x => x.Id);
+            Assert.IsInstanceOfType(obj, typeof(HtmlContentBuilder));
         }
     }
 }

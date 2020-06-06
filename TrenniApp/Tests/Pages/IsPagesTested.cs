@@ -19,9 +19,15 @@ namespace TrainingApp.Tests.Pages
         }
 
         [TestMethod]
-        public void IsTested()
+        public void IsExtensionsTested()
         {
-            IsAllTested(base.Namespace("Pages"));
+            IsAllTested(Assembly, Namespace("Extensions"));
         }
+
+        //[TestMethod]
+        //public void IsTested()
+        //{
+        //    IsAllTested(base.Namespace("Pages"));
+        //}
     }
 }

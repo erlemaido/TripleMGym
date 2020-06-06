@@ -18,10 +18,10 @@ namespace TrainingApp.Tests.Infra
             IsAllTested(Assembly, Namespace("SportsClub"));
         }
 
-        [TestMethod]
-        public void IsTested()
-        {
-            IsAllTested(base.Namespace("Infra"));
-        }
+        //[TestMethod]
+        //public void IsTested()
+        //{
+        //    IsAllTested(base.Namespace("Infra"));
+        //}
     }
 }

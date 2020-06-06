@@ -12,12 +12,12 @@ namespace TrainingApp.Tests.Pages.Extensions
             type = typeof(Constants);
         }
 
-        [TestMethod] public void CreateNewClientTitleTest()=> Assert.AreEqual("Määramata", Constants.createNewClientTitle);
-        [TestMethod] public void CreateNewLinkTitleTest() => Assert.AreEqual("Loo uus", Constants.createNewLinkTitle);
-        [TestMethod] public void CreateNewReservationTitleTest() => Assert.AreEqual("Muuda", Constants.createNewReservationTitle);
-        [TestMethod] public void DeleteLinkTitleTest() => Assert.AreEqual("Lisainfo", Constants.deleteLinkTitle);
-        [TestMethod] public void DetailsLinkTitleTest() => Assert.AreEqual("Kustuta", Constants.detailsLinkTitle);
-        [TestMethod] public void EditLinkTitleTest() => Assert.AreEqual("Lisainfo", Constants.editLinkTitle);
-        [TestMethod] public void SelectLinkTitleTest() => Assert.AreEqual("Kustuta", Constants.selectLinkTitle);
+        [TestMethod] public void createNewClientTitleTest() => Assert.AreEqual("Ei ole veel liige? Liitu klubiga", Constants.createNewClientTitle);
+        [TestMethod] public void createNewLinkTitleTest() => Assert.AreEqual("Loo uus", Constants.createNewLinkTitle);
+        [TestMethod] public void createNewReservationTitleTest() => Assert.AreEqual("BRONEERI OMALE TREENING", Constants.createNewReservationTitle);
+        [TestMethod] public void deleteLinkTitleTest() => Assert.AreEqual("Kustuta", Constants.deleteLinkTitle);
+        [TestMethod] public void detailsLinkTitleTest() => Assert.AreEqual("Detailid", Constants.detailsLinkTitle);
+        [TestMethod] public void editLinkTitleTest() => Assert.AreEqual("Muuda", Constants.editLinkTitle);
+        [TestMethod] public void selectLinkTitleTest() => Assert.AreEqual("Vali", Constants.selectLinkTitle);
     }
 }

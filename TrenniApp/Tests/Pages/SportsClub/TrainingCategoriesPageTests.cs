@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TrainingApp.Aids;
 using TrainingApp.Data.SportsClub;
 using TrainingApp.Domain.SportsClub;
@@ -22,6 +19,7 @@ namespace TrainingApp.Tests.Pages.SportsClub
 
             }
         }
+
         private class TestRepository : BaseTestRepositoryForUniqueEntity<TrainingCategory, TrainingCategoryData>, ITrainingCategoriesRepository { }
 
         private TestRepository trainingCategories;
@@ -37,6 +35,7 @@ namespace TrainingApp.Tests.Pages.SportsClub
             trainingCategories.Add(l).GetAwaiter();
             obj = new TestClass(trainingCategories);
         }
+
         [TestMethod]
         public void ItemIdTest()
         {

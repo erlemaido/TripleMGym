@@ -1,17 +1,11 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using Microsoft.AspNetCore.Mvc.Formatters.Internal;
 using TrainingApp.Domain.SportsClub;
 using TrainingApp.Pages;
 using TrainingApp.Pages.SportsClub;
 using TrainingApp.Facade.SportsClub;
 using TrainingApp.Data.SportsClub;
-using TrainingApp.Infra.SportsClub;
 using TrainingApp.Aids;
-using TrainingApp.Tests.Data.SportsClub;
 
 namespace TrainingApp.Tests.Pages.SportsClub
 {
@@ -20,19 +14,21 @@ namespace TrainingApp.Tests.Pages.SportsClub
     {
         private class TestClass : TrainingsPage
         {
-            internal TestClass(ITrainingsRepository r, ITimetableEntriesRepository timetableEntriesRepository,
-                ITrainingCategoriesRepository trainingCategoriesRepository,
+            internal TestClass(ITrainingsRepository r, ITimetableEntriesRepository timetableEntriesRepository, ITrainingCategoriesRepository trainingCategoriesRepository,
                 ICoachesRepository coachesRepository,ITrainingTypesRepository trainingTypesRepository, ILocationsRepository locationsRepository)
                 : base(r, timetableEntriesRepository,trainingCategoriesRepository, coachesRepository, trainingTypesRepository, locationsRepository) { }
-            
         }
+
         private class TestRepository : BaseTestRepositoryForUniqueEntity<Training, TrainingData>, ITrainingsRepository { }
+
         private class TestTrainingTypesRepository : BaseTestRepositoryForUniqueEntity<TrainingType, TrainingTypeData>, ITrainingTypesRepository { }
 
         private class TestTimetableEntriesRepository : BaseTestRepositoryForUniqueEntity<TimetableEntry, TimetableEntryData>, ITimetableEntriesRepository { }
 
         private class TestLocationsRepository : BaseTestRepositoryForUniqueEntity<Location, LocationData>, ILocationsRepository { }
+
         private class TestCoachesRepository : BaseTestRepositoryForUniqueEntity<Coach, CoachData>, ICoachesRepository { }
+
         private class TestTrainingCategoriesRepository : BaseTestRepositoryForUniqueEntity<TrainingCategory, TrainingCategoryData>, ITrainingCategoriesRepository { }
 
         private TestRepository trainings;
@@ -43,11 +39,9 @@ namespace TrainingApp.Tests.Pages.SportsClub
         private TestLocationsRepository locations;
         private TrainingData trainingData;
         private CoachData coachData;
-        private TimetableEntryData entryData;
         private TrainingCategoryData categoryData;
         private LocationData locationData;
         private TrainingTypeData typeData;
-
 
 
         [TestInitialize]
@@ -60,24 +54,30 @@ namespace TrainingApp.Tests.Pages.SportsClub
             coaches = new TestCoachesRepository();
             categories = new TestTrainingCategoriesRepository();
             locations = new TestLocationsRepository();
+
             trainingData = GetRandom.Object<TrainingData>();
             var t = new Training(trainingData);
             trainings.Add(t).GetAwaiter();
+
             typeData = GetRandom.Object<TrainingTypeData>();
             var tt = new TrainingType(typeData);
             types.Add(tt).GetAwaiter();
+
             locationData = GetRandom.Object<LocationData>();
             var l = new Location(locationData);
             locations.Add(l).GetAwaiter();
+
             coachData = GetRandom.Object<CoachData>();
             var c = new Coach(coachData);
             coaches.Add(c).GetAwaiter();
+
             categoryData = GetRandom.Object<TrainingCategoryData>();
             var tc = new TrainingCategory(categoryData);
             categories.Add(tc).GetAwaiter();
-            obj = new TestClass(trainings, entries, categories, coaches, types, locations);
 
+            obj = new TestClass(trainings, entries, categories, coaches, types, locations);
         }
+
         [TestMethod]
         public void ItemIdTest()
         {
@@ -135,6 +135,7 @@ namespace TrainingApp.Tests.Pages.SportsClub
             var list = types.Get().GetAwaiter().GetResult();
             Assert.AreEqual(list.Count, obj.TrainingTypes.Count());
         }
+
         [TestMethod]
         public void TimetableTrainingsTest()
         {
@@ -148,6 +149,7 @@ namespace TrainingApp.Tests.Pages.SportsClub
             var name = obj.GetTrainingCategoryName(categoryData.Id);
             Assert.AreEqual(categoryData.Name, name);
         }
+
         [TestMethod]
         public void GetTrainingTypeNameTest()
         {
@@ -161,12 +163,14 @@ namespace TrainingApp.Tests.Pages.SportsClub
             var name = obj.GetLocationName(locationData.Id);
             Assert.AreEqual(locationData.Name, name);
         }
+
         [TestMethod]
         public void GetCoachNameTest()
         {
             var name = obj.GetCoachName(coachData.Id);
             Assert.AreEqual(coachData.Name, name);
         }
+
         [TestMethod]
         public void LoadDetailsTest()
         {
@@ -177,4 +181,3 @@ namespace TrainingApp.Tests.Pages.SportsClub
         }
     }
 }
-

@@ -39,7 +39,5 @@ namespace TrainingApp.Tests.Pages.Extensions
             Assert.IsNull(o.Url);
             Assert.IsNull(o.DisplayName);
         }
-
     }
-
 }
