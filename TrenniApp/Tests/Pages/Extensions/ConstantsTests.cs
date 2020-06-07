@@ -14,7 +14,7 @@ namespace TrainingApp.Tests.Pages.Extensions
 
         [TestMethod] public void createNewClientTitleTest() => Assert.AreEqual("Ei ole veel liige? Liitu klubiga", Constants.createNewClientTitle);
         [TestMethod] public void createNewLinkTitleTest() => Assert.AreEqual("Loo uus", Constants.createNewLinkTitle);
-        [TestMethod] public void createNewReservationTitleTest() => Assert.AreEqual("BRONEERI OMALE TREENING", Constants.createNewReservationTitle);
+        [TestMethod] public void createNewReservationTitleTest() => Assert.AreEqual("REGISTREERI END TREENINGULE", Constants.createNewReservationTitle);
         [TestMethod] public void deleteLinkTitleTest() => Assert.AreEqual("Kustuta", Constants.deleteLinkTitle);
         [TestMethod] public void detailsLinkTitleTest() => Assert.AreEqual("Detailid", Constants.detailsLinkTitle);
         [TestMethod] public void editLinkTitleTest() => Assert.AreEqual("Muuda", Constants.editLinkTitle);

@@ -2,7 +2,7 @@
 {
     public static class Constants
     {
-        public const string createNewReservationTitle = "BRONEERI OMALE TREENING";
+        public const string createNewReservationTitle = "REGISTREERI END TREENINGULE";
         public const string createNewLinkTitle = "Loo uus";
         public const string createNewClientTitle = "Ei ole veel liige? Liitu klubiga";
         public const string editLinkTitle = "Muuda";
